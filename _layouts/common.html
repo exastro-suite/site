@@ -2,8 +2,14 @@
 ---
 <!doctype html>
 <html lang="{{ page.language }}">
-<head>
-{% if site.url contains "-dev" or "staging" or "katokeita" %}{% assign devFlag = true %}{% assign commonAssetsUrl = "https://staging.exastro.org" %}{% else %}{% assign devFlag = false %}{% assign commonAssetsUrl = "https://www.exastro.org" %}{% endif %}
+<head><!-- {{ site.url }} -->
+{% if site.url contains "staging" %}
+    {% assign devFlag = true %}
+    {% assign commonAssetsUrl = "https://staging.exastro.org" %}
+{% else %}
+    {% assign devFlag = false %}
+    {% assign commonAssetsUrl = "https://www.exastro.org" %}
+{% endif %}
 {% unless devFlag %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
