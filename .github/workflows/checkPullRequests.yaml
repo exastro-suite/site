@@ -1,0 +1,26 @@
+name: Check pull requests
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - '**'
+    types:
+      - opened
+jobs:
+  # dump:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: dump context
+  #       run: echo '${{ toJSON(github) }}'
+  review_requested:
+    runs-on: ubuntu-latest
+    if: "!((github.repository == github.event.pull_request.head.repo.full_name) \
+      || (github.repository == 'exastro-suite/site' \
+        && github.event.pull_request.head.repo.full_name == 'exastro-suite/site-dev') \
+      || (github.repository == 'exastro-suite/site-dev' \
+        && !startsWith(github.event.pull_request.head.repo.full_name, 'exastro-suite/')))"
+    steps:
+    - name: Check organization and repository
+      run: |
+        echo "::error::Disallowed Request source branch"
+        exit 1

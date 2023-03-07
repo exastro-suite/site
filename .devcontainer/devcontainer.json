@@ -1,0 +1,50 @@
+{
+	"name": "site",
+	"containerUser": "jekyll",
+	"updateRemoteUserUID": true,
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"HTTP_PROXY": "${localEnv:HTTP_PROXY}",
+		}
+	},
+	"settings": {
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "/bin/bash"
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "bash",
+	},
+	"extensions": [
+		"MS-CEINTL.vscode-language-pack-ja",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"mhutchie.git-graph",
+		"trond-snekvik.simple-rst",
+		"ms-vscode.live-server",
+		"searKing.preview-vscode",
+		"hediet.vscode-drawio",
+		"nopeslide.vscode-drawio-plugin-mermaid",
+	],
+	"onCreateCommand": "/workspace/init.sh",
+	"postAttachCommand": "/workspace/start-autobuild.sh",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+	"mounts": [
+		// "source=/mnt/mainte/talisman,target=/mnt/mainte/talisman,type=bind",
+		"source=${localEnv:HOME}/.netrc,target=/home/jekyll/.netrc,type=bind",
+		"source=${localEnv:HOME}/.gitconfig,target=/home/jekyll/.gitconfig,type=bind",
+		// "source=${localEnv:HOME}/.kube/config,target=/home/jekyll/.kube/config,type=bind",
+		// "source=/mnt/mainte/certification/ZscalerRootCertificate.crt,target=/usr/local/share/ca-certificates/ZscalerRootCertificate.crt,type=bind",
+	],
+	"workspaceFolder": "/workspace",
+	"containerEnv": {
+		"HTTP_PROXY": "${localEnv:HTTP_PROXY}",
+		"http_proxy": "${localEnv:HTTP_PROXY}",
+		"HTTPS_PROXY": "${localEnv:HTTP_PROXY}",
+		"https_proxy": "${localEnv:HTTP_PROXY}",
+		"NO_PROXY": "localhost,127.0.0.1",
+		"no_proxy": "localhost,127.0.0.1",
+		// "NODE_EXTRA_CA_CERTS": "/usr/local/share/ca-certificates/ZscalerRootCertificate.crt"
+	},
+}

@@ -60,7 +60,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <!-- Exastro assets -->
-    <link rel="stylesheet" href="https://www.exastro.org/assets/css/common.css">
+    <link rel="stylesheet" href="{{ commonAssetsUrl }}/assets/css/common.css">
 {% include head.html %}
     
 </head>
@@ -81,7 +81,13 @@
                 {% if page.language == "ja" %}
                 <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="/">Exastro Home</a></div>
                 <ul class="menuBar-ExastroMenu-List">
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">IT Automation</a></li>
+                    <li class="menuBar-ExastroMenu-Item">
+                        <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
+                        <ul class="menuBar-ExastroMenu-Version-List">
+                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">Version 1</a></li>
+                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://ita.exastro.org/">Version 2</a></li>
+                        </ul>
+                    </li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md" rel="noopener">Playbook Collection</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase" href="https://exastro-suite.github.io/oase-docs/index_ja.html">OASE(<span>Operation Autonomy<br>Support Engine</span>)</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index_ja.html">EPOCH</a></li>
@@ -89,7 +95,12 @@
                 {% else %}
                 <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="/index_en.html">Exastro Home</a></div>
                 <ul class="menuBar-ExastroMenu-List">
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/index.html">IT Automation</a></li>
+                    <li class="menuBar-ExastroMenu-Item">
+                        <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
+                        <ul class="menuBar-ExastroMenu-Version-List">
+                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/">Version 1</a></li>
+                        </ul>
+                    </li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.md" rel="noopener">Playbook Collection</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase" href="https://exastro-suite.github.io/oase-docs/index.html">OASE(<span>Operation Autonomy<br>Support Engine</span>)</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index.html">EPOCH</a></li>
