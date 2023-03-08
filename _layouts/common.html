@@ -6,9 +6,15 @@
 {% if site.url contains "staging" %}
     {% assign devFlag = true %}
     {% assign commonAssetsUrl = "https://staging.exastro.org" %}
+    {% assign exastroSiteUrl = "https://staging.exastro.org" %}
+    {% assign itaSiteUrl = "https://ita-staging.exastro.org" %}
+    {% assign itaDocsUrl = "https://ita-docs-staging.exastro.org" %}
 {% else %}
     {% assign devFlag = false %}
     {% assign commonAssetsUrl = "https://www.exastro.org" %}
+    {% assign exastroSiteUrl = "https://www.exastro.org" %}
+    {% assign itaSiteUrl = "https://ita.exastro.org" %}
+    {% assign itaDocsUrl = "https://ita-docs.exastro.org" %}
 {% endif %}
 {% unless devFlag %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -79,13 +85,13 @@
             </button>
             <div class="menuBar-ExastroMenu-Menu">
                 {% if page.language == "ja" %}
-                <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="https://www.exastro.org/">Exastro Home</a></div>
+                <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="{{ exastroSiteUrl }}">Exastro Home</a></div>
                 <ul class="menuBar-ExastroMenu-List">
                     <li class="menuBar-ExastroMenu-Item">
                         <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
                         <ul class="menuBar-ExastroMenu-Version-List">
                             <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">Version 1</a></li>
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://ita.exastro.org/">Version 2</a></li>
+                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="{{ itaSiteUrl }}/">Version 2</a></li>
                         </ul>
                     </li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md" rel="noopener">Playbook Collection</a></li>
@@ -93,7 +99,7 @@
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index_ja.html">EPOCH</a></li>
                 </ul>
                 {% else %}
-                <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="/index_en.html">Exastro Home</a></div>
+                <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="{{ exastroSiteUrl }}/index_en.html">Exastro Home</a></div>
                 <ul class="menuBar-ExastroMenu-List">
                     <li class="menuBar-ExastroMenu-Item">
                         <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
