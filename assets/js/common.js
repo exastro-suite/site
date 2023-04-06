@@ -183,6 +183,57 @@ $w.on( ev.scroll + '.gotoTop', function(){
 
 /*
 ##################################################
+   ImageBox Open
+##################################################
+*/
+$('.loupe').on( ev.click, function(){
+    const $d = $( document ),
+          $img = $( this );
+    
+    if ( $('#imageBox').length ) {
+        $('#imageBox').remove();
+    }
+    
+    const imageBox = '<div id="imageBox"><div class="imageBoxInner">'
+      + '<ul class="imageBoxMenu">'
+      + '<li><button class="close touch"><i class="fas fa-times-circle"></i></button></li>'
+      + '</ul>'
+      + '<div class="image"></div>'
+      + '</div></div>';
+
+    $b.addClass('imageOpen').append( imageBox );
+
+    const imageHTML = $img.find('img').clone(),
+          $imageBox = $('#imageBox');
+
+    const closeImageBox = function() {
+        $d.off('keydown.closeImg');
+        $imageBox.remove();
+        $b.removeClass('imageOpen');
+    };
+
+    $imageBox.find('.image').html( imageHTML );
+
+    imageHTML.on('load', function(){
+        // Close click close
+        $imageBox.find('button.close, .imageBoxInner').on('click', function(){
+            closeImageBox();
+        });
+        // stopPropagation
+        $imageBox.find('.imageBoxMenu, img').on('click', function( e ){
+            e.stopPropagation();
+        });
+        // Esc click close
+        $d.on('keydown.closeImg', function( e ){
+            if(e.keyCode === 27 ) {
+              closeImageBox();
+            }
+        });
+    });
+});
+
+/*
+##################################################
    Popup
 ##################################################
 */

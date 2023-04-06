@@ -1284,12 +1284,12 @@ text-indent: -1em;
 line-height: 1.5;
 font-size: 0.8rem;
 }
-#articleBody .loupe {
+.loupe {
 display: block;
 position: relative;
 cursor: pointer;
 }
-#articleBody .loupe.hover::before {
+.loupe.hover::before {
 content: '';
 display: block;
 position: absolute;
@@ -1298,7 +1298,7 @@ width: 100%; height: 100%;
 background-color: rgba( 0,0,0,0.1 );
 pointer-events: none;
 }
-#articleBody .loupe.hover::after {
+.loupe.hover::after {
 font-family: "Font Awesome 5 Free";
 font-weight: 900;
 content: '\f00e';
@@ -1347,9 +1347,7 @@ display: block;
 100% { opacity:  1; }
 }
 #imageBox .imageBoxInner {
-display: table;
 width: 100%; height: 100%;
-margin: 0 auto;
 }
 #imageBox .imageBoxMenu {
 position: fixed;
@@ -1363,9 +1361,6 @@ display: inline-block;
 padding: 0 8px;
 letter-spacing: normal;
 vertical-align: top;
-}
-#articleBody .sectionInner #imageBox ul.imageBoxMenu {
-margin: 0; padding: 0;
 }
 #imageBox .imageBoxMenu button {
 background: none;
@@ -1390,29 +1385,17 @@ vertical-align: bottom;
 #imageBox .imageBoxMenu button.hover {
 color: #900;
 }
-#imageBox .scale {
-width: 4em; height: 100%;
-padding: 0 8px;
-background-color: #FFF;
-border-radius: 4px;
-box-shadow: 0 0 4px rgba( 0,0,0,0.5 );
-text-align: center;
-line-height: 24px;
-font-size: 12px;
-color: #111;
-}
 #imageBox .image {
-display: table-cell;
-text-align: center;
-vertical-align: middle;
-color: #FFF;
-font-size: 1rem;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%; height: 100%;
+padding: 16px;
 }
 #imageBox img {
 width: auto; height: auto;
-max-width: 200%; max-height: 200%;
-margin: 16px; padding: 16px;
-background-color: #FFF;
+max-width: 100%; max-height: 100%;
+border: 4px solid #FFF;
 box-shadow: 0 0 16px #000;
 vertical-align: bottom;
 }
