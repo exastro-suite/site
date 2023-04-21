@@ -1,5 +1,5 @@
 ---
-title: Asset
+title: Event
 layout: common
 docs: exastro
 language: ja
