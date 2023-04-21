@@ -43,7 +43,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
             <li class="eventListTagItem"><span class="eventTag epoch">EPOCH</span></li>
           </ul>
         </div>
-        <div class="eventListTitle"><span class="popularity">【参加募集中】</span><br>
+        <div class="eventListTitle"><span class="popularity">【イベント終了】</span><br>
         どうなる？どうする？日本企業のDXと日本の行方</div>
         <div class="eventListSubTitle">Modernize or Die 経営層が持つべき危機感、とるべきアクション</div>
         <div class="eventListSummary">
@@ -60,7 +60,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
           </ul>
         </div>
       </div>
-      <div class="eventListDetail"><a class="eventListLink touch" href="https://v2.nex-pro.com/campaign/47120/apply?group=nec03" target="_blank"><span>詳細はこちら</span></a></div>
+      <!--<div class="eventListDetail"><a class="eventListLink touch" href="https://v2.nex-pro.com/campaign/47120/apply?group=nec03" target="_blank"><span>詳細はこちら</span></a></div>-->
     </div>
   </li>
   
