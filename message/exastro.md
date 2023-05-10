@@ -8,7 +8,7 @@ page_name: exastro
 message_image: thought01.png
 message_author: 吉田 功一
 author_photo: /message/img/message_author1.png
-author_position: 日本電気株式会社 サービス＆プラットフォームSI統括部 ディレクター
+author_position: 日本電気株式会社 プラットフォームＳＩサービス＆ＥＡ統括部 ディレクター
 author_name: 吉田 功一
 author_profile: 2006年入社。京都大学大学院エネルギー科学研究科卒業。<br>NEC入社後、主に大規模通信キャリアのシステムアーキテクチャー設計、開発プロセス設計、運用プロセス設計に従事。<br>システムエンジニアとして多忙な日々を過ごす傍ら、システムというデジタルなものを作り出すはずの業務が「アナログ・手動・非効率」であることを課題と捉え、2015年頃より「システム開発・構築・運用」の「デジタル化・自動化・効率化」への取り組みを始動。2019年にExastro Suiteの最初のソフトウェアであるIT AutomationをOSS(オープンソースソフトウェア)として公開。2022年より現職。
 description: Exastroはシステムライフサイクル(設計・開発・設定・運用)をデジタル化・自動化・省力化することを目的としたオープンソースのソフトウェアスイートです。

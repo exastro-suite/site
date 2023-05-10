@@ -8,7 +8,7 @@ page_name: exastro
 message_image: thought01.png
 message_author: Koichi Yoshida
 author_photo: /message/img/message_author1.png
-author_position: NEC Corporation Service & Platform Development Director
+author_position: NEC Corporation Platform SI Service & EA Management Department Director
 author_name: Koichi Yoshida
 author_profile: Graduated from Kyoto University in Energy Sciences and joined NEC in 2006.<br>Shortly after started engaging in designing operation and development processes and system architectures for large scale communication carriers.<br>While spending his days as a system engineer, he recognized the issue of "analog, manual and inefficient" operations when creating digital systems. Around 2015, he started working on "digitization, automation and optimizing" the "system development, construction and operation". Released IT Automation as the first software of the Exastro Suite in 2019 as an OSS (Open Source Software).
 description: Systems are progressively getting more complicated while human resources are reducing
