@@ -32,7 +32,7 @@ News Room</h1>
 
 <li id="news20230222">
 <dl>
-<dt class="image"><a href="https://special.nikkeibp.co.jp/atclh/NXT/23/nec0221/" class="touch" target="_blank" rel="noopener"><img src="/assets/newsroom_img/20230222_nikkeibp.jpg" alt="A place for in-house digital human resources to play an active role.<br>What is a proven operation automation method?"></a></dt>
+<dt class="image"><a href="https://special.nikkeibp.co.jp/atclh/NXT/23/nec0221/" class="touch" target="_blank" rel="noopener"><img src="{{ "/assets/newsroom_img/20230222_nikkeibp.jpg" | relative_url }}" alt="A place for in-house digital human resources to play an active role.<br>What is a proven operation automation method?"></a></dt>
 <dd class="tag"><i class="fas fa-tag"></i>
   <ul>
     <li><span class="ita">IT Automation</span></li>

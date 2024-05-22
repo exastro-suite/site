@@ -42,12 +42,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/exastro/Exastro-logo1-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/exastro/Exastro-logo1-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -55,12 +55,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/exastro/Exastro-logo2-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/exastro/Exastro-logo2-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -68,12 +68,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/exastro/Exastro-logo1-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/exastro/Exastro-logo1-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -81,12 +81,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/exastro/Exastro-logo2-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/exastro/Exastro-logo2-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logo2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logo2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -100,12 +100,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/exastro/Exastro-logomark1-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/exastro/Exastro-logomark1-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -113,12 +113,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/exastro/Exastro-logomark2-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/exastro/Exastro-logomark2-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -127,12 +127,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/exastro/Exastro-logomark1-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/exastro/Exastro-logomark1-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -140,12 +140,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/exastro/Exastro-logomark2-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/exastro/Exastro-logomark2-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logomark2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logomark2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -159,12 +159,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/exastro/Exastro-logotype-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/exastro/Exastro-logotype-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logotype-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logotype-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logotype-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logotype-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logotype-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logotype-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -172,12 +172,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/exastro/Exastro-logotype-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/exastro/Exastro-logotype-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logotype-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logotype-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/exastro/Exastro-logotype-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logotype-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logotype-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/exastro/Exastro-logotype-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -200,12 +200,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/ita/Exastro-ITA-logo1-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt><img src="{{ "/assets/logo/ita/Exastro-ITA-logo1-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -213,12 +213,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/ita/Exastro-ITA-logo2-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt><img src="{{ "/assets/logo/ita/Exastro-ITA-logo2-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -226,12 +226,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/ita/Exastro-ITA-logo1-white-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/ita/Exastro-ITA-logo1-white-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -239,12 +239,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/ita/Exastro-ITA-logo2-white-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/ita/Exastro-ITA-logo2-white-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logo2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logo2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -258,12 +258,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/ita/Exastro-ITA-logotype-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt><img src="{{ "/assets/logo/ita/Exastro-ITA-logotype-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -271,12 +271,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/ita/Exastro-ITA-logotype-white-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/ita/Exastro-ITA-logotype-white-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -284,12 +284,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/ita/Exastro-ITA-logotype2-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/ita/Exastro-ITA-logotype2-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -297,12 +297,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/ita/Exastro-ITA-logotype2-white-rgb.png" alt="Exastro IT Automation Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/ita/Exastro-ITA-logotype2-white-rgb.png" | relative_url }}" alt="Exastro IT Automation Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/ita/Exastro-ITA-logotype2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/ita/Exastro-ITA-logotype2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -324,12 +324,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/pbc/Exastro-PBC-logo1-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt><img src="{{ "/assets/logo/pbc/Exastro-PBC-logo1-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -337,12 +337,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/pbc/Exastro-PBC-logo2-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt><img src="{{ "/assets/logo/pbc/Exastro-PBC-logo2-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -350,12 +350,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/pbc/Exastro-PBC-logo1-white-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/pbc/Exastro-PBC-logo1-white-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -363,12 +363,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/pbc/Exastro-PBC-logo2-white-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/pbc/Exastro-PBC-logo2-white-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logo2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logo2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -382,12 +382,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/pbc/Exastro-PBC-logotype1-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt><img src="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -395,12 +395,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/pbc/Exastro-PBC-logotype1-white-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-white-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -408,12 +408,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/pbc/Exastro-PBC-logotype2-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt><img src="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -421,12 +421,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/pbc/Exastro-PBC-logotype2-white-rgb.png" alt="Exastro PBC Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-white-rgb.png" | relative_url }}" alt="Exastro PBC Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/pbc/Exastro-PBC-logotype2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/pbc/Exastro-PBC-logotype2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -448,12 +448,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/oase/Exastro-OASE-logo1-rgb.png" alt="Exastro OASE Logo"></dt>
+<dt><img src="{{ "/assets/logo/oase/Exastro-OASE-logo1-rgb.png" | relative_url }}" alt="Exastro OASE Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -461,12 +461,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/oase/Exastro-OASE-logo2-rgb.png" alt="Exastro OASE Logo"></dt>
+<dt><img src="{{ "/assets/logo/oase/Exastro-OASE-logo2-rgb.png" | relative_url }}" alt="Exastro OASE Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -474,12 +474,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/oase/Exastro-OASE-logo1-white-rgb.png" alt="Exastro OASE Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/oase/Exastro-OASE-logo1-white-rgb.png" | relative_url }}" alt="Exastro OASE Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -487,12 +487,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/oase/Exastro-OASE-logo2-white-rgb.png" alt="Exastro OASE Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/oase/Exastro-OASE-logo2-white-rgb.png" | relative_url }}" alt="Exastro OASE Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logo2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logo2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -506,12 +506,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/oase/Exastro-OASE-logotype-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/oase/Exastro-OASE-logotype-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -519,12 +519,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/oase/Exastro-OASE-logotype-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/oase/Exastro-OASE-logotype-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -532,12 +532,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/oase/Exastro-OASE-logotype2-rgb.png" alt="Exastro Logo"></dt>
+<dt><img src="{{ "/assets/logo/oase/Exastro-OASE-logotype2-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -545,12 +545,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/oase/Exastro-OASE-logotype2-white-rgb.png" alt="Exastro Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/oase/Exastro-OASE-logotype2-white-rgb.png" | relative_url }}" alt="Exastro Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/oase/Exastro-OASE-logotype2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/oase/Exastro-OASE-logotype2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -573,12 +573,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/epoch/Exastro-EPOCH-logo1-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -586,12 +586,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/epoch/Exastro-EPOCH-logo2-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -599,12 +599,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/epoch/Exastro-EPOCH-logo1-white-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-white-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -612,12 +612,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/epoch/Exastro-EPOCH-logo2-white-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-white-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logo2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logo2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -631,12 +631,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/epoch/Exastro-EPOCH-logotype1-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype1-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype1-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype1-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -644,12 +644,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/epoch/Exastro-EPOCH-logotype1-white-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-white-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype1-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype1-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype1-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype1-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -657,12 +657,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt><img src="/assets/logo/epoch/Exastro-EPOCH-logotype2-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype2-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype2-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype2-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>
@@ -670,12 +670,12 @@ Asset</h1>
 
 <li>
 <dl>
-<dt class="white"><img src="/assets/logo/epoch/Exastro-EPOCH-logotype2-white-rgb.png" alt="Exastro EPOCH Logo"></dt>
+<dt class="white"><img src="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-white-rgb.png" | relative_url }}" alt="Exastro EPOCH Logo"></dt>
 <dd>
 <ul>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype2-white-rgb.png" download>PNG</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype2-white-cmyk.eps" download>EPS</a></li>
-<li><a class="touch" href="/assets/logo/epoch/Exastro-EPOCH-logotype2-white-rgb.svg" download>SVG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-white-rgb.png" | relative_url }}" download>PNG</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-white-cmyk.eps" | relative_url }}" download>EPS</a></li>
+<li><a class="touch" href="{{ "/assets/logo/epoch/Exastro-EPOCH-logotype2-white-rgb.svg" | relative_url }}" download>SVG</a></li>
 </ul>
 </dd>
 </dl>

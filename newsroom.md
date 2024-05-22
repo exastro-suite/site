@@ -31,7 +31,7 @@ News Room</h1>
 
 <li id="news20230222">
 <dl>
-<dt class="image"><a href="https://special.nikkeibp.co.jp/atclh/NXT/23/nec0221/" class="touch" target="_blank" rel="noopener"><img src="/assets/newsroom_img/20230222_nikkeibp.jpg" alt="社内のデジタル人材に活躍の場を　実績豊富な運用自動化メソッドとは"></a></dt>
+<dt class="image"><a href="https://special.nikkeibp.co.jp/atclh/NXT/23/nec0221/" class="touch" target="_blank" rel="noopener"><img src="{{ "/assets/newsroom_img/20230222_nikkeibp.jpg" | relative_url }}" alt="社内のデジタル人材に活躍の場を　実績豊富な運用自動化メソッドとは"></a></dt>
 <dd class="tag"><i class="fas fa-tag"></i>
   <ul>
     <li><span class="ita">IT Automation</span></li>
@@ -108,7 +108,7 @@ News Room</h1>
 <small>Exastro Introduction</small></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> OSS推進フォーラム</div><div class="date"><i class="far fa-clock"></i> <time datetime="2021/12/03">2021/12/03</time></div></dd>
 <dd class="document"><a href="https://live.csdn.net/room/Hansen666666/bzbmxWjv?s=09" target="_blank"><i class="fas fa-video"></i> 講演動画（DSDN）：2:57:19~ <i class="fas fa-external-link-alt"></i></a></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/211203_19thNortheastAsiaOSSForum.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/211203_19thNortheastAsiaOSSForum.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
 </dl>
 </li>
 
@@ -141,7 +141,7 @@ News Room</h1>
 <small>「Terraform」と連携して自動構築を実現するシステムライフサクル 効率化支援OSS「Exastro IT Automation 」のご紹介</small></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> HashiCorp</div><div class="date"><i class="far fa-clock"></i> <time datetime="2021/09/30">2021/09/30</time></div></dd>
 <dd class="document"><a href="https://youtu.be/3iptV57t--c" target="_blank"><i class="fab fa-youtube"></i> 講演動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/210930_HashiTalksJapan2021.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/210930_HashiTalksJapan2021.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
 </dl>
 </li>
 
@@ -159,7 +159,7 @@ News Room</h1>
 Red Hat Ansible Automates 2021 Japanにて講演 <i class="fas fa-external-link-alt"></i><br>
 <small>Exastro&amp;Ansibleで切り開く ～「攻めと守りの自動化」とは～</small></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i>  Red Hat</div><div class="date"><i class="far fa-clock"></i> <time datetime="2021-07-13T13:55:00">2021/07/13 13:55</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/210713_ansible_automates_tokyo2021-Exastro_x_Ansible.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/210713_ansible_automates_tokyo2021-Exastro_x_Ansible.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
 </dl>
 </li>
 
@@ -176,7 +176,7 @@ Red Hat Ansible Automates 2021 Japanにて講演 <i class="fas fa-external-link-
 <dd class="title"><a href="https://news.mynavi.jp/itsearch/seminar/485" target="_blank" rel="noopener">TECH+スペシャルセミナーにて講演 <i class="fas fa-external-link-alt"></i><br>
 <small>DXの必需品「攻め と守りの 自動化」とは</small></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> マイナビニュース</div><div class="date"><i class="far fa-clock"></i> <time datetime="2021/06/09">2021/06/09</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/210609_TECH+SpecialSeminar.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/210609_TECH+SpecialSeminar.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
 <dd class="document"><a href="https://youtu.be/iDEFTd2Qw00" target="_blank"><i class="fab fa-youtube"></i> 講演動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
 </dl>
 </li>
@@ -194,7 +194,7 @@ Red Hat Ansible Automates 2021 Japanにて講演 <i class="fas fa-external-link-
 <dd class="title"><a href="https://mag.executive.itmedia.co.jp/executive/special/ex210199/index.html" target="_blank" rel="noopener">ITmedia DX Summit Vol.7にて講演 <i class="fas fa-external-link-alt"></i><br>
 <small>クラウドネイティブの必需品「攻めと守りの自動化」とは</small></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> ITmedia</div><div class="date"><i class="far fa-clock"></i> <time datetime="2021-03-26">2021/03/26</time></div></dd>
-	<dd class="document"><a href="/docs/asset/newsroom_doc/210326_ITmediaDXSummitVol7.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
+	<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/210326_ITmediaDXSummitVol7.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料（PDF）</a></dd>
 	<dd class="document"><a href="https://youtu.be/Tk7dqrGmIb4" target="_blank"><i class="fab fa-youtube"></i> 講演動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>	
 </dl>
 </li>
@@ -294,7 +294,7 @@ IPリーチャビリティがない領域 ─ ネットワーク機器の運用�
 </dd>
 <dd class="title"><a href="https://www.itmedia.co.jp/enterprise/special/et200792/index.html" target="_blank" rel="noopener">ITmedia DX Summit Vol.5 にて講演 <i class="fas fa-external-link-alt"></i></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> ITmedia</div><div class="date"><i class="far fa-clock"></i> <time datetime="2020-09-14T14:50:00">2020/09/14 14:50</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/200914_itmedia_dx_summit_vol5.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：システム構築・運用の自動化を効率化の手段から攻めの武器に繋げる方法</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/200914_itmedia_dx_summit_vol5.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：システム構築・運用の自動化を効率化の手段から攻めの武器に繋げる方法</a></dd>
 <dd class="document"><a href="https://youtu.be/kdS1XMkAEhE" target="_blank"><i class="fab fa-youtube"></i> 講演動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
 </dl>
 </li>
@@ -327,7 +327,7 @@ IPリーチャビリティがない領域 ─ ネットワーク機器の運用�
       <dt class="newsRoomVideoWrap"><span class="newsRoomVideo youtubeEmbed" data-embed-id="HZL9iKSp71k"><span id="HZL9iKSp71k"></span></span></dt>
       <dd class="title"><a href="./event/20200911.html#session1">攻めと守りの両面からシステム構築・運用をデジタル化するオープンソースのソフトウェアスイート「Exastro」とは</a></dd>
       <dd class="document"><a class="lecturArchiveDocumentLink" href="https://youtu.be/HZL9iKSp71k" target="_blank"><i class="fab fa-youtube"></i> セッション1 動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
-      <dd class="document"><a class="lecturArchiveDocumentLink" href="/docs/asset/event_doc/20200911_exastro_web_seminar_session1_document.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：セッション01 攻めと守りの両面からシステム構築・運用をデジタル化するオープンソースのソフトウェアスイート「Exastro」とは</a></dd>
+      <dd class="document"><a class="lecturArchiveDocumentLink" href="{{ "/docs/asset/event_doc/20200911_exastro_web_seminar_session1_document.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：セッション01 攻めと守りの両面からシステム構築・運用をデジタル化するオープンソースのソフトウェアスイート「Exastro」とは</a></dd>
     </dl>
     <dl id="nr20200911_talkLive1" class="documentSetContent">
       <dt class="newsRoomVideoWrap"><span class="newsRoomVideo youtubeEmbed" data-embed-id="JvN9M4-dkLI"><span id="JvN9M4-dkLI"></span></span></dt>
@@ -338,7 +338,7 @@ IPリーチャビリティがない領域 ─ ネットワーク機器の運用�
       <dt class="newsRoomVideoWrap"><span class="newsRoomVideo youtubeEmbed" data-embed-id="GF3HTSW4A8M"><span id="GF3HTSW4A8M"></span></span></dt>
       <dd class="title"><a href="./event/20200911.html#session2">まずは守りの自動化を！<br>日々繰り返すアラート対応はExastroにお任せあれ</a></dd>
       <dd class="document"><a class="lecturArchiveDocumentLink" href="https://youtu.be/GF3HTSW4A8M" target="_blank"><i class="fab fa-youtube"></i> セッション2 動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
-      <dd class="document"><a class="lecturArchiveDocumentLink" href="/docs/asset/event_doc/20200911_exastro_web_seminar_session2_document.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：セッション02 まずは守りの自動化を！日々繰り返すアラート対応はExastroにお任せあれ</a></dd>
+      <dd class="document"><a class="lecturArchiveDocumentLink" href="{{ "/docs/asset/event_doc/20200911_exastro_web_seminar_session2_document.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：セッション02 まずは守りの自動化を！日々繰り返すアラート対応はExastroにお任せあれ</a></dd>
     </dl>
     <dl id="nr20200911_talkLive2" class="documentSetContent">
       <dt class="newsRoomVideoWrap"><span class="newsRoomVideo youtubeEmbed" data-embed-id="4NEulWrIEVk"><span id="4NEulWrIEVk"></span></span></dt>
@@ -349,7 +349,7 @@ IPリーチャビリティがない領域 ─ ネットワーク機器の運用�
       <dt class="newsRoomVideoWrap"><span class="newsRoomVideo youtubeEmbed" data-embed-id="bptu3gL1RaM"><span id="bptu3gL1RaM"></span></span></dt>
       <dd class="title"><a href="./event/20200911.html#session3">そして攻めの自動化へ！<br>Exastroによるクラウドシフトの実現方法</a></dd>
       <dd class="document"><a class="lecturArchiveDocumentLink" href="https://youtu.be/bptu3gL1RaM" target="_blank"><i class="fab fa-youtube"></i> セッション3 動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
-      <dd class="document"><a class="lecturArchiveDocumentLink" href="/docs/asset/event_doc/20200911_exastro_web_seminar_session3_document.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：セッション03 そして攻めの自動化へ！Exastroによるクラウドシフトの実現方法</a></dd>
+      <dd class="document"><a class="lecturArchiveDocumentLink" href="{{ "/docs/asset/event_doc/20200911_exastro_web_seminar_session3_document.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：セッション03 そして攻めの自動化へ！Exastroによるクラウドシフトの実現方法</a></dd>
     </dl>
   </div>
 </dd>
@@ -366,7 +366,7 @@ IPリーチャビリティがない領域 ─ ネットワーク機器の運用�
 </dd>
 <dd class="title"><a href="https://www.redhat.com/ja/explore/online-seminar/new-normal" target="_blank" rel="noopener">Red Hat オンラインセミナー 「待ったなし "New Normal時代のDXプラットフォーマー"」にて講演 <i class="fas fa-external-link-alt"></i></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> Red Hat オンラインセミナー</div><div class="date"><i class="far fa-clock"></i> <time datetime="2020-09-03T13:30:00">2020/09/03 14:00</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/200903_ansible_online_seminar.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：Exastro×Ansibleで不確実に強いシステム管理を！</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/200903_ansible_online_seminar.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：Exastro×Ansibleで不確実に強いシステム管理を！</a></dd>
 <dd class="document"><a href="https://youtu.be/7p0WP_D77jE" target="_blank"><i class="fab fa-youtube"></i> 講演動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
 </dl>
 </li>
@@ -395,7 +395,7 @@ IPリーチャビリティがない領域 ─ ネットワーク機器の運用�
 <dd class="title"><a href="https://www.redhat.com/ja/explore/ansible-automates-tokyo2020" target="_blank" rel="noopener">
 Red Hat Ansible Automates Tokyo 2020にて講演 <i class="fas fa-external-link-alt"></i></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i>  Red Hat</div><div class="date"><i class="far fa-clock"></i> <time datetime="2020-07-07T17:00:00">2020/07/07 17:00</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/200707_ansible_automates_tokyo2020-Exastro_x_Ansible.pdf" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：ニューノーマル時代、Exastro × Ansibleでシステム構築・運用をどう変えるか？</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/200707_ansible_automates_tokyo2020-Exastro_x_Ansible.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 講演資料：ニューノーマル時代、Exastro × Ansibleでシステム構築・運用をどう変えるか？</a></dd>
 <dd class="document"><a href="https://www.youtube.com/watch?v=yvPFN7mkChY" target="_blank"><i class="fab fa-youtube"></i> 講演動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
 </dl>
 </li>
@@ -411,7 +411,7 @@ Red Hat Ansible Automates Tokyo 2020にて講演 <i class="fas fa-external-link-
 <dd class="title"><a href="https://events.hashicorp.com/hashitalksjapan" target="_blank" rel="noopener">
 HashiTalks: Japan バーチャルナレッジシェアにて発表 <i class="fas fa-external-link-alt"></i></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> HashiTalks: Japan</div><div class="date"><i class="far fa-clock"></i> <time datetime="2020-07-02T16:30:00">2020/07/02 16:30</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/200702_hashitalks_japan-Terraform_Exastro.pdf" target="_blank"><i class="far fa-file-pdf"></i> 発表資料：Terraform/Exastroで実現する「ダイナミックな環境」の継続的な整備・運用</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/200702_hashitalks_japan-Terraform_Exastro.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> 発表資料：Terraform/Exastroで実現する「ダイナミックな環境」の継続的な整備・運用</a></dd>
 <dd class="document"><a href="https://www.youtube.com/watch?v=E8FtWX_MxYc" target="_blank"><i class="fab fa-youtube"></i> プレゼン動画（YouTube） <i class="fas fa-external-link-alt"></i></a></dd>
 </dl>
 </li>
@@ -494,7 +494,7 @@ HashiTalks: Japan バーチャルナレッジシェアにて発表 <i class="fas
 </dd>
 <dd class="title">第18回北東アジアOSS推進フォーラム（開催地：ソウル）でパネル展示</dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> 日本OSS推進フォーラム</div><div class="date"><i class="far fa-clock"></i> <time datetime="2019-11-21">2019/11/21</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/191121_seoul_panel.pdf" target="_blank"><i class="far fa-file-pdf"></i> Exastro IT Automation 展示パネル</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/191121_seoul_panel.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> Exastro IT Automation 展示パネル</a></dd>
 </dl>
 </li>
 
@@ -510,7 +510,7 @@ HashiTalks: Japan バーチャルナレッジシェアにて発表 <i class="fas
 <dd class="title"><a href="https://news.mynavi.jp/kikaku/20191030-914627/" target="_blank" rel="noopener">IT運用の自動化を一歩先へ。<br>
 OSS &amp; Ansible Playbookが持つ可能性 <i class="fas fa-external-link-alt"></i></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> マイナビニュース</div><div class="date"><i class="far fa-clock"></i> <time datetime="2019-10-30T10:00:00">2019/10/30 10:00</time></div></dd>
-<dd class="document"><a href="/docs/asset/newsroom_doc/191009_lecture3_exastro_it_automation.pdf" target="_blank"><i class="far fa-file-pdf"></i> インフラ人災をなくす待望のOSS「Exastro IT Automation」</a></dd>
+<dd class="document"><a href="{{ "/docs/asset/newsroom_doc/191009_lecture3_exastro_it_automation.pdf" | relative_url }}" target="_blank"><i class="far fa-file-pdf"></i> インフラ人災をなくす待望のOSS「Exastro IT Automation」</a></dd>
 </dl>
 </li>
 

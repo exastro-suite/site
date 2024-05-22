@@ -130,7 +130,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
           </ul>
         </div>
       </div>
-      <div class="eventListDetail"><a class="eventListLink touch" href="/event/20201118.html"><span>詳細はこちら</span></a></div>
+      <div class="eventListDetail"><a class="eventListLink touch" href="{{ "/event/20201118.html" | relative_url }}"><span>詳細はこちら</span></a></div>
     </div>
   </li>
 
@@ -163,7 +163,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
           </ul>
         </div>
       </div>
-      <div class="eventListDetail"><a class="eventListLink touch" href="/event/20200911.html"><span>詳細はこちら</span></a></div>
+      <div class="eventListDetail"><a class="eventListLink touch" href="{{ "/event/20200911.html" | relative_url }}"><span>詳細はこちら</span></a></div>
     </div>
   </li>
 

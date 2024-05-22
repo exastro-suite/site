@@ -23,8 +23,8 @@ layout: common
 
                 <nav class="topicPath">
                     <ol class="topicPath-List">
-                        <li class="topicPath-Item"><a class="topicPath-Link" href="/index.html">HOME</a></li>
-                        <li class="topicPath-Item"><a class="topicPath-Link" href="/column/index.html">コラム一覧</a></li>
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ "/index.html" | relative_url }}">HOME</a></li>
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ "/column/index.html" | relative_url }}">コラム一覧</a></li>
                         <li class="topicPath-Item">{{ page.column_title }}</li>
                     </ol>
                 </nav>
@@ -46,7 +46,7 @@ layout: common
                     <div class="section-FooterMenu">
                         <ul class="section-FooterMenu-List">
                             <li class="section-FooterMenu-Item">
-                                <a class="section-FooterMenu-Link touch" href="/index.html"><span><i class="fa-solid fa-circle-arrow-left"></i> Homeに戻る</span></a>
+                                <a class="section-FooterMenu-Link touch" href="{{ "/index.html" | relative_url }}"><span><i class="fa-solid fa-circle-arrow-left"></i> Homeに戻る</span></a>
                             </li>
                         </ul>
                     </div>
