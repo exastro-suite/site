@@ -13,7 +13,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
 ---
 <h2>どんなツール？</h2>
 
-<div class="image right"><img src="/message/img/image_ita01.jpg" alt="IT Automation image"></div>
+<div class="image right"><img src="{{ "/message/img/image_ita01.jpg" | relative_url }}" alt="IT Automation image"></div>
 
 <p>Exastro Suiteの中で一番最初にリリースしたのが「Exastro IT Automation（以下、Exastro ITA）」です。Exastroの生みの親である吉田氏が、システムエンジニア時代に苦労していたことや、そこでの改善実績をもとに吉田氏に賛同したメンバーが意見を持ち寄り作り上げたのがこのアプリケーションです。属人化していてヒューマンエラーが発生しやすい状況にあったシステム構築を自動化します。</p>
 
