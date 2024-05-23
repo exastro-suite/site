@@ -2,197 +2,232 @@
 ---
 <!doctype html>
 <html lang="{{ page.language }}">
+
 <head><!-- {{ site.url }} -->
-{% if site.url contains "staging" %}
+    {% if site.url contains "staging" %}
     {% assign devFlag = true %}
     {% assign commonAssetsUrl = "https://staging.exastro.org" %}
     {% assign exastroSiteUrl = "https://staging.exastro.org" %}
     {% assign itaSiteUrl = "https://ita-staging.exastro.org" %}
     {% assign itaDocsUrl = "https://ita-docs-staging.exastro.org" %}
-{% else %}
+    {% else %}
     {% assign devFlag = false %}
     {% assign commonAssetsUrl = "https://www.exastro.org" %}
     {% assign exastroSiteUrl = "https://www.exastro.org" %}
     {% assign itaSiteUrl = "https://ita.exastro.org" %}
     {% assign itaDocsUrl = "https://ita-docs.exastro.org" %}
-{% endif %}
-{% unless devFlag %}
+    {% endif %}
+    {% unless devFlag %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-144561796-1');
     </script>
-{% endunless %}
+    {% endunless %}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
     <meta name="theme-color" content="#002B62">
     <meta http-equiv="content-language" content="{{ page.language }}">
-{% if devFlag %}    <meta name="robots" content="none">{% endif %}
-{% if page.page_name == "index" %}{% capture ja %}{{ page.sub_dir }}/{% endcapture %}{% else %}{% capture ja %}{{ page.sub_dir }}/{{ page.page_name }}.html{% endcapture %}{% endif %}
-{% assign jaPage = site.html_pages | where: "url", ja | first %}
-{% capture en %}{{ page.sub_dir }}/{{ page.page_name }}_en.html{% endcapture %}
-{% assign enPage = site.html_pages | where: "url", en | first %}    
-     <title>{{ page.title }} | Exastro{% if page.suite_name %} {{ page.suite_name }}{% endif %}</title>
-    
-    {% if enPage.name %}<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.sub_dir }}/{{ page.page_name }}_en.html">
-    {% endif %}{% if jaPage.name %}<link rel="alternate" hreflang="ja" href="{{ site.url }}{{ page.sub_dir }}/{{ page.page_name }}.html">
+    {% if devFlag %}
+    <meta name="robots" content="none">{% endif %}
+    {% if page.page_name == "index" %}{% capture ja %}{{ page.sub_dir }}/{% endcapture %}{% else %}{% capture ja %}{{
+    page.sub_dir }}/{{ page.page_name }}.html{% endcapture %}{% endif %}
+    {% assign jaPage = site.html_pages | where: "url", ja | first %}
+    {% capture en %}{{ page.sub_dir }}/{{ page.page_name }}_en.html{% endcapture %}
+    {% assign enPage = site.html_pages | where: "url", en | first %}
+    <title>{{ page.title }} | Exastro{% if page.suite_name %} {{ page.suite_name }}{% endif %}</title>
+
+    {% if enPage.name %}
+    <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.sub_dir }}/{{ page.page_name }}_en.html">
+    {% endif %}{% if jaPage.name %}
+    <link rel="alternate" hreflang="ja" href="{{ site.url }}{{ page.sub_dir }}/{{ page.page_name }}.html">
     {% endif %}<!-- Font Awesome 6.1.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- jQuery 3.6.0 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Swiper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.2/swiper-bundle.min.js"
-      integrity="sha512-EWat0/wkEZtE7OENhG700T+jmrpHStGS7CqHUAzKW5MzNnVEa9Wfb+zJjF4hoXSgMTWlixL5Fgqhjx5PAliaXw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-EWat0/wkEZtE7OENhG700T+jmrpHStGS7CqHUAzKW5MzNnVEa9Wfb+zJjF4hoXSgMTWlixL5Fgqhjx5PAliaXw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.2/swiper-bundle.min.css"
-      integrity="sha512-hhiS6muPW6W6KvaFQmuEL0KWnLpq01sQR/qns+GqBPVu9wBg7JG/touq/t0qhmzFTCbLAyFKtHyFnyentlqOOw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-hhiS6muPW6W6KvaFQmuEL0KWnLpq01sQR/qns+GqBPVu9wBg7JG/touq/t0qhmzFTCbLAyFKtHyFnyentlqOOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
-      integrity="sha512-334uBDwY0iZ2TklV1OtDtBW9vp7jjP7SWRzT7Ehu1fdtPIjTpCwTSFb8HI/YBau9L1/kRBEOALrS229Kry4yFQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-334uBDwY0iZ2TklV1OtDtBW9vp7jjP7SWRzT7Ehu1fdtPIjTpCwTSFb8HI/YBau9L1/kRBEOALrS229Kry4yFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;900&display=swap"
+        rel="stylesheet">
     <!-- Exastro assets -->
     <link rel="stylesheet" href="{{ commonAssetsUrl }}/assets/css/common.css">
-{% include head.html %}
-    
+    {% include head.html %}
+
 </head>
-<body class="{% if page.docs %}docs-{{ page.docs }}{% endif %}{% if page.language %} lang-{{ page.language }}{% endif %}{% if page.page_class %} page-{{ page.page_class }}{% endif %}">
-<div id="container">
-<!--
+
+<body
+    class="{% if page.docs %}docs-{{ page.docs }}{% endif %}{% if page.language %} lang-{{ page.language }}{% endif %}{% if page.page_class %} page-{{ page.page_class }}{% endif %}">
+    <div id="container">
+        <!--
 ##################################################
    Menu Bar
 ##################################################
 -->
-<nav id="menuBar">
-    <div class="menuBar-Container">
-        <div class="menuBar-ExastroMenu">
-            <button class="menuBar-ExastroMenu-Btn menuBar-Btn popup touch" data-menu="ex" data-menuParent="menuBar-ExastroMenu" data-popupMode="click" title="Exastro menu">
-                <i class="fa-solid fa-list-ul"></i>
-            </button>
-            <div class="menuBar-ExastroMenu-Menu">
-                {% if page.language == "ja" %}
-                <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="{{ exastroSiteUrl }}">Exastro Home</a></div>
-                <ul class="menuBar-ExastroMenu-List">
-                    <li class="menuBar-ExastroMenu-Item">
-                        <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
-                        <ul class="menuBar-ExastroMenu-Version-List">
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">Version 1</a></li>
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="{{ itaSiteUrl }}/">Version 2</a></li>
+        <nav id="menuBar">
+            <div class="menuBar-Container">
+                <div class="menuBar-ExastroMenu">
+                    <button class="menuBar-ExastroMenu-Btn menuBar-Btn popup touch" data-menu="ex"
+                        data-menuParent="menuBar-ExastroMenu" data-popupMode="click" title="Exastro menu">
+                        <i class="fa-solid fa-list-ul"></i>
+                    </button>
+                    <div class="menuBar-ExastroMenu-Menu">
+                        {% if page.language == "ja" %}
+                        <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro"
+                                href="{{ exastroSiteUrl }}">Exastro Home</a></div>
+                        <ul class="menuBar-ExastroMenu-List">
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch ita"
+                                    href="{{ itaSiteUrl }}/">Version 2</a></li>
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc"
+                                    target="_blank"
+                                    href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md"
+                                    rel="noopener">Playbook Collection</a></li>
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase"
+                                    href="https://exastro-suite.github.io/oase-docs/index_ja.html">OASE(<span>Operation
+                                        Autonomy<br>Support Engine</span>)</a></li>
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch"
+                                    href="https://exastro-suite.github.io/epoch-docs/index_ja.html">EPOCH</a></li>
                         </ul>
-                    </li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md" rel="noopener">Playbook Collection</a></li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase" href="https://exastro-suite.github.io/oase-docs/index_ja.html">OASE(<span>Operation Autonomy<br>Support Engine</span>)</a></li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index_ja.html">EPOCH</a></li>
-                </ul>
-                {% else %}
-                <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="{{ exastroSiteUrl }}/index_en.html">Exastro Home</a></div>
-                <ul class="menuBar-ExastroMenu-List">
-                    <li class="menuBar-ExastroMenu-Item">
-                        <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
-                        <ul class="menuBar-ExastroMenu-Version-List">
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/">Version 1</a></li>
+                        {% else %}
+                        <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro"
+                                href="{{ exastroSiteUrl }}/index_en.html">Exastro Home</a></div>
+                        <ul class="menuBar-ExastroMenu-List">
+                            <li class="menuBar-ExastroMenu-Item">
+                                <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
+                                <ul class="menuBar-ExastroMenu-Version-List">
+                                    <li class="menuBar-ExastroMenu-Version-Item"><a
+                                            class="menuBar-ExastroMenu-Version-Link touch ita"
+                                            href="https://exastro-suite.github.io/it-automation-docs/">Version 1</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc"
+                                    target="_blank"
+                                    href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.md"
+                                    rel="noopener">Playbook Collection</a></li>
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase"
+                                    href="https://exastro-suite.github.io/oase-docs/index.html">OASE(<span>Operation
+                                        Autonomy<br>Support Engine</span>)</a></li>
+                            <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch"
+                                    href="https://exastro-suite.github.io/epoch-docs/index.html">EPOCH</a></li>
                         </ul>
-                    </li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.md" rel="noopener">Playbook Collection</a></li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase" href="https://exastro-suite.github.io/oase-docs/index.html">OASE(<span>Operation Autonomy<br>Support Engine</span>)</a></li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index.html">EPOCH</a></li>
-                </ul>
-                {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="menuBar-Logo">
+                    {% if page.language == "ja" %}{% include logo_ja.html %}{% else %}{% include logo_en.html %}{% endif
+                    %}
+                </div>
+                <div class="menuBar-MainMenu">
+                    <ul class="menuBar-MainMenu-List">
+                        {% if page.language == "ja" %}{% include menu_ja.html %}{% else %}{% include menu_en.html %}{%
+                        endif %}
+                    </ul>
+                </div>
+                <div class="menuBar-SubMenu">
+                    <ul class="menuBar-SubMenu-List">
+                        <li class="menuBar-SubMenu-Item"><a href="https://twitter.com/ExastroSuite"
+                                class="menuBar-SubMenu-Link touch popup" title="Twitter" target="_blank"
+                                rel="noopener"><i class="fab fa-twitter-square"></i><span>Twitter</span></a></li>
+                        <li class="menuBar-SubMenu-Item"><a
+                                href="https://www.youtube.com/channel/UC-kwQiXQfmYXTPbrGR-8qxw"
+                                class="menuBar-SubMenu-Link touch popup" title="YouTube" target="_blank"
+                                rel="noopener"><i class="fab fa-youtube-square"></i><span>YouTube</span></a></li>
+                        <li class="menuBar-SubMenu-Item"><a href="https://github.com/exastro-suite"
+                                class="menuBar-SubMenu-Link touch popup" title="GitHub" target="_blank"
+                                rel="noopener"><i class="fab fa-github-square"></i><span>GitHub</span></a></li>
+                    </ul>
+                </div>
+                <div class="menuBar-Langage">
+                    <button class="menuBar-Langage-Btn menuBar-Btn popup touch" data-menu="lang"
+                        data-menuParent="menuBar-Langage" data-popupMode="click" title="Langage">
+                        <i class="fa-solid fa-globe"></i><span>Langage</span>
+                    </button>
+                    <div class="menuBar-Langage-Menu">
+                        <ul class="menuBar-Langage-List">
+                            {% if page.language == "ja" %}
+                            {% if enPage.name %}<li class="menuBar-Langage-Item">
+                                <a class="menuBar-Langage-Link touch en"
+                                    href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ enPage.url }}">English</a>
+                            </li>{% endif %}
+                            <li class="menuBar-Langage-Item">
+                                <span class="menuBar-Langage-Span">日本語</span>
+                            </li>
+                            {% else %}
+                            <li class="menuBar-Langage-Item">
+                                <span class="menuBar-Langage-Span">English</span>
+                            </li>
+                            {% if jaPage.name %}<li class="menuBar-Langage-Item">
+                                <a class="menuBar-Langage-Link touch ja"
+                                    href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ jaPage.url }}">日本語</a>
+                            </li>{% endif %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="menuBar-Hamburger">
+                    <button class="menuBar-Hamburger-Btn menuBar-Btn popup touch hamburgerIcon" data-menu="ham"
+                        data-menuParent="menuBar-Container" data-popupMode="click" title="Menu">
+                        <span></span>
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="menuBar-Logo">
-            {% if page.language == "ja" %}{% include logo_ja.html %}{% else %}{% include logo_en.html %}{% endif %}
-        </div>
-        <div class="menuBar-MainMenu">
-            <ul class="menuBar-MainMenu-List">
-                {% if page.language == "ja" %}{% include menu_ja.html %}{% else %}{% include menu_en.html %}{% endif %}
-            </ul>
-        </div>
-        <div class="menuBar-SubMenu">
-            <ul class="menuBar-SubMenu-List">
-                <li class="menuBar-SubMenu-Item"><a href="https://twitter.com/ExastroSuite" class="menuBar-SubMenu-Link touch popup" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i><span>Twitter</span></a></li>
-                <li class="menuBar-SubMenu-Item"><a href="https://www.youtube.com/channel/UC-kwQiXQfmYXTPbrGR-8qxw" class="menuBar-SubMenu-Link touch popup" title="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube-square"></i><span>YouTube</span></a></li>
-                <li class="menuBar-SubMenu-Item"><a href="https://github.com/exastro-suite" class="menuBar-SubMenu-Link touch popup" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github-square"></i><span>GitHub</span></a></li>
-            </ul>
-        </div>
-        <div class="menuBar-Langage">
-            <button class="menuBar-Langage-Btn menuBar-Btn popup touch" data-menu="lang" data-menuParent="menuBar-Langage" data-popupMode="click" title="Langage">
-                <i class="fa-solid fa-globe"></i><span>Langage</span>
-            </button>
-            <div class="menuBar-Langage-Menu">
-                <ul class="menuBar-Langage-List">
-                    {% if page.language == "ja" %}
-                    {% if enPage.name %}<li class="menuBar-Langage-Item">
-                        <a class="menuBar-Langage-Link touch en" href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ enPage.url }}">English</a>
-                    </li>{% endif %}
-                    <li class="menuBar-Langage-Item">
-                        <span class="menuBar-Langage-Span">日本語</span>
-                    </li>
-                    {% else %}
-                    <li class="menuBar-Langage-Item">
-                        <span class="menuBar-Langage-Span">English</span>
-                    </li>
-                    {% if jaPage.name %}<li class="menuBar-Langage-Item">
-                        <a class="menuBar-Langage-Link touch ja" href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ jaPage.url }}">日本語</a>
-                    </li>{% endif %}
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-        <div class="menuBar-Hamburger">
-            <button class="menuBar-Hamburger-Btn menuBar-Btn popup touch hamburgerIcon" data-menu="ham" data-menuParent="menuBar-Container" data-popupMode="click"  title="Menu">
-                <span></span>
-            </button>
-        </div>
+        </nav>
+
+        {{ content }}
+
+        {% if page.language == "ja" %}{% include footer_ja.html %}{% else %}{% include footer_en.html %}{% endif %}
+
+        <div class="gotoTop"><a class="gotoTop-Link touch" href="#"><i class="fa-solid fa-angles-up"></i></a></div>
+
     </div>
-</nav>
 
-{{ content }}
-
-{% if page.language == "ja" %}{% include footer_ja.html %}{% else %}{% include footer_en.html %}{% endif %}
-
-<div class="gotoTop"><a class="gotoTop-Link touch" href="#"><i class="fa-solid fa-angles-up"></i></a></div>
-
-</div>
-
-<!--
+    <!--
 ##################################################
    JavaScript
 ##################################################
 -->
-<script src="{{ commonAssetsUrl }}/assets/js/common.js"></script>
-<script src="{{ commonAssetsUrl }}/assets/js/article.js"></script>
-{% include scripts.html %}
-{% unless devFlag %}
-<script type="text/javascript">
-piAId = '873721';
-piCId = '21538';
-piHostname = 'pi.pardot.com';
+    <script src="{{ commonAssetsUrl }}/assets/js/common.js"></script>
+    <script src="{{ commonAssetsUrl }}/assets/js/article.js"></script>
+    {% include scripts.html %}
+    {% unless devFlag %}
+    <script type="text/javascript">
+        piAId = '873721';
+        piCId = '21538';
+        piHostname = 'pi.pardot.com';
 
-(function() {
-	function async_load(){
-		var s = document.createElement('script'); s.type = 'text/javascript';
-		s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-		var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-	}
-	if(window.attachEvent) { window.attachEvent('onload', async_load); }
-	else { window.addEventListener('load', async_load, false); }
-})();
-</script>
-{% endunless %}
+        (function () {
+            function async_load() {
+                var s = document.createElement('script'); s.type = 'text/javascript';
+                s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+                var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+            }
+            if (window.attachEvent) { window.attachEvent('onload', async_load); }
+            else { window.addEventListener('load', async_load, false); }
+        })();
+    </script>
+    {% endunless %}
 </body>
+
 </html>
