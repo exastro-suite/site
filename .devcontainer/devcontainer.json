@@ -32,8 +32,8 @@
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
 	"mounts": [
 		// "source=/mnt/mainte/talisman,target=/mnt/mainte/talisman,type=bind",
-		"source=${localEnv:HOME}/.netrc,target=/home/jekyll/.netrc,type=bind",
-		"source=${localEnv:HOME}/.gitconfig,target=/home/jekyll/.gitconfig,type=bind",
+		// "source=${localEnv:HOME}/.netrc,target=/home/jekyll/.netrc,type=bind",
+		// "source=${localEnv:HOME}/.gitconfig,target=/home/jekyll/.gitconfig,type=bind",
 		// "source=${localEnv:HOME}/.kube/config,target=/home/jekyll/.kube/config,type=bind",
 		// "source=/mnt/mainte/certification/ZscalerRootCertificate.crt,target=/usr/local/share/ca-certificates/ZscalerRootCertificate.crt,type=bind",
 	],
