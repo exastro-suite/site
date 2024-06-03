@@ -13,7 +13,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
 ---
 <h2>どんなツール？</h2>
 
-<div class="image right"><img src="/message/img/image_oase01.jpg" alt="OASE image"></div>
+<div class="image right"><img src="{{ "/message/img/image_oase01.jpg" | relative_url }}" alt="OASE image"></div>
 
 <p>Exastro Operation Autonomy Support Engine（以下、Exastro OASE）はExastro Suiteの中で2番目にリリースされたツールです。運用中に発生したシステムエラーへの対応を自動化します。いつ発生するかわからないものに、運用している間ずっと人が監視しているのはかなり非効率です。Exastro OASEはエラーを検知すると自動で障害切り分けをして対処します。自動化するメリットがわかりやすいため、注目度も高いツールです。</p>
 

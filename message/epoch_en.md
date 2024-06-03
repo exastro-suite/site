@@ -13,7 +13,7 @@ description: Exastro EPOCH is, by date, the newest software in the Exastro Suite
 ---
 <h2>What is this tool?</h2>
 
-<div class="image right"><img src="/message/img/image_epoch01.jpg" alt="EPOCH image"></div>
+<div class="image right"><img src="{{ "/message/img/image_epoch01.jpg" | relative_url }}" alt="EPOCH image"></div>
 
 <p>Exastro EPOCH is, by date, the newest software in the Exastro Suite. It is a tool specialized for "Offensive automation". The industry is seeing constant changes and requires more diverse elements than ever before. It has turned into a time where engineers simply cannot afford take several years to create a single system.</p>
 <p>Exastro EPOCH is designed to  reduce development time by saving as much labor as possible in areas where creativity is not vital. Some of you reading this might think see Exastro EPOCH as a software different from the other ones in the Exastro suite. But it was born during the development of the first two, where we were met with challenges that we had to handle with trial and error. So Exastro EPOCH is the same in the sense that it is a system created based on challenges we had in the field.</p>

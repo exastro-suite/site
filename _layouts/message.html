@@ -23,7 +23,7 @@ layout: common
     <div class="header-Container">
         <div class="messageHeader">
             <div class="messageHeader-Photo">
-                <img class="messageHeader-Img" alt="" src="/message/img/{{ page.message_image }}">
+                <img class="messageHeader-Img" alt="" src="{{ "/message/img/{{ page.message_image }}" | relative_url }}">
             </div>
             <div class="messageHeader-Text">
                 <h1 class="messageHeader-Title"><span>{{ messageTitle }}</span>Exastro {{ page.message_type }}</h1>
@@ -40,8 +40,8 @@ layout: common
 
                 <nav class="topicPath">
                     <ol class="topicPath-List">
-                        <li class="topicPath-Item"><a class="topicPath-Link" href="/{{ indexFile }}">Home</a></li>
-                        <li class="topicPath-Item"><a class="topicPath-Link" href="/message/{{ indexFile }}">{{ messageListTitle }}</a></li>                        
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ "/{{ indexFile }}" | relative_url }}">Home</a></li>
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ "/message/{{ indexFile }}" | relative_url }}">{{ messageListTitle }}</a></li>                        
                         <li class="topicPath-Item">Exastro{% if page.message_type %} {{ page.message_type }}{% endif %}</li>
                     </ol>
                 </nav>
@@ -63,7 +63,7 @@ layout: common
                     <div class="section-FooterMenu">
                         <ul class="section-FooterMenu-List">
                             <li class="section-FooterMenu-Item">
-                                <a class="section-FooterMenu-Link touch" href="/{{ indexFile }}"><span><i class="fa-solid fa-circle-arrow-left"></i> {{ messageHome }}</span></a>
+                                <a class="section-FooterMenu-Link touch" href="{{ "/{{ indexFile }}" | relative_url }}"><span><i class="fa-solid fa-circle-arrow-left"></i> {{ messageHome }}</span></a>
                             </li>
                             {% if page.message_type %}<li class="section-FooterMenu-Item">
                                 <a class="section-FooterMenu-Link touch" href="{{ page.detail_url }}"><span>{{ messageSuite }} <i class="fa-solid fa-circle-arrow-right"></i></span></a>
@@ -78,58 +78,58 @@ layout: common
                         <h2 class="section-SubTitle">{{ messageListTitle }}</h2>
                         <ul class="messageMenu-List">
                             {% if page.language == "ja" %}
-                            <li class="messageMenu-Item"><a class="messageMenu-Link exastro touch" href="/message/exastro.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu01.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link exastro touch" href="{{ "/message/exastro.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu01.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>開発者メッセージ</span>Exastroにかける夢</div>
                                     <div class="messageMenu-SubTitle">システムはどんどん複雑化し、人材はどんどん減ってゆく</div>
                                 </div>
                             </a></li>
-                            <li class="messageMenu-Item"><a class="messageMenu-Link ita touch" href="/message/ita.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu02.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link ita touch" href="{{ "/message/ita.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu02.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>開発者メッセージ</span>Exastro IT Automation</div>
                                     <div class="messageMenu-SubTitle">開発の発想をカタチにしたExastroの原点</div>
                                 </div>
                             </a></li>
-                            <li class="messageMenu-Item"><a class="messageMenu-Link oase touch" href="/message/oase.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu03.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link oase touch" href="{{ "/message/oase.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu03.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>開発者メッセージ</span>Exastro OASE</div>
                                     <div class="messageMenu-SubTitle">24時間気が抜けない運用の現場をなんとかしたい</div>
                                 </div>
                             </a></li>
-                            <li class="messageMenu-Item"><a class="messageMenu-Link epoch touch" href="/message/epoch.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu04.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link epoch touch" href="{{ "/message/epoch.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu04.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>開発者メッセージ</span>Exastro EPOCH</div>
                                     <div class="messageMenu-SubTitle">自分たちが苦労している今の状況を解決してこそExastro</div>
                                 </div>
                             </a></li>
                             {% else %}
-                            <li class="messageMenu-Item"><a class="messageMenu-Link exastro touch" href="/message/exastro_en.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="Koichi Yoshida" src="/message/img/thoughtMenu01.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link exastro touch" href="{{ "/message/exastro_en.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="Koichi Yoshida" src="{{ "/message/img/thoughtMenu01.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>Messages from the Developers</span>Thoughts for Exastro</div>
                                     <div class="messageMenu-SubTitle">Systems are progressively getting more complicated while human resources are reducing</div>
                                 </div>
                             </a></li>
-                            <li class="messageMenu-Item"><a class="messageMenu-Link ita touch" href="/message/ita_en.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu02.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link ita touch" href="{{ "/message/ita_en.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu02.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>Messages from the Developers</span>Exastro IT Automation</div>
                                     <div class="messageMenu-SubTitle">The Origin of Exastro that started it all.</div>
                                 </div>
                             </a></li>
-                            <li class="messageMenu-Item"><a class="messageMenu-Link oase touch" href="/message/oase_en.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu03.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link oase touch" href="{{ "/message/oase_en.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu03.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>Messages from the Developers</span>Exastro OASE</div>
                                     <div class="messageMenu-SubTitle">Leave manually monitoring operations 24/7 in the past.</div>
                                 </div>
                             </a></li>
-                            <li class="messageMenu-Item"><a class="messageMenu-Link epoch touch" href="/message/epoch_en.html">
-                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="/message/img/thoughtMenu04.jpg"></div>
+                            <li class="messageMenu-Item"><a class="messageMenu-Link epoch touch" href="{{ "/message/epoch_en.html" | relative_url }}">
+                                <div class="messageMenu-Photo"><img class="messageMenu-Img" alt="" src="{{ "/message/img/thoughtMenu04.jpg" | relative_url }}"></div>
                                 <div class="messageMenu-Text">
                                     <div class="messageMenu-Title"><span>Messages from the Developers</span>Exastro EPOCH</div>
                                     <div class="messageMenu-SubTitle">Let Exastro help you when you are down.</div>

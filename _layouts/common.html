@@ -43,8 +43,8 @@
     {% if enPage.name %}<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.sub_dir }}/{{ page.page_name }}_en.html">
     {% endif %}{% if jaPage.name %}<link rel="alternate" hreflang="ja" href="{{ site.url }}{{ page.sub_dir }}/{{ page.page_name }}.html">
     {% endif %}<!-- Font Awesome 6.1.1 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- jQuery 3.6.0 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -87,28 +87,15 @@
                 {% if page.language == "ja" %}
                 <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="{{ exastroSiteUrl }}">Exastro Home</a></div>
                 <ul class="menuBar-ExastroMenu-List">
-                    <li class="menuBar-ExastroMenu-Item">
-                        <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
-                        <ul class="menuBar-ExastroMenu-Version-List">
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">Version 1</a></li>
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="{{ itaSiteUrl }}/">Version 2</a></li>
-                        </ul>
-                    </li>
+                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch ita" href="{{ itaSiteUrl }}/">IT Automation</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md" rel="noopener">Playbook Collection</a></li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase" href="https://exastro-suite.github.io/oase-docs/index_ja.html">OASE(<span>Operation Autonomy<br>Support Engine</span>)</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index_ja.html">EPOCH</a></li>
                 </ul>
                 {% else %}
                 <div class="menuBar-ExastroMenu-Home"><a class="menuBar-ExastroMenu-Link touch exastro" href="{{ exastroSiteUrl }}/index_en.html">Exastro Home</a></div>
                 <ul class="menuBar-ExastroMenu-List">
-                    <li class="menuBar-ExastroMenu-Item">
-                        <div class="menuBar-ExastroMenu-Version-Title">IT Automation</div>
-                        <ul class="menuBar-ExastroMenu-Version-List">
-                            <li class="menuBar-ExastroMenu-Version-Item"><a class="menuBar-ExastroMenu-Version-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/">Version 1</a></li>
-                        </ul>
-                    </li>
+                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch ita" href="https://exastro-suite.github.io/it-automation-docs/">IT Automation</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch pbc" target="_blank" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.md" rel="noopener">Playbook Collection</a></li>
-                    <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch oase" href="https://exastro-suite.github.io/oase-docs/index.html">OASE(<span>Operation Autonomy<br>Support Engine</span>)</a></li>
                     <li class="menuBar-ExastroMenu-Item"><a class="menuBar-ExastroMenu-Link touch epoch" href="https://exastro-suite.github.io/epoch-docs/index.html">EPOCH</a></li>
                 </ul>
                 {% endif %}
@@ -124,7 +111,7 @@
         </div>
         <div class="menuBar-SubMenu">
             <ul class="menuBar-SubMenu-List">
-                <li class="menuBar-SubMenu-Item"><a href="https://twitter.com/ExastroSuite" class="menuBar-SubMenu-Link touch popup" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i><span>Twitter</span></a></li>
+                <li class="menuBar-SubMenu-Item"><a href="https://twitter.com/ExastroSuite" class="menuBar-SubMenu-Link touch popup" title="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i><span>X</span></a></li>
                 <li class="menuBar-SubMenu-Item"><a href="https://www.youtube.com/channel/UC-kwQiXQfmYXTPbrGR-8qxw" class="menuBar-SubMenu-Link touch popup" title="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube-square"></i><span>YouTube</span></a></li>
                 <li class="menuBar-SubMenu-Item"><a href="https://github.com/exastro-suite" class="menuBar-SubMenu-Link touch popup" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github-square"></i><span>GitHub</span></a></li>
             </ul>
@@ -137,7 +124,7 @@
                 <ul class="menuBar-Langage-List">
                     {% if page.language == "ja" %}
                     {% if enPage.name %}<li class="menuBar-Langage-Item">
-                        <a class="menuBar-Langage-Link touch en" href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ enPage.url }}">English</a>
+                        <a class="menuBar-Langage-Link touch en" href="{{ "/index_en.html" | relative_url }}">English</a>
                     </li>{% endif %}
                     <li class="menuBar-Langage-Item">
                         <span class="menuBar-Langage-Span">日本語</span>
@@ -147,7 +134,7 @@
                         <span class="menuBar-Langage-Span">English</span>
                     </li>
                     {% if jaPage.name %}<li class="menuBar-Langage-Item">
-                        <a class="menuBar-Langage-Link touch ja" href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ jaPage.url }}">日本語</a>
+                        <a class="menuBar-Langage-Link touch ja" href="{{ "/index.html" | relative_url }}">日本語</a>
                     </li>{% endif %}
                     {% endif %}
                 </ul>

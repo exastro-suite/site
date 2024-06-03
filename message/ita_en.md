@@ -13,7 +13,7 @@ description: This is the first software released in the Exastro Suite, "Exastro 
 ---
 <h2>What is this tool?</h2>
 
-<div class="image right"><img src="/message/img/image_ita01.jpg" alt="IT Automation image"></div>
+<div class="image right"><img src="{{ "/message/img/image_ita01.jpg" | relative_url }}" alt="IT Automation image"></div>
 
 <p>This is the first software released in the Exastro Suite, "Exastro IT Automation"(hereinafter written as "ITA"). This application is a result of Mr. Yoshida, the founder of Exastro, and the Exastro ITA members who shared his hardships and brought their ideas. Is was made with the intent of automating individualistic system constructions which are often subject to human errors.</p>
 

@@ -13,7 +13,7 @@ description: This is the second software released in the Exastro Suite, Exastro 
 ---
 <h2>What is this tool?</h2>
 
-<div class="image right"><img src="/message/img/image_oase01.jpg" alt="OASE image"></div>
+<div class="image right"><img src="{{ "/message/img/image_oase01.jpg" | relative_url }}" alt="OASE image"></div>
 
 <p>This is Exastro Operation Autonomy Support Engine (hereinafter written as Exastro OASE), the second software released in the Exastro Suite. It is a tool created to automate the process of handling system errors that occurs during system operation. I think we can all agree it is highly inefficient to have a human constantly monitor the operation when they don't know when the error occurs. Exastro OASE automatically decides what to do with the detected error. We are grateful, as it has gotten a lot of attention with it's clear merit.</p>
 

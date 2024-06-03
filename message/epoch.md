@@ -13,7 +13,7 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
 ---
 <h2>どんなツール？</h2>
 
-<div class="image right"><img src="/message/img/image_epoch01.jpg" alt="EPOCH image"></div>
+<div class="image right"><img src="{{ "/message/img/image_epoch01.jpg" | relative_url }}" alt="EPOCH image"></div>
 
 <p>Exastro EPOCHは、Exastro Suiteの中で一番新しく誕生した「攻め」に特化した自動化ツールになります。世の中の動きも早く、ニーズも多様化している中、かつてのように一つのシステムを作るのに半年～数年を要していたら、機会損失してしまいます。</p>
 <p>Exastro EPOCHは創造力を必要としない部分をできるだけ省力化して、開発工数を短縮することを目的としたツールです。これまでにリリースしていた2つとは少し違う印象を持たれるかもしれませんが、先の2つを開発している際に、まさに課題感を持ち、試行錯誤する中で生まれたもので、現場の発想をもとに作られたシステムであることは同じです。</p>

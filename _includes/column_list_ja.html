@@ -1,7 +1,7 @@
 <ul class="homeColumn-List">
     <li class="homeColumn-Item">
-        <a class="homeColumn-Link ita touch" href="/column/column2.html">
-            <div class="homeColumn-Photo"><img class="homeColumn-Img" alt="コラムイメージ" src="/column/img/home_column02.jpg"></div>
+        <a class="homeColumn-Link ita touch" href="{{ "/column/column2.html" | relative_url }}">
+            <div class="homeColumn-Photo"><img class="homeColumn-Img" alt="コラムイメージ" src="{{ "/column/img/home_column02.jpg" | relative_url }}"></div>
             <div class="homeColumn-Text">
                 {% if page.page_class == "home" %}<div class="homeColumn-SubTitle">日本OSS貢献者賞受賞者の宮原氏</div>{% endif %}
                 <div class="homeColumn-Title">DX実現のための自動化の役割</div>
@@ -10,8 +10,8 @@
         </a>
     </li>
     <li class="homeColumn-Item">
-        <a class="homeColumn-Link ita touch" href="/column/column1.html">
-            <div class="homeColumn-Photo"><img class="homeColumn-Img" alt="コラムイメージ" src="/column/img/home_column01.jpg"></div>
+        <a class="homeColumn-Link ita touch" href="{{ "/column/column1.html" | relative_url }}">
+            <div class="homeColumn-Photo"><img class="homeColumn-Img" alt="コラムイメージ" src="{{ "/column/img/home_column01.jpg" | relative_url }}"></div>
             <div class="homeColumn-Text">
                 {% if page.page_class == "home" %}<div class="homeColumn-SubTitle">日本OSS貢献者賞受賞者の宮原氏</div>{% endif %}
                 <div class="homeColumn-Title">DXを実現するためのポイント</div>
