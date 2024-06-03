@@ -124,7 +124,7 @@
                 <ul class="menuBar-Langage-List">
                     {% if page.language == "ja" %}
                     {% if enPage.name %}<li class="menuBar-Langage-Item">
-                        <a class="menuBar-Langage-Link touch en" href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ enPage.url }}">English</a>
+                        <a class="menuBar-Langage-Link touch en" href="{{ "/index_en.html" | relative_url }}">English</a>
                     </li>{% endif %}
                     <li class="menuBar-Langage-Item">
                         <span class="menuBar-Langage-Span">日本語</span>
@@ -134,7 +134,7 @@
                         <span class="menuBar-Langage-Span">English</span>
                     </li>
                     {% if jaPage.name %}<li class="menuBar-Langage-Item">
-                        <a class="menuBar-Langage-Link touch ja" href="{% if page.repository %}{{ page.repository }}/{% endif %}{{ jaPage.url }}">日本語</a>
+                        <a class="menuBar-Langage-Link touch ja" href="{{ "/index.html" | relative_url }}">日本語</a>
                     </li>{% endif %}
                     {% endif %}
                 </ul>
