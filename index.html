@@ -145,7 +145,7 @@ const swiper = new Swiper('#banner', {
                 <div class="firstContents-Card">
                     <div class="firstContents-Image"><img class="firstContents-Image-Img" src="assets/img/first_image02.png" alt="時間のかかる障害復旧"></div>
                     <div class="firstContents-Text">障害復旧に時間がかかる</div>
-                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="#overview-oase"><span><i class="fa-solid fa-thumbs-up"></i> 解決する</span></a></div>
+                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="#overview-ita"><span><i class="fa-solid fa-thumbs-up"></i> 解決する</span></a></div>
                 </div>
             </li>
             <li class="firstContents-Item">
@@ -298,77 +298,56 @@ const swiper = new Swiper('#banner', {
     <div class="overview-Suite" id="overview-ita">
         <div class="overview-Suite-Container">
             <div class="overview-Suite-Header">
-                <h3 class="overview-Suite-Title"><em>Exastro </em>IT Automation<span class="overview-Suite-Type"><span>システム<em>設定</em>に特化</span></span></h3>
+                <h3 class="overview-Suite-Title"><em>Exastro </em>IT Automation/OASE<span class="overview-Suite-Type"><span>システム<em>構築・運用</em>に特化</span></span></h3>
             </div>
             <div class="overview-Suite-Body">
+                <div class="overview-Suite-Desc">
+                    <p class="overview-Suite-Desc-Par">Exastro IT Automation は、システム構築や運用業務の自動化・効率化・省力化を目的とした、システムの構成管理およびシステム設定のためのフレームワークです。</p>
+                </div>
                 <div class="overview-Suite-MainImage">
                     <img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita.png" | relative_url }}" alt="IT Automation 概要図">
                 </div>
-                <div class="overview-Suite-Desc">
-                    <p class="overview-Suite-Desc-Par">Exastro IT Automation は、システム構築や運用業務の自動化/効率化/省力化を目的としたシステムの構成管理およびシステム設定のためのフレームワークです。</p>
-                    <h4 class="overview-Suite-Desc-Hed">システム構築/運用は情報の一元管理が要！</h4>
-                    <p class="overview-Suite-Desc-Par">Exastro IT Automation は、情報連携のミスやチーム間の情報伝達のコストを抑えるために、システムの構成情報であるパラメータや手順(IaC)を一元的に管理する仕組みを提供します。また、CMDB 上にシステムの過去・現在・未来のパラメータ情報を格納でき、作業手順書である IaC にパラメータを連携することで IaC の再利用性を高めることができます。</p>
-                </div>
             </div>
-            <div class="overview-Suite-Footer">
-                <div class="overview-Suite-Images">
-                    <ul class="overview-Suite-Images-List">
-                        <li class="overview-Suite-Images-Item"><img class="overview-Suite-Images-Img" src="{{ "/assets/img/overview_ita01.jpg" | relative_url }}" alt=""></li>
-                        <li class="overview-Suite-Images-Item"><img class="overview-Suite-Images-Img" src="{{ "/assets/img/overview_ita02.jpg" | relative_url }}" alt=""></li>
-                        <li class="overview-Suite-Images-Item"><img class="overview-Suite-Images-Img" src="{{ "/assets/img/overview_ita03.jpg" | relative_url }}" alt=""></li>
-                    </ul>
-                </div>
-                <div class="overview-Suite-Detail">
-                    <ul class="overview-Suite-Detail-List">
-                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">
-                            <span data-version="Ver.1">
-                                <div class="overview-Suite-Detail-Name">Exastro IT Automation <span class="overview-Suite-Detail-Version">Ver.</span>1</div>
-                                <div class="overview-Suite-Detail-Note">実績のある安定したバージョンを使いたいユーザ向け</div>
-                            </span>
-                        </a></li>
-                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://ita.exastro.org/">
-                            <span data-version="Ver.2">
-                                <div class="overview-Suite-Detail-Name">Exastro IT Automation <span class="overview-Suite-Detail-Version">Ver.</span>2</div>
-                                <div class="overview-Suite-Detail-Note">新しいアーキテクチャの上で複数のCMDBを同時に管理したいユーザ向け</div>
-                            </span>
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overview-Suite" id="overview-oase">
-        <div class="overview-Suite-Container">
-            <div class="overview-Suite-Header">
-                <h3 class="overview-Suite-Title"><em>Exastro </em>OASE（<span class="detail">Operation Autonomy<br>Support Engine</span>）<span class="overview-Suite-Type"><span>システム<em>運用</em>に特化</span></span></h3>
-            </div>
+            <h4 class="overview-Suite-Desc-Hed">システム構築・運用は、情報の一元管理が要！</h4>
             <div class="overview-Suite-Body">
                 <div class="overview-Suite-MainImage">
-                    <img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_oase.png" | relative_url }}" alt="OASE 概要図">
+                    <ul>
+                        <li><img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita01.jpg" | relative_url }}" alt="IT Automation 使用例01"></li>
+                        <li><img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita02.jpg" | relative_url }}" alt="IT Automation 使用例02"></li>
+                        <li><img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita03.jpg" | relative_url }}" alt="IT Automation 使用例03"></li>
+                    </ul>
                 </div>
                 <div class="overview-Suite-Desc">
-                    <p class="overview-Suite-Desc-Par">Exastro Operation Autonomy Support Engineは、システム運用業務の自動化・効率化・省力化を実現するためのソフトウェアです。</p>
-                    <p class="overview-Suite-Desc-Par">システム運用におけるノウハウをルールとして一元管理し、運用情報から対処方法を自動で判断します。さらにExastro IT Automation等の自動化ソフトウェアをコントロールできるため、対処を自動で実行することも可能です。</p>
+                    <p class="overview-Suite-Desc-Par">Exastro IT Automation は、情報連携のミスやチーム間の情報伝達のコストを抑えるために、システムの構成情報であるパラメータや手順(IaC)を一元的に管理する仕組みを提供します。<br><br>また、CMDB 上にシステムの過去・現在・未来のパラメータ情報を格納でき、作業手順書である IaC にパラメータを連携することで IaC の再利用性を高めることができます。</p>
                 </div>
             </div>
             <div class="overview-Suite-Footer">
-                <!--<div class="overview-Suite-Images">
-                    <ul class="overview-Suite-Images-List">
-                        <li class="overview-Suite-Images-Item"></li>
-                        <li class="overview-Suite-Images-Item"></li>
-                        <li class="overview-Suite-Images-Item"></li>
-                    </ul>
-                </div>-->
                 <div class="overview-Suite-Detail">
                     <ul class="overview-Suite-Detail-List">
-                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://exastro-suite.github.io/oase-docs/index_ja.html">
+                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://ita.exastro.org/">
                             <span>
-                                <div class="overview-Suite-Detail-Name">Exastro OASE</div>
-                                <div class="overview-Suite-Detail-Note">詳細はこちら</div>
+                                <div class="overview-Suite-Detail-Name">Exastro IT Automation/OASE</div>
+                                <div class="overview-Suite-Detail-Note">最新バージョンはこちら</div>
                             </span>
                         </a></li>
                     </ul>
                 </div>
+                <h5 class="overview-Suite-Desc-Hed-h5">過去バージョンをお使いの方はこちら</h5>
+                <div class="overview-Suite-Detail">
+                    <ul class="overview-Suite-Detail-old-List">
+                        <li class="overview-Suite-Detail-old-Item"><a class="overview-Suite-Detail-old-Link touch" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">
+                            <span>
+                                <div class="overview-Suite-Detail-old-Note">Exastro IT Automation Ver.1</div>
+                            </span>
+                        </a></li>
+                        <li class="overview-Suite-Detail-old-Item"><a class="overview-Suite-Detail-old-Link touch" href="https://exastro-suite.github.io/oase-docs/index_ja.html">
+                            <span>
+                                <div class="overview-Suite-Detail-old-Note">Exastro OASE</div>
+                            </span>
+                        </a></li>
+                    </ul>
+                </div>
+                <p class="overview-Suite-Desc-Hed-note">Exastro OASEは、Exastro IT Automation Ver.2に機能内包されました。<br>過去バージョンをご利用の方は、こちらからご覧ください。</p>
             </div>
         </div>
     </div>
@@ -377,14 +356,14 @@ const swiper = new Swiper('#banner', {
             <div class="overview-Suite-Header">
                 <h3 class="overview-Suite-Title"><em>Exastro </em>EPOCH<span class="overview-Suite-Type"><span>システム<em>開発</em>に特化</span></span></h3>
             </div>
+            <h4 class="overview-Suite-Desc-Hed">クラウドネイティブなアプリケーション開発を高速化</h4>
             <div class="overview-Suite-Body">
+                <div class="overview-Suite-Desc">
+                    <p class="overview-Suite-Desc-Par">便利なはずのクラウドネイティブなアプリケーション開発が、なぜ浸透しないのか？<br>Exastro EPOCHはそこに注目したアプリケーションです。
+                    <br><br>Exastro EPOCHは、高速なアプリケーション開発・デプロイ環境を提供するためのフレームワークです。クラウドネイティブなアプリケーション開発を支援するためのプロセス及び環境をセットで提供します。</p>
+                </div>
                 <div class="overview-Suite-MainImage">
                     <img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_epoch.png" | relative_url }}" alt="EPOCH 概要図">
-                </div>
-                <div class="overview-Suite-Desc">
-                    <h4 class="overview-Suite-Desc-Hed">クラウドネイティブなアプリケーション開発を高速化</h4>
-                    <p class="overview-Suite-Desc-Par">便利なはずのクラウドネイティブなアプリケーション開発が、なぜ浸透しないのか？Exastro EPOCHはそこに注目したアプリケーションです。</p>
-                    <p class="overview-Suite-Desc-Par">Exastro EPOCHは、高速なアプリケーション開発・デプロイ環境を提供するためのフレームワークです。クラウドネイティブなアプリケーション開発を支援するためのプロセス及び環境をセットで提供します。</p>
                 </div>
             </div>
             <div class="overview-Suite-Footer">
@@ -417,8 +396,7 @@ const swiper = new Swiper('#banner', {
                     <h3 class="stepTitle">インストールマニュアルをGET！</h3>
                     <div class="stepBody">
                         <ul class="stepDocList">
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://exastro-suite.github.io/it-automation-docs/install_ja.html">IT Automation<i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://exastro-suite.github.io/oase-docs/learn_ja.html#introduction">OASE<i class="fa-solid fa-circle-chevron-right"></i></a></li>
+                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://ita-docs.exastro.org/ja/2.4/installation/">IT Automation<i class="fa-solid fa-circle-chevron-right"></i></a></li>
                             <li class="stepDocItem"><a class="stepDocLink touch" href="https://exastro-suite.github.io/epoch-docs/Learn_ja/installation_guide/installation_guide_ja.html">EPOCH<i class="fa-solid fa-circle-chevron-right"></i></a></li>
                         </ul>
                     </div>
@@ -437,8 +415,7 @@ const swiper = new Swiper('#banner', {
                     <h3 class="stepTitle">GitHubへGO！</h3>
                     <div class="stepBody">
                         <ul class="stepDocList">
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://github.com/exastro-suite/it-automation" target="_blank">IT Automation<i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://github.com/exastro-suite/oase" target="_blank">OASE<i class="fa-solid fa-circle-chevron-right"></i></a></li>
+                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://github.com/exastro-suite/exastro-it-automation-site-dev" target="_blank">IT Automation<i class="fa-solid fa-circle-chevron-right"></i></a></li>
                             <li class="stepDocItem"><a class="stepDocLink touch" href="https://github.com/exastro-suite/epoch" target="_blank">EPOCH<i class="fa-solid fa-circle-chevron-right"></i></a></li>
                         </ul>
                     </div>
@@ -490,10 +467,10 @@ const swiper = new Swiper('#banner', {
                 
                 <p class="opinion-Text">技術的な質問や意見はissueへ</p>
                 <div class="opinion-Detail">
-                    <ul class="faq-Ditail-List" style="display: flex; margin-bottom: 0;">
-                        <li class="faq-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/it-automation/issues" rel="noopener"><span>ITA Issues</span></a></li>
-                        <li class="faq-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/oase/issues" rel="noopener"><span>OASE Issues</span></a></li>
-                        <li class="faq-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/epoch/issues" rel="noopener"><span>EPOCH Issues</span></a></li>
+                    <ul class="opinion-Ditail-List" style="display: flex; margin-bottom: 0;">
+                        <li class="opinion-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/it-automation/issues" rel="noopener"><span>ITA Issues</span></a></li>
+                        <li class="opinion-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/oase/issues" rel="noopener"><span>OASE Issues</span></a></li>
+                        <li class="opinion-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/epoch/issues" rel="noopener"><span>EPOCH Issues</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -514,8 +491,7 @@ const swiper = new Swiper('#banner', {
         <div class="faq">
             <div class="faq-Ditail">
                 <ul class="faq-Ditail-List" style="display: flex;">
-                    <li class="faq-Ditail-Item"><a class="goto-Link touch faq-Ditail-Link" href="https://exastro-suite.github.io/it-automation-docs/faq_ja.html"><span>ITA FAQ</span></a></li>
-                    <li class="faq-Ditail-Item"><a class="goto-Link touch faq-Ditail-Link" href="https://exastro-suite.github.io/oase-docs/faq_ja.html"><span>OASE FAQ</span></a></li>
+                    <li class="faq-Ditail-Item"><span class="goto-nolink"><span>ITA/OASE FAQ</span><div class="goto-nolink-coming-soon">Coming Soon...</div></span></li>
                     <li class="faq-Ditail-Item"><a class="goto-Link touch faq-Ditail-Link" href="https://exastro-suite.github.io/epoch-docs/faq_ja.html"><span>EPOCH FAQ</span></a></li>
                 </ul>
             </div>
@@ -592,7 +568,7 @@ const swiper = new Swiper('#banner', {
    SNS
 ##################################################
 -->
-<section id="snsArea" class="homeSection">
+<!-- <section id="snsArea" class="homeSection">
     <div class="homeSection-Container">
         <div class="snsArea">
             <div id="twitterTimeline">
@@ -609,4 +585,4 @@ const swiper = new Swiper('#banner', {
 </main>
 
 <script src="{{ "/assets/js/home_background.js" | relative_url }}"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
