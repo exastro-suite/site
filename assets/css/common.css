@@ -104,7 +104,7 @@ color: #FFF;
 display: none;
 position: fixed;
 top: 48px;
-width: 304px;
+width: 312px;
 background-color: #E5EAEF;
 border-radius: 4px;
 box-shadow: 0 2px 8px rgba(0,0,0,.2);
@@ -604,7 +604,7 @@ font-size: 10px;
 color: #AAA;
 }
 .footer-Suite-Version > span {
-foant-size: 16px;
+font-size: 16px;
 }
 /*
    footer-copyright
