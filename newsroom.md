@@ -29,6 +29,34 @@ News Room</h1>
 <!-- NEWS LIST -->
 <ul>
 
+<li id="news20240801">
+<dl>
+<dt class="image"><a href="https://majisemi.com/e/c/nec-20240801/M2A" class="touch" target="_blank" rel="noopener"><img src="{{ "/assets/newsroom_img/2024801_majisemi.jpg" | relative_url }}" alt="DX推進のための第一歩、人材不足を解消するための自動化術とは"></a></dt>
+<dd class="tag"><i class="fas fa-tag"></i>
+  <ul>
+    <li><span class="ita">IT Automation</span></li>
+    <li><span class="oase">Operation Autonomy Support Engine</span></li>
+  </ul>
+</dd>
+<dd class="title"><a href="https://majisemi.com/e/c/nec-20240801/M2A" target="_blank" rel="noopener">DX推進のための第一歩、人材不足を解消するための自動化術とは？<br>～2024年最新の「企業におけるIT運用の実態調査」をもとに現状の分析と解決策を解説～<i class="fas fa-external-link-alt"></i></a></dd>
+<dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> マジセミ</div><div class="date"><i class="far fa-clock"></i> <time datetime="2024/08/01">2024/08/01</time></div></dd>
+</dl>
+</li>
+
+<li id="news20240723">
+<dl>
+<dt class="image"><a href="https://news.mynavi.jp/techplus/lp/2024/enterprise/cloud_infrastructure202409/" class="touch" target="_blank" rel="noopener"><img src="{{ "/assets/newsroom_img/20240723_mainabi.jpg" | relative_url }}" alt="ITトレンドの現在地から紐解く　既存を守り新規を開拓する自動化術"></a></dt>
+<dd class="tag"><i class="fas fa-tag"></i>
+  <ul>
+    <li><span class="ita">IT Automation</span></li>
+    <li><span class="oase">Operation Autonomy Support Engine</span></li>
+  </ul>
+</dd>
+<dd class="title"><a href="https://news.mynavi.jp/techplus/lp/2024/enterprise/cloud_infrastructure202409/" target="_blank" rel="noopener">ITトレンドの現在地から紐解く<br>既存を守り新規を開拓する自動化術<i class="fas fa-external-link-alt"></i></a></dd>
+<dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> マイナビ TECH＋フォーラム</div><div class="date"><i class="far fa-clock"></i> <time datetime="2024/07/23">2024/07/23</time></div></dd>
+</dl>
+</li>
+
 <li id="news20230222">
 <dl>
 <dt class="image"><a href="https://special.nikkeibp.co.jp/atclh/NXT/23/nec0221/" class="touch" target="_blank" rel="noopener"><img src="{{ "/assets/newsroom_img/20230222_nikkeibp.jpg" | relative_url }}" alt="社内のデジタル人材に活躍の場を　実績豊富な運用自動化メソッドとは"></a></dt>
