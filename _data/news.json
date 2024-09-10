@@ -1,0 +1,86 @@
+{
+    "2024": [
+        {
+            "id": "2024080101",
+            "title": "DX推進のための第一歩、人材不足を解消するための自動化術とは？",
+            "media": "マジセミ",
+            "date": "2024/08/01",
+            "url": "https://majisemi.com/e/c/nec-20240801",
+            "image": "/assets/newsroom_img/news2024080101.jpg"
+        },
+        {
+            "id": "2024072301",
+            "title": "ITトレンドの現在地から紐解く　既存を守り新規を開拓する自動化術",
+            "media": "マイナビ TECH+フォーラム",
+            "date": "2024/07/23",
+            "url": "https://news.mynavi.jp/techplus/lp/2024/enterprise/cloud_infrastructure202409/",
+            "image": "/assets/newsroom_img/news2024072301.jpg"
+        },
+        {
+            "id": "2024032901",
+            "title": "今改めて考える、「日本流DXの勝ち筋」とSIerがもたらす未来",
+            "media": "@IT",
+            "date": "2024/03/29",
+            "url": "https://atmarkit.itmedia.co.jp/ait/articles/2403/29/news013.html",
+            "image": "/assets/newsroom_img/news2024032901.jpg"
+        },
+        {
+            "id": "2024032601",
+            "title": "内製化時代のSIer生存戦略　NECが目指すSIerの次のステップ",
+            "media": "@IT",
+            "date": "2024/03/26",
+            "url": "https://atmarkit.itmedia.co.jp/ait/articles/2403/26/news010.html",
+            "image": "/assets/newsroom_img/news2024032601.jpg"
+        },
+        {
+            "id": "2024012601",
+            "title": "簡素化、自動化、高度化：エンジニアの負担を軽減するためのExastroの活用",
+            "media": "nec",
+            "date": "2023/12/05",
+            "url": "https://jpn.nec.com/oss/community/blog/using-exastro-to-alleviate-engineer-s-burden.html",
+            "image": "/assets/newsroom_img/news2024012601.jpg"
+        }  
+    ],
+    "2023": [
+        {
+            "id": "2023070502",
+            "title": "「IT人材不足」がDXの足かせに、堅実なDXの進め方",
+            "media": "ITmedia White Paper Download Center",
+            "date": "2023/07/05",
+            "url": "https://wp.techtarget.itmedia.co.jp/contents/74249",
+            "image": "/assets/newsroom_img/news2023070502.jpg"
+        },
+        {
+            "id": "2023070501",
+            "title": "SoR領域の見直しでデジタル競争力を確保、5社の事例に見る運用自動化の効果",
+            "media": "ITmedia White Paper Download Center",
+            "date": "2023/07/05",
+            "url": "https://wp.techtarget.itmedia.co.jp/contents/74250",
+            "image": "/assets/newsroom_img/news2023070501.jpg"
+        },
+        {
+            "id": "2023062902",
+            "title": "全社的なシステム運用の自動化を実現、プロセス全体をカバーする統合基盤の実力",
+            "media": "ITmedia White Paper Download Center",
+            "date": "2023/06/29",
+            "url": "https://wp.techtarget.itmedia.co.jp/contents/74100",
+            "image": "/assets/newsroom_img/news2023062902.jpg"
+        },
+        {
+            "id": "2023062901",
+            "title": "システム運用の自動化を阻む課題を解決、抜本的な改革に必要な視点とは？",
+            "media": "ITmedia White Paper Download Center",
+            "date": "2023/06/29",
+            "url": "https://wp.techtarget.itmedia.co.jp/contents/74099",
+            "image": "/assets/newsroom_img/news2023062901.jpg"
+        },
+        {
+            "id": "2023022201",
+            "title": "社内のデジタル人材に活躍の場を実績豊富な運用自動化メソッドとは ",
+            "media": "日経XTECH Special",
+            "date": "2023/02/22",
+            "url": "https://special.nikkeibp.co.jp/atclh/NXT/23/nec0221/",
+            "image": "/assets/newsroom_img/20230222_nikkeibp.jpg"
+        }       
+    ]
+}

@@ -60,6 +60,28 @@ description: Exastroはシステムライフサイクル(設計・開発・設�
             </div>
         </div>
         <div class="swiper-slide">
+            <div id="newsroom" class="banner">
+                <div class="banner-Body">
+                    <div class="banner-New">
+                        <h2 class="banner-Title">News Room</h2>
+                        <ul class="banner-Newsroom-List">{% assign i = 1 %}
+                        {% for newsData in site.data.news %}{% if i > 4 %}{% break %}{% endif %}
+                            {% for newsItem in newsData[1] %}{% if i > 4 %}{% break %}{% endif %}
+                            <li class="banner-Newsroom-Item">
+                                <a class="banner-Newsroom-Link" href="{{ newsItem.url }}" class="touch" target="_blank" rel="noopener">
+                                    <div class="banner-Newsroom-Image"><img src="{{ newsItem.image | relative_url }}" alt="{{ newsItem.title | escape | strip_newlines }}"></div>
+                                    <div class="banner-Newsroom-Title"><span>{{ newsItem.title | escape }}</span></div>
+                                    <div class="banner-Newsroom-Date"><span><i class="far fa-clock"></i> {{ newsItem.date }}</span></div>
+                                </a>
+                            </li>   
+                            {% assign i = i | plus: 1 %}{% endfor %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
             <div id="slide-Exastro" class="banner">
                 <div class="banner-Body">
                     <div class="banner-Text">
