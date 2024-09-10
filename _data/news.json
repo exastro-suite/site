@@ -6,7 +6,7 @@
             "publication": "マジセミ",
             "date": "2024/08/01",
             "url": "https://majisemi.com/e/c/nec-20240801",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2024080101.jpg"
         },
         {
             "id": "2024072301",
@@ -14,7 +14,7 @@
             "publication": "マイナビ TECH+フォーラム",
             "date": "2024/07/23",
             "url": "https://news.mynavi.jp/techplus/lp/2024/enterprise/cloud_infrastructure202409/",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2024072301.jpg"
         },
         {
             "id": "2024032901",
@@ -22,7 +22,7 @@
             "publication": "@IT",
             "date": "2024/03/29",
             "url": "https://atmarkit.itmedia.co.jp/ait/articles/2403/29/news013.html",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2024032901.jpg"
         },
         {
             "id": "2024032601",
@@ -30,25 +30,25 @@
             "publication": "@IT",
             "date": "2024/03/26",
             "url": "https://atmarkit.itmedia.co.jp/ait/articles/2403/26/news010.html",
-            "image": "/assets/newsroom_img/"
-        }      
-    ],
-    "2023": [
+            "image": "/assets/newsroom_img/news2024032601.jpg"
+        },
         {
-            "id": "2023120501",
+            "id": "2024012601",
             "title": "簡素化、自動化、高度化：エンジニアの負担を軽減するためのExastroの活用",
             "publication": "nec",
             "date": "2023/12/05",
             "url": "https://jpn.nec.com/oss/community/blog/using-exastro-to-alleviate-engineer-s-burden.html",
-            "image": "/assets/newsroom_img/"
-        },
+            "image": "/assets/newsroom_img/news2024012601.jpg"
+        }  
+    ],
+    "2023": [
         {
             "id": "2023070502",
             "title": "「IT人材不足」がDXの足かせに、堅実なDXの進め方",
             "publication": "ITmedia White Paper Download Center",
             "date": "2023/07/05",
             "url": "https://wp.techtarget.itmedia.co.jp/contents/74249",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2023070502.jpg"
         },
         {
             "id": "2023070501",
@@ -56,7 +56,7 @@
             "publication": "ITmedia White Paper Download Center",
             "date": "2023/07/05",
             "url": "https://wp.techtarget.itmedia.co.jp/contents/74250",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2023070501.jpg"
         },
         {
             "id": "2023062902",
@@ -64,7 +64,7 @@
             "publication": "ITmedia White Paper Download Center",
             "date": "2023/06/29",
             "url": "https://wp.techtarget.itmedia.co.jp/contents/74100",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2023062902.jpg"
         },
         {
             "id": "2023062901",
@@ -72,7 +72,7 @@
             "publication": "ITmedia White Paper Download Center",
             "date": "2023/06/29",
             "url": "https://wp.techtarget.itmedia.co.jp/contents/74099",
-            "image": "/assets/newsroom_img/"
+            "image": "/assets/newsroom_img/news2023062901.jpg"
         },
         {
             "id": "2023022201",

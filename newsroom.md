@@ -164,7 +164,6 @@ Red Hat Ansible Automates 2021 Japanにて講演 <i class="fas fa-external-link-
 <li>
 <dl>
 <dt class="image"><a href="https://jpn.nec.com/press/202102/20210217_01.html" class="touch" target="_blank" rel="noopener"><img src="https://exastro-suite.github.io/docs/asset/newsroom_img/nec_210217.jpg" alt="NEC News Room"></a></dt>
-<dd class="tag"><i class="fas fa-tag"></i>
 <dd class="title"><a href="https://jpn.nec.com/press/202102/20210217_01.html" target="_blank" rel="noopener">NEC、ServiceNowを活用したITサービス運用を高度化するソリューションを販売開始 <i class="fas fa-external-link-alt"></i></a></dd>
 <dd class="meta"><div class="media"><i class="far fa-sticky-note"></i> NEC News Room</div><div class="date"><i class="far fa-clock"></i> <time datetime="2021-02-17">2021/02/17</time></div></dd>
 </dl>
