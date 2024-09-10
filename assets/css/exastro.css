@@ -705,8 +705,10 @@ margin-top: 8px;
 }
 .banner-Newsroom-List {
     flex-flow: column;
-    padding: 8px;
     gap: 8px;
+}
+.banner-Newsroom-Item {
+    padding: 8px;
 }
 .banner-Newsroom-Item::after {
     content: '';
@@ -720,10 +722,10 @@ margin-top: 8px;
 .banner-Newsroom-Title,
 .banner-Newsroom-Date {
     margin-left: calc( 30% + 16px );
+    font-size: 16px;
 }
 .banner-Newsroom-Title {
     margin-bottom: 12px;
-    font-size: 16px;
 }
 
 }
