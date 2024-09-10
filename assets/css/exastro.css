@@ -580,6 +580,51 @@ color: #00AAFF;
 .banner-New-Link:hover {
 text-decoration: underline;
 }
+#newsroom {
+    background-image: url(/assets/img/header_newsroom.jpg);
+    background-position: center;
+}
+#newsroom .banner-Title {
+    font-size: 24px;
+    color: #FFA500;
+}
+.banner-Newsroom-Image {
+    margin-bottom: 8px;
+}
+.banner-Newsroom-List {
+    display: flex;
+    gap: 32px;
+}
+.banner-Newsroom-Item {
+    flex: 1 1 100%;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 4px;
+    padding: 16px;
+}
+.banner-Newsroom-Link {
+    text-decoration: none;
+    color: #FFF;
+    transition-duration: .3s;
+}
+.banner-Newsroom-Title {
+    height: 42px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+}
+.banner-Newsroom-Link:hover {
+    opacity: .8;
+}
+.banner-Newsroom-Date {
+    text-align: right;
+    font-size: 12px;
+    opacity: .8;
+}
 
 @media screen and ( max-width: 1080px ) {
 
