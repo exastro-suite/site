@@ -35,7 +35,7 @@ News Room</h1>
     <dl>
         {% if newsItem.image %}<dt class="image">
             <a href="{{ newsItem.url }}" class="touch" target="_blank" rel="noopener">
-                <img src="{{ newsItem.image | relative_url }}" alt="{{ newsItem.title | xml_escape }}">
+                <img src="{{ newsItem.image | relative_url }}" alt="{{ newsItem.title | escape | strip_newlines }}">
             </a>
         </dt>{% endif %}
         {% if newsItem.videoId %}<dt class="newsRoomVideoWrap">
@@ -44,7 +44,7 @@ News Room</h1>
         <dd class="title">
             <a href="{{ newsItem.url }}" target="_blank" rel="noopener">
                 <span class="mainTitle">{{ newsItem.title | xml_escape }} <i class="fas fa-external-link-alt"></i></span>
-                {% if newsItem.subTitle %}<span class="subTitle">{{ newsItem.subTitle | xml_escape }}</span>{% endif %}
+                {% if newsItem.subTitle %}<span class="subTitle">{{ newsItem.subTitle | escape | newline_to_br }}</span>{% endif %}
             </a>
         </dd>
         <dd class="meta">
