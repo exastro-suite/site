@@ -699,8 +699,13 @@ text-align: center;
 .banner-New-Item {
 margin-top: 8px;
 }
+#information .banner-Body,
+#newsroom .banner-Body {
+    padding-bottom: 0;
+}
 .banner-Newsroom-List {
     flex-flow: column;
+    padding: 8px;
     gap: 8px;
 }
 .banner-Newsroom-Item::after {
@@ -714,7 +719,11 @@ margin-top: 8px;
 }
 .banner-Newsroom-Title,
 .banner-Newsroom-Date {
-    margin-left: calc( 30% + 8px );
+    margin-left: calc( 30% + 16px );
+}
+.banner-Newsroom-Title {
+    margin-bottom: 12px;
+    font-size: 16px;
 }
 
 }
