@@ -1,6 +1,30 @@
 {
     "2024": [
         {
+            "id": "2024120901",
+            "title": "The Future of OSS and Multi-tenancy: Adapting Architecture for Modern Demands",
+            "media": "ITmedia",
+            "date": "2024/08/01",
+            "url": "https://members06.live.itmedia.co.jp/library/Nzc2OTQ%253D?group=OPE2024a",
+            "image": "/assets/newsroom_img/news2024120901.jpg"
+        },
+        {
+            "id": "2024112701",
+            "title": "あるある事例から見出したクラウドネイティブ開発成功への基盤作り",
+            "media": "マイナビ TECH+フォーラム",
+            "date": "2024/08/01",
+            "url": "https://news.mynavi.jp/techplus/lp/2024/enterprise/executiveDX_202410/",
+            "image": "/assets/newsroom_img/news2024112701.jpg"
+        },
+        {
+            "id": "2024102801",
+            "title": "The Future of OSS and Multi-tenancy: Adapting Architecture for Modern Demands",
+            "media": "The Linux Foundation",
+            "date": "2024/10/28",
+            "url": "https://events.linuxfoundation.org/open-source-summit-japan/",
+            "image": "/assets/newsroom_img/news2024102801.jpg"
+        },
+        {
             "id": "2024080101",
             "title": "DX推進のための第一歩、人材不足を解消するための自動化術とは？",
             "media": "マジセミ",
