@@ -842,7 +842,15 @@ color: #002B62;
 
 
 @media screen and ( max-width: 1200px ) {
-
+.firstContents-List {
+max-width: 960px;
+gap: 16px;
+flex-wrap: wrap;
+justify-content: center;
+}
+.firstContents-Item {
+width: calc( 33% - 16px );
+}
 }
 
 @media screen and ( max-width: 960px ) {
