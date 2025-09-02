@@ -23,7 +23,7 @@ layout: common
     <div class="header-Container">
         <div class="messageHeader">
             <div class="messageHeader-Photo">
-                <img class="messageHeader-Img" alt="" src="{{ page.message_image | append: '/message/img/' | relative_url }}">
+                <img class="messageHeader-Img" alt="" src="{{ page.message_image | prepend: '/message/img/' | relative_url }}">
             </div>
             <div class="messageHeader-Text">
                 <h1 class="messageHeader-Title"><span>{{ messageTitle }}</span>Exastro {{ page.message_type }}</h1>
@@ -40,8 +40,8 @@ layout: common
 
                 <nav class="topicPath">
                     <ol class="topicPath-List">
-                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ indexFile | append: '/' | relative_url }}">Home</a></li>
-                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ indexFile | append: '/message/' | relative_url }}">{{ messageListTitle }}</a></li>                        
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ indexFile | prepend: '/' | relative_url }}">Home</a></li>
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ indexFile | prepend: '/message/' | relative_url }}">{{ messageListTitle }}</a></li>                        
                         <li class="topicPath-Item">Exastro{% if page.message_type %} {{ page.message_type }}{% endif %}</li>
                     </ol>
                 </nav>
@@ -63,7 +63,7 @@ layout: common
                     <div class="section-FooterMenu">
                         <ul class="section-FooterMenu-List">
                             <li class="section-FooterMenu-Item">
-                                <a class="section-FooterMenu-Link touch" href="{{ indexFile | append: '/' | relative_url }}"><span><i class="fa-solid fa-circle-arrow-left"></i> {{ messageHome }}</span></a>
+                                <a class="section-FooterMenu-Link touch" href="{{ indexFile | prepend: '/' | relative_url }}"><span><i class="fa-solid fa-circle-arrow-left"></i> {{ messageHome }}</span></a>
                             </li>
                             {% if page.message_type %}<li class="section-FooterMenu-Item">
                                 <a class="section-FooterMenu-Link touch" href="{{ page.detail_url }}"><span>{{ messageSuite }} <i class="fa-solid fa-circle-arrow-right"></i></span></a>
