@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 基本SEO -->
+  <title>利用シーン | Community Site</title>
+  <meta name="description" content="日々の運用から開発のパイプライン、既存システムの構築まで。きっかけに合わせて、同じしくみで統制して実行します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://USERNAME.github.io/community_site/use-cases/">
+
+  <!-- ファビコン・テーマカラー -->
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#05070d">
+
+  <!-- OGP（SNSでシェアされた時の表示） -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Community Site">
+  <meta property="og:title" content="利用シーン | Community Site">
+  <meta property="og:description" content="日々の運用から開発のパイプライン、既存システムの構築まで。きっかけに合わせて、同じしくみで統制して実行します。">
+  <meta property="og:url" content="https://USERNAME.github.io/community_site/use-cases/">
+  <meta property="og:image" content="https://USERNAME.github.io/community_site/assets/images/ogp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Community Site">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X（旧Twitter） -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- アニメーションのオン／オフ：保存した設定を表示前に反映する（切り替えは assets/js/main.js の initMotionToggle） -->
+  <script>try{if(localStorage.getItem("exastro-motion")==="off")document.documentElement.classList.add("is-motion-off")}catch(e){}</script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sections.css">
+</head>
+<body>
+  <!-- 固定ヘッダー：左にロゴ（トップへ戻る）とページ内リンク、右に言語切り替えとSNS -->
+  <header class="site-header">
+    <a class="site-header__logo" href="../" aria-label="Exastro トップへ戻る">
+      <img src="../assets/images/Exastro-logo2-white-rgb.svg" alt="Exastro" width="1280" height="300">
+    </a>
+
+    <!-- 狭い画面ではメニューボタンで開閉する（assets/js/main.js） -->
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <div class="site-header__menu" id="site-nav">
+      <nav class="site-nav" aria-label="ページ内リンク">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="../#agentic-ai">Agentic AI</a></li>
+          <li><a class="site-nav__link" href="../#governed-execution">Governance</a></li>
+          <li><a class="site-nav__link" href="../#inside-exastro">Inside</a></li>
+          <li><a class="site-nav__link" href="../#use-cases">Use Cases</a></li>
+          <li><a class="site-nav__link" href="../#evolution">Evolution</a></li>
+          <li><a class="site-nav__link" href="../#vision">Vision</a></li>
+          <li><a class="site-nav__link" href="../#latest">Latest</a></li>
+          <li><a class="site-nav__link" href="../#get-started">Get Started</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__tools">
+        <!-- 言語切り替え（英語版を用意したら href を差し替える） -->
+         <!--
+        <ul class="lang-switch" aria-label="言語">
+          <li><a class="lang-switch__link" href="../" lang="ja" aria-current="true">JA</a></li>
+          <li><a class="lang-switch__link" href="../en/" lang="en" hreflang="en">EN</a></li>
+        </ul>
+        -->
+
+        <!-- アニメーションのオン／オフ（assets/js/main.js の initMotionToggle） -->
+        <button class="motion-toggle" type="button" aria-pressed="true" aria-label="アニメーション" title="アニメーションを止める">
+          <span class="motion-toggle__label" aria-hidden="true">Motion</span>
+          <span class="motion-toggle__switch" aria-hidden="true"></span>
+        </button>
+
+        <!-- SNS（リンク先はアカウントに合わせて差し替える） -->
+        <ul class="social-links" aria-label="SNS">
+          <li>
+            <a class="social-links__link" href="https://github.com/exastro-suite" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-links__link" href="https://x.com/" target="_blank" rel="noopener" aria-label="X">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-links__link" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- 利用シーンの個別ページ。いまはトップページのセクションと同じ内容（ここから個別ページ用に作り込む） -->
+  <main>
+    <section class="section section--live section--reverse" id="use-cases">
+      <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
+      <div class="section-live" aria-hidden="true"></div>
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="現在地">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="../">Home</a></li>
+            <li aria-current="page">利用シーン</li>
+          </ol>
+        </nav>
+        <h2 class="section__title">利用シーン</h2>
+        <h3 class="section__subtitle">Exastro Suite</h3>
+        <p class="section__lead">日々の運用から開発のパイプライン、既存システムの構築まで。きっかけに合わせて、同じしくみで統制して実行します。</p>
+      </div>
+      <div class="section__body">
+        <!-- 利用シーン（assets/css/sections.css）。画像はいったんすべて overview_ita01.jpg。クリックで拡大表示（assets/js/main.js の initImageDialog） -->
+        <div class="use-cases">
+          <ul class="use-cases__list">
+            <li class="use-cases__item">
+              <div class="use-cases__image">
+                <button class="image-zoom" type="button" aria-label="AI×手動契機システム運用のイメージを拡大表示"><img src="../assets/images/overview_ita01.jpg" alt="AI×手動契機システム運用のイメージ" width="960" height="540" loading="lazy"></button>
+              </div>
+              <h4 class="use-cases__title">AI×手動契機システム運用</h4>
+              <p class="use-cases__text">担当者が自然言語で依頼すると、AIが手順を組み立て、Exastroが統制して実行します。</p>
+              <!-- リンク先は未定（ダミー） -->
+              <a class="use-cases__more" href="#" aria-label="AI×手動契機システム運用の詳細はこちら">詳細はこちら<span class="use-cases__more-arrow" aria-hidden="true"></span></a>
+            </li>
+            <li class="use-cases__item">
+              <div class="use-cases__image">
+                <button class="image-zoom" type="button" aria-label="イベント契機システム運用のイメージを拡大表示"><img src="../assets/images/overview_ita01.jpg" alt="イベント契機システム運用のイメージ" width="960" height="540" loading="lazy"></button>
+              </div>
+              <h4 class="use-cases__title">イベント契機システム運用</h4>
+              <p class="use-cases__text">監視ツールのアラートなどを受け取り、既知の事象には登録済みの対処を自動で実行します。</p>
+              <!-- リンク先は未定（ダミー） -->
+              <a class="use-cases__more" href="#" aria-label="イベント契機システム運用の詳細はこちら">詳細はこちら<span class="use-cases__more-arrow" aria-hidden="true"></span></a>
+            </li>
+            <li class="use-cases__item">
+              <div class="use-cases__image">
+                <button class="image-zoom" type="button" aria-label="CICD for IaC契機利用シーンのイメージを拡大表示"><img src="../assets/images/overview_ita01.jpg" alt="CICD for IaC契機利用シーンのイメージ" width="960" height="540" loading="lazy"></button>
+              </div>
+              <h4 class="use-cases__title">CICD for IaC契機利用シーン</h4>
+              <p class="use-cases__text">GitリポジトリのIaCの更新をきっかけに、構築・テストを自動で実行します。</p>
+              <!-- リンク先は未定（ダミー） -->
+              <a class="use-cases__more" href="#" aria-label="CICD for IaC契機利用シーンの詳細はこちら">詳細はこちら<span class="use-cases__more-arrow" aria-hidden="true"></span></a>
+            </li>
+            <li class="use-cases__item">
+              <div class="use-cases__image">
+                <button class="image-zoom" type="button" aria-label="CICD for App契機利用シーンのイメージを拡大表示"><img src="../assets/images/overview_ita01.jpg" alt="CICD for App契機利用シーンのイメージ" width="960" height="540" loading="lazy"></button>
+              </div>
+              <h4 class="use-cases__title">CICD for App契機利用シーン</h4>
+              <p class="use-cases__text">アプリのビルド・リリースのパイプラインから呼び出し、環境の構築やデプロイを実行します。</p>
+              <!-- リンク先は未定（ダミー） -->
+              <a class="use-cases__more" href="#" aria-label="CICD for App契機利用シーンの詳細はこちら">詳細はこちら<span class="use-cases__more-arrow" aria-hidden="true"></span></a>
+            </li>
+            <li class="use-cases__item">
+              <div class="use-cases__image">
+                <button class="image-zoom" type="button" aria-label="Legacyシステムインフラ構築のイメージを拡大表示"><img src="../assets/images/overview_ita01.jpg" alt="Legacyシステムインフラ構築のイメージ" width="960" height="540" loading="lazy"></button>
+              </div>
+              <h4 class="use-cases__title"><span class="use-cases__tag">シンプルモード</span>Legacyシステムインフラ構築</h4>
+              <p class="use-cases__text">AIを使わず、パラメータと作業手順を登録して、従来のサーバ・ネットワーク構築を自動化します。</p>
+              <!-- リンク先は未定（ダミー） -->
+              <a class="use-cases__more" href="#" aria-label="（シンプルモード）Legacyシステムインフラ構築の詳細はこちら">詳細はこちら<span class="use-cases__more-arrow" aria-hidden="true"></span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター：ロゴと説明／ページ内リンクと SNS／別コンテンツのメニュー／コピーライト（assets/css/sections.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="../" aria-label="Exastro トップへ戻る">
+          <img src="../assets/images/Exastro-logo2-white-rgb.svg" alt="Exastro" width="1280" height="300" loading="lazy">
+        </a>
+        <p class="site-footer__desc">Exastroは、システムのライフサイクル全体にわたって、人の意図を統制された自動化へとつなぐオープンソーススイートです。人が意図を伝え、AIが考え、Exastroが統制して実行します。</p>
+      </div>
+
+      <div class="site-footer__links">
+        <nav class="footer-nav" aria-label="フッターのページ内リンク">
+          <ul class="footer-nav__list">
+          <li><a class="footer-nav__link" href="../#agentic-ai">Agentic AI</a></li>
+          <li><a class="footer-nav__link" href="../#governed-execution">Governance</a></li>
+          <li><a class="footer-nav__link" href="../#inside-exastro">Inside</a></li>
+          <li><a class="footer-nav__link" href="../#use-cases">Use Cases</a></li>
+          <li><a class="footer-nav__link" href="../#evolution">Evolution</a></li>
+          <li><a class="footer-nav__link" href="../#vision">Vision</a></li>
+          <li><a class="footer-nav__link" href="../#latest">Latest</a></li>
+          <li><a class="footer-nav__link" href="../#get-started">Get Started</a></li>
+          </ul>
+        </nav>
+
+        <!-- SNS（リンク先はヘッダーと合わせて差し替える） -->
+        <ul class="footer-sns" aria-label="SNS">
+          <li>
+            <a class="footer-sns__link" href="https://github.com/exastro-suite" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub
+            </a>
+          </li>
+          <li>
+            <a class="footer-sns__link" href="https://x.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg>X
+            </a>
+          </li>
+          <li>
+            <a class="footer-sns__link" href="https://www.youtube.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 別コンテンツのメニュー（ダミー。見出し・項目・リンク先は内容が決まったら差し替える） -->
+      <nav class="footer-related" aria-label="関連コンテンツ">
+      <div class="footer-related__group">
+        <h2 class="footer-related__title">Content 01</h2>
+        <ul class="footer-related__list">
+          <li><a class="footer-related__link" href="#">ダミー：メニュー1</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー2</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー3</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー4</a></li>
+        </ul>
+      </div>
+      <div class="footer-related__group">
+        <h2 class="footer-related__title">Content 02</h2>
+        <ul class="footer-related__list">
+          <li><a class="footer-related__link" href="#">ダミー：メニュー1</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー2</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー3</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー4</a></li>
+        </ul>
+      </div>
+      <div class="footer-related__group">
+        <h2 class="footer-related__title">Content 03</h2>
+        <ul class="footer-related__list">
+          <li><a class="footer-related__link" href="#">ダミー：メニュー1</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー2</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー3</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー4</a></li>
+        </ul>
+      </div>
+      <div class="footer-related__group">
+        <h2 class="footer-related__title">Content 04</h2>
+        <ul class="footer-related__list">
+          <li><a class="footer-related__link" href="#">ダミー：メニュー1</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー2</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー3</a></li>
+          <li><a class="footer-related__link" href="#">ダミー：メニュー4</a></li>
+        </ul>
+      </div>
+      </nav>
+
+      <p class="site-footer__copyright"><small>&copy; NEC Corporation 2019-2026</small></p>
+    </div>
+  </footer>
+
+  <!-- お知らせ（最新リリースの日付は assets/js/main.js で GitHub から取得） -->
+  <aside class="notice-bar" aria-label="お知らせ">
+    <a class="notice-bar__link" href="https://github.com/exastro-suite/exastro-it-automation/releases" target="_blank" rel="noopener">
+      <span class="notice-bar__label">NEWS</span>
+      <span class="notice-bar__text">Exastro IT Automation のリリース情報はこちら</span>
+    </a>
+  </aside>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

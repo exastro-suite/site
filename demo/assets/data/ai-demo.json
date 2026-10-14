@@ -1,0 +1,86 @@
+{
+  "intro": "AIへの依頼から Movement の実行・結果確認までを、\nガイドに沿って体験できます。",
+  "greeting": "こんにちは。Exastro AIアシスタントです。\nどのようなお手伝いをしましょうか？",
+  "footer": {
+    "ai": "Demo AI",
+    "model": "demo-model"
+  },
+  "steps": [
+    {
+      "type": "input",
+      "text": "Webサーバ3台に nginx をインストールして、起動まで行ってください。",
+      "guide": "入力欄をクリックしてください。AIに頼みたいことを、ふだんの言葉で入力します。"
+    },
+    {
+      "type": "send",
+      "guide": "送信ボタンを押して、AIに依頼を送ります。"
+    },
+    { "type": "wait", "text": "思考中", "duration": 1500 },
+    {
+      "type": "assistant",
+      "text": "承知しました。nginx のインストールと起動に使える Movement を確認します。"
+    },
+    { "type": "wait", "text": "ツール実行中", "duration": 1800 },
+    {
+      "type": "choice",
+      "text": "nginx に関係する Movement が2件見つかりました。どちらを使用しますか？",
+      "options": [
+        { "label": "nginx_install（インストールと起動）", "action": "positive" },
+        { "label": "nginx_install_only（インストールのみ）", "action": "other" }
+      ],
+      "answer": 0,
+      "guide": "AIが候補を提示しました。今回は「nginx_install」を選びます。"
+    },
+    { "type": "wait", "text": "ツール実行中", "duration": 1500 },
+    {
+      "type": "choice",
+      "text": "作業対象のホストを確認しました。使用するオペレーションを選択してください。",
+      "options": [
+        { "label": "Web構築_2026（web01〜web03）", "action": "positive" },
+        { "label": "検証環境（test-web01）", "action": "other" }
+      ],
+      "answer": 0,
+      "guide": "作業対象（オペレーション）を選びます。「Web構築_2026」を選んでください。"
+    },
+    { "type": "wait", "text": "思考中", "duration": 1200 },
+    {
+      "type": "choice",
+      "text": "以下の内容で実行します。よろしいですか？\n\n- **Movement**：nginx_install（Ansible Legacy）\n- **オペレーション**：Web構築_2026\n- **対象ホスト**：web01, web02, web03",
+      "options": [
+        { "label": "実行する", "action": "positive" },
+        { "label": "キャンセル", "action": "negative" }
+      ],
+      "answer": 0,
+      "guide": "実行前に内容を確認できます。「実行する」を押すと Movement が実行されます。"
+    },
+    { "type": "wait", "text": "ツール実行中", "duration": 1200 },
+    {
+      "type": "movement",
+      "gem": "AL",
+      "driver": "Ansible Legacy",
+      "nodeClass": "node-ansible-legacy",
+      "name": "nginx_install",
+      "operation": "Web構築_2026",
+      "wait": 1500,
+      "statuses": [
+        { "status": "Preparing", "duration": 2000 },
+        { "status": "Executing", "duration": 4500 },
+        { "status": "Completed" }
+      ],
+      "guide": "Movement の実行状況がリアルタイムに表示されます。完了するまでお待ちください。"
+    },
+    {
+      "type": "assistant",
+      "text": "Movement の実行が完了しました。\n\n- **web01**：nginx 1.26 をインストールし、起動しました\n- **web02**：nginx 1.26 をインストールし、起動しました\n- **web03**：nginx 1.26 をインストールし、起動しました\n\n詳しいログは「結果データ」からダウンロードできます。"
+    },
+    {
+      "type": "guide",
+      "target": "resultButton",
+      "guide": "「結果データ」から、実行ログなどの詳細を確認できます。"
+    },
+    {
+      "type": "end",
+      "text": "デモは以上です。\n自然言語での依頼から、Movement の実行・結果の確認までを\nAI がサポートします。"
+    }
+  ]
+}

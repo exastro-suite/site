@@ -1,0 +1,1925 @@
+@charset "UTF-8";
+
+/* ===== セクションごとのスタイル =====
+ * ページの上から順に並べる：Control Plane／UI画面／利用シーン／進化／開発者メッセージ／
+ * 最新ニュース／Get Started／フッター。共通部分は style.css、AIデモは ai-demo.css
+ */
+
+/* ===== セクション3：Exastro Control Plane =====
+ * 上：人の目的 → AI → Exastro Control Plane → 実システム の流れ（Control Plane を強調）
+ * 下：8つの要素（タイトルのみ表示し、クリックで詳細を開く）
+ * 置かれた列の幅で縦並び・1列に切り替える（コンテナクエリ）
+ */
+.control-plane {
+  --cp-gap: 2.75rem;          /* 流れのノード間（矢印の長さ） */
+  --cp-line: rgba(0, 200, 255, 0.45);
+  --cp-ease: 0.35s ease;
+  container-type: inline-size;
+  /* details の開閉で height: auto へアニメーションさせる */
+  interpolate-size: allow-keywords;
+  width: 100%;
+}
+
+/* .section__body p の色指定を打ち消す */
+.control-plane p {
+  color: inherit;
+}
+
+/* ===== 流れ ===== */
+.control-plane__flow {
+  display: flex;
+  align-items: center;
+  gap: var(--cp-gap);
+}
+
+.control-plane__node {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-width: 0;
+  min-height: 6.5rem;
+  padding: 1rem 0.75rem;
+  border-left: 4px solid var(--mainColor80);
+  border-right: 4px solid var(--mainColor80);
+  border-radius: 12px;
+  background: rgba(17, 26, 46, 0.7);
+  text-align: center;
+  line-height: 1.5;
+  /* 背景アイコン（z-index: -1）をノードの背景より上・文字より下に置く */
+  isolation: isolate;
+}
+
+/* 背景にうっすら表示するアイコン */
+.control-plane__node-icon {
+  position: absolute;
+  inset: 0.5rem;
+  z-index: -1;
+  background: #fff;
+  opacity: 0.08;
+  -webkit-mask: var(--cp-icon) center / contain no-repeat;
+  mask: var(--cp-icon) center / contain no-repeat;
+  pointer-events: none;
+}
+
+.control-plane__node-icon--intent { --cp-icon: url("../images/icon-intent.svg"); }
+.control-plane__node-icon--ai-agent { --cp-icon: url("../images/icon-ai-agent.svg"); }
+.control-plane__node-icon--core { --cp-icon: url("../images/Exastro-logomark2-white-rgb.svg"); }
+.control-plane__node-icon--systems { --cp-icon: url("../images/icon-systems.svg"); }
+
+.control-plane__node-en {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-text-muted);
+}
+
+.control-plane__node-ja {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ノード間の矢印（線＋矢じり） */
+.control-plane__node + .control-plane__node::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 4px);
+  width: var(--cp-gap);
+  height: 10px;
+  margin-top: -5px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10' viewBox='0 0 8 10'%3E%3Cpath d='M1 1l6 4-6 4' fill='none' stroke='%23FFA500' stroke-width='2'/%3E%3C/svg%3E") right 4px center / 8px 10px no-repeat,
+    linear-gradient(var(--accentColor100), var(--accentColor100)) left 4px center / calc(100% - 10px) 1px no-repeat;
+}
+
+/* 矢印の上を左から右へ流れる光（ノードの順に少しずつ遅らせる） */
+.control-plane__node + .control-plane__node::after {
+  --cp-dx: calc(var(--cp-gap) - 14px);
+  --cp-dy: 0px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(100% + var(--cp-gap) - 10px);
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--accentColor100);
+  box-shadow: 0 0 8px rgba(255,165,0,.5);
+  opacity: 0;
+  animation: control-plane-pulse 2.4s ease-in-out infinite;
+}
+
+.control-plane__node:nth-child(3)::after { animation-delay: 0.6s; }
+.control-plane__node:nth-child(4)::after { animation-delay: 1.2s; }
+
+@keyframes control-plane-pulse {
+  0% { opacity: 0; translate: 0 0; }
+  15% { opacity: 1; }
+  45% { opacity: 1; }
+  60%, 100% { opacity: 0; translate: var(--cp-dx) var(--cp-dy); }
+}
+
+/* Exastro Control Plane：大きく、回転する光の枠と発光で強調する */
+@property --cp-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.control-plane__node--core {
+  flex-grow: 1.7;
+  min-height: 8.5rem;
+  padding: 1.25rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 200, 255, 0.22), transparent 70%) padding-box,
+    linear-gradient(var(--color-deep-navy), var(--color-midnight-blue)) padding-box,
+    conic-gradient(from var(--cp-angle), var(--color-neon-cyan), var(--color-nebula-violet), var(--color-stellar-blue), var(--accentColor100), var(--color-neon-cyan)) border-box;
+  animation:
+    control-plane-spin 6s linear infinite,
+    control-plane-glow 3s ease-in-out infinite;
+}
+
+@keyframes control-plane-spin {
+  to { --cp-angle: 360deg; }
+}
+
+@keyframes control-plane-glow {
+  0%, 100% { box-shadow: 0 0 18px rgba(0, 200, 255, 0.25), 0 0 48px rgba(58, 123, 255, 0.15); }
+  50% { box-shadow: 0 0 28px rgba(0, 200, 255, 0.5), 0 0 72px rgba(58, 123, 255, 0.3); }
+}
+
+.control-plane__node--core .control-plane__node-en {
+  color: var(--color-accent);
+}
+
+.control-plane__node-name {
+  font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: var(--glow-cyan);
+}
+
+.control-plane__node--core .control-plane__node-ja {
+  color: var(--accentColor100);
+}
+
+/* ===== 8つの要素 ===== */
+.control-plane__title {
+  position: relative;
+  margin: clamp(2.5rem, 7vh, 4rem) 0 1.25rem;
+  padding-left: 1.2rem;
+  font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+.control-plane__title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background-color: var(--accentColor100);
+    border-radius: 4px;
+}
+
+.control-plane__title span {
+  display: inline-block;
+  color: var(--accentColor60);
+}
+
+.control-plane__features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.control-plane__feature {
+  border-left: 4px solid var(--mainColor100);
+  border-radius: 0 8px 8px 0;
+  background: rgba(17, 26, 46, 0.7);
+}
+
+.control-plane__feature:hover {
+  opacity: .8;
+}
+
+/* 開閉の高さアニメーション（::details-content 非対応のブラウザではそのまま開閉する） */
+.control-plane__feature::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size var(--cp-ease), content-visibility var(--cp-ease) allow-discrete;
+}
+
+.control-plane__feature[open]::details-content {
+  block-size: auto;
+}
+
+.control-plane__feature summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-radius: inherit;
+  list-style: none;
+}
+
+.control-plane__feature summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 右端の＋（開くと×に回る） */
+.control-plane__feature summary::after {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+  color: var(--color-text-muted);
+  transition: rotate var(--cp-ease), color var(--cp-ease);
+}
+
+.control-plane__feature[open] summary::after {
+  rotate: 135deg;
+}
+
+.control-plane__num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 2.4rem;
+  font-weight: normal;
+  line-height: 1;
+  color: rgba(255,255,255,.3);
+}
+
+.control-plane__label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.control-plane__en {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+}
+
+.control-plane__ja {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.control-plane__feature p {
+  margin: 0 1rem;
+  padding: 0.75rem 0 1rem;
+  border-top: 1px dashed var(--color-steel);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.control-plane__feature[open] p {
+  animation: control-plane-in 0.4s ease both;
+}
+
+@keyframes control-plane-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* ===== 列が狭いとき：流れを縦並び、要素を1列にする ===== */
+@container (max-width: 560px) {
+  .control-plane {
+    --cp-gap: 2rem;
+  }
+
+  .control-plane__flow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .control-plane__node {
+    flex: none;
+    min-height: 0;
+  }
+
+  .control-plane__node--core {
+    min-height: 0;
+    padding-block: 1.5rem;
+  }
+
+  /* 矢印を下向きにする */
+  .control-plane__node + .control-plane__node::before {
+    top: calc(var(--cp-gap) / -2);
+    right: auto;
+    left: 50%;
+    translate: -50% 0;
+    rotate: 90deg;
+  }
+
+  .control-plane__node + .control-plane__node::after {
+    --cp-dx: 0px;
+    --cp-dy: calc(var(--cp-gap) - 14px);
+    top: calc(var(--cp-gap) * -1 + 4px);
+    right: auto;
+    left: 50%;
+    margin: 0 0 0 -3px;
+  }
+
+  .control-plane__features {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== セクション4：実際のUI画面 =====
+ * 画面を横に並べ、下に ita.exastro.org へのボタンを置く。
+ * 画面は .ui-showcase__item を足すだけで増やせる（列数は幅に合わせて自動で決まり、番号も自動で振る）
+ */
+.ui-showcase {
+  width: 100%;
+}
+
+/* .section__body p の色指定を打ち消す */
+.ui-showcase p {
+  color: inherit;
+}
+
+/* ===== 画面の一覧 =====
+ * 1画面の最小幅（13rem）が入るだけ列を並べ、入りきらない分は次の行へ送る。
+ * 列数は最大3（広い画面でも4列以上にしない）
+ */
+.ui-showcase__list {
+  --us-gap: 1.75rem;
+  --us-cols-max: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, max(13rem, (100% - var(--us-gap) * (var(--us-cols-max) - 1)) / var(--us-cols-max))), 1fr));
+  gap: var(--us-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ui-showcase;
+}
+
+.ui-showcase__item {
+  counter-increment: ui-showcase;
+}
+
+.ui-showcase__figure {
+  margin: 0;
+}
+
+/* 画面の枠（ブラウザ風の上部バー付き） */
+.ui-showcase__shot {
+  position: relative;
+  overflow: hidden;
+  padding-top: 1.25rem;
+  border: 1px solid var(--color-steel);
+  border-radius: 8px;
+  background: var(--color-deep-navy);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
+}
+
+/* 上部バーの3つの丸 */
+.ui-showcase__shot::before {
+  content: "";
+  position: absolute;
+  top: 0.4375rem;
+  left: 0.625rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-steel);
+  box-shadow: 10px 0 0 var(--color-steel), 20px 0 0 var(--color-steel);
+}
+
+/* 画像とダミーの枠：どちらも 16:9 で表示する。
+   16:9 以外の画像は切り取らず、比率を保ったまま枠に収める（余白は枠の地の色） */
+.ui-showcase__shot img,
+.ui-showcase__placeholder {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+/* ダミー（グレーの枠）。画像を用意したら不要 */
+.ui-showcase__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: #3a3f4a;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  color: #9aa0ab;
+}
+
+/* ===== 画面の説明 ===== */
+.ui-showcase__caption {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 0.75rem;
+  row-gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ui-showcase__caption::before {
+  content: counter(ui-showcase, decimal-leading-zero);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.ui-showcase__label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.ui-showcase__en {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+}
+
+.ui-showcase__ja {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.ui-showcase__text {
+  grid-column: 1 / -1;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* ===== ita.exastro.org へのボタン ===== */
+.ui-showcase__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.5rem, 7vh, 4rem);
+}
+
+
+/* ===== セクション5：利用シーン =====
+ * 画像＋タイトル＋説明のブロックを並べる（見た目はセクション4の画面一覧にそろえる）。
+ * ブロックは .use-cases__item を足すだけで増やせる（列数は幅に合わせて自動で決まる）
+ */
+.use-cases {
+  width: 100%;
+}
+
+/* .section__body p の色指定を打ち消す */
+.use-cases p {
+  color: inherit;
+}
+
+/* ===== ブロックの一覧 =====
+ * 1ブロックの最小幅（13rem）が入るだけ列を並べ、入りきらない分は次の行へ送る。
+ * 列数は最大3（広い画面でも4列以上にしない）
+ */
+.use-cases__list {
+  --uc-gap: 1.75rem;
+  --uc-cols-max: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, max(13rem, (100% - var(--uc-gap) * (var(--uc-cols-max) - 1)) / var(--uc-cols-max))), 1fr));
+  gap: var(--uc-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 画像の枠 */
+.use-cases__image {
+  overflow: hidden;
+  border: 1px solid var(--color-steel);
+  border-radius: 8px;
+  background: var(--color-deep-navy);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
+}
+
+/* 画像とダミーの枠：どちらも 16:9 で表示する。
+   16:9 以外の画像は切り取らず、比率を保ったまま枠に収める（余白は枠の地の色） */
+.use-cases__image img,
+.use-cases__placeholder {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+/* ダミー（グレーの枠）。画像を用意したら不要 */
+.use-cases__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: #3a3f4a;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  color: #9aa0ab;
+}
+
+/* ===== タイトルと説明 ===== */
+.use-cases__title {
+  margin: 1rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+/* タイトルの前に付ける補足（例：シンプルモード） */
+.use-cases__tag {
+  padding-right: 8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accentColor100);
+}
+
+p.use-cases__text {
+  margin: 0.5rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* ===== 詳細へのリンク =====
+ * 説明文の長さが違っても、同じ行のブロックでリンクの高さがそろうよう下端に置く
+ */
+.use-cases__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.use-cases__more {
+    display: inline-flex;
+    /* 親（縦並びの flex）に横幅いっぱいへ伸ばされないよう、左寄せで内容の幅にする */
+    align-self: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.16rem 1.25rem;
+    border: 1px solid var(--mainColor60);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--mainColor60);
+    text-decoration: none;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+    margin-top: 16px;
+}
+
+.use-cases__more:hover,
+.use-cases__more:focus-visible {
+  color: var(--mainColor40);
+  border-color: var(--mainColor40);
+}
+
+.use-cases__more:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* 右向きの矢印（ホバーで右へ少し動く） */
+.use-cases__more-arrow {
+  width: 0.45em;
+  height: 0.45em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: translate 0.3s;
+}
+
+.use-cases__more:hover .use-cases__more-arrow,
+.use-cases__more:focus-visible .use-cases__more-arrow {
+  translate: 0.2em 0;
+}
+
+
+/* ===== セクション6：Exastroの進化（タイムライン） =====
+ * 年の目盛りを横線でつなぎ、その下に各段階をフィルムのコマのような枠で並べる。
+ * 古い年ほどセピア（琥珀色）寄り、最新の年（.evolution__item--now）だけシアンで光らせる。
+ * 狭い画面では左に縦線を引いて縦に並べる
+ */
+.evolution {
+  --ev-past: #ffb547;   /* 過去の段階の色（--color-warning-amber） */
+  --ev-now: #00c8ff;    /* 最新の段階の色（--color-neon-cyan） */
+  --ev-dot: 0.875rem;   /* 年の目盛りの点の大きさ */
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+/* .section__body p の色指定を打ち消す */
+.evolution p {
+  color: inherit;
+}
+
+.evolution__list {
+  --ev-gap: clamp(1rem, 2vw, 1.75rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ev-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 年をつなぐ横線（過去から現在へ色が移り、右端は矢印で先へ続く） */
+.evolution__list::before {
+  content: "";
+  position: absolute;
+  top: calc(2.75rem + var(--ev-dot) / 2);
+  right: -1.5rem;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 181, 71, 0.15), rgba(255, 181, 71, 0.6) 30%, rgba(0, 200, 255, 0.8) 85%, var(--ev-now));
+  translate: 0 -50%;
+}
+
+.evolution__list::after {
+  content: "";
+  position: absolute;
+  top: calc(2.75rem + var(--ev-dot) / 2);
+  right: -1.5rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 2px solid var(--ev-now);
+  border-right: 2px solid var(--ev-now);
+  transform: translateY(-50%) rotate(45deg);
+  filter: drop-shadow(0 0 4px var(--ev-now));
+}
+
+.evolution__item {
+  --ev-color: var(--ev-past);
+  display: flex;
+  flex-direction: column;
+}
+
+.evolution__item--now {
+  --ev-color: var(--ev-now);
+}
+
+/* ===== 年と目盛りの点 ===== */
+.evolution__year {
+  position: relative;
+  margin: 0;
+  padding-bottom: calc(var(--ev-dot) + 1.25rem);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--ev-color);
+}
+
+.evolution__item:not(.evolution__item--now) .evolution__year {
+  opacity: 0.8;
+}
+
+.evolution__item--now .evolution__year {
+  text-shadow: var(--glow-cyan);
+}
+
+/* 点は横線の上（年の数字の下）に置く */
+.evolution__year::after {
+  content: "";
+  position: absolute;
+  top: 2.75rem;
+  left: 0;
+  width: var(--ev-dot);
+  height: var(--ev-dot);
+  box-sizing: border-box;
+  border: 2px solid var(--ev-color);
+  border-radius: 50%;
+  background: var(--color-void);
+}
+
+/* 最新の年の点は塗りつぶし、ゆっくり脈打たせる */
+.evolution__item--now .evolution__year::after {
+  background: var(--ev-now);
+  box-shadow: var(--glow-cyan);
+  animation: evolution-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes evolution-pulse {
+  50% { box-shadow: 0 0 0 6px rgba(0, 200, 255, 0.15), var(--glow-cyan); }
+}
+
+/* ===== 各段階の枠（フィルムのコマ風：角を丸めた枠＋左上にコマ番号） ===== */
+.evolution__frame {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-left: 2px solid color-mix(in srgb, var(--ev-color) 35%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--ev-color) 35%, transparent);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--ev-color) 8%, transparent), transparent 60%),
+    rgba(13, 11, 8, 0.72);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+/* 最新の段階はセクション3の Exastro Control Plane と同じ見せ方にする：
+   回転する光の枠と発光（--cp-angle と各アニメーションは上の Exastro Control Plane の部分で定義） */
+.evolution__item--now .evolution__frame {
+  border: 2px solid transparent;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 200, 255, 0.22), transparent 70%) padding-box,
+    linear-gradient(var(--color-deep-navy), var(--color-midnight-blue)) padding-box,
+    conic-gradient(from var(--cp-angle), var(--color-neon-cyan), var(--color-nebula-violet), var(--color-stellar-blue), var(--accentColor100), var(--color-neon-cyan)) border-box;
+  animation:
+    control-plane-spin 6s linear infinite,
+    control-plane-glow 3s ease-in-out infinite;
+}
+
+.evolution__item--now .evolution__title {
+  color: #fff;
+  text-shadow: var(--glow-cyan);
+}
+
+/* ガードレールの見出しは、最新の段階でも他の年と同じ琥珀色にする */
+.evolution__item--now .evolution__guard-label {
+  color: var(--ev-past);
+}
+
+.evolution__stage {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--ev-color);
+}
+
+.evolution__no {
+  padding: 0.0625rem 0.375rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+.evolution__title {
+  margin: 0.875rem 0 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+p.evolution__text {
+  margin: 0.625rem 0 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* その段階で加わったガードレール（文章の長さが違っても枠の下端にそろえる） */
+p.evolution__guard {
+  margin: auto 0 0;
+  padding-top: 1rem;
+  border-top: 1px dashed color-mix(in srgb, var(--ev-color) 30%, transparent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.evolution__guard-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ev-color);
+}
+
+/* ===== 狭い画面：左に縦線を引いて縦に並べる ===== */
+@media (max-width: 1024px) {
+  .evolution__list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    padding-left: 2rem;
+  }
+
+  .evolution__list::before {
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: calc(var(--ev-dot) / 2);
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(255, 181, 71, 0.15), rgba(255, 181, 71, 0.6) 30%, rgba(0, 200, 255, 0.8) 85%, var(--ev-now));
+    translate: -50% 0;
+  }
+
+  .evolution__list::after {
+    top: auto;
+    right: auto;
+    bottom: -0.25rem;
+    left: calc(var(--ev-dot) / 2);
+    transform: translateX(-50%) rotate(135deg);
+  }
+
+  .evolution__year {
+    padding-bottom: 0.875rem;
+    font-size: 1.75rem;
+  }
+
+  /* 点は縦線の上（年の数字の左）に置く */
+  .evolution__year::after {
+    top: 50%;
+    left: -2rem;
+    margin-top: calc(var(--ev-dot) / -2 - 0.4375rem);
+  }
+}
+
+
+/* ===== セクション7：開発者メッセージ =====
+ * 上にメインのメッセージ（写真＋本文）、その下に開発者のメッセージを並べる。
+ * 開発者のメッセージは .message__item を足すだけで増やせる（列数は幅に合わせて自動で決まる）
+ */
+.message {
+  container-type: inline-size;
+  width: 100%;
+}
+
+/* .section__body p の色指定を打ち消す */
+.message p {
+  color: inherit;
+}
+
+/* ===== メインのメッセージ =====
+ * 広いときは本文を左、写真を右に並べ、狭いときは写真を上に置く
+ */
+.message__main {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 2px;
+  border-top: 4px solid var(--mainColor100);
+  background: 
+    radial-gradient(circle at bottom right, rgba(20, 200, 241, 0.1) 0%, rgba(20, 200, 241, 0) 40%),
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    rgba(17, 26, 46, 0.72);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
+}
+
+.message__main-photo {
+  grid-column: 2;
+  grid-row: 1;
+  overflow: hidden;
+  border: 1px solid var(--color-steel);
+  border-radius: 6px;
+}
+
+.message__main-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.message__main-body {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.message__main-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+
+.message__main-name {
+  display: inline-block;
+  margin-left: 1em;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+/* 見出しの下の一文 */
+p.message__main-catch {
+  margin: 1rem 0 0;
+  font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--accentColor100);
+}
+
+p.message__main-text {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--color-text-muted);
+}
+
+/* 全文へのリンク（見た目はセクション5の「詳細はこちら」にそろえる） */
+.message__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.31rem 1.25rem;
+    margin-top: 24px;
+    border: 1px solid var(--mainColor60);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--mainColor60);
+    text-decoration: none;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.message__more:hover,
+.message__more:focus-visible {
+  border-color: var(--mainColor40);
+    box-shadow: var(--mainColor40);
+    color: var(--mainColor40);
+}
+
+.message__more:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* 右向きの矢印（ホバーで右へ少し動く） */
+.message__more-arrow {
+  width: 0.45em;
+  height: 0.45em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: translate 0.3s;
+}
+
+.message__more:hover .message__more-arrow,
+.message__more:focus-visible .message__more-arrow {
+  translate: 0.2em 0;
+}
+
+/* ===== 開発者のメッセージ ===== */
+.message__others-title {
+  margin: clamp(2rem, 5vh, 3rem) 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+/* 1枚の最小幅（16rem）が入るだけ列を並べ、入りきらない分は次の行へ送る */
+.message__list {
+  display: grid;
+  /* 1列の最小幅を「16rem」と「3等分の幅」の大きい方にして、広い画面でも最大3列に抑える */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, max(16rem, (100% - 2rem) / 3)), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* カード全体をリンクにする（写真を左、文字を右に並べる） */
+.message__card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 100%;
+  padding: 0.875rem;
+  border: 1px solid var(--mainColor80);
+  border-radius: 4px;
+  background: 
+    radial-gradient(circle at bottom right, rgba(20, 200, 241, 0.1) 0%, rgba(20, 200, 241, 0) 40%),
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    rgba(17, 26, 46, 0.72);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s, translate 0.3s;
+}
+
+.message__card:hover,
+.message__card:focus-visible {
+  border-color: var(--mainColor60);
+  translate: 0 -2px;
+}
+
+.message__card:focus-visible {
+  outline: 2px solid var(--mainColor60);
+  outline-offset: 3px;
+}
+
+/* 写真（ホバーで少し拡大する） */
+.message__card-photo {
+  flex: none;
+  width: 5.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid var(--color-steel);
+}
+
+.message__card-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: scale 0.4s;
+}
+
+.message__card:hover .message__card-photo img,
+.message__card:focus-visible .message__card-photo img {
+  scale: 1.08;
+}
+
+.message__card-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.message__card-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accentColor100);
+}
+
+.message__card-product {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.message__card-catch {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.message__card-name {
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+/* ===== 狭い幅：メインのメッセージは写真を上に置いて縦に並べる ===== */
+@container (max-width: 36rem) {
+  .message__main {
+    grid-template-columns: 1fr;
+  }
+
+  .message__main-photo,
+  .message__main-body {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+
+/* ===== 開発者メッセージの個別ページ（message/index.html） =====
+ * 左の見出しにパンくず（style.css）・タイトル・リード・著者、右に本文・プロフィール・他のメッセージを置く。
+ * 見出しは本文を読んでいる間も画面に固定される（.section__head の sticky）
+ */
+
+/* 見出しの下の著者 */
+.message-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.message-author__photo {
+  flex: none;
+  width: 4rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--color-steel);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.message-author__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  line-height: 1.6;
+}
+
+.message-author__name {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.message-author__position {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* 本文：メインのメッセージと同じパネルに載せる */
+.message-article {
+  display: grid;
+  gap: clamp(2rem, 5vh, 3rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-top: 4px solid var(--mainColor100);
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at bottom right, rgba(20, 200, 241, 0.1) 0%, rgba(20, 200, 241, 0) 40%),
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    rgba(17, 26, 46, 0.72);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
+  font-size: 0.9375rem;
+}
+
+.message-article__block {
+  display: grid;
+  gap: 1rem;
+}
+
+.message-article__heading {
+  padding-left: 0.875rem;
+  border-left: 3px solid var(--mainColor80);
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+
+.message-article__subheading {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--accentColor100);
+}
+
+/* 著者のプロフィール（本文の最後） */
+.message-profile {
+  display: flex;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  align-items: flex-start;
+  padding-top: clamp(1.5rem, 4vh, 2.5rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.message-profile__photo {
+  flex: none;
+  width: clamp(5rem, 10vw, 7rem);
+  aspect-ratio: 1;
+  border: 1px solid var(--color-steel);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.message-profile__body {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.section__body .message-profile__position {
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.section__body .message-profile__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+}
+
+.message-profile__text {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.9;
+}
+
+/* 他のメッセージの見出しは本文との間を広めに取る。戻るリンクは右寄せ */
+.message-article + .message .message__others-title {
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+}
+
+.message-article + .message {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-article + .message .message__more {
+  align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .message-profile {
+    flex-direction: column;
+  }
+}
+
+/* ===== セクション8：最新ニュース =====
+ * 上に最新リリース（1件だけ）、その下に記事・ニュースへのリンクを並べる。
+ * 最新リリースの枠は、上端を光が流れ続け「今も動いている」ことを見せる
+ */
+.latest {
+  width: 100%;
+}
+
+/* .section__body p の色指定を打ち消す */
+.latest p {
+  color: inherit;
+}
+
+/* ===== 最新リリース ===== */
+.latest__release {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 2px;
+  border-left: 4px solid var(--mainColor100);
+  background: 
+    radial-gradient(circle at top right, rgba(20, 200, 241, 0.1) 0%, rgba(20, 200, 241, 0) 40%),
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    rgba(17, 26, 46, 0.72);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
+  /* isolation で背景ロゴ（::before）を中身の後ろ・カードの中に収める */
+  isolation: isolate;
+}
+
+/* カードの右下にロゴマークを薄く敷く */
+.latest__release::before {
+  content: "";
+  position: absolute;
+  right: clamp(1rem, 3vw, 1.0rem);
+  bottom: clamp(1rem, 3vw, 1.0rem);
+  z-index: -1;
+  width: 50%;
+  aspect-ratio: 440 / 300;
+  background: url("../images/Exastro-logo2-white-rgb.svg") no-repeat right bottom / contain;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* 「Latest Release」の前の点（電波のように広がる輪で、生きていることを示す） */
+p.latest__label {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accentColor100);
+}
+
+.latest__live {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accentColor100);
+  box-shadow: 0 0 8px var(--accentColor100);
+}
+
+.latest__live::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accentColor100);
+  animation: latest-live 1.8s ease-out infinite;
+}
+
+@keyframes latest-live {
+  from { scale: 1; opacity: 0.9; }
+  to   { scale: 3.2; opacity: 0; }
+}
+
+.latest__title {
+  margin: 1rem 0 0;
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+/* バージョン番号は大きく光らせる */
+.latest__version {
+  display: inline-block;
+  margin-inline: 0.15em;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  vertical-align: -0.12em;
+  background: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.35));
+}
+
+p.latest__date {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+/* ===== リリースノート・GitHub へのボタン ===== */
+.latest__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.latest__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.31rem 1.25rem;
+  border: 1px solid var(--mainColor60);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mainColor60);
+  text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.latest__button svg {
+  fill: currentColor;
+}
+
+.latest__button--primary {
+  border-color: var(--mainColor60);
+  color: var(--mainColor60);
+}
+
+.latest__button:hover,
+.latest__button:focus-visible {
+  border-color: var(--mainColor40);
+  box-shadow: var(--mainColor40);
+}
+
+.latest__button:focus-visible {
+  outline: 2px solid var(--accentColor100);
+  outline-offset: 3px;
+}
+
+/* 右向きの矢印（ホバーで右へ少し動く） */
+.latest__arrow {
+  width: 0.45em;
+  height: 0.45em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: translate 0.3s;
+}
+
+.latest__button:hover .latest__arrow,
+.latest__button:focus-visible .latest__arrow {
+  translate: 0.2em 0;
+}
+
+/* ===== 記事・ニュースへのリンク ===== */
+.latest__news-title {
+  margin: clamp(2rem, 5vh, 3rem) 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+.latest__news {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid rgba(0,43,98,.6);
+}
+
+.latest__news-item {
+    border-bottom: 2px solid rgba(0,43,98,.6);
+}
+
+/* 日付・種類・タイトルを1行に並べる（タイトルが長いときはタイトルだけ折り返す） */
+.latest__news-link {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  padding: 1rem 2rem 1rem 0.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background-color 0.3s;
+  opacity: .8;
+  background-color: rgba(0,0,0,.3);
+}
+.latest__news-link:hover {
+    opacity: 1;
+}
+
+/* 右端の矢印（ホバーで右へ少し動く） */
+.latest__news-link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  width: 0.45em;
+  height: 0.45em;
+  margin-top: -0.225em;
+  border-top: 2px solid var(--mainColor60);
+  border-right: 2px solid var(--mainColor60);
+  transform: rotate(45deg);
+  transition: translate 0.3s, border-color 0.3s;
+}
+
+.latest__news-link:hover::after,
+.latest__news-link:focus-visible::after {
+  translate: 0.2em 0;
+  opacity: 1;
+}
+
+.latest__news-link:focus-visible {
+  outline: 2px solid var(--accentColor100);
+  outline-offset: -2px;
+}
+
+.latest__news-date {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.latest__news-tag {
+  min-width: 4.5rem;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--accentColor100);
+  border-radius: 8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--accentColor100);
+}
+
+.latest__news-text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.latest__news-link:hover .latest__news-text,
+.latest__news-link:focus-visible .latest__news-text {
+  color: #FFF;
+}
+
+/* 狭い画面：日付と種類を上の行、タイトルを下の行に置く */
+@media (max-width: 560px) {
+  .latest__news-link {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .latest__news-text {
+    grid-column: 1 / -1;
+  }
+
+  .latest__news-tag {
+    justify-self: start;
+  }
+}
+
+
+/* ===== セクション9：Get Started =====
+ * 最後のセクション。見出しを中央に置き、その下に目的別の次の一歩（GitHub・ドキュメント・お問い合わせ）を並べる。
+ * 背景は下から光が差すようにし、ページの締めくくりとして目立たせる
+ */
+.section--finale {
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-content: center;
+  overflow: clip;
+}
+
+/* 下から差す光（ゆっくり明滅する） */
+.section--finale .section__body::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 70%;
+  background:
+    radial-gradient(60% 80% at 50% 100%, rgba(0, 200, 255, 0.22), transparent 70%),
+    radial-gradient(40% 60% at 50% 100%, rgba(108, 61, 244, 0.25), transparent 70%);
+  pointer-events: none;
+  animation: get-started-glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes get-started-glow {
+  from { opacity: 0.6; }
+  to   { opacity: 1; }
+}
+
+/* 見出しは中央にそろえる（sticky にしない） */
+.section--finale .section__head {
+  position: static;
+  align-items: center;
+  height: auto;
+  padding-top: clamp(4rem, 14vh, 8rem);
+  text-align: center;
+}
+
+.section--finale .section__lead {
+  max-width: 40rem;
+}
+
+.section--finale .section__body {
+  padding-top: clamp(2.5rem, 6vh, 4rem);
+}
+
+/* ===== 目的別のカード ===== */
+.get-started {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* カード全体をリンクにする */
+.get-started__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-left: 2px solid var(--color-steel);
+  border-right: 2px solid var(--color-steel);
+  border-radius: 8px;
+  background: radial-gradient(circle at top right, rgba(20, 200, 241, 0.1) 0%, rgba(20, 200, 241, 0) 40%), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)), rgba(17, 26, 46, 0.72);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08), 0 0 32px rgba(0,0,0,.8) inset;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s, translate 0.3s;
+}
+
+.get-started__card:hover,
+.get-started__card:focus-visible {
+  border-color: var(--mainColor60);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 32px rgba(51,85,129, 0.25), 0 0 16px rgba(0,0,0,.6) inset;
+  translate: 0 -4px;
+}
+
+.get-started__card:hover::after,
+.get-started__card:focus-visible::after {
+  opacity: 1;
+}
+
+.get-started__card:focus-visible {
+  outline: 2px solid var(--mainColor60);
+  outline-offset: 3px;
+}
+
+/* 右上の番号（縁取りの大きな数字） */
+.get-started__step {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255,255,255,.2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* アイコン（GitHub は塗り、ほかは線で描く） */
+.get-started__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  fill: none;
+  stroke: rgba(255,255,255,.8);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.get-started__icon--fill {
+  fill: rgba(255,255,255,.8);
+  stroke: none;
+}
+
+/* 誰向けか（目的） */
+.get-started__purpose {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accentColor100);
+}
+
+.get-started__title {
+  margin-top: 0.25rem;
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+}
+
+.get-started__text {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* 下端に置く行動の文言（説明文の長さが違っても高さをそろえる） */
+.get-started__action {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 32px;
+  padding: 0.16rem 1.25rem;
+    border: 1px solid var(--mainColor60);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--mainColor60);
+    text-decoration: none;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+.get-started__card:hover .get-started__action {
+    border: 1px solid var(--mainColor40);
+    color: var(--mainColor40);
+}
+
+/* 外部リンクの矢印（右上向き・ホバーで右上へ少し動く。セクション1のボタンにそろえる） */
+.get-started__external {
+  flex: none;
+  width: 0.75em;
+  height: 0.75em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+  transition: transform 0.3s;
+}
+
+.get-started__card:hover .get-started__external,
+.get-started__card:focus-visible .get-started__external {
+  transform: translate(0.15em, -0.15em);
+}
+
+
+/* ===== フッター =====
+ * 上から順に：ロゴと説明／ページ内リンクと SNS／別コンテンツのメニュー／コピーライト
+ */
+.site-footer {
+  /* 左右の余白はセクションとそろえる（右は右端のスクロールメモリと重ならないよう広めに取る） */
+  --footer-pad: clamp(1.5rem, 6vw, 6rem);
+  position: relative;
+  padding: clamp(3rem, 8vh, 5rem) max(var(--footer-pad), var(--meter-space)) 1.25rem var(--footer-pad);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-void);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* 上端に光る線を引く */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: min(40rem, 80%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  transform: translateX(-50%);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: clamp(2rem, 5vh, 3rem);
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-bottom: 0.4rem;
+}
+
+/* ===== ロゴと説明 ===== */
+.site-footer__brand {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 36rem;
+}
+
+.site-footer__logo {
+  justify-self: start;
+}
+
+.site-footer__logo img {
+  width: auto;
+  height: 2.25rem;
+  transition: filter 0.2s;
+}
+
+.site-footer__logo:hover img {
+  filter: drop-shadow(0 0 6px rgba(0, 200, 255, 0.6));
+}
+
+.site-footer__desc {
+  line-height: 1.9;
+}
+
+/* ===== ページ内リンクと SNS ===== */
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 1.25rem;
+  border-block: 1px solid var(--color-border);
+}
+
+.footer-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem clamp(1rem, 2vw, 1.75rem);
+}
+
+.footer-nav__link {
+  position: relative;
+  display: block;
+  padding-block: 0.25rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+
+/* ホバー時に下から光る線を伸ばす（ヘッダーと同じ） */
+.footer-nav__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.0625rem;
+  left: 0;
+  height: 1px;
+  background: var(--accentColor100);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.footer-nav__link:hover {
+  color: var(--color-text);
+}
+
+.footer-nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* SNS：アイコンと名前を並べる */
+.footer-sns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-sns__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.footer-sns__link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.footer-sns__link:hover {
+  color: var(--accentColor60);
+  border-color: var(--accentColor60);
+  background-color: rgba(0, 200, 255, 0.08);
+}
+
+/* ===== 別コンテンツのメニュー ===== */
+.footer-related {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 2rem clamp(1.5rem, 3vw, 3rem);
+}
+
+.footer-related__title {
+  margin-bottom: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-text);
+}
+
+.footer-related__list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-related__link {
+  font-size: 0.8125rem;
+  transition: color 0.2s;
+}
+
+.footer-related__link:hover {
+  color: var(--mainColor60);
+}
+
+/* ===== コピーライト ===== */
+.site-footer__copyright {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.site-footer__copyright small {
+  font-size: inherit;
+}
+
+/* 狭い画面では、ページ内リンクと SNS を縦に並べる */
+@media (max-width: 768px) {
+  .site-footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
