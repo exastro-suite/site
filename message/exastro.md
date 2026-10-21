@@ -3,6 +3,9 @@ layout: message
 message_id: exastro
 title: "Exastroにかける夢（吉田 功一）| 開発者メッセージ"
 description: "システムはどんどん複雑化し、人材はどんどん減ってゆく。Exastroの開発者 吉田 功一が、開発のきっかけ、Agentic AIへの挑戦、OSSで公開することへのこだわりを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/exastro_en.html
 profile:
   - "2006年入社。京都大学大学院エネルギー科学研究科卒業。"
   - "NEC入社後、主に大規模通信キャリアのシステムアーキテクチャー設計、開発プロセス設計、運用プロセス設計に従事。"

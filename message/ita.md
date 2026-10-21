@@ -3,6 +3,9 @@ layout: message
 message_id: ita
 title: "Exastro IT Automation（脇谷 徹）| 開発者メッセージ"
 description: "開発の発想をカタチにしたExastroの原点。Exastro IT Automationの開発者 脇谷 徹が、大切にしていることと目指すものを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/ita_en.html
 detail_url: https://exastro-suite.github.io/it-automation-docs/index_ja.html
 ---
 ## どんなツール？

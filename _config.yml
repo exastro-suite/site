@@ -18,6 +18,11 @@ ita_docs_version: "2.9"
 # 指定しないとテーマの assets/css/style.scss が assets/css/style.css を上書きする
 theme: null
 
+# リニューアル前の URL から新しいページへ転送する（GitHub Pages で使えるプラグイン。github-pages gem に入っている）
+# 転送元は転送先ページの front matter の redirect_from に書く
+plugins:
+  - jekyll-redirect-from
+
 # 出力しないファイル（_ や . で始まるものは指定しなくても出力されない）
 exclude:
   - README.md

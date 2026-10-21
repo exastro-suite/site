@@ -3,6 +3,9 @@ layout: message
 message_id: epoch
 title: "Exastro EPOCH | 開発者メッセージ"
 description: "自分たちが苦労している今の状況を解決してこそExastro。Exastro EPOCHの開発者が、大切にしていることと目指すものを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/epoch_en.html
 ---
 ## どんなツール？
 

@@ -3,6 +3,9 @@ layout: message
 message_id: oase
 title: "Exastro OASE | 開発者メッセージ"
 description: "24時間気が抜けない運用の現場をなんとかしたい。Exastro OASEの開発者が、大切にしていることと目指すものを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/oase_en.html
 ---
 ## どんなツール？
 
