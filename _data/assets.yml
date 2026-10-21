@@ -1,0 +1,119 @@
+# Assets ページ（/assets/）のロゴ一覧。上から順に表示する
+# id：ロゴのフォルダ（assets/logo/<id>/）とページ内リンクの id（asset-<id>）、nav：ページ内リンクに出す短い名前
+# file：ファイル名から拡張子と -rgb を除いたもの。PNG・SVG は <file>-rgb、EPS は <file>-cmyk.eps
+# eps：EPS のファイル名が上の決まりと違うときに書く
+# white: true は白抜きのロゴ（暗い背景で表示する）
+
+- id: exastro
+  nav: Exastro
+  title: Exastro
+  groups:
+    - title: Logomark & Logotype
+      logos:
+        - file: Exastro-logo1
+        - file: Exastro-logo2
+        - file: Exastro-logo1-white
+          white: true
+        - file: Exastro-logo2-white
+          white: true
+    - title: Logomark
+      logos:
+        - file: Exastro-logomark1
+        - file: Exastro-logomark2
+        - file: Exastro-logomark1-white
+          white: true
+        - file: Exastro-logomark2-white
+          white: true
+    - title: Logotype
+      logos:
+        - file: Exastro-logotype
+        - file: Exastro-logotype-white
+          white: true
+
+- id: ita
+  nav: ITA
+  title: Exastro IT Automation
+  groups:
+    - title: Logomark & Logotype
+      logos:
+        - file: Exastro-ITA-logo1
+        - file: Exastro-ITA-logo2
+        - file: Exastro-ITA-logo1-white
+          white: true
+        - file: Exastro-ITA-logo2-white
+          white: true
+    - title: Logotype
+      logos:
+        - file: Exastro-ITA-logotype
+        - file: Exastro-ITA-logotype-white
+          white: true
+        - file: Exastro-ITA-logotype2
+          eps: Exastro-ITA-logotype2-rgb.eps
+        - file: Exastro-ITA-logotype2-white
+          eps: Exastro-ITA-logotype2-white-rgb.eps
+          white: true
+
+- id: pbc
+  nav: PBC
+  title: Exastro Playbook Collection
+  groups:
+    - title: Logomark & Logotype
+      logos:
+        - file: Exastro-PBC-logo1
+        - file: Exastro-PBC-logo2
+        - file: Exastro-PBC-logo1-white
+          white: true
+        - file: Exastro-PBC-logo2-white
+          white: true
+    - title: Logotype
+      logos:
+        - file: Exastro-PBC-logotype1
+        - file: Exastro-PBC-logotype1-white
+          white: true
+        - file: Exastro-PBC-logotype2
+        - file: Exastro-PBC-logotype2-white
+          white: true
+
+- id: oase
+  nav: OASE
+  title: Exastro Operation Autonomy Support Engine
+  groups:
+    - title: Logomark & Logotype
+      logos:
+        - file: Exastro-OASE-logo1
+        - file: Exastro-OASE-logo2
+        - file: Exastro-OASE-logo1-white
+          white: true
+        - file: Exastro-OASE-logo2-white
+          white: true
+    - title: Logotype
+      logos:
+        - file: Exastro-OASE-logotype
+        - file: Exastro-OASE-logotype-white
+          white: true
+        - file: Exastro-OASE-logotype2
+          eps: Exastro-OASE-logotype2-rgb.eps
+        - file: Exastro-OASE-logotype2-white
+          eps: Exastro-OASE-logotype2-white-rgb.eps
+          white: true
+
+- id: epoch
+  nav: EPOCH
+  title: Exastro EPOCH
+  groups:
+    - title: Logomark & Logotype
+      logos:
+        - file: Exastro-EPOCH-logo1
+        - file: Exastro-EPOCH-logo2
+        - file: Exastro-EPOCH-logo1-white
+          white: true
+        - file: Exastro-EPOCH-logo2-white
+          white: true
+    - title: Logotype
+      logos:
+        - file: Exastro-EPOCH-logotype1
+        - file: Exastro-EPOCH-logotype1-white
+          white: true
+        - file: Exastro-EPOCH-logotype2
+        - file: Exastro-EPOCH-logotype2-white
+          white: true

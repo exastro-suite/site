@@ -1,0 +1,48 @@
+  <!-- フッター：ロゴと説明／ページ内リンクと SNS／別コンテンツのメニュー／コピーライト（assets/css/sections.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="{{ logo_href }}" aria-label="Exastro トップへ戻る">
+          <img src="{{ '/assets/images/Exastro-logo2-white-rgb.svg' | relative_url }}" alt="Exastro" width="1280" height="300" loading="lazy">
+        </a>
+        <p class="site-footer__desc">Exastro is the open source execution control plane for governed automation across the system lifecycle.</p>
+      </div>
+
+      <div class="site-footer__links">
+        <nav class="footer-nav" aria-label="フッターのページ内リンク">
+          <ul class="footer-nav__list">
+          {% for item in site.data.navigation %}
+          <li><a class="footer-nav__link" href="{% if item.url %}{{ item.url | relative_url }}{% else %}{{ nav_base }}#{{ item.id }}{% endif %}">{{ item.title }}</a></li>
+          {% endfor %}
+          </ul>
+        </nav>
+
+        <!-- SNS（_data/social.yml） -->
+        <ul class="footer-sns" aria-label="SNS">
+          {%- for sns in site.data.social %}
+          <li>
+            <a class="footer-sns__link" href="{{ sns.url }}" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="{{ sns.icon }}"/></svg>{{ sns.name }}
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <!-- 関連コンテンツのメニュー（_data/footer_links.yml） -->
+      <nav class="footer-related" aria-label="関連コンテンツ">
+      {%- for group in site.data.footer_links %}
+      <div class="footer-related__group">
+        <h2 class="footer-related__title">{{ group.title }}</h2>
+        <ul class="footer-related__list">
+          {%- for link in group.links %}
+          <li><a class="footer-related__link" href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+      </nav>
+
+      <p class="site-footer__copyright"><small>&copy; NEC Corporation 2019-2026</small></p>
+    </div>
+  </footer>

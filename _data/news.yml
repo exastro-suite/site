@@ -1,0 +1,16 @@
+# お知らせ（トップページと /latest/ の Latest セクションに表示。_includes/latest.html）
+
+# 最新リリース：過去のリリースは載せず、最新の1件だけを書き換える
+release:
+  product: Exastro IT Automation
+  version: v2.10
+  date: Coming soon
+  notes_url: https://github.com/exastro-suite/exastro-it-automation/releases#release-2.9.0
+  github_url: https://github.com/exastro-suite/exastro-it-automation
+
+# News & Articles：新しい順に上から書く。tag は News / Article / Event
+items:
+  - date: 2026-09-30
+    tag: News
+    title: ダミー：ニュースのタイトルがここに入ります
+    url: "#"

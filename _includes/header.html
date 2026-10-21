@@ -1,0 +1,48 @@
+  <!-- 固定ヘッダー：左にロゴ（トップへ戻る）とページ内リンク、右に言語切り替えとSNS -->
+  <header class="site-header">
+    <a class="site-header__logo" href="{{ logo_href }}" aria-label="Exastro トップへ戻る">
+      <img src="{{ '/assets/images/Exastro-logo2-white-rgb.svg' | relative_url }}" alt="Exastro" width="1280" height="300">
+    </a>
+
+    <!-- 狭い画面ではメニューボタンで開閉する（assets/js/main.js） -->
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <div class="site-header__menu" id="site-nav">
+      <nav class="site-nav" aria-label="ページ内リンク">
+        <ul class="site-nav__list">
+          {% for item in site.data.navigation %}
+          <li><a class="site-nav__link" href="{% if item.url %}{{ item.url | relative_url }}{% else %}{{ nav_base }}#{{ item.id }}{% endif %}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="site-header__tools">
+        <!-- 言語切り替え（英語版を用意したら href を差し替える） -->
+         <!--
+        <ul class="lang-switch" aria-label="言語">
+          <li><a class="lang-switch__link" href="{{ '/' | relative_url }}" lang="ja" aria-current="true">JA</a></li>
+          <li><a class="lang-switch__link" href="{{ '/en/' | relative_url }}" lang="en" hreflang="en">EN</a></li>
+        </ul>
+        -->
+
+        <!-- アニメーションのオン／オフ（assets/js/main.js の initMotionToggle） -->
+        <button class="motion-toggle" type="button" aria-pressed="true" aria-label="アニメーション" title="アニメーションを止める">
+          <span class="motion-toggle__label" aria-hidden="true">Motion</span>
+          <span class="motion-toggle__switch" aria-hidden="true"></span>
+        </button>
+
+        <!-- SNS（_data/social.yml） -->
+        <ul class="social-links" aria-label="SNS">
+          {%- for sns in site.data.social %}
+          <li>
+            <a class="social-links__link" href="{{ sns.url }}" target="_blank" rel="noopener" aria-label="{{ sns.name }}">
+              <svg viewBox="0 0 24 24" width="{{ sns.size }}" height="{{ sns.size }}" aria-hidden="true"><path d="{{ sns.icon }}"/></svg>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </header>

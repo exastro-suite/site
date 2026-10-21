@@ -1,0 +1,28 @@
+# フッターの関連コンテンツのメニュー（リニューアル前のサイトのフッターから移植）。上から順に左から並べる
+- title: IT Automation Ver.2
+  links:
+    - title: Home
+      url: https://ita.exastro.org/
+    - title: Install
+      url: https://ita-docs.exastro.org/ja/latest/installation/
+    - title: Manual
+      url: https://ita-docs.exastro.org/ja/latest/manuals/
+    - title: Quickstart
+      url: https://ita-docs.exastro.org/ja/latest/learn/quickstart/index.html
+    - title: Learn
+      url: https://ita-docs.exastro.org/ja/latest/learn/
+    - title: Documents
+      url: https://ita-docs.exastro.org/
+    - title: Templates
+      url: https://ita-docs.exastro.org/ja/latest/templates/index.html
+
+- title: Playbook Collection
+  links:
+    - title: Readme
+      url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md
+    - title: Ansible Role Templates
+      url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_templates/README.md
+    - title: Ansible Role Packages
+      url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md
+    - title: Ansible Roles
+      url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_roles/README.md

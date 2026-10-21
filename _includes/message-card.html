@@ -1,0 +1,28 @@
+{%- comment -%}
+  開発者メッセージのカード1枚。include のパラメータ item に _data/messages.yml の1件を渡す
+  サイト内の記事は同じタブ、リニューアル前のサイトは別タブで開く
+  url がなければリンクにせず、name がなければ名前を出さない。class を書くと li に足す（coming soon などの見た目の調整用）
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign head = item.url | slice: 0 -%}
+            <li class="message__item{% if item.class %} {{ item.class }}{% endif %}">
+              {%- if item.url %}
+              <a class="message__card" {% if head == "/" %}href="{{ item.url | relative_url }}"{% else %}href="{{ item.url }}" target="_blank" rel="noopener"{% endif %}>
+              {%- else %}
+              <div class="message__card message__card--no-link">
+              {%- endif %}
+                <span class="message__card-photo"><img src="{{ item.photo | relative_url }}" alt="" width="640" height="480" loading="lazy"></span>
+                <span class="message__card-body">
+                  <span class="message__card-label">開発者メッセージ</span>
+                  <span class="message__card-product">{{ item.product }}</span>
+                  <span class="message__card-catch">{{ item.catch }}</span>
+                  {%- if item.name %}
+                  <span class="message__card-name">{{ item.name }}</span>
+                  {%- endif %}
+                </span>
+              {%- if item.url %}
+              </a>
+              {%- else %}
+              </div>
+              {%- endif %}
+            </li>

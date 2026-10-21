@@ -1,0 +1,25 @@
+---
+title: "開発者メッセージ"
+description: "現場の苦労を、なんとかしたい。Exastroの各プロダクトは、運用・開発の現場に立つ開発者たちの、そんな思いから生まれました。"
+---
+    <!-- 開発者メッセージの一覧ページ。いまはトップページのセクションと同じ内容（ここから一覧ページ用に作り込む） -->
+    <section class="section" id="vision">
+      <!-- 背景：方眼と大きな引用符（CSS のみ） -->
+      <div class="section-note" aria-hidden="true"></div>
+{% include section-words.html %}
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="現在地">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
+            <li aria-current="page">開発者メッセージ</li>
+          </ol>
+        </nav>
+        <h2 class="section__title">開発者メッセージ</h2>
+        <h3 class="section__subtitle">Vision</h3>
+        <p class="section__lead">現場の苦労を、なんとかしたい。Exastroの各プロダクトは、運用・開発の現場に立つ開発者たちの、そんな思いから生まれました。</p>
+      </div>
+      <div class="section__body">
+{% include message-list.html %}
+      </div>
+    </section>

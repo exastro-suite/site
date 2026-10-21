@@ -1,0 +1,24 @@
+---
+title: "利用シーン"
+description: "日々の運用から開発のパイプライン、既存システムの構築まで。きっかけに合わせて、同じしくみで統制して実行します。"
+---
+    <!-- 利用シーンの個別ページ。いまはトップページのセクションと同じ内容（ここから個別ページ用に作り込む） -->
+    <section class="section section--live section--reverse" id="use-cases">
+      <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
+      <div class="section-live" aria-hidden="true"></div>
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="現在地">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
+            <li aria-current="page">利用シーン</li>
+          </ol>
+        </nav>
+        <h2 class="section__title">利用シーン</h2>
+        <h3 class="section__subtitle">Exastro Suite</h3>
+        <p class="section__lead">日々の運用から開発のパイプライン、既存システムの構築まで。きっかけに合わせて、同じしくみで統制して実行します。</p>
+      </div>
+      <div class="section__body">
+{% include use-cases.html %}
+      </div>
+    </section>

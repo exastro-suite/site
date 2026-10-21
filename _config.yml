@@ -1,0 +1,31 @@
+# サイト全体の設定（変更したら jekyll serve を再起動する）
+title: Exastro
+lang: ja
+
+# url は GitHub Pages のビルド時に CNAME のドメインから自動で入る（site-dev / site で別ドメインのため書かない）
+baseurl: ""
+
+# GitHub Pages のデフォルトテーマ（Primer）を使わない。
+# 指定しないとテーマの assets/css/style.scss が assets/css/style.css を上書きする
+theme: null
+
+# 出力しないファイル（_ や . で始まるものは指定しなくても出力されない）
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - init.sh
+  - start-autobuild.sh
+  - serve.sh
+  - site.code-workspace
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Markdown の見出しに id を自動で付けない（記事ページは _layouts/message.html で見出しにクラスを付ける）
+kramdown:
+  auto_ids: false

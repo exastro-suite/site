@@ -1,0 +1,25 @@
+        <!-- 利用シーン（assets/css/sections.css）。内容は _data/use_cases.yml で書き換える。クリックで image_large を拡大表示（assets/js/main.js の initImageDialog） -->
+        <div class="use-cases">
+          <ul class="use-cases__list">
+            {%- for item in site.data.use_cases %}
+            {%- if item.tag %}
+              {%- capture label %}（{{ item.tag }}）{{ item.title }}{% endcapture %}
+            {%- else %}
+              {%- assign label = item.title %}
+            {%- endif %}
+            {%- assign href = item.url %}
+            {%- assign head = item.url | slice: 0 %}
+            {%- if head == "/" %}{% assign href = item.url | relative_url %}{% endif %}
+            <li class="use-cases__item">
+              <div class="use-cases__image">
+                <button class="image-zoom" type="button"{% if item.image_large %} data-full="{{ item.image_large | relative_url }}"{% endif %} aria-label="{{ item.title }}のイメージを拡大表示"><img src="{{ item.image | relative_url }}" alt="{{ item.title }}のイメージ" width="960" height="540" loading="lazy"></button>
+              </div>
+              <h4 class="use-cases__title">{% if item.tag %}<span class="use-cases__tag">{{ item.tag }}</span>{% endif %}{{ item.title }}</h4>
+              <p class="use-cases__text">{{ item.text }}</p>
+              {%- if item.url %}
+              <a class="use-cases__more" href="{{ href }}" aria-label="{{ label }}の詳細はこちら">詳細はこちら<span class="use-cases__more-arrow" aria-hidden="true"></span></a>
+              {%- endif %}
+            </li>
+            {%- endfor %}
+          </ul>
+        </div>

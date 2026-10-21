@@ -1,0 +1,24 @@
+---
+title: "Latest"
+description: "Exastroは、今この瞬間も開発が続いているオープンソースです。コードもリリースもGitHubで公開し、新しい機能を届け続けています。"
+---
+    <!-- Latestの個別ページ。いまはトップページのセクションと同じ内容（ここから個別ページ用に作り込む） -->
+    <section class="section section--reverse" id="latest">
+      <!-- 背景：コントリビューショングラフのマス目とコミットの履歴（CSS のみ） -->
+      <div class="section-commits" aria-hidden="true"></div>
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="現在地">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
+            <li aria-current="page">Latest</li>
+          </ol>
+        </nav>
+        <h2 class="section__title">進化し続ける、<span class="section__marker">オープンソース。</span></h2>
+        <h3 class="section__subtitle">Latest</h3>
+        <p class="section__lead">Exastroは、今この瞬間も開発が続いているオープンソースです。コードもリリースもGitHubで公開し、新しい機能を届け続けています。</p>
+      </div>
+      <div class="section__body">
+{% include latest.html %}
+      </div>
+    </section>
