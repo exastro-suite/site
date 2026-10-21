@@ -5,6 +5,11 @@ lang: ja
 # url は GitHub Pages のビルド時に CNAME のドメインから自動で入る（site-dev / site で別ドメインのため書かない）
 baseurl: ""
 
+# 本番の URL。site.url がこれと同じときだけ Google Analytics を読み込み、検索エンジンに登録させる（ステージング・ローカルは noindex）
+production_url: https://www.exastro.org
+# Google Analytics（GA4）の測定 ID
+google_analytics: G-WBCJN1M2CG
+
 # GitHub Pages のデフォルトテーマ（Primer）を使わない。
 # 指定しないとテーマの assets/css/style.scss が assets/css/style.css を上書きする
 theme: null

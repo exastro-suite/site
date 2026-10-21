@@ -1,5 +1,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- comment %} 本番（GitHub Pages のビルドで site.url のドメインが _config.yml の production_url と同じ）かどうか。http / https の違いは見ない {% endcomment %}
+  {%- assign is_production = false %}
+  {%- assign site_host = site.url | remove_first: "https://" | remove_first: "http://" | split: "/" | first %}
+  {%- assign production_host = site.production_url | remove_first: "https://" | remove_first: "http://" | split: "/" | first %}
+  {%- if jekyll.environment == "production" and site_host == production_host %}
+    {%- assign is_production = true %}
+  {%- endif %}
+  {%- if is_production and site.google_analytics %}
+
+  <!-- Google tag (gtag.js)：本番のみ。測定 ID は _config.yml の google_analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {%- endif %}
   {%- if page.full_title %}
     {%- assign page_title = page.full_title %}
   {%- else %}
@@ -9,7 +27,8 @@
   <!-- 基本SEO（タイトル・説明文は各ページの front matter の title / description） -->
   <title>{{ page_title }}</title>
   <meta name="description" content="{{ page.description }}">
-  <meta name="robots" content="index, follow">
+  <!-- 本番以外（ステージング・ローカル）は検索エンジンに登録させない -->
+  <meta name="robots" content="{% if is_production %}index, follow{% else %}noindex, nofollow{% endif %}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   <!-- ファビコン・テーマカラー -->
