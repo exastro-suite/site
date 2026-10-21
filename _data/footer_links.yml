@@ -1,20 +1,21 @@
 # フッターの関連コンテンツのメニュー（リニューアル前のサイトのフッターから移植）。上から順に左から並べる
+# url の {version} は _config.yml の ita_docs_version（ITA ドキュメントのバージョン）に置き換えて出力する
 - title: IT Automation Ver.2
   links:
     - title: Home
       url: https://ita.exastro.org/
     - title: Install
-      url: https://ita-docs.exastro.org/ja/latest/installation/
+      url: https://ita-docs.exastro.org/ja/{version}/installation/
     - title: Manual
-      url: https://ita-docs.exastro.org/ja/latest/manuals/
+      url: https://ita-docs.exastro.org/ja/{version}/manuals/
     - title: Quickstart
-      url: https://ita-docs.exastro.org/ja/latest/learn/quickstart/index.html
+      url: https://ita-docs.exastro.org/ja/{version}/learn/quickstart/index.html
     - title: Learn
-      url: https://ita-docs.exastro.org/ja/latest/learn/
+      url: https://ita-docs.exastro.org/ja/{version}/learn/
     - title: Documents
       url: https://ita-docs.exastro.org/
     - title: Templates
-      url: https://ita-docs.exastro.org/ja/latest/templates/index.html
+      url: https://ita-docs.exastro.org/ja/{version}/templates/index.html
 
 - title: Playbook Collection
   links:

@@ -29,14 +29,15 @@
         </ul>
       </div>
 
-      <!-- 関連コンテンツのメニュー（_data/footer_links.yml） -->
+      <!-- 関連コンテンツのメニュー（_data/footer_links.yml。url の {version} は _config.yml の ita_docs_version） -->
       <nav class="footer-related" aria-label="関連コンテンツ">
       {%- for group in site.data.footer_links %}
       <div class="footer-related__group">
         <h2 class="footer-related__title">{{ group.title }}</h2>
         <ul class="footer-related__list">
           {%- for link in group.links %}
-          <li><a class="footer-related__link" href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- assign link_url = link.url | replace: "{version}", site.ita_docs_version %}
+          <li><a class="footer-related__link" href="{{ link_url }}">{{ link.title }}</a></li>
           {%- endfor %}
         </ul>
       </div>

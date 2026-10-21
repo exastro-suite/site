@@ -10,6 +10,10 @@ production_url: https://www.exastro.org
 # Google Analytics（GA4）の測定 ID
 google_analytics: G-WBCJN1M2CG
 
+# ITA ドキュメント（ita-docs.exastro.org/ja/<バージョン>/）のバージョン。リリースのたびに書き換える（latest は使えない）
+# _data/footer_links.yml の url の {version} がこの値になる
+ita_docs_version: "2.9"
+
 # GitHub Pages のデフォルトテーマ（Primer）を使わない。
 # 指定しないとテーマの assets/css/style.scss が assets/css/style.css を上書きする
 theme: null
