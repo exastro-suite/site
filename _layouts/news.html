@@ -1,0 +1,48 @@
+---
+layout: common
+---
+<!--
+##################################################
+   News
+##################################################
+-->
+<header id="header">
+    <div class="header-Container">
+        <div class="columnHeader newsHeader">
+            <div class="columnHeader-Text">
+                <h1 class="columnHeader-Title newsHeader-Title"><span>重要なお知らせ</span>{{ page.title }}</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    <article class="article" id="article">
+        <div class="article-Container">
+            <div class="article-Body newsArticle">
+
+                <nav class="topicPath">
+                    <ol class="topicPath-List">
+                        <li class="topicPath-Item"><a class="topicPath-Link" href="{{ '/' | relative_url }}">Home</a></li>
+                        <li class="topicPath-Item">重要なお知らせ</li>
+                    </ol>
+                </nav>
+
+                <section class="section">
+
+{{ content }}
+
+                </section>
+                <section class="section">
+                    <div class="section-FooterMenu">
+                        <ul class="section-FooterMenu-List">
+                            <li class="section-FooterMenu-Item">
+                                <a class="section-FooterMenu-Link touch" href="{{ '/' | relative_url }}"><span><i class="fa-solid fa-circle-arrow-left"></i> Homeに戻る</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+</main>
