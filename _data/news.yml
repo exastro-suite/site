@@ -9,8 +9,12 @@ release:
   github_url: https://github.com/exastro-suite/exastro-it-automation
 
 # News & Articles：新しい順に上から書く。tag は News / Article / Event
+# トップページには上から5件、/latest/ には全件を20件ずつページを分けて出す（件数は index.html・latest/index.html の include で変える）
+# url はサイト内のページなら / から書く（例：/latest/news/xxx.html）。外部のページは https:// から書くと別タブで開く
+# お知らせの個別ページを作るときは latest/news/<名前>.md を作り、url に /latest/news/<名前>.html と書く
+# （日付と tag は個別ページにもここから表示する。書き方は _layouts/news.html と latest/news/php2shell.md）
 items:
-  - date: 2026-09-30
+  - date: 2026-10-23
     tag: News
-    title: ダミー：ニュースのタイトルがここに入ります
-    url: "#"
+    title: 2026年10月21日に公開された PHP 本体の脆弱性2件(通称 php2shell)について、Exastro への影響と対応方針をお知らせします。
+    url: /latest/news/php2shell.html

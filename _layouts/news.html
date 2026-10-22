@@ -1,0 +1,58 @@
+---
+layout: default
+---
+{%- comment -%}
+  お知らせの個別ページ（latest/news/<名前>.md）。
+  front matter：
+    title        ページの見出し（ブラウザのタイトルにも使う）
+    description  ページの説明文
+  日付と種類（tag）は _data/news.yml の items から、url がこのページのものを探して読む
+  （news.yml の url には /latest/news/<名前>.html と書く）。
+  本文は Markdown で書く。最初の「## 見出し」までが導入、以降は「## 見出し」ごとに区切って表示する。
+{%- endcomment -%}
+{%- assign item = site.data.news.items | where: "url", page.url | first -%}
+    <!-- お知らせの個別ページ：{{ page.title }} -->
+    <section class="section section--reverse" id="latest">
+      <!-- 背景：コントリビューショングラフのマス目とコミットの履歴（CSS のみ） -->
+      <div class="section-commits" aria-hidden="true"></div>
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="現在地">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a class="breadcrumb__link" href="{{ '/latest/' | relative_url }}">Latest</a></li>
+            <li aria-current="page">{{ item.tag | default: "News" }}</li>
+          </ol>
+        </nav>
+        <h1 class="section__title news-title">{{ page.title }}</h1>
+        {%- if item %}
+        <p class="news-meta">
+          <time class="latest__news-date" datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%Y.%m.%d' }}</time>
+          <span class="latest__news-tag">{{ item.tag }}</span>
+        </p>
+        {%- endif %}
+      </div>
+      <div class="section__body">
+        <!-- お知らせの本文（パネル・見出しは開発者メッセージの本文と共通。表やコードの見た目は assets/css/sections.css の .news-article） -->
+        <article class="message-article news-article">
+          {%- assign blocks = content | replace: "<h3>", '<h3 class="message-article__subheading">' | split: "<h2>" %}
+          {%- for block in blocks %}
+            {%- if forloop.first %}
+              {%- assign intro = block | strip %}
+              {%- if intro != "" %}
+          <div class="message-article__block">
+{{ intro }}
+          </div>
+              {%- endif %}
+            {%- else %}
+
+          <section class="message-article__block">
+<h2 class="message-article__heading">{{ block | strip }}
+          </section>
+            {%- endif %}
+          {%- endfor %}
+        </article>
+
+        <a class="message__more news-back" href="{{ '/latest/' | relative_url }}">お知らせ一覧に戻る<span class="message__more-arrow" aria-hidden="true"></span></a>
+      </div>
+    </section>

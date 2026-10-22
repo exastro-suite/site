@@ -35,6 +35,12 @@ scroll_meter: true
           </div>
         </div>
       </div>
+      <!-- 重要なお知らせ：下端のお知らせ（.notice-bar）の上に少し離して置く -->
+      <a class="hero__alert" href="{{ '/latest/news/php2shell.html' | relative_url }}">
+        <span class="hero__alert-label">重要</span>
+        <span class="hero__alert-text">PHP の脆弱性「php2shell」(CVE-2026-109618 / CVE-2026-109619) と Exastro への影響について</span>
+        <span class="hero__alert-arrow" aria-hidden="true"></span>
+      </a>
       <!-- 読み込み中の表示：中身を隠している間（html.is-hero-pending）だけ出す -->
       <div class="hero__loading" role="progressbar" aria-label="読み込み中"></div>
     </section>
@@ -142,7 +148,7 @@ scroll_meter: true
       <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
       <div class="section-live" aria-hidden="true"></div>
       <div class="section__head">
-        <h2 class="section__title"><span class="section__phrase">統制の仕組みは、</span><span class="section__marker section__phrase">画面の中に</span></h2>
+        <h2 class="section__title"><span class="section__phrase">統制の仕組みは、</span><span class="section__marker section__phrase">画面の中に。</span></h2>
         <h3 class="section__subtitle">Inside Exastro</h3>
         <p class="section__lead">AIが組み立てた手順も、統制のしくみも、Exastro IT Automation の画面でそのまま確かめられます。</p>
         <a class="section__more" href="#use-cases">利用シーンを見る<span class="section__more-arrow" aria-hidden="true"></span></a>
@@ -198,7 +204,7 @@ scroll_meter: true
       <div class="section__head">
         <h2 class="section__title">利用シーン</h2>
         <h3 class="section__subtitle">Exastro Suite</h3>
-        <p class="section__lead">日々の運用から開発のパイプライン、既存システムの構築まで。きっかけに合わせて、同じしくみで統制して実行します。</p>
+        <p class="section__lead">日々の運用から開発のパイプライン、既存システムの構築まで。入り口は違っても、同じしくみで統制して実行します。</p>
         <a class="section__more" href="#vision">開発者の思いを読む<span class="section__more-arrow" aria-hidden="true"></span></a>
       </div>
       <div class="section__body">
@@ -227,7 +233,7 @@ scroll_meter: true
       <div class="section__head">
         <h2 class="section__title">Exastroは、<span class="section__marker">Automationのその先へ。</span></h2>
         <h3 class="section__subtitle">Evolution</h3>
-        <p class="section__lead">作業の自動化から、構成情報・IaC、イベント駆動・オーケストレーションへ。一段ずつ積み上げてきたガードレールがあるから、ExastroはAIに実行を任せられます。</p>
+        <p class="section__lead">作業の自動化から、構成情報・IaC、イベント駆動・オーケストレーション、そしてAgentic AIへ。一段ずつ積み上げてきたガードレールがあるから、ExastroはAIに実行を任せられます。</p>
         <a class="section__more" href="#latest">最新の開発状況を見る<span class="section__more-arrow" aria-hidden="true"></span></a>
       </div>
       <div class="section__body">
@@ -248,8 +254,8 @@ scroll_meter: true
               <div class="evolution__frame">
                 <p class="evolution__stage">Configuration &amp; IaC</p>
                 <h4 class="evolution__title">構成情報とIaC</h4>
-                <p class="evolution__text">システムのあるべき姿をパラメータとして一元管理し、IaCで再現できる形に。変更の差分と履歴をいつでもたどれます。</p>
-                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>構成情報の一元管理と変更履歴</p>
+                <p class="evolution__text">パラメータとIaCと接続し、システム情報と実行を一元化。パラメータが変わっても自動化は作り直さず、同じしくみで繰り返し使えるようになりました。</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>パラメータとIaCの一元管理</p>
               </div>
             </li>
             <li class="evolution__item">
@@ -257,7 +263,7 @@ scroll_meter: true
               <div class="evolution__frame">
                 <p class="evolution__stage">Event-driven &amp; Orchestration</p>
                 <h4 class="evolution__title">イベント駆動とオーケストレーション</h4>
-                <p class="evolution__text">監視のアラートなどのイベントをルールで判定し、複数の作業をつないで実行。決められた範囲の中で、システムが自ら動きます。</p>
+                <p class="evolution__text">監視のアラートなどのイベントをルールで判定し、複数の作業をつないで実行。決められた範囲の中で、システムが自ら動くようになりました。</p>
                 <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>ルールに基づく判定と実行の統制</p>
               </div>
             </li>
@@ -285,7 +291,7 @@ scroll_meter: true
         <a class="section__more" href="#get-started">はじめてみる<span class="section__more-arrow" aria-hidden="true"></span></a>
       </div>
       <div class="section__body">
-{% include latest.html %}
+{% include latest.html limit=5 %}
       </div>
     </section>
 
@@ -301,13 +307,13 @@ scroll_meter: true
         <!-- 目的別の次の一歩（assets/css/sections.css） -->
         <ul class="get-started">
           <li class="get-started__item">
-            <a class="get-started__card" href="https://github.com/exastro-suite/exastro-it-automation" target="_blank" rel="noopener">
+            <a class="get-started__card" href="https://ita.exastro.org/" target="_blank" rel="noopener">
               <span class="get-started__step">01</span>
-              <svg class="get-started__icon get-started__icon--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <svg class="get-started__icon get-started__icon--fill get-started__icon--logo" viewBox="12 22 416 256" aria-hidden="true"><polygon points="228.85,138.57 219.95,111.19 211.05,138.57 182.26,138.57 205.55,155.49 196.66,182.87 219.95,165.95 243.24,182.87 234.34,155.49 257.64,138.57"/><path d="M395.56,109.04c-0.85,3.58-1.31,7.49-1.33,11.44c-3.25-0.77-6.89-3.15-9.91-6.17 c-3.03-3.03-5.4-6.66-6.17-9.91c3.94-0.02,7.86-0.48,11.43-1.33l14.69-14.69l-51.87,7.41l-93.32,93.32 c-2.04,2.04-4.23,3.82-6.49,5.47c-21.61,15.82-52.18,14.04-71.69-5.47c-13.96-13.96-18.82-33.57-14.7-51.52l-30.94,30.94 c3.51,16.23,11.51,30.91,23.41,42.81c16.38,16.38,38.16,25.4,61.32,25.4c23.17,0,44.94-9.02,61.32-25.4l78.83-78.83 c0.85-3.58,1.31-7.49,1.33-11.44c3.25,0.77,6.89,3.15,9.91,6.17c3.03,3.03,5.4,6.66,6.17,9.91c-3.95,0.02-7.86,0.48-11.44,1.33 L287.3,217.3c-17.98,17.98-41.88,27.88-67.3,27.88c-25.42,0-49.33-9.9-67.3-27.88c-11.79-11.79-19.99-26.12-24.31-41.91 l-24.65,24.65c6.15,14.35,15.03,27.79,26.73,39.49c25.21,25.21,58.51,37.54,91.62,37c31.72-0.52,63.29-12.85,87.44-37l93.32-93.32 l7.41-51.87L395.56,109.04z M361.49,120.48c-0.03-6.14-1.09-12.23-3.14-17c-1.04-2.42-2.31-4.53-3.87-6.09 c2.32,2.32,5.8,4.06,9.85,5.23c4.03,1.16,8.63,1.75,13.24,1.77C376.03,110.89,367.98,118.94,361.49,120.48z M378.15,137.14 c1.54-6.5,9.59-14.55,16.09-16.09c0.05,9.25,2.38,18.46,7,23.09C396.61,139.51,387.4,137.19,378.15,137.14z"/><path d="M180.9,110.91c0,0,4.24-3.83,6.49-5.48c21.61-15.82,52.18-14.04,71.7,5.47c13.96,13.96,18.82,33.57,14.7,51.52 l30.94-30.94c-3.51-16.23-11.51-30.91-23.41-42.81c-16.38-16.38-38.16-25.4-61.32-25.4c-23.17,0-44.94,9.02-61.32,25.4 l-78.83,78.83c-0.85,3.58-1.31,7.49-1.33,11.44c-3.25-0.77-6.89-3.15-9.91-6.17c-3.03-3.03-5.4-6.66-6.17-9.91 c3.95-0.02,7.86-0.48,11.44-1.33L152.7,82.7c17.98-17.98,41.88-27.88,67.3-27.88c25.42,0,49.33,9.9,67.3,27.88 c11.79,11.79,19.99,26.12,24.31,41.91l24.65-24.65c-6.15-14.35-15.03-27.79-26.73-39.49c-25.21-25.21-58.51-37.54-91.62-37 c-31.72,0.52-63.29,12.85-87.44,37l-93.32,93.32l-7.41,51.87l14.69-14.69c0.85-3.58,1.31-7.49,1.33-11.44 c3.25,0.77,6.89,3.15,9.91,6.17c3.03,3.03,5.4,6.66,6.17,9.91c-3.94,0.02-7.86,0.48-11.43,1.33l-14.69,14.69l51.87-7.41 C87.59,204.22,180.91,110.91,180.9,110.91z M45.77,178.95c-0.05-9.25-2.38-18.46-7-23.09c4.63,4.63,13.84,6.96,23.09,7 C60.32,169.36,52.27,177.41,45.77,178.95z M75.67,197.38c-4.03-1.16-8.63-1.75-13.24-1.77c1.54-6.5,9.59-14.55,16.09-16.09 c0.03,6.14,1.09,12.23,3.14,17c1.04,2.42,2.31,4.53,3.87,6.09C83.2,200.29,79.72,198.55,75.67,197.38z"/></svg>
               <span class="get-started__purpose">まず触ってみたい</span>
-              <span class="get-started__title">GitHub</span>
-              <span class="get-started__text">ソースコードとリリースを公開しています。インストールして、手元の環境ですぐに試せます。</span>
-              <span class="get-started__action">GitHubを見る<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+              <span class="get-started__title">IT Automation Ver.2</span>
+              <span class="get-started__text">インストールして、手元の環境ですぐに試せます。</span>
+              <span class="get-started__action">詳しく見る<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
             </a>
           </li>
           <li class="get-started__item">
@@ -320,18 +326,16 @@ scroll_meter: true
               <span class="get-started__action">ドキュメントを読む<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
             </a>
           </li>
-          <!--
           <li class="get-started__item">
-            <a class="get-started__card" href="#" target="_blank" rel="noopener">
+            <a class="get-started__card" href="https://github.com/exastro-suite/exastro-it-automation" target="_blank" rel="noopener">
               <span class="get-started__step">03</span>
-              <svg class="get-started__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v13H3v-13ZM3.5 6l8.5 7 8.5-7"/></svg>
-              <span class="get-started__purpose">導入を相談したい</span>
-              <span class="get-started__title">お問い合わせ</span>
-              <span class="get-started__text">導入の検討や活用方法など、Exastroについてのご相談はフォームからお寄せください。</span>
-              <span class="get-started__action">問い合わせる<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+              <svg class="get-started__icon get-started__icon--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <span class="get-started__purpose">もっと知りたい</span>
+              <span class="get-started__title">GitHub</span>
+              <span class="get-started__text">ソースコードとリリースを公開しています。</span>
+              <span class="get-started__action">GitHubを見る<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
             </a>
           </li>
-          -->
         </ul>
       </div>
     </section>

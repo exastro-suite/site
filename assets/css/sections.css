@@ -825,6 +825,41 @@ p.use-cases__text {
   translate: 0.2em 0;
 }
 
+/* ===== 画像を出さないとき（.use-cases--no-image。_includes/use-cases.html の show_images が false） =====
+ * 画像の分の余白が空きすぎないよう、各ブロックをセクション3の8つの要素と同じ枠で囲み、文字を大きくする。
+ * 画像を出すときは使わない
+ */
+/* 列数は最大2（狭い画面では今までどおり1列になる） */
+.use-cases--no-image .use-cases__list {
+  --uc-cols-max: 2;
+}
+
+.use-cases--no-image .use-cases__item {
+  padding: 1.5rem 1.5rem 1.75rem;
+  border-left: 4px solid var(--mainColor100);
+  border-radius: 0 8px 8px 0;
+  background: rgba(17, 26, 46, 0.7);
+}
+
+.use-cases--no-image .use-cases__title {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.use-cases--no-image .use-cases__tag {
+  display: block;
+  padding-right: 0;
+  margin-bottom: 0.25rem;
+  font-size: 0.8125rem;
+}
+
+/* 説明文を伸ばし、文の長さが違っても同じ行のブロックでリンクの高さがそろうようにする */
+.use-cases--no-image p.use-cases__text {
+  flex-grow: 1;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+}
+
 
 /* ===== セクション6：Exastroの進化（タイムライン） =====
  * 年の目盛りを横線でつなぎ、その下に各段階をフィルムのコマのような枠で並べる。
@@ -1482,6 +1517,140 @@ a.message__card:focus-visible .message__card-photo img {
   }
 }
 
+/* ===== お知らせの個別ページ（/latest/news/。_layouts/news.html） =====
+ * パネル・見出しは開発者メッセージの本文（.message-article）と共通。
+ * Markdown から作られるリスト・表・コード・小見出しの見た目をここで付ける
+ */
+/* タイトルは長い文になりやすいので、セクションの見出しより小さくする */
+.section__title.news-title {
+  font-size: clamp(1.375rem, 2.6vw, 2.125rem);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+/* 日付と種類（一覧と同じ見た目） */
+.news-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-top: 1.25rem;
+}
+
+.news-meta .latest__news-tag {
+  display: inline-block;
+}
+
+.news-article strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.news-article a {
+  color: var(--color-neon-cyan);
+  text-decoration: underline;
+}
+
+/* リスト：ul は点、ol は番号。入れ子のリストは字下げして続ける */
+.news-article ul,
+.news-article ol {
+  display: grid;
+  gap: 0.375rem;
+  padding-left: 1.5em;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.news-article ul {
+  list-style: disc;
+}
+
+.news-article ol {
+  list-style: decimal;
+}
+
+.news-article li > ul,
+.news-article li > ol {
+  margin-top: 0.375rem;
+}
+
+.news-article li::marker {
+  color: var(--mainColor60);
+}
+
+/* 小見出し（####）。### より一段控えめにする */
+.news-article h4 {
+  margin-top: 1rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* 表：狭い画面では表だけ横にスクロールする */
+.news-article table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.news-article th,
+.news-article td {
+  min-width: 8em;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--color-steel);
+}
+
+.news-article th {
+  background: rgba(0, 43, 98, 0.6);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+.news-article td {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-text-muted);
+}
+
+/* コード：文中のものは地の色を付け、ブロックは枠に入れて横にスクロールする */
+.news-article code {
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.875em;
+  color: var(--color-hologram);
+  overflow-wrap: anywhere;
+}
+
+.news-article pre {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-steel);
+  border-left: 3px solid var(--mainColor60);
+  border-radius: 2px;
+  background: var(--color-void);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.news-article pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+  color: var(--color-starlight);
+  overflow-wrap: normal;
+}
+
+/* お知らせ一覧に戻るリンク（本文の下。右寄せ） */
+.message__more.news-back {
+  align-self: flex-end;
+  margin-top: clamp(2rem, 5vh, 3rem);
+}
+
 /* ===== Assets（/assets/）：ロゴ素材 =====
  * パネル・見出しは開発者メッセージの本文（.message-article）と共通。
  * ロゴはカードで並べ、下に PNG／EPS／SVG のダウンロードリンクを置く
@@ -1841,6 +2010,91 @@ p.latest__date {
   color: #FFF;
 }
 
+/* トップページ：一覧ページへのリンク（件数が limit を超えたとき。右寄せ） */
+.latest__news-more {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mainColor60);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.latest__news-more:hover,
+.latest__news-more:focus-visible {
+  color: var(--mainColor40);
+}
+
+.latest__news-more-arrow {
+  width: 0.45em;
+  height: 0.45em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: translate 0.3s;
+}
+
+.latest__news-more:hover .latest__news-more-arrow,
+.latest__news-more:focus-visible .latest__news-more-arrow {
+  translate: 0.2em 0;
+}
+
+/* /latest/：ページを切り替えたとき、一覧の先頭が固定ヘッダーに隠れないようにする */
+.latest__news[data-per-page] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+/* /latest/：ページ送り（assets/js/main.js の initNewsPager） */
+.latest__pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.latest__pager[hidden] {
+  display: none;
+}
+
+.latest__pager-button {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--mainColor60);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--mainColor60);
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.latest__pager-button:hover:not(:disabled),
+.latest__pager-button:focus-visible {
+  border-color: var(--mainColor40);
+  color: var(--mainColor40);
+}
+
+.latest__pager-button[aria-current="page"] {
+  border-color: var(--accentColor100);
+  background: var(--accentColor100);
+  color: var(--color-void);
+  cursor: default;
+}
+
+.latest__pager-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
 /* 狭い画面：日付と種類を上の行、タイトルを下の行に置く */
 @media (max-width: 560px) {
   .latest__news-link {
@@ -1968,7 +2222,7 @@ p.latest__date {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* アイコン（GitHub は塗り、ほかは線で描く） */
+/* アイコン（GitHub とロゴマークは塗り、ほかは線で描く） */
 .get-started__icon {
   width: 2.25rem;
   height: 2.25rem;
@@ -1983,6 +2237,13 @@ p.latest__date {
 .get-started__icon--fill {
   fill: rgba(255,255,255,.8);
   stroke: none;
+}
+
+/* Exastro のロゴマーク（assets/images/Exastro-logomark2-white-rgb.svg と同じ形）。
+   左端がほかのアイコンとそろうよう viewBox は絵の範囲（416×256）に切り詰め、高さをそろえて幅を比率で決める。
+   幅を auto にするとカード（縦並びの flex）の横幅いっぱいに伸びて絵が中央に寄るため、幅も指定する */
+.get-started__icon--logo {
+  width: calc(2.25rem * 416 / 256);
 }
 
 /* 誰向けか（目的） */
@@ -2002,7 +2263,9 @@ p.latest__date {
   letter-spacing: 0.06em;
 }
 
+/* 説明文を伸ばし、文の長さが違っても下端の行動の文言（.get-started__action）の高さがそろうようにする */
 .get-started__text {
+  flex-grow: 1;
   margin-top: 0.75rem;
   font-size: 0.875rem;
   line-height: 1.8;

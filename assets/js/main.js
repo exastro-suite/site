@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollMeter();
   initScrollStep();
   initReleaseNotice();
+  initNewsPager();
   initNoticeHide();
   initCookieNotice();
   initAnchorScroll();
@@ -57,11 +58,12 @@ function initHeroFit() {
   const STACK_BIAS = 1.15; // 縦積みを選ぶのは、横並びよりこの倍率以上大きく表示できるとき
 
   // 見えている範囲の高さは 100svh で測る（スマートフォンでアドレスバーが出入りしても拡縮し直さないため）
+  // 重要なお知らせ（.hero__alert）を置いている間は、その高さ分（--hero-alert-space）も除く
   const probe = document.createElement("div");
   probe.style.cssText =
     "position:fixed;top:0;visibility:hidden;pointer-events:none;" +
-    "height:calc(100vh - var(--header-height) - var(--notice-height));" +
-    "height:calc(100svh - var(--header-height) - var(--notice-height))";
+    "height:calc(100vh - var(--header-height) - var(--notice-height) - var(--hero-alert-space));" +
+    "height:calc(100svh - var(--header-height) - var(--notice-height) - var(--hero-alert-space))";
   document.body.append(probe);
 
   let pending = false;
@@ -356,6 +358,68 @@ function initCookieNotice() {
     } catch {
       // 保存できない環境では、このページの中だけ閉じる
     }
+  });
+}
+
+/* ===== News & Articles：ページ送り（/latest/） =====
+ * data-per-page の件数ずつ表示し、下のページ送り（.latest__pager）で切り替える。
+ * 表示中のページは URL の ?page= に残し、記事から戻ったときや再読み込みでも同じページを出す。
+ * JS が動かないときは全件を表示する。
+ */
+function initNewsPager() {
+  const list = document.querySelector(".latest__news[data-per-page]");
+  const pager = document.querySelector(".latest__pager");
+  if (!list || !pager) return;
+
+  const items = Array.from(list.children);
+  const perPage = Number(list.dataset.perPage);
+  const pageCount = Math.ceil(items.length / perPage);
+  if (!(perPage > 0) || pageCount <= 1) return;
+
+  const makeButton = (label, page, className) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `latest__pager-button ${className}`;
+    button.textContent = label;
+    button.dataset.page = page;
+    return button;
+  };
+  const prev = makeButton("前へ", 0, "latest__pager-button--prev");
+  const next = makeButton("次へ", 0, "latest__pager-button--next");
+  const numbers = [];
+  for (let i = 1; i <= pageCount; i++) numbers.push(makeButton(String(i), i, "latest__pager-button--num"));
+  pager.append(prev, ...numbers, next);
+  pager.hidden = false;
+
+  const show = (page) => {
+    items.forEach((item, i) => {
+      item.hidden = Math.floor(i / perPage) + 1 !== page;
+    });
+    numbers.forEach((button, i) => {
+      if (i + 1 === page) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    });
+    prev.dataset.page = page - 1;
+    next.dataset.page = page + 1;
+    prev.disabled = page === 1;
+    next.disabled = page === pageCount;
+  };
+
+  const params = new URLSearchParams(location.search);
+  const initial = Math.min(pageCount, Math.max(1, Math.floor(Number(params.get("page"))) || 1));
+  show(initial);
+
+  pager.addEventListener("click", (e) => {
+    const button = e.target.closest(".latest__pager-button");
+    if (!button || button.disabled) return;
+    const page = Number(button.dataset.page);
+    show(page);
+    const url = new URL(location.href);
+    if (page === 1) url.searchParams.delete("page");
+    else url.searchParams.set("page", page);
+    history.replaceState(null, "", url);
+    // 切り替えたら一覧の先頭へ戻す（固定ヘッダーの分は scroll-margin-top で空ける）
+    list.scrollIntoView({ block: "start" });
   });
 }
 
