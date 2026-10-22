@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- INTENT：人の目的（的と矢） -->
+  <circle cx="28" cy="36" r="22"/>
+  <circle cx="28" cy="36" r="14"/>
+  <circle cx="28" cy="36" r="6"/>
+  <path d="M28 36L52 12"/>
+  <path d="M46 8v8h8l6-6h-6V4z" fill="#fff"/>
+</svg>

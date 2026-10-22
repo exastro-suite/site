@@ -1,0 +1,84 @@
+---
+title: "Assets"
+description: "Exastro Suite のロゴ素材（PNG・EPS・SVG）。Exastro Suiteであることを証明する目的でご利用頂けます。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /asset.html
+  - /asset_en.html
+---
+    <!-- Assets（ロゴ素材）のページ。見た目は開発者メッセージの記事ページに合わせる。ロゴは _data/assets.yml -->
+    <section class="section" id="assets">
+      <!-- 背景：ルーラーとドットの方眼、伸び縮みする選択枠（CSS のみ） -->
+      <div class="section-artboard" aria-hidden="true"></div>
+      <!-- 背景：ファイル形式や色など、ロゴ素材にちなんだ言葉が浮かんでは消える（CSS のみ。書き方は _includes/section-words.html と同じ） -->
+      <div class="section-words" aria-hidden="true">
+        <span class="section-words__word section-words__word--mono" style="--x: 73.2%; --y: 35.6%; --size: 24; --delay: 0s">PNG</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 21.9%; --y: 10.1%; --size: 22; --delay: 1.5s">#002B62</span>
+        <span class="section-words__word" style="--x: 78.1%; --y: 91.4%; --size: 32; --delay: 3s">Logomark</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 26.8%; --y: 59.9%; --size: 22; --delay: 4.5s">SVG</span>
+        <span class="section-words__word section-words__word--sub" style="--x: 60.1%; --y: 10.6%; --size: 40; --delay: 6s">Brand</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 89.3%; --y: 38.6%; --size: 20; --delay: 7.5s">CMYK</span>
+        <span class="section-words__word" style="--x: 11.3%; --y: 86.6%; --size: 28; --delay: 9s">Logotype</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 44.6%; --y: 64.5%; --size: 22; --delay: 10.5s">EPS</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 93.8%; --y: 14.1%; --size: 20; --delay: 12s">1280 × 300</span>
+        <span class="section-words__word section-words__word--sub" style="--x: 44.5%; --y: 90.2%; --size: 32; --delay: 13.5s">Artboard</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 61.2%; --y: 64.9%; --size: 22; --delay: 15s">#FFA500</span>
+        <span class="section-words__word" style="--x: 43.3%; --y: 11.7%; --size: 26; --delay: 16.5s">Vector</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 89.2%; --y: 66.8%; --size: 20; --delay: 18s">RGB</span>
+        <span class="section-words__word section-words__word--sub" style="--x: 58.1%; --y: 35.7%; --size: 36; --delay: 19.5s">Download</span>
+        <span class="section-words__word" style="--x: 7.1%; --y: 63.5%; --size: 26; --delay: 21s">White version</span>
+        <span class="section-words__word section-words__word--mono" style="--x: 75.3%; --y: 62%; --size: 20; --delay: 22.5s">@2x</span>
+      </div>
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="現在地">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
+            <li aria-current="page">Assets</li>
+          </ol>
+        </nav>
+        <h1 class="section__title">Assets</h1>
+        <p class="section__subtitle">ロゴ素材</p>
+        <!-- リード文：利用ガイドライン -->
+        <p class="section__lead">Exastro Suiteであることを証明する目的でこれらのロゴをご利用頂けます。<br>サイズ以外の変更はご容赦下さい。</p>
+        <!-- ページ内リンク -->
+        <nav class="asset-toc" aria-label="プロダクト">
+          <ul class="asset-toc__list">
+            {%- for product in site.data.assets %}
+            <li><a class="asset-toc__link" href="#asset-{{ product.id }}">{{ product.nav }}</a></li>
+            {%- endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="section__body">
+        <!-- ロゴの一覧（パネルは開発者メッセージの本文と共通：assets/css/sections.css） -->
+        <article class="message-article">
+          {%- for product in site.data.assets %}
+          {%- assign dir = '/assets/logo/' | append: product.id | append: '/' %}
+          <section class="message-article__block asset-block" id="asset-{{ product.id }}">
+            <h2 class="message-article__heading">{{ product.title }} Logo</h2>
+            <p>{{ product.title }}のロゴは下記をご利用下さい。</p>
+            {%- for group in product.groups %}
+            <h3 class="message-article__subheading">{{ group.title }}</h3>
+            <ul class="asset-logos">
+              {%- for logo in group.logos %}
+              {%- assign base = dir | append: logo.file %}
+              {%- if logo.eps %}{% assign eps = dir | append: logo.eps %}{% else %}{% assign eps = base | append: '-cmyk.eps' %}{% endif %}
+              <li class="asset-logo{% if logo.white %} asset-logo--white{% endif %}">
+                <div class="asset-logo__preview">
+                  <img src="{{ base | append: '-rgb.png' | relative_url }}" alt="{{ product.title }} {{ group.title }}{% if logo.white %}（白抜き）{% endif %}" loading="lazy">
+                </div>
+                <ul class="asset-logo__downloads" aria-label="ダウンロード">
+                  <li><a class="asset-logo__download" href="{{ base | append: '-rgb.png' | relative_url }}" download>PNG</a></li>
+                  <li><a class="asset-logo__download" href="{{ eps | relative_url }}" download>EPS</a></li>
+                  <li><a class="asset-logo__download" href="{{ base | append: '-rgb.svg' | relative_url }}" download>SVG</a></li>
+                </ul>
+              </li>
+              {%- endfor %}
+            </ul>
+            {%- endfor %}
+          </section>
+          {%- endfor %}
+        </article>
+      </div>
+    </section>

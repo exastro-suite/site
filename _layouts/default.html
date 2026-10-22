@@ -1,0 +1,45 @@
+{%- comment -%}
+  全ページ共通のレイアウト。各ページには front matter と <main> の中身だけを書く。
+  front matter：
+    title / description  ページのタイトル（「 | サイト名」は自動で付く）と説明文
+    full_title           タイトルをサイト名ごと指定するとき（トップページ）
+    css / js             ページ専用の CSS・JS（/assets/... で書く）
+    scroll_meter         true でスクロール位置のメモリを表示する
+{%- endcomment -%}
+{%- if page.url == "/" -%}
+  {%- assign is_home = true -%}
+  {%- assign logo_href = "#top" -%}
+  {%- assign nav_base = "" -%}
+{%- else -%}
+  {%- assign is_home = false -%}
+  {%- assign logo_href = "/" | relative_url -%}
+  {%- assign nav_base = "/" | relative_url -%}
+{%- endif -%}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body>
+{% include header.html %}
+
+  <main>
+{{ content }}
+  </main>
+
+{% include footer.html %}
+{%- if page.scroll_meter %}
+
+{% include scroll-meter.html %}
+{%- endif %}
+
+{% include notice-bar.html %}
+
+{% include cookie-notice.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  {%- for js in page.js %}
+  <script src="{{ js | relative_url }}"></script>
+  {%- endfor %}
+</body>
+</html>

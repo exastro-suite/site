@@ -1,19 +1,13 @@
 ---
-title: 開発者メッセージ | EPOCH
 layout: message
-language: ja
-sub_dir: /message
-page_class: message-epoch
-page_name: epoch
-message_image: thought04.png
-message_type: EPOCH
-message_author: 塩田 聡
-detail_url: https://exastro-suite.github.io/epoch-docs/index_ja.html
-description: Exastroはシステムライフサイクル(設計・開発・設定・運用)をデジタル化・自動化・省力化することを目的としたオープンソースのソフトウェアスイートです。
+message_id: epoch
+title: "Exastro EPOCH | 開発者メッセージ"
+description: "自分たちが苦労している今の状況を解決してこそExastro。Exastro EPOCHの開発者が、大切にしていることと目指すものを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/epoch_en.html
 ---
 ## どんなツール？
-
-<div class="image right"><img src="{{ "/message/img/image_epoch01.jpg" | relative_url }}" alt="EPOCH image"></div>
 
 Exastro EPOCHは、Exastro Suiteの中で一番新しく誕生した「攻め」に特化した自動化ツールになります。世の中の動きも早く、ニーズも多様化している中、かつてのように一つのシステムを作るのに半年～数年を要していたら、機会損失してしまいます。
 

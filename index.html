@@ -1,721 +1,341 @@
 ---
-title: Home
-layout: common
-language: ja
-page_class: home
-page_name: index
-description: Exastroはシステムライフサイクル(設計・開発・設定・運用)をデジタル化・自動化・省力化することを目的としたオープンソースのソフトウェアスイートです。
+full_title: "Exastro"
+description: "Exastroは、システムライフサイクル全体にわたって、統制の効いた自動化を実現するオープンソースの実行コントロールプレーンです。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /index_en.html
+  - /event.html
+  - /column/
+  - /column/column1.html
+  - /column/column2.html
+schema_description: "Exastroは、システムライフサイクル全体にわたって、統制の効いた自動化を実現するオープンソースの実行コントロールプレーンです。"
+css:
+  - /assets/css/ai-demo.css
+js:
+  - /assets/js/ai-demo.js
+scroll_meter: true
 ---
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v4.0"></script>
-<!--
-##################################################
-   Header
-##################################################
--->
-<header id="banner">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div id="slide-Overview" class="banner">
-                <div class="banner-Body">
-                    <div class="banner-Text">
-                        <h2 class="banner-Title">DX（<span>デジタルトランス<br>フォーメーション</span>）を支える皆様の業務効率化！</h2>
-                        <p class="banner-Par">エンジニアの皆様からの“共感”を追求し、進化を続けるアプリケーションです。</p>
-                        <ul class="banner-List">
-                            <li class="banner-Item"><i class="fa-solid fa-check"></i>システムにかかわる方の働き方を変える</li>
-                            <li class="banner-Item"><i class="fa-solid fa-check"></i>世の中の急激な変化に対応する</li>
-                            <li class="banner-Item"><i class="fa-solid fa-check"></i>将来を見据える余裕を創出する</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <section class="section section--hero" id="top">
+      <!-- 背景：背景画像＋立体格子（assets/js/main.js で描画）。セクション1のみ -->
+      <div class="section-bg" aria-hidden="true">
+        <canvas class="bg-grid"></canvas>
+      </div>
+      <!-- 中身をまとめて画面の約8割に拡縮する（assets/js/main.js の initHeroFit） -->
+      <div class="hero__inner">
+        <div class="section__head hero__head">
+          <h1 class="hero__logo"><img src="{{ '/assets/images/Exastro-logo2-white-rgb.svg' | relative_url }}" alt="Exastro" width="1280" height="300"></h1>
+          <p class="hero__tagline" lang="en"><span>Exastro is the open source execution control plane</span> <span>for governed automation across the system lifecycle.</span></p>
         </div>
-        <div class="swiper-slide">
-            <div id="information" class="banner">
-                <div class="banner-Body">
-                    <div class="banner-New">
-                        <h2 class="banner-Title">お知らせ</h2>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2026.06.11</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.8.0 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.12.10</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.7.1 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.12.04</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.7.0 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.09.11</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.6.2 をリリースしました。</a><dd>
-                        </dl>
+        <div class="section__body hero__body">
+          <h2 class="hero__title"><span>AIが、</span><span>インフラを動かす</span><span>時代へ。</span></h2>
+          <!--<p class="hero__lead"></p>-->
+          <div class="hero__actions">
+            <a class="hero__cta hero__cta--primary" href="#get-started"><span class="hero__cta-text">Get Started</span><span class="hero__cta-arrow" aria-hidden="true"></span></a>
+            <a class="hero__cta" href="#agentic-ai"><span class="hero__cta-text"><span class="hero__cta-name">Agentic AI<br><span class="hero__cta-name-sub">for Exastro</span></span> <span>を体験する</span></span><span class="hero__cta-arrow" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+      <!-- 重要なお知らせ：下端のお知らせ（.notice-bar）の上に少し離して置く -->
+      <a class="hero__alert" href="{{ '/latest/news/php2shell.html' | relative_url }}">
+        <span class="hero__alert-label">重要</span>
+        <span class="hero__alert-text">PHP の脆弱性「php2shell」(CVE-2026-109618 / CVE-2026-109619) と Exastro への影響について</span>
+        <span class="hero__alert-arrow" aria-hidden="true"></span>
+      </a>
+      <!-- 読み込み中の表示：中身を隠している間（html.is-hero-pending）だけ出す -->
+      <div class="hero__loading" role="progressbar" aria-label="読み込み中"></div>
+    </section>
 
-<!--
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.09.04</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.6.1 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.07.10</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.6.0 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.04.01</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.5.4 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2025.01.27</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.5.3 をリリースしました。</a><dd>
-                        </dl>                        
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2024.12.09</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.5.2 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2024.11.14</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.5.1 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2024.10.11</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.5.0 をリリースしました。</a><dd>
-                        </dl>                        
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2024.07.31</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">IT Automation</span><dd>
-                            <dd class="banner-New-Item"><a href="https://github.com/exastro-suite/exastro-it-automation" class="banner-New-Link" target="_blank">IT Automation ver.2.4.2 をリリースしました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2023.02.22</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">Exastro</span><dd>
-                            <dd class="banner-New-Item"><a href="{{ "/newsroom.html#news20230222" | relative_url }}" class="banner-New-Link">News Room「社内のデジタル人材に活躍の場を 実績豊富な運用自動化メソッドとは」が掲載されました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2022.12.23</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">Exastro</span><dd>
-                            <dd class="banner-New-Item"><a href="{{ "/column/column1.html" | relative_url }}" class="banner-New-Link">コラム「DXを実現するためのポイント」を公開しました。</a><dd>
-                        </dl>
-                        <dl class="banner-New-List">
-                            <dt class="banner-New-Date">2022.12.23</dt>
-                            <dd class="banner-New-Cat"><span class="banner-Cat-txt banner-Cat-ita">Exastro</span><dd>
-                            <dd class="banner-New-Item"><a href="{{ "/column/column2.html" | relative_url }}" class="banner-New-Link">コラム「DX実現のための自動化の役割」を公開しました。</a><dd>
-                        </dl>
-                        -->
-                    </div>
-                </div>
-            </div>
+    <section class="section section--hex section--dial" id="agentic-ai">
+      <!-- 背景：六角形の格子と走査線（CSS のみ） -->
+      <div class="section-hex" aria-hidden="true"></div>
+      <!-- 背景：内容の上下に置く斜線の帯（CSS のみ） -->
+      <div class="section-stripes" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">言葉で依頼。</span><span class="section__phrase">AIが組み立て。</span><span class="section__marker section__phrase">Exastroが実行。</span></h2>
+        <h3 class="section__subtitle">Agentic AI for Exastro</h3>
+        <p class="section__lead">「Webサーバ3台にnginxを入れて起動まで」。ふだんの言葉で頼むだけで、AIが部品を探して提案し、あなたの確認を経て、Exastroが実行まで進めます。その手軽さを支えるのが、商用作業を任せるための様々な作業統制の仕組みです。</p>
+        <a class="section__more" href="#governed-execution">作業統制の仕組みを見る<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <!-- AIアシスタントのデモ（assets/js/ai-demo.js で描画） -->
+        <div class="ai-demo" data-scenario="{{ '/assets/data/ai-demo.json' | relative_url }}">
+          <noscript><p class="ai-demo__noscript">このデモは JavaScript を使って動きます。ご覧いただくには、ブラウザの設定で JavaScript を有効にしてください。</p></noscript>
         </div>
-        <div class="swiper-slide">
-            <div id="newsroom" class="banner">
-                <div class="banner-Body">
-                    <div class="banner-New">
-                        <h2 class="banner-Title">News Room</h2>
-                        <ul class="banner-Newsroom-List">{% assign i = 1 %}
-                        {% for newsData in site.data.news %}{% if i > 4 %}{% break %}{% endif %}
-                            {% for newsItem in newsData[1] %}{% if i > 4 %}{% break %}{% endif %}
-                            <li class="banner-Newsroom-Item">
-                                <a class="banner-Newsroom-Link" href="{{ newsItem.url }}" class="touch" target="_blank" rel="noopener">
-                                    <div class="banner-Newsroom-Image"><img src="{{ newsItem.image | relative_url }}" alt="{{ newsItem.title | escape | strip_newlines }}"></div>
-                                    <div class="banner-Newsroom-Title"><span>{{ newsItem.title | escape }}</span></div>
-                                    <div class="banner-Newsroom-Date"><span><i class="far fa-clock"></i> {{ newsItem.date }}</span></div>
-                                </a>
-                            </li>   
-                            {% assign i = i | plus: 1 %}{% endfor %}
-                        {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div id="slide-Exastro" class="banner">
-                <div class="banner-Body">
-                    <div class="banner-Text">
-                        <h2 class="banner-Title">Exastroが解決すること</h2>
-                        <p class="banner-Par">属人的なルーティーンからの脱却！<br>
-                        「人」に依存していることで発生するさまざまな課題を解決します。</p>
-                        <ul class="banner-List">
-                            <li class="banner-Item"><i class="fa-solid fa-check"></i>人材不足</li>
-                            <li class="banner-Item"><i class="fa-solid fa-check"></i>スピード</li>
-                            <li class="banner-Item"><i class="fa-solid fa-check"></i>ヒューマンエラー削減</li>
-                        </ul>
-                        <div class="banner-Detail"><a class="banner-Detail-Link touch" href="#overview-exastro">詳細はこちら</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div id="slide-ITA" class="banner">
-                <div class="banner-Body">
-                    <div class="banner-Text">
-                        <h2 class="banner-Title"><em>Exastro </em>IT Automation</h2>
-                        <p class="banner-Par">何度も繰り返されるシステム構築を自動化/効率化</p>
-                        <div class="banner-Detail"><a class="banner-Detail-Link touch" href="#overview-ita">詳細はこちら</a></div>
-                    </div>
-                    <div class="banner-Image">
-                        <img class="banner-Image-Img" src="{{ "/assets/img/home_banner_ita_resolve.png" | relative_url }}" alt="IT Automationで解決">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div id="slide-EPOCH" class="banner">
-                <div class="banner-Body">
-                    <div class="banner-Text">
-                        <h2 class="banner-Title"><em>Exastro </em>EPOCH</h2>
-                        <p class="banner-Par">高速なアプリケーション開発</p>
-                        <div class="banner-Detail"><a class="banner-Detail-Link touch" href="#overview-epoch">詳細はこちら</a></div>
-                    </div>
-                    <div class="banner-Image">
-                        <img class="banner-Image-Img" src="{{ "/assets/img/home_banner_epoch_resolve.png" | relative_url }}" alt="EPOCHで解決">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-</header>
-<script>
-const swiper = new Swiper('#banner', {
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  autoplay: {
-      delay: 8000
-  },
-  loop: true,
-  slidesPerView: 1,
-  centeredSlides : true
-});
-</script>
+      </div>
+    </section>
 
-<main id="main">
-<article class="article">
+    <section class="section section--hex section--dial section--reverse" id="governed-execution">
+      <!-- 背景：六角形の格子と走査線（CSS のみ） -->
+      <div class="section-hex" aria-hidden="true"></div>
+      <!-- 背景：内容の上下に置く斜線の帯（CSS のみ） -->
+      <div class="section-stripes" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title">AIが「できる」だけでは、足りない。<span class="section__marker">本番を任せられる仕組みまで。</span></h2>
+        <h3 class="section__subtitle">Governed Execution</h3>
+        <p class="section__lead">AIの判断をそのまま本番に流すのではなく、変更の追跡から緊急停止、エビデンスの記録まで<br>——Exastroが統制するため、安心してAIに任せられます。</p>
+        <a class="section__more" href="#inside-exastro">実際の画面で確かめる<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <!-- Exastro Control Plane（assets/css/sections.css） -->
+        <div class="control-plane">
+          <!-- 全体の流れ（Exastro Control Plane を強調） -->
+          <ol class="control-plane__flow" aria-label="人の目的から実システムまでの流れ">
+            <li class="control-plane__node">
+              <span class="control-plane__node-icon control-plane__node-icon--intent" aria-hidden="true"></span>
+              <span class="control-plane__node-en">INTENT</span>
+              <span class="control-plane__node-ja">人の目的</span>
+            </li>
+            <li class="control-plane__node">
+              <span class="control-plane__node-icon control-plane__node-icon--ai-agent" aria-hidden="true"></span>
+              <span class="control-plane__node-en">AI AGENT</span>
+              <span class="control-plane__node-ja">理解・計画・判断</span>
+            </li>
+            <li class="control-plane__node control-plane__node--core">
+              <span class="control-plane__node-icon control-plane__node-icon--core" aria-hidden="true"></span>
+              <span class="control-plane__node-en">CONTROL PLANE</span>
+              <strong class="control-plane__node-name">Exastro Control Plane</strong>
+              <span class="control-plane__node-ja">統制して実行する</span>
+            </li>
+            <li class="control-plane__node">
+              <span class="control-plane__node-icon control-plane__node-icon--systems" aria-hidden="true"></span>
+              <span class="control-plane__node-en">SYSTEMS</span>
+              <span class="control-plane__node-ja">実システム</span>
+            </li>
+          </ol>
 
-<!--
-##################################################
-   Important notice
-##################################################
--->
-<div class="importantNotice">
-    <a class="importantNotice-Link touch" href="{{ '/latest/news/php2shell.html' | relative_url }}">
-        <span class="importantNotice-Label"><i class="fa-solid fa-triangle-exclamation"></i> 重要</span>
-        <span class="importantNotice-Text">PHP の脆弱性「php2shell」(CVE-2026-109618 / CVE-2026-109619) と Exastro への影響について</span>
-        <i class="importantNotice-Arrow fa-solid fa-circle-arrow-right"></i>
-    </a>
-</div>
+          <h3 class="control-plane__title">Exastro Control Plane を特徴づける<span>8つの要素</span></h3>
 
-<!--
-##################################################
-   First of all
-##################################################
--->
-<section id="firstContents" class="homeSection">
-    <div class="homeSection-Container">
-        <ul class="firstContents-List">
-            <li class="firstContents-Item">
-                <div class="firstContents-Card">
-                    <div class="firstContents-Image"><img class="firstContents-Image-Img" src="assets/img/first_image01.png" alt="属人化するシステム構築"></div>
-                    <div class="firstContents-Text">システム構築が属人化していてリスクヘッジができない</div>
-                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="#overview-ita"><span><i class="fa-solid fa-thumbs-up"></i> 解決する</span></a></div>
+          <!-- 8つの要素（クリックで詳細を開く） -->
+          <div class="control-plane__features">
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">01</span><span class="control-plane__label"><span class="control-plane__en">CHANGE CONTROL</span><span class="control-plane__ja">誰が・いつ・何を</span></span></summary>
+              <p>現在だけでなく変更予定も含め、誰が・いつ・何を変えるかを構成情報として追跡します。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">02</span><span class="control-plane__label"><span class="control-plane__en">REUSE FIRST</span><span class="control-plane__ja">IaCを増殖させない</span></span></summary>
+              <p>AIが毎回ゼロから作るのではなく、検証済みの既存IaC・自動化部品を探して再利用します。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">03</span><span class="control-plane__label"><span class="control-plane__en">SEPARATION</span><span class="control-plane__ja">フローと構成を分離</span></span></summary>
+              <p>設定値が変わってもジョブフローを作り直さず、同じ自動化を繰り返し使えます。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">04</span><span class="control-plane__label"><span class="control-plane__en">LIVE EXECUTION</span><span class="control-plane__ja">実行中が見える</span></span></summary>
+              <p>いま何が、どこまで進んでいるかをリアルタイムに把握できます。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">05</span><span class="control-plane__label"><span class="control-plane__en">EMERGENCY CONTROL</span><span class="control-plane__ja">いつでも止められる</span></span></summary>
+              <p>異常を検知したときも、担当者の判断でも、安全に停止・中断できます。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">06</span><span class="control-plane__label"><span class="control-plane__en">EVIDENCE</span><span class="control-plane__ja">投入から結果まで残す</span></span></summary>
+              <p>投入データ、実行結果、ログを過去分まで紐付け、監査や振り返りに使えるエビデンスとして残します。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">07</span><span class="control-plane__label"><span class="control-plane__en">KNOWN / UNKNOWN</span><span class="control-plane__ja">AIを使うべき場面を選ぶ</span></span></summary>
+              <p>事前に定義したルールで事象を既知と未知に仕分け、未知のものだけAIの力を借ります。</p>
+            </details>
+            <details class="control-plane__feature">
+              <summary><span class="control-plane__num">08</span><span class="control-plane__label"><span class="control-plane__en">AUTO REMEDIATION</span><span class="control-plane__ja">既知は迷わず自動対処</span></span></summary>
+              <p>既知と判定された事象には、登録・検証済みの対処をそのまま自動実行します。</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--live" id="inside-exastro">
+      <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
+      <div class="section-live" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">統制の仕組みは、</span><span class="section__marker section__phrase">画面の中に。</span></h2>
+        <h3 class="section__subtitle">Inside Exastro</h3>
+        <p class="section__lead">AIが組み立てた手順も、統制のしくみも、Exastro IT Automation の画面でそのまま確かめられます。</p>
+        <a class="section__more" href="#use-cases">利用シーンを見る<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <div class="ui-showcase">
+          <ol class="ui-showcase__list">
+            <li class="ui-showcase__item">
+              <figure class="ui-showcase__figure">
+                <div class="ui-showcase__shot">
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/parameter_large.png' | relative_url }}" aria-label="パラメータ定義作成画面を拡大表示"><img src="{{ '/assets/images/inside/parameter.png' | relative_url }}" alt="パラメータ定義作成画面" width="960" height="477" loading="lazy"></button>
                 </div>
+                <figcaption class="ui-showcase__caption">
+                  <span class="ui-showcase__label"><span class="ui-showcase__en">PARAMETER</span><span class="ui-showcase__ja">パラメータ定義作成</span></span>
+                  <span class="ui-showcase__text">作成設定値の項目をジョブフローから切り離し、画面上で定義・管理できます。</span>
+                </figcaption>
+              </figure>
             </li>
-            <li class="firstContents-Item">
-                <div class="firstContents-Card">
-                    <div class="firstContents-Image"><img class="firstContents-Image-Img" src="assets/img/first_image02.png" alt="時間のかかる障害復旧"></div>
-                    <div class="firstContents-Text">障害復旧に時間がかかる</div>
-                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="#overview-ita"><span><i class="fa-solid fa-thumbs-up"></i> 解決する</span></a></div>
+            <li class="ui-showcase__item">
+              <figure class="ui-showcase__figure">
+                <div class="ui-showcase__shot">
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/conductor_large.png' | relative_url }}" aria-label="Conductor画面を拡大表示"><img src="{{ '/assets/images/inside/conductor.png' | relative_url }}" alt="Conductor画面" width="960" height="474" loading="lazy"></button>
                 </div>
+                <figcaption class="ui-showcase__caption">
+                  <span class="ui-showcase__label"><span class="ui-showcase__en">CONDUCTOR</span><span class="ui-showcase__ja">Conductor</span></span>
+                  <span class="ui-showcase__text">Conductorで作業の流れを組み立て、実行中は進行状況も止める判断も1画面で行えます。</span>
+                </figcaption>
+              </figure>
             </li>
-            <li class="firstContents-Item">
-                <div class="firstContents-Card">
-                    <div class="firstContents-Image"><img class="firstContents-Image-Img" src="assets/img/first_image03.png" alt="時間のかかる企画～開発～運用"></div>
-                    <div class="firstContents-Text">企画～開発～運用開始までに時間がかかりすぎる</div>
-                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="#overview-epoch"><span><i class="fa-solid fa-thumbs-up"></i> 解決する</span></a></div>
+            <li class="ui-showcase__item">
+              <figure class="ui-showcase__figure">
+                <div class="ui-showcase__shot">
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/history_large.png' | relative_url }}" aria-label="実行履歴画面を拡大表示"><img src="{{ '/assets/images/inside/history.png' | relative_url }}" alt="実行履歴画面" width="960" height="531" loading="lazy"></button>
                 </div>
+                <figcaption class="ui-showcase__caption">
+                  <span class="ui-showcase__label"><span class="ui-showcase__en">HISTORY</span><span class="ui-showcase__ja">実行履歴</span></span>
+                  <span class="ui-showcase__text">投入データ・結果・ログを紐付け、過去の実行まで検証できる形で残します。</span>
+                </figcaption>
+              </figure>
             </li>
-            <li class="firstContents-Item">
-                <div class="firstContents-Card">
-                    <div class="firstContents-Image"><img class="firstContents-Image-Img" src="assets/img/first_image05.png" alt="IT Automation SimpleMode"></div>
-                    <div class="firstContents-Text">Exastroを初めて使う方におススメ</div>
-                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="https://ita.exastro.org/simple_mode.html"><span><i class="fa-solid fa-thumbs-up"></i> 解決する</span></a></div>
-                </div>
+          </ol>
+
+          <div class="ui-showcase__actions">
+            <a class="hero__cta hero__cta--primary" href="https://ita.exastro.org/" target="_blank" rel="noopener"><span class="hero__cta-text">インストールして試す</span><svg class="hero__cta-external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--live section--reverse" id="use-cases">
+      <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
+      <div class="section-live" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title">利用シーン</h2>
+        <h3 class="section__subtitle">Exastro Suite</h3>
+        <p class="section__lead">日々の運用から開発のパイプライン、既存システムの構築まで。入り口は違っても、同じしくみで統制して実行します。</p>
+        <a class="section__more" href="#vision">開発者の思いを読む<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+{% include use-cases.html %}
+      </div>
+    </section>
+
+    <section class="section" id="vision">
+      <!-- 背景：方眼と大きな引用符（CSS のみ） -->
+      <div class="section-note" aria-hidden="true"></div>
+{% include section-words.html %}
+      <div class="section__head">
+        <h2 class="section__title">開発者メッセージ</h2>
+        <h3 class="section__subtitle">Vision</h3>
+        <p class="section__lead">現場の苦労を、なんとかしたい。Exastroの各プロダクトは、運用・開発の現場に立つ開発者たちの、そんな思いから生まれました。</p>
+        <a class="section__more" href="#evolution">Exastroの進化をたどる<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+{% include message-list.html %}
+      </div>
+    </section>
+
+    <section class="section section--film" id="evolution">
+      <!-- 背景：上下のフィルムの枠と古い映像のような傷・周辺減光（CSS のみ） -->
+      <div class="section-film" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title">Exastroは、<span class="section__marker">Automationのその先へ。</span></h2>
+        <h3 class="section__subtitle">Evolution</h3>
+        <p class="section__lead">作業の自動化から、構成情報・IaC、イベント駆動・オーケストレーション、そしてAgentic AIへ。一段ずつ積み上げてきたガードレールがあるから、ExastroはAIに実行を任せられます。</p>
+        <a class="section__more" href="#latest">最新の開発状況を見る<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <!-- Exastroの進化のタイムライン（assets/css/sections.css） -->
+        <div class="evolution">
+          <ol class="evolution__list">
+            <li class="evolution__item">
+              <p class="evolution__year"><time datetime="2019">2019</time></p>
+              <div class="evolution__frame">
+                <p class="evolution__stage">Automation</p>
+                <h4 class="evolution__title">作業の自動化</h4>
+                <p class="evolution__text">人が手で行っていた構築・設定作業を、ツールで自動実行。誰が実行しても同じ結果になるよう、作業を標準化しました。</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>標準化された手順と実行履歴</p>
+              </div>
             </li>
-            <li class="firstContents-Item firstContents-message">
-                <div class="firstContents-Card">
-                    <div class="firstContents-Image"><img class="firstContents-Image-Img" src="assets/img/first_image04.png" alt="Exastroへの想い"></div>
-                    <div class="firstContents-Text">開発者の想い</div>
-                    <div class="firstContents-Goto"><a class="firstContents-Link goto-Link touch" href="#homeMessage"><span><i class="fa-regular fa-comment-dots"></i> メッセージ</span></a></div>
-                </div>
+            <li class="evolution__item">
+              <p class="evolution__year"><time datetime="2022">2022</time></p>
+              <div class="evolution__frame">
+                <p class="evolution__stage">Configuration &amp; IaC</p>
+                <h4 class="evolution__title">構成情報とIaC</h4>
+                <p class="evolution__text">パラメータとIaCと接続し、システム情報と実行を一元化。パラメータが変わっても自動化は作り直さず、同じしくみで繰り返し使えるようになりました。</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>パラメータとIaCの一元管理</p>
+              </div>
             </li>
+            <li class="evolution__item">
+              <p class="evolution__year"><time datetime="2024">2024</time></p>
+              <div class="evolution__frame">
+                <p class="evolution__stage">Event-driven &amp; Orchestration</p>
+                <h4 class="evolution__title">イベント駆動とオーケストレーション</h4>
+                <p class="evolution__text">監視のアラートなどのイベントをルールで判定し、複数の作業をつないで実行。決められた範囲の中で、システムが自ら動くようになりました。</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>ルールに基づく判定と実行の統制</p>
+              </div>
+            </li>
+            <li class="evolution__item evolution__item--now">
+              <p class="evolution__year"><time datetime="2026">2026</time></p>
+              <div class="evolution__frame">
+                <p class="evolution__stage">Agentic AI</p>
+                <h4 class="evolution__title">そして、Agentic AIへ</h4>
+                <p class="evolution__text">自然言語の依頼からAIが手順を組み立て、これまで積み上げたしくみの上で実行。AIの判断も、統制の内側で動きます。</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>承認・権限・証跡による統制</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--reverse" id="latest">
+      <!-- 背景：コントリビューショングラフのマス目とコミットの履歴（CSS のみ） -->
+      <div class="section-commits" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">進化し続ける、</span><span class="section__marker section__phrase">オープンソース。</span></h2>
+        <h3 class="section__subtitle">Latest</h3>
+        <p class="section__lead">Exastroは、今この瞬間も開発が続いているオープンソースです。コードもリリースもGitHubで公開し、新しい機能を届け続けています。</p>
+        <a class="section__more" href="#get-started">はじめてみる<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+{% include latest.html limit=5 %}
+      </div>
+    </section>
+
+    <section class="section section--finale" id="get-started">
+      <!-- 背景：地平線へ続く格子の床と星（CSS のみ） -->
+      <div class="section-horizon" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">Exastroを、</span><span class="section__marker section__phrase">あなたのITへ。</span></h2>
+        <h3 class="section__subtitle">Get Started</h3>
+        <p class="section__lead">まずは動かしてみる。しくみを詳しく知る。導入について相談する。目的に合わせて、次の一歩を選んでください。</p>
+      </div>
+      <div class="section__body">
+        <!-- 目的別の次の一歩（assets/css/sections.css） -->
+        <ul class="get-started">
+          <li class="get-started__item">
+            <a class="get-started__card" href="https://ita.exastro.org/" target="_blank" rel="noopener">
+              <span class="get-started__step">01</span>
+              <svg class="get-started__icon get-started__icon--fill get-started__icon--logo" viewBox="12 22 416 256" aria-hidden="true"><polygon points="228.85,138.57 219.95,111.19 211.05,138.57 182.26,138.57 205.55,155.49 196.66,182.87 219.95,165.95 243.24,182.87 234.34,155.49 257.64,138.57"/><path d="M395.56,109.04c-0.85,3.58-1.31,7.49-1.33,11.44c-3.25-0.77-6.89-3.15-9.91-6.17 c-3.03-3.03-5.4-6.66-6.17-9.91c3.94-0.02,7.86-0.48,11.43-1.33l14.69-14.69l-51.87,7.41l-93.32,93.32 c-2.04,2.04-4.23,3.82-6.49,5.47c-21.61,15.82-52.18,14.04-71.69-5.47c-13.96-13.96-18.82-33.57-14.7-51.52l-30.94,30.94 c3.51,16.23,11.51,30.91,23.41,42.81c16.38,16.38,38.16,25.4,61.32,25.4c23.17,0,44.94-9.02,61.32-25.4l78.83-78.83 c0.85-3.58,1.31-7.49,1.33-11.44c3.25,0.77,6.89,3.15,9.91,6.17c3.03,3.03,5.4,6.66,6.17,9.91c-3.95,0.02-7.86,0.48-11.44,1.33 L287.3,217.3c-17.98,17.98-41.88,27.88-67.3,27.88c-25.42,0-49.33-9.9-67.3-27.88c-11.79-11.79-19.99-26.12-24.31-41.91 l-24.65,24.65c6.15,14.35,15.03,27.79,26.73,39.49c25.21,25.21,58.51,37.54,91.62,37c31.72-0.52,63.29-12.85,87.44-37l93.32-93.32 l7.41-51.87L395.56,109.04z M361.49,120.48c-0.03-6.14-1.09-12.23-3.14-17c-1.04-2.42-2.31-4.53-3.87-6.09 c2.32,2.32,5.8,4.06,9.85,5.23c4.03,1.16,8.63,1.75,13.24,1.77C376.03,110.89,367.98,118.94,361.49,120.48z M378.15,137.14 c1.54-6.5,9.59-14.55,16.09-16.09c0.05,9.25,2.38,18.46,7,23.09C396.61,139.51,387.4,137.19,378.15,137.14z"/><path d="M180.9,110.91c0,0,4.24-3.83,6.49-5.48c21.61-15.82,52.18-14.04,71.7,5.47c13.96,13.96,18.82,33.57,14.7,51.52 l30.94-30.94c-3.51-16.23-11.51-30.91-23.41-42.81c-16.38-16.38-38.16-25.4-61.32-25.4c-23.17,0-44.94,9.02-61.32,25.4 l-78.83,78.83c-0.85,3.58-1.31,7.49-1.33,11.44c-3.25-0.77-6.89-3.15-9.91-6.17c-3.03-3.03-5.4-6.66-6.17-9.91 c3.95-0.02,7.86-0.48,11.44-1.33L152.7,82.7c17.98-17.98,41.88-27.88,67.3-27.88c25.42,0,49.33,9.9,67.3,27.88 c11.79,11.79,19.99,26.12,24.31,41.91l24.65-24.65c-6.15-14.35-15.03-27.79-26.73-39.49c-25.21-25.21-58.51-37.54-91.62-37 c-31.72,0.52-63.29,12.85-87.44,37l-93.32,93.32l-7.41,51.87l14.69-14.69c0.85-3.58,1.31-7.49,1.33-11.44 c3.25,0.77,6.89,3.15,9.91,6.17c3.03,3.03,5.4,6.66,6.17,9.91c-3.94,0.02-7.86,0.48-11.43,1.33l-14.69,14.69l51.87-7.41 C87.59,204.22,180.91,110.91,180.9,110.91z M45.77,178.95c-0.05-9.25-2.38-18.46-7-23.09c4.63,4.63,13.84,6.96,23.09,7 C60.32,169.36,52.27,177.41,45.77,178.95z M75.67,197.38c-4.03-1.16-8.63-1.75-13.24-1.77c1.54-6.5,9.59-14.55,16.09-16.09 c0.03,6.14,1.09,12.23,3.14,17c1.04,2.42,2.31,4.53,3.87,6.09C83.2,200.29,79.72,198.55,75.67,197.38z"/></svg>
+              <span class="get-started__purpose">まず触ってみたい</span>
+              <span class="get-started__title">IT Automation Ver.2</span>
+              <span class="get-started__text">インストールして、手元の環境ですぐに試せます。</span>
+              <span class="get-started__action">詳しく見る<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+            </a>
+          </li>
+          <li class="get-started__item">
+            <a class="get-started__card" href="https://ita-docs.exastro.org/" target="_blank" rel="noopener">
+              <span class="get-started__step">02</span>
+              <svg class="get-started__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5v-15ZM4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3M8 7.5h7M8 11h5"/></svg>
+              <span class="get-started__purpose">詳しく知りたい</span>
+              <span class="get-started__title">ドキュメント</span>
+              <span class="get-started__text">インストール手順から機能の使い方まで。導入と運用に必要な情報をまとめています。</span>
+              <span class="get-started__action">ドキュメントを読む<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+            </a>
+          </li>
+          <li class="get-started__item">
+            <a class="get-started__card" href="https://github.com/exastro-suite/exastro-it-automation" target="_blank" rel="noopener">
+              <span class="get-started__step">03</span>
+              <svg class="get-started__icon get-started__icon--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <span class="get-started__purpose">もっと知りたい</span>
+              <span class="get-started__title">GitHub</span>
+              <span class="get-started__text">ソースコードとリリースを公開しています。</span>
+              <span class="get-started__action">GitHubを見る<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+            </a>
+          </li>
         </ul>
-    </div>
-</section>
-
-<!--
-##################################################
-   開発者メッセージ
-##################################################
--->
-<section id="homeMessage" class="homeArticle">
-    <div class="homeArticle-Header">
-        <div class="homeArticle-Type"><span>MESSAGE</span></div>
-        <h2 class="homeArticle-Title">開発者メッセージ</h2>
-    </div>
-    <div class="homeArticle-Body">
-        <div class="homeMessage-Main">
-            <div class="homeMessage-Body">
-                <h3 class="homeMessage-Body-Title">Exastroにかける夢<span>　吉田 功一</span></h3>
-                <h4 class="homeMessage-Body-SubTitle">システムはどんどん複雑化し、人材はどんどん減ってゆく</h4>
-                <p class="homeMessage-Body-Par">業務は日々増えるのに、人材が不足すれば何が起こるか？今いる人に業務が集中し、疲弊していくことが目に見えています。疲弊している先輩方を見た若い人たちは、果たして「システムエンジニアになりたい」と思うでしょうか？誰が見てもかっこいいと思えるスマートな働き方を実現する手段になりたいと思っています。</p>
-                <p class="homeMessage-Body-Par">また、Exastroは、単に負の連鎖から脱却することだけでなく、事業拡大に向けた新たな取り組みを行うことにも一役買いたいと思っています。</p>
-                <div class="homeMessage-Body-Goto"><a class="homeMessage-Body-Link touch" href="{{ "/message/exastro.html" | relative_url }}">全文はこちら <i class="fa-solid fa-angle-right"></i></a></div>
-            </div>
-            <div class="homeMessage-Image">
-                <img class="homeMessage-Image-Img" src="{{ "/assets/img/homeMessage.jpg" | relative_url }}" alt="吉田 功一">
-            </div>
-        </div>
-        <div class="homeMessage-Suite">
-            <h3 class="homeMessage-Suite-Other">他のメッセージ</h3>
-            <ul class="homeMessage-Suite-List">
-                <li class="homeMessage-Suite-Item"><a class="homeMessage-Suite-Link ita touch" href="{{ "/message/ita.html" | relative_url }}">
-                    <div class="homeMessage-Suite-Photo"><img class="homeMessage-Suite-Img" alt="脇谷 徹" src="{{ "/message/img/thoughtMenu02.jpg" | relative_url }}"></div>
-                    <div class="homeMessage-Suite-Text">
-                        <div class="homeMessage-Suite-Title"><span>開発者メッセージ</span>Exastro IT Automation</div>
-                        <div class="homeMessage-Suite-SubTitle">開発の発想をカタチにしたExastroの原点</div>
-                    </div>
-                </a></li>
-                <li class="homeMessage-Suite-Item"><a class="homeMessage-Suite-Link oase touch" href="{{ "/message/oase.html" | relative_url }}">
-                    <div class="homeMessage-Suite-Photo"><img class="homeMessage-Suite-Img" alt="河野 友生子" src="{{ "/message/img/thoughtMenu03.jpg" | relative_url }}"></div>
-                    <div class="homeMessage-Suite-Text">
-                        <div class="homeMessage-Suite-Title"><span>開発者メッセージ</span>Exastro OASE</div>
-                        <div class="homeMessage-Suite-SubTitle">24時間気が抜けない運用の現場をなんとかしたい</div>
-                    </div>
-                </a></li>
-                <li class="homeMessage-Suite-Item"><a class="homeMessage-Suite-Link epoch touch" href="{{ "/message/epoch.html" | relative_url }}">
-                    <div class="homeMessage-Suite-Photo"><img class="homeMessage-Suite-Img" alt="塩田 聡" src="{{ "/message/img/thoughtMenu04.jpg" | relative_url }}"></div>
-                    <div class="homeMessage-Suite-Text">
-                        <div class="homeMessage-Suite-Title"><span>開発者メッセージ</span>Exastro EPOCH</div>
-                        <div class="homeMessage-Suite-SubTitle">自分たちが苦労している今の状況を解決してこそExastro</div>
-                    </div>
-                </a></li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!--
-##################################################
-   コラム
-##################################################
--->
-<section id="homeColumn" class="homeArticle">
-    <div class="homeArticle-Header">
-        <div class="homeArticle-Type"><span>COLUMN</span></div>
-        <h2 class="homeArticle-Title">Exastro コラム</h2>
-    </div>
-    <div class="homeArticle-Body">
-{% include column_list_ja.html %}
-    </div>
-</section>
-<!--
-##################################################
-   概要
-##################################################
--->
-<section id="overvire">
-    <div class="overview-Background">
-        <canvas id="overview-Canvas"></canvas>
-    </div>
-    <div class="overview-Exastro" id="overview-exastro">
-        <div class="overview-Exastro-Header">
-            <h2 class="overview-Exastro-Title"><span>Exastro Overview</span></h2>
-        </div>
-        <div class="overview-Exastro-Main">
-            <div class="overview-Exastro-Image">
-                <img class="overview-Exastro-Image-Img" src="{{ "/assets/img/system_lifecycle.png" | relative_url }}?v=20240624" alt="Exastroシステムライフサイクル">
-            </div>
-            <div class="overview-Exastro-Text">
-                <h3 class="overview-Exastro-Exp">Exastroは、DX（<span>デジタルトランス<br>フォーメーション</span>）を支えるシステムライフサイクル（設計・開発・設定・運用）を効率化します。</h3>
-            </div>
-        </div>
-        <div class="overview-Exastro-Eff">システムライフサイクルを効率化すると何が良い？</div>
-        <div class="overview-Exastro-Resolve">
-            <h4 class="resolve-Title">Exastroはこんなお悩みを解消します</h4>
-            <div class="resolve-Container">
-                <div class="resolve-Desc">
-                    <dl class="resolve-List">
-                        <dt class="resolve-Name"><div class="resolve-Name-Icon"><img class="resolve-Name-Img" src="{{ "/assets/img/resolve01.png" | relative_url }}" alt="人材不足"></div>人材不足</dt>
-                        <dd class="resolve-Item">
-                            <ul class="resolve-Detail-List">
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>いつ発生するかわからない障害対応</li>
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>ミス軽減のためのレビュー要員増員による負の連鎖</li>
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>属人化していて急な休みに対応できない</li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <dl class="resolve-List">
-                        <dt class="resolve-Name"><div class="resolve-Name-Icon"><img class="resolve-Name-Img" src="{{ "/assets/img/resolve02.png" | relative_url }}" alt="スピード"></div>スピード</dt>
-                        <dd class="resolve-Item">
-                            <ul class="resolve-Detail-List">
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>システムが複雑化していて影響範囲がわかりづらい</li>
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>様々な人が持っている情報を総合して検討してからでないと次へ進めない</li>
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>新たなシステム導入をする余裕がない／検討や導入に時間がかかりすぎる</li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <dl class="resolve-List">
-                        <dt class="resolve-Name"><div class="resolve-Name-Icon"><img class="resolve-Name-Img" src="{{ "/assets/img/resolve03.png" | relative_url }}" alt="人的ミス削減"></div>人的ミス削減</dt>
-                        <dd class="resolve-Item">
-                            <ul class="resolve-Detail-List">
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>システム情報が一元管理されておらず、見逃しや見落としによりミスが発生する</li>
-                                <li class="resolve-Detail-Item"><i class="fa-solid fa-xmark"></i>設定が複雑で確認し難い</li>
-                            </ul>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="resolve-Image">
-                    <img class="resolve-Image-Img" src="{{ "/assets/img/negative_chain.png" | relative_url }}" alt="負の循環">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="suite" class="overview-Exastro-Eff suite">Exastro Suite</div>
-    <div class="overview-Suite" id="overview-ita">
-        <div class="overview-Suite-Container">
-            <div class="overview-Suite-Header">
-                <h3 class="overview-Suite-Title"><em>Exastro </em>IT Automation/OASE<span class="overview-Suite-Type"><span>システム<em>構築・運用</em>に特化</span></span></h3>
-            </div>
-            <div class="overview-Suite-Body">
-                <div class="overview-Suite-Desc">
-                    <p class="overview-Suite-Desc-Par">Exastro IT Automation は、システム構築や運用業務の自動化・効率化・省力化を目的とした、システムの構成管理およびシステム設定のためのフレームワークです。</p>
-                </div>
-                <div class="overview-Suite-MainImage">
-                    <img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita.png" | relative_url }}?v=20240624" alt="IT Automation 概要図">
-                </div>
-            </div>
-            <h4 class="overview-Suite-Desc-Hed">システム構築・運用は、情報の一元管理が要！</h4>
-            <div class="overview-Suite-Body">
-                <div class="overview-Suite-MainImage">
-                    <ul>
-                        <li><img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita01.jpg" | relative_url }}" alt="IT Automation 使用例01"></li>
-                        <li><img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita02.jpg" | relative_url }}" alt="IT Automation 使用例02"></li>
-                        <li><img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_ita03.jpg" | relative_url }}" alt="IT Automation 使用例03"></li>
-                    </ul>
-                </div>
-                <div class="overview-Suite-Desc">
-                    <p class="overview-Suite-Desc-Par">Exastro IT Automation は、情報連携のミスやチーム間の情報伝達のコストを抑えるために、システムの構成情報であるパラメータや手順(IaC)を一元的に管理する仕組みを提供します。<br><br>また、CMDB 上にシステムの過去・現在・未来のパラメータ情報を格納でき、作業手順書である IaC にパラメータを連携することで IaC の再利用性を高めることができます。</p>
-                </div>
-            </div>
-            <div class="overview-Suite-Footer">
-                <div class="overview-Suite-Detail">
-                    <ul class="overview-Suite-Detail-List">
-                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://ita.exastro.org/">
-                            <span>
-                                <div class="overview-Suite-Detail-Name">Exastro IT Automation/OASE</div>
-                                <div class="overview-Suite-Detail-Note">最新バージョンはこちら</div>
-                            </span>
-                        </a></li>
-                    </ul>
-                </div>
-                <h5 class="overview-Suite-Desc-Hed-h5">旧バージョンをお使いの方はこちら</h5>
-                <div class="overview-Suite-Detail">
-                    <ul class="overview-Suite-Detail-old-List">
-                        <li class="overview-Suite-Detail-old-Item"><a class="overview-Suite-Detail-old-Link touch" href="https://exastro-suite.github.io/it-automation-docs/index_ja.html">
-                            <span>
-                                <div class="overview-Suite-Detail-old-Note">Exastro IT Automation Ver.1</div>
-                            </span>
-                        </a></li>
-                        <li class="overview-Suite-Detail-old-Item"><a class="overview-Suite-Detail-old-Link touch" href="https://exastro-suite.github.io/oase-docs/index_ja.html">
-                            <span>
-                                <div class="overview-Suite-Detail-old-Note">Exastro OASE</div>
-                            </span>
-                        </a></li>
-                    </ul>
-                </div>
-                <p class="overview-Suite-Desc-Hed-note">Exastro OASEは、Exastro IT Automation Ver.2に機能内包されました。<br>旧バージョンをご利用の方は、こちらからご覧ください。</p>
-            </div>
-        </div>
-    </div>
-    <div class="overview-Suite" id="overview-SimpleMode">
-        <div class="overview-Suite-Container">
-            <div class="overview-Suite-Header">
-                <h3 class="overview-Suite-Title"><em>Exastro </em>IT Automation SimpleMode</h3>
-            </div>
-            <h4 class="overview-Suite-Desc-Hed">Exastroを初めて使う方におススメ</h4>
-            <div class="overview-Suite-Body">
-                <div class="overview-Suite-Desc">
-                    <p class="overview-Suite-Desc-Par">Exastro IT Automationが提供する機能のうち、シンプルなユースケースに有用な機能を簡単に利用できるWebGUIを提供します。</p>
-                </div>
-                <div class="overview-Suite-MainImage">
-                    <img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/simple_mode.png" | relative_url }}?v=20250107" alt="SimpleMode 構成図">
-                </div>
-            </div>
-            <div class="overview-Suite-Footer">
-                <div class="overview-Suite-Detail">
-                    <ul class="overview-Suite-Detail-List">
-                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://ita.exastro.org/simple_mode.html">
-                            <span>
-                                <div class="overview-Suite-Detail-Name">Exastro IT Automation SimpleMode</div>
-                                <div class="overview-Suite-Detail-Note">詳細はこちら</div>
-                            </span>
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overview-Suite" id="overview-epoch">
-        <div class="overview-Suite-Container">
-            <div class="overview-Suite-Header">
-                <h3 class="overview-Suite-Title"><em>Exastro </em>EPOCH<span class="overview-Suite-Type"><span>システム<em>開発</em>に特化</span></span></h3>
-            </div>
-            <h4 class="overview-Suite-Desc-Hed">クラウドネイティブなアプリケーション開発を高速化</h4>
-            <div class="overview-Suite-Body">
-                <div class="overview-Suite-Desc">
-                    <p class="overview-Suite-Desc-Par">便利なはずのクラウドネイティブなアプリケーション開発が、なぜ浸透しないのか？<br>Exastro EPOCHはそこに注目したアプリケーションです。
-                    <br><br>Exastro EPOCHは、高速なアプリケーション開発・デプロイ環境を提供するためのフレームワークです。クラウドネイティブなアプリケーション開発を支援するためのプロセス及び環境をセットで提供します。</p>
-                </div>
-                <div class="overview-Suite-MainImage">
-                    <img class="overview-Suite-MainImage-Img" src="{{ "/assets/img/overview_epoch.png" | relative_url }}?v=20240624" alt="EPOCH 概要図">
-                </div>
-            </div>
-            <div class="overview-Suite-Footer">
-                <!--<div class="overview-Suite-Images">
-                    <ul class="overview-Suite-Images-List">
-                        <li class="overview-Suite-Images-Item"></li>
-                        <li class="overview-Suite-Images-Item"></li>
-                        <li class="overview-Suite-Images-Item"></li>
-                    </ul>
-                </div>-->
-                <div class="overview-Suite-Detail">
-                    <ul class="overview-Suite-Detail-List">
-                        <li class="overview-Suite-Detail-Item"><a class="overview-Suite-Detail-Link touch" href="https://exastro-suite.github.io/epoch-docs/index_ja.html">
-                            <span>
-                                <div class="overview-Suite-Detail-Name">Exastro EPOCH</div>
-                                <div class="overview-Suite-Detail-Note">詳細はこちら</div>
-                            </span>
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="installation">
-        <div class="installation-Container">
-            <h4 class="installation-Title">導入までの流れ</h4>
-            <ol class="installation-List">
-                <li class="installation-Item">
-                    <div class="stepNumber">Step 01</div>
-                    <h3 class="stepTitle">インストールマニュアルをGET！</h3>
-                    <div class="stepBody">
-                        <ul class="stepDocList">
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://ita-docs.exastro.org/ja/2.4/installation/">IT Automation<i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://exastro-suite.github.io/epoch-docs/Learn_ja/installation_guide/installation_guide_ja.html">EPOCH<i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="stepRemark">メンバー登録/申請不要</div>
-                </li>
-                <li class="installation-Item">
-                    <div class="stepNumber">Step 02</div>
-                    <h3 class="stepTitle">インストール要件をチェック！</h3>
-                    <div class="stepBody stepImage">
-                        <img class="stepBody-Img" src="{{ "/assets/img/install_step02.png" | relative_url }}" alt="Step 02">
-                    </div>
-                    <div class="stepRemark">インストール/運用無料</div>
-                </li>
-                <li class="installation-Item">
-                    <div class="stepNumber">Step 03</div>
-                    <h3 class="stepTitle">GitHubへGO！</h3>
-                    <div class="stepBody">
-                        <ul class="stepDocList">
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://github.com/exastro-suite/exastro-it-automation-site-dev" target="_blank">IT Automation<i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                            <li class="stepDocItem"><a class="stepDocLink touch" href="https://github.com/exastro-suite/epoch" target="_blank">EPOCH<i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="stepRemark">スモールスタートOK</div>
-                </li>
-                <li class="installation-Item">
-                    <div class="stepNumber">Step 04</div>
-                    <h3 class="stepTitle">必要なコンテンツをダウンロード＆インストール</h3>
-                    <div class="stepBody stepImage">
-                        <img class="stepBody-Img" src="{{ "/assets/img/install_step04.png" | relative_url }}" alt="Step 02">
-                    </div>
-                    <div class="stepRemark">企業も安心！<br>有料サポートあり</div>
-                </li>
-                <li class="installation-Item">
-                    <div class="stepNumber">Step 05</div>
-                    <h3 class="stepTitle">使ってみる♪</h3>
-                    <div class="stepBody stepImage">
-                        <img class="stepBody-Img" src="{{ "/assets/img/install_step05.png" | relative_url }}" alt="Step 02">
-                    </div>
-                </li>
-            </ol>
-            <div class="support">
-                <ul class="supportList">
-                    <li class="supportItem">
-                        <a href="https://www.support.nec.co.jp/View.aspx?NoClear=on&id=3030100331" target="_blank" class="touch supportLink">
-                            <img class="supportName" src="./assets/img/lt_ita.svg" alt="Exastro IT Automation">
-                            <div class="supportText">有料サポート<span class="detailWrap">詳細はこちら</span></div>
-                        </a></li>
-                    <li class="supportItem">
-                        <a href="https://www.support.nec.co.jp/View.aspx?NoClear=on&id=3030100337" target="_blank" class="touch supportLink">
-                            <img class="supportName" src="./assets/img/lt_oase.svg" alt="Exastro OASE">
-                            <div class="supportText">有料サポート<span class="detailWrap">詳細はこちら</span></div>
-                        </a></li>
-                    <li class="supportItem">
-                        <a href="https://www.support.nec.co.jp/View.aspx?NoClear=on&id=3030100374" target="_blank" class="touch supportLink">
-                            <img class="supportName" src="./assets/img/lt_epoch.svg" alt="Exastro EPOCH">
-                            <div class="supportText">有料サポート<span class="detailWrap">詳細はこちら</span></div>
-                        </a></li>
-                </ul>
-            </div>
-            <div class="opinion">
-                <p class="opinion-Text">オープンソースに利用制限はありません！<br>
-                でもちょっと見返りに「ご意見/ご感想」が欲しいです。<br>
-                アプリケーションの磨きこみにご参加ください。</p>
-                
-                <!--<div class="opinion-Detail" style="margin-bottom: 32px;">
-                    <a class="opinion-Link goto-Link touch sectionDetailLink" href="#"><span>ご意見/ご感想はこちら</span></a>
-                </div>-->
-                
-                <p class="opinion-Text">技術的な質問や意見はissueへ</p>
-                <div class="opinion-Detail">
-                    <ul class="opinion-Ditail-List" style="display: flex; margin-bottom: 0;">
-                        <li class="opinion-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/it-automation/issues" rel="noopener"><span>ITA Issues</span></a></li>
-                        <li class="opinion-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/oase/issues" rel="noopener"><span>OASE Issues</span></a></li>
-                        <li class="opinion-Ditail-Item"><a class="opinion-Link goto-Link touch sectionDetailLink" href="https://github.com/exastro-suite/epoch/issues" rel="noopener"><span>EPOCH Issues</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--
-##################################################
-   FAQ
-##################################################
--->
-<section id="faq" class="homeSection">
-    <div class="homeSection-Container">
-        <div class="homeSection-Header">
-            <h2 class="homeSection-Title">Exastroに関する FAQ</h2>
-        </div>
-        <div class="faq">
-            <div class="faq-Ditail">
-                <ul class="faq-Ditail-List" style="display: flex;">
-                    <li class="faq-Ditail-Item"><span class="goto-nolink"><span>ITA/OASE FAQ</span><div class="goto-nolink-coming-soon">Coming Soon...</div></span></li>
-                    <li class="faq-Ditail-Item"><a class="goto-Link touch faq-Ditail-Link" href="https://exastro-suite.github.io/epoch-docs/faq_ja.html"><span>EPOCH FAQ</span></a></li>
-                </ul>
-            </div>
-            <div class="faq-New">
-                <h3 class="homeSection-SubTitle">よくある質問</h3>
-                <dl class="faq-New-List">
-                    <dt class="faq-New-Date">01</dt>
-                    <dd class="faq-New-Cat"><span class="faq-Cat-txt faq-Cat-ita">IT Automation</span></dd>
-                    <dd class="faq-New-Item"><a href="https://exastro-suite.github.io/it-automation-docs/faq_ja.html?q=general4" class="faq-New-Link">CPUとメモリを増設したのに、性能が上がりません</a></dd>
-                </dl>
-                <dl class="faq-New-List">
-                    <dt class="faq-New-Date">02</dt>
-                    <dd class="faq-New-Cat"><span class="faq-Cat-txt faq-Cat-ita">IT Automation</span></dd>
-                    <dd class="faq-New-Item"><a href="https://exastro-suite.github.io/it-automation-docs/faq_ja.html?q=general22" class="faq-New-Link">Exastro IT Automationのバックアップとリストアの方法を知りたい。</a></dd>
-                </dl>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--
-##################################################
-   Hand out
-##################################################
--->
-<section id="handout" class="homeSection">
-    <div class="homeSection-Container">
-        <div class="homeSection-Header">
-            <h2 class="homeSection-Title">Hand out</h2>
-        </div>
-        <div class="handout">
-            <ul class="handout-List">
-                <li class="handout-Item">
-                    <a class="handout-Link touch" download="Exastro 概要ご紹介.pdf" href="./assets/handout/exastro_overview.pdf">
-                        <div class="handout-Photo"><img class="handout-Img" alt="Hand outイメージ" src="./assets/handout/exastro_overview.jpg"></div>
-                        <div class="handout-Text">
-                            <div class="handout-Title">Exastro 概要ご紹介</div>
-                            <div class="handout-Date"><i class="fa-regular fa-clock"></i> 2023/01/20</div>
-                            <div class="handout-Download"><i class="fa-solid fa-download"></i> Download PDF</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="handout-Item">
-                    <a class="handout-Link touch" download="Exastro 『攻めと守りの自動化』とは？.pdf" href="./assets/handout/exastro_document1.pdf">
-                        <div class="handout-Photo"><img class="handout-Img" alt="Hand outイメージ" src="./assets/handout/exastro_document1.jpg"></div>
-                        <div class="handout-Text">
-                            <div class="handout-Title">
-                                <div class="handout-SubTitle">クラウドネイティブ化を促進するためのキーワード</div>
-                                『攻めと守りの自動化』とは？</div>
-                            <div class="handout-Date"><i class="fa-regular fa-clock"></i> 2023/01/20</div>
-                            <div class="handout-Download"><i class="fa-solid fa-download"></i> Download PDF</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="handout-Item">
-                    <a class="handout-Link touch" download="PSSOメソッドガイドブック.pdf" href="./assets/handout/exastro_psso_method.pdf">
-                        <div class="handout-Photo"><img class="handout-Img" alt="Hand outイメージ" src="./assets/handout/exastro_psso_method.jpg"></div>
-                        <div class="handout-Text">
-                            <div class="handout-Title">PSSOメソッドガイドブック
-                                <div class="handout-SubTitle">Exastroでシステム構築・運用を効率化する</div>
-                            </div>
-                            <div class="handout-Date"><i class="fa-regular fa-clock"></i> 2024/05/13</div>
-                            <div class="handout-Download"><i class="fa-solid fa-download"></i> Download PDF</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!--
-##################################################
-   SNS
-##################################################
--->
-<!-- <section id="snsArea" class="homeSection">
-    <div class="homeSection-Container">
-        <div class="snsArea">
-            <div id="twitterTimeline">
-                <a class="twitter-timeline" href="https://twitter.com/ExastroSuite?ref_src=twsrc%5Etfw" data-width="474" data-height="480" data-chrome="nofooter" >Tweets by Exastro Suite</a>
-            </div>
-            <div id="facebookTimeline">
-              <div class="fb-page" data-href="https://www.facebook.com/ExastroSuite" data-tabs="timeline" data-width="474" data-height="480" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ExastroSuite" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ExastroSuite">Exastro Suite</a></blockquote></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-</article>
-</main>
-
-<script src="{{ "/assets/js/home_background.js" | relative_url }}"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+      </div>
+    </section>

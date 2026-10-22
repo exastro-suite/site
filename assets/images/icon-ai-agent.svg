@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- AI AGENT：理解・計画・判断（チップとニューラルネット） -->
+  <rect x="14" y="14" width="36" height="36" rx="5"/>
+  <path d="M24 14V6M32 14V6M40 14V6M24 58v-8M32 58v-8M40 58v-8M14 24H6M14 32H6M14 40H6M58 24h-8M58 32h-8M58 40h-8"/>
+  <circle cx="24" cy="26" r="2.5" fill="#fff"/>
+  <circle cx="24" cy="38" r="2.5" fill="#fff"/>
+  <circle cx="32" cy="32" r="2.5" fill="#fff"/>
+  <circle cx="40" cy="26" r="2.5" fill="#fff"/>
+  <circle cx="40" cy="38" r="2.5" fill="#fff"/>
+  <path d="M24 26l8 6 8-6M24 38l8-6 8 6"/>
+</svg>

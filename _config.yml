@@ -1,0 +1,45 @@
+# サイト全体の設定（変更したら jekyll serve を再起動する）
+title: Exastro
+lang: ja
+
+# url は GitHub Pages のビルド時に CNAME のドメインから自動で入る（site-dev / site で別ドメインのため書かない）
+baseurl: ""
+
+# 本番の URL。site.url がこれと同じときだけ Google Analytics を読み込み、検索エンジンに登録させる（ステージング・ローカルは noindex）
+production_url: https://www.exastro.org
+# Google Analytics（GA4）の測定 ID
+google_analytics: G-WBCJN1M2CG
+
+# ITA ドキュメント（ita-docs.exastro.org/ja/<バージョン>/）のバージョン。リリースのたびに書き換える（latest は使えない）
+# _data/footer_links.yml の url の {version} がこの値になる
+ita_docs_version: "2.9"
+
+# GitHub Pages のデフォルトテーマ（Primer）を使わない。
+# 指定しないとテーマの assets/css/style.scss が assets/css/style.css を上書きする
+theme: null
+
+# リニューアル前の URL から新しいページへ転送する（GitHub Pages で使えるプラグイン。github-pages gem に入っている）
+# 転送元は転送先ページの front matter の redirect_from に書く
+plugins:
+  - jekyll-redirect-from
+
+# 出力しないファイル（_ や . で始まるものは指定しなくても出力されない）
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - init.sh
+  - start-autobuild.sh
+  - serve.sh
+  - site.code-workspace
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Markdown の見出しに id を自動で付けない（記事ページは _layouts/message.html で見出しにクラスを付ける）
+kramdown:
+  auto_ids: false

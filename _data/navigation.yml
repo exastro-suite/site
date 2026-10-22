@@ -1,0 +1,19 @@
+# ヘッダー・フッターのリンク。id はトップページのセクション id、url は別ページへのリンク（url があれば id より優先）
+- title: Agentic AI
+  id: agentic-ai
+- title: Governance
+  id: governed-execution
+- title: Inside
+  id: inside-exastro
+- title: Use Cases
+  id: use-cases
+- title: Vision
+  id: vision
+- title: Evolution
+  id: evolution
+- title: Latest
+  id: latest
+- title: Get Started
+  id: get-started
+- title: Assets
+  url: /assets/index.html

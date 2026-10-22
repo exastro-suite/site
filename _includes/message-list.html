@@ -1,0 +1,28 @@
+        <!-- 開発者メッセージ（assets/css/sections.css）。内容は _data/messages.yml で書き換える -->
+        <div class="message">
+          {%- assign main = site.data.messages | where: "featured", true | first %}
+          <!-- メインのメッセージ -->
+          <article class="message__main">
+            <div class="message__main-photo">
+              <img src="{{ main.photo | relative_url }}" alt="{{ main.name }}" width="960" height="720" loading="lazy">
+            </div>
+            <div class="message__main-body">
+              <h4 class="message__main-title">{{ main.title }}<span class="message__main-name">{{ main.name }}</span></h4>
+              <p class="message__main-catch">{{ main.catch }}</p>
+              {%- for text in main.summary %}
+              <p class="message__main-text">{{ text }}</p>
+              {%- endfor %}
+              <a class="message__more" href="{{ main.url | relative_url }}" aria-label="{{ main.title }}（{{ main.name }}）の全文はこちら">全文はこちら<span class="message__more-arrow" aria-hidden="true"></span></a>
+            </div>
+          </article>
+
+          <!-- 開発者のメッセージ（_data/messages.yml に足すだけで増やせる） -->
+          <h4 class="message__others-title">他のメッセージ</h4>
+          <ul class="message__list">
+            {%- for item in site.data.messages %}
+            {%- unless item.featured %}
+{% include message-card.html item=item %}
+            {%- endunless %}
+            {%- endfor %}
+          </ul>
+        </div>

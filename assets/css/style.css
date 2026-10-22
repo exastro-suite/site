@@ -1,0 +1,2594 @@
+@charset "UTF-8";
+
+/* ===== リセットCSS ===== */
+
+/* ボックスサイズを全要素で統一 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+}
+
+/* 余白をすべて削除 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;  /* iOSの横向き時の文字拡大を防ぐ */
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;  /* タップ時のハイライトを消す */
+  line-height: 1.5;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 見出し・テキスト */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+abbr[title] {
+  text-decoration: underline dotted;
+}
+
+code, kbd, samp, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 1em;
+}
+
+pre {
+  overflow: auto;
+}
+
+/* リスト */
+ul, ol, menu {
+  list-style: none;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* リンク */
+a {
+  color: inherit;
+  text-decoration: inherit;
+  background-color: transparent;
+}
+
+/* 区切り線 */
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+  overflow: visible;
+}
+
+/* 画像・メディア */
+img, picture, video, canvas, svg, iframe, embed, object, audio {
+  display: block;
+  max-width: 100%;
+}
+
+img, video {
+  height: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+/* 表 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-indent: 0;
+  border-color: inherit;
+}
+
+caption, th {
+  text-align: left;
+}
+
+th, td {
+  vertical-align: top;
+}
+
+/* フォーム */
+input, button, textarea, select, optgroup {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background-color: transparent;
+  border-radius: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+[role="button"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[disabled] {
+  cursor: default;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+select {
+  text-overflow: ellipsis;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+[type="search"] {
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration,
+[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+/* キーボード操作時のフォーカス表示は残す（アクセシビリティ） */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* その他 */
+details, main, summary {
+  display: block;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+dialog {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[contenteditable]:focus {
+  outline: auto;
+}
+
+
+/* ===== カラーパレット ===== */
+:root {
+    /* Exastro Color */
+    --mainColor100:#002B62;--mainColor95:#0D366A;--mainColor90:#1A4072;--mainColor85:#264B7A;--mainColor80:#335581;--mainColor75:#406089;--mainColor70:#4D6B91;--mainColor65:#597599;--mainColor60:#6680A1;--mainColor55:#738AA9;--mainColor50:#7F95B1;--mainColor45:#8CA0B8;--mainColor40:#99AAC0;--mainColor35:#A6B5C8;--mainColor30:#B3BFD0;--mainColor25:#BFCAD8;--mainColor20:#CCD5E0;--mainColor15:#D9DFE7;--mainColor10:#E5EAEF;--mainColor5:#F2F4F7;--accentColor100:#FFA500;--accentColor95:#FFAA0D;--accentColor90:#FFAE1A;--accentColor85:#FFB326;--accentColor80:#FFB733;--accentColor75:#FFBC40;--accentColor70:#FFC04D;--accentColor65:#FFA500;--accentColor60:#FFC559;--accentColor55:#FFCE73;--accentColor50:#FFD280;--accentColor45:#FFD78C;--accentColor40:#FFDB99;--accentColor35:#FFA500;--accentColor30:#FFE4B3;--accentColor25:#FFE9BF;--accentColor20:#FFEDCC;--accentColor15:#FFF2D9;--accentColor10:#FFF6E6;--accentColor5:#FFFBF2;
+
+  /* 黒系：宇宙空間・背景 */
+  --color-void: #05070d;          /* 最も暗い背景 */
+  --color-space: #0a0f1c;         /* メイン背景 */
+  --color-deep-navy: #111a2e;     /* カード・パネル背景 */
+  --color-gunmetal: #1c2438;      /* 境界線・区切り */
+  --color-steel: #2e3a55;         /* 非アクティブ要素 */
+
+  /* 青系：メインカラー */
+  --color-midnight-blue: #0d2a5c;
+  --color-cosmic-blue: #1e4fd8;
+  --color-stellar-blue: #3a7bff;
+  --color-sky-blue: #7fb2ff;
+
+  /* SF系：ネオン・アクセント */
+  --color-neon-cyan: #00c8ff;     /* ハイライト・リンク */
+  --color-plasma-teal: #14f1c6;   /* 成功・アクティブ */
+  --color-hologram: #a6f6ff;      /* ホログラム風の淡い光 */
+  --color-warning-amber: #ffb547; /* 警告 */
+  --color-alert-red: #dd0000;     /* エラー */
+
+  /* 宇宙系：星雲・星の光 */
+  --color-nebula-purple: #6c3df4;
+  --color-nebula-violet: #a35cff;
+  --color-nebula-pink: #ff5ccf;
+  --color-starlight: #e6edf7;     /* 本文テキスト */
+  --color-stardust: #8a96b0;      /* 補足テキスト */
+
+  /* グラデーション */
+  --gradient-space: linear-gradient(180deg, var(--color-void) 0%, var(--color-space) 60%, var(--color-midnight-blue) 100%);
+  --gradient-nebula: linear-gradient(135deg, var(--color-nebula-purple) 0%, var(--color-cosmic-blue) 50%, var(--color-neon-cyan) 100%);
+  --gradient-aurora: linear-gradient(90deg, var(--color-plasma-teal) 0%, var(--color-neon-cyan) 50%, var(--color-nebula-violet) 100%);
+
+  /* 発光エフェクト（box-shadow / text-shadow 用） */
+  --glow-cyan: 0 0 8px rgba(0, 200, 255, 0.6), 0 0 24px #00c8ff4d;
+  --glow-blue: 0 0 8px rgba(58, 123, 255, 0.6), 0 0 24px rgba(58, 123, 255, 0.3);
+  --glow-purple: 0 0 8px rgba(163, 92, 255, 0.6), 0 0 24px rgba(163, 92, 255, 0.3);
+
+  /* 右端のスクロールメモリが使う幅 */
+  --meter-space: 6rem;
+
+  /* 下端のお知らせの高さ */
+  --notice-height: 4rem;
+
+  /* セクション1の重要なお知らせ（.hero__alert）が使う高さ。置いていないときは 0 */
+  --hero-alert-space: 0px;
+
+  /* 上端の固定ヘッダーの高さ */
+  --header-height: 4rem;
+
+  /* 背景画像のフェードインにかける時間 */
+  --bg-fade-duration: 3s;
+
+  /* 用途別（デザイン変更時はここを差し替える） */
+  --color-bg: var(--color-space);
+  --color-surface: var(--color-deep-navy);
+  --color-border: var(--color-gunmetal);
+  --color-text: var(--color-starlight);
+  --color-text-muted: var(--color-stardust);
+  --color-primary: var(--color-stellar-blue);
+  --color-accent: var(--color-neon-cyan);
+  --color-link: var(--color-neon-cyan);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background-color: var(--color-void);
+  color: var(--color-text);
+}
+
+/* ===== セクション =====
+ * 左：タイトル（セクション内にいる間は画面の上下中央に固定）／右：内容
+ */
+.section {
+  /* 左右の余白（見出しの後ろの同心円の位置合わせにも使う） */
+  --section-pad: clamp(1.5rem, 6vw, 6rem);
+  /* 右の余白（右端のスクロールメモリと重ならないよう広めに取る） */
+  --section-pad-right: max(var(--section-pad), var(--meter-space));
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-inline: var(--section-pad);
+  padding-right: var(--section-pad-right);
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== 背景画像（ヒーロー以外のセクション） =====
+ * 一番奥に薄く敷き、スクロールしても画面に固定して見せる。
+ * 画像はセクションごとに --section-bg-image で差し替える
+ */
+#agentic-ai         { --section-bg-image: url("../images/section_background01.jpg"); }
+#governed-execution { --section-bg-image: url("../images/section_background02.jpg"); }
+#inside-exastro     { --section-bg-image: url("../images/section_background03.jpg"); }
+#use-cases          { --section-bg-image: url("../images/section_background04.jpg"); }
+#evolution          { --section-bg-image: url("../images/section_background05.jpg"); }
+#vision             { --section-bg-image: url("../images/section_background06.jpg"); }
+#latest             { --section-bg-image: url("../images/section_background07.jpg"); }
+#get-started        { --section-bg-image: url("../images/section_background08.jpg"); }
+#assets             { --section-bg-image: url("../images/section_background09.jpg"); }
+
+/* 背景の重なりをセクションの中で完結させる（背景画像を格子・同心円より奥に置くため） */
+.section:not(.section--hero) {
+  isolation: isolate;
+}
+
+.section:not(.section--hero)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--section-bg-image, none) center / cover no-repeat fixed;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* 背景画像の上に重ねる網点（画像の粗を目立たなくする）。
+   画像と一緒に画面へ固定し、スクロールしても点と画像がずれないようにする */
+.section:not(.section--hero)::after {
+  --halftone-size: 4px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle, rgba(5, 7, 13, 0.85) 1px, transparent 1.6px) 0 0 / var(--halftone-size) var(--halftone-size) fixed;
+  pointer-events: none;
+}
+
+/* ===== 画面に固定する背景のアニメーション =====
+ * 一面に敷く背景（六角形・配線とログ・方眼と引用符・アートボード・言葉・コミット）は position: fixed で画面に固定し、
+ * セクションが縦に長くても模様や位置が引き伸ばされないようにする（位置や % は画面に対して決まる）。
+ * 固定した背景がセクションの外に出ないよう、セクションの範囲で切る
+ * （overflow では position: fixed の子を切れないため clip-path を使う）。
+ * セクションの上下の端に付ける飾り（斜線の帯・フィルムの縁・地平線）は固定せず、セクションに合わせる
+ */
+.section:has(> .section-hex, > .section-live, > .section-note, > .section-artboard, > .section-words, > .section-commits) {
+  clip-path: inset(0);
+}
+
+/* 高さを画面に合わせて sticky にし、中のタイトルを上下中央に置く。
+   列の下端に来ると、セクションと一緒にスクロールして出ていく */
+.section__head {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* 見出しの後ろの同心円（.section--dial のセクションのみ）：
+   画面の左端を中心にした半円が、外側と内側で逆向きにゆっくり回る */
+.section--dial .section__head::before,
+.section--dial .section__head::after {
+  --dial-size: min(110vh, 90vw);
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(var(--section-pad) * -1 - var(--dial-size) / 2);
+  z-index: -1;
+  width: var(--dial-size);
+  aspect-ratio: 1;
+  margin-top: calc(var(--dial-size) / -2);
+  background: center / contain no-repeat;
+  pointer-events: none;
+}
+
+/* 同心円がセクションの外（上下・画面の左）にはみ出す分を切る。
+   hidden だとセクションがスクロール領域になり見出しの sticky が効かなくなるため clip を使う */
+.section--dial {
+  overflow: clip;
+}
+
+.section--dial .section__head::before {
+  background-image: url("../images/dial-outer.svg");
+  opacity: 0.22;
+  animation: section-dial-spin 180s linear infinite;
+}
+
+.section--dial .section__head::after {
+  background-image: url("../images/dial-inner.svg");
+  opacity: 0.18;
+  animation: section-dial-spin 120s linear infinite reverse;
+}
+
+@keyframes section-dial-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== 左右反転（.section--reverse）：タイトルを右、内容を左にする =====
+ * 同心円は画面の右端を中心にし、左右反転して表示する（scale は回転の transform と別にかかる）
+ */
+.section--reverse {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  --hex-x: 70%;
+}
+
+.section--reverse .section__head {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.section--reverse .section__body {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.section--reverse.section--dial .section__head::before,
+.section--reverse.section--dial .section__head::after {
+  right: calc(var(--section-pad-right) * -1 - var(--dial-size) / 2);
+  left: auto;
+  scale: -1 1;
+}
+
+.section__title {
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-shadow: var(--glow-cyan);
+  color: #FFF;
+}
+
+/* タイトルの一部に引く蛍光ペン風の下線（文字の下側に太く敷く・折り返しても行ごとに引く） */
+.section__marker {
+  padding-inline: 0.1em;
+  background: linear-gradient(transparent 75%, rgba(0, 200, 255, 0.35) 75%, rgba(0, 200, 255, 0.35) 98%, transparent 98%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* タイトルの改行位置の調整：<span class="section__phrase">…</span> で囲んだ部分は途中で改行しない（幅が足りないときは囲みの切れ目で改行する） */
+.section__phrase {
+  display: inline-block;
+}
+
+.section__subtitle {
+  display: block;
+  margin-top: 1.75rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  text-shadow: none;
+}
+
+.section__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-block: clamp(3rem, 10vh, 8rem);
+  line-height: 1.9;
+}
+
+.section__body p {
+  color: var(--color-text-muted);
+}
+
+/* 見出しの下に置く説明文（サブタイトルの下） */
+.section__lead {
+  margin: 1.5rem 0 0;
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+/* 説明文の下に置く、次のセクションへのリンク（見た目はセクション5の「詳細はこちら」にそろえる） */
+.section__more {
+  display: inline-flex;
+  /* 親（縦並びの flex）に横幅いっぱいへ伸ばされないよう、左寄せで内容の幅にする */
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.31rem 1.25rem;
+  border: 1px solid var(--mainColor60);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mainColor60);
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.section__more:hover,
+.section__more:focus-visible {
+  color: var(--mainColor40);
+  border-color: var(--mainColor40);
+}
+
+.section__more:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* 下向きの矢印（下のセクションへ移動するため。ホバーで下へ少し動く） */
+.section__more-arrow {
+  width: 0.45em;
+  height: 0.45em;
+  margin-top: -0.2em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: translate 0.3s;
+}
+
+.section__more:hover .section__more-arrow,
+.section__more:focus-visible .section__more-arrow {
+  translate: 0 0.2em;
+}
+
+/* ===== パンくずリスト（個別ページの見出しの上） ===== */
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.breadcrumb__list li + li::before {
+  content: "/";
+  margin-inline: 0.5rem;
+  color: var(--color-steel);
+}
+
+.breadcrumb__link {
+  transition: color 0.2s;
+}
+
+.breadcrumb__link:hover {
+  color: var(--mainColor60);
+}
+
+/* ===== 画像の拡大表示 =====
+ * .image-zoom（画像を包むボタン）を押すと、ダイアログで画像を大きく表示する（assets/js/main.js の initImageDialog）。
+ * 拡大用に大きい画像を用意したら、ボタンに data-full="画像のパス" を書くとそちらを表示する
+ */
+.image-zoom {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: rgba(0,0,0,.5);
+  cursor: zoom-in;
+}
+
+/* ホバーで右下に虫眼鏡を出し、画像を少し明るくする */
+.image-zoom::after {
+  content: "";
+  position: absolute;
+  right: 0.625rem;
+  bottom: 0.625rem;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--mainColor20);
+  border-radius: 50%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CCD5E0' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='m15 15 5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 1rem no-repeat,
+    rgba(5, 7, 13, 0.8);
+  opacity: 0;
+  translate: 0 0.25rem;
+  transition: opacity 0.2s, translate 0.2s;
+}
+
+.image-zoom img {
+  transition: filter 0.2s;
+}
+
+.image-zoom:hover::after,
+.image-zoom:focus-visible::after {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.image-zoom:hover img,
+.image-zoom:focus-visible img {
+  filter: brightness(1.1);
+}
+
+.image-zoom:focus-visible {
+  outline: 2px solid var(--mainColor20);
+  outline-offset: -2px;
+}
+
+/* ダイアログ：画面の中央に、はみ出さない大きさで画像を置く（背景をクリックすると閉じる） */
+.image-dialog {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  padding: clamp(1rem, 4vw, 3rem);
+  border: 0;
+  background: none;
+  color: var(--color-text);
+}
+
+.image-dialog[open] {
+  display: grid;
+  place-items: center;
+}
+
+.image-dialog::backdrop {
+  background: rgba(5, 7, 13, 0.88);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.image-dialog__figure {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  max-width: min(100%, 90rem);
+}
+
+/* 読み込み終わってから表示し、そのときに登場の動きを再生する */
+.image-dialog[open]:not(.is-loading, .is-error) .image-dialog__figure {
+  animation: image-dialog-in 0.25s ease both;
+}
+
+.image-dialog.is-loading .image-dialog__figure,
+.image-dialog.is-error .image-dialog__figure {
+  visibility: hidden;
+}
+
+/* 読み込み中の表示：文字と流れるバー。すぐ読み込めたときにちらつかないよう、少し待ってから出す */
+.image-dialog__loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-align: center;
+  translate: -50% -50%;
+}
+
+.image-dialog.is-loading .image-dialog__loading {
+  display: block;
+  animation: image-dialog-loading-in 0.3s ease 0.2s both;
+}
+
+.image-dialog.is-error .image-dialog__loading {
+  display: block;
+}
+
+.image-dialog.is-loading .image-dialog__loading::after {
+  content: "";
+  display: block;
+  width: min(12rem, 40vw);
+  height: 2px;
+  margin-top: 0.75rem;
+  border-radius: 1px;
+  background: linear-gradient(45deg, transparent, var(--mainColor60), transparent) no-repeat var(--color-gunmetal);
+  background-size: 40% 100%;
+  animation: image-dialog-loading-bar 1.2s ease-in-out infinite;
+}
+
+@keyframes image-dialog-loading-in {
+  from { opacity: 0; }
+}
+
+@keyframes image-dialog-loading-bar {
+  from { background-position: -70% 0; }
+  to { background-position: 170% 0; }
+}
+
+@keyframes image-dialog-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+
+.image-dialog__img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 8rem);
+  max-height: calc(100dvh - 8rem);
+  border: 1px solid var(--color-steel);
+  border-radius: 8px;
+  background: var(--color-deep-navy);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6), 0 0 32px rgba(0, 200, 255, 0.12);
+  object-fit: contain;
+}
+
+.image-dialog__caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* 閉じるボタン（右上の ×） */
+.image-dialog__close {
+  position: fixed;
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-steel);
+  border-radius: 50%;
+  background: rgba(5, 7, 13, 0.8);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.image-dialog__close::before,
+.image-dialog__close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.125rem;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-text);
+  translate: -50% -50%;
+  rotate: 45deg;
+}
+
+.image-dialog__close::after {
+  rotate: -45deg;
+}
+
+.image-dialog__close:hover,
+.image-dialog__close:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: var(--glow-cyan);
+}
+
+/* 開いている間は後ろのページをスクロールさせない */
+html:has(.image-dialog[open]) {
+  overflow: hidden;
+}
+
+/* ===== アニメーションをオフにしたとき（html.is-motion-off） =====
+ * ヘッダーの Motion スイッチで切り替える（assets/js/main.js の initMotionToggle）。
+ * 背景などの CSS アニメーションをその場で一時停止する。AIデモは処理中・完了を示す動きなので止めない。
+ * 1回だけ再生する登場のアニメーションを足したときは、下の「再生せずに最初から表示する」一覧にも加える。
+ * ヒーローの立体格子は main.js 側で描き直しを止める。ホバーなどの transition はそのまま
+ */
+.is-motion-off *:not(.ai-demo *),
+.is-motion-off *:not(.ai-demo *)::before,
+.is-motion-off *:not(.ai-demo *)::after {
+  animation-play-state: paused !important;
+}
+
+/* 背景の画面への固定もやめ、セクションと一緒にスクロールさせる（スクロールのたびの描き直しを減らす）。
+   背景画像・網点は background-attachment: fixed を、一面に敷く背景は position: fixed とセクションの切り抜きを戻す */
+.is-motion-off .section:not(.section--hero)::before,
+.is-motion-off .section:not(.section--hero)::after {
+  background-attachment: scroll;
+}
+
+.is-motion-off .section-hex,
+.is-motion-off .section-live,
+.is-motion-off .section-note,
+.is-motion-off .section-artboard,
+.is-motion-off .section-words,
+.is-motion-off .section-commits {
+  position: absolute;
+}
+
+.is-motion-off .section:has(> .section-hex, > .section-live, > .section-note, > .section-artboard, > .section-words, > .section-commits) {
+  clip-path: none;
+}
+
+/* 1回だけ再生する登場のアニメーション（ファーストビュー・Control Plane の説明・画像の拡大表示）は、
+   一時停止すると再生前の透明な状態のまま見えなくなるため、再生せずに最初から表示する */
+.is-motion-off .hero__logo img,
+.is-motion-off .hero__tagline,
+.is-motion-off .hero__body::before,
+.is-motion-off .hero__title,
+.is-motion-off .hero__lead,
+.is-motion-off .hero__actions,
+.is-motion-off .control-plane__feature[open] p,
+.is-motion-off .image-dialog[open] .image-dialog__figure {
+  animation: none !important;
+}
+
+/* ===== スクロールで表示：画面に入った要素をフェードイン =====
+ * .reveal と遅延（--reveal-delay）は main.js の initScrollReveal が付け、
+ * 画面に入ると .is-revealed を付ける（JS が動かない場合は最初から表示される）
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease var(--reveal-delay, 0s), transform 0.9s ease var(--reveal-delay, 0s);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* 狭い画面では縦並び（タイトルの固定はしない）。
+   ヘッダーのメニューボタン・スクロールメモリの切り替えと同じ幅にそろえる */
+@media (max-width: 960px) {
+  /* 1fr だと中身の最小幅（AIデモの画面など）より狭くならず画面からはみ出すため、minmax(0, 1fr) にする */
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .section__head {
+    position: static;
+    height: auto;
+    padding-top: clamp(3rem, 10vh, 6rem);
+  }
+
+  .section__body {
+    padding-top: 1.5rem;
+  }
+
+  .section--reverse .section__head,
+  .section--reverse .section__body {
+    grid-column: auto;
+    grid-row: auto;
+    text-align: left;
+  }
+}
+
+/* ===== スクロール位置のメモリ（右端） =====
+ * --progress（0〜1）は main.js がスクロールに合わせて更新する
+ */
+:root {
+  /* メモリの高さと右端からの位置（上下のボタンの位置合わせにも使う） */
+  --meter-height: min(60vh, 28rem);
+  --meter-right: 0.8rem;
+}
+
+.scroll-meter {
+  --tick-area: 0.875rem;
+  position: fixed;
+  top: 50%;
+  right: var(--meter-right);
+  z-index: 10;
+  width: 3.5rem;
+  height: var(--meter-height);
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  font-variant-numeric: tabular-nums;
+  /* クリック・ドラッグでスクロールできる（main.js） */
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 端の 0% / 100% 付近もクリックしやすいよう、当たり判定を上下左右に広げる */
+.scroll-meter::before {
+  content: "";
+  position: absolute;
+  inset: -0.75rem -0.75rem -0.75rem -0.5rem;
+}
+
+.scroll-meter.is-dragging {
+  cursor: grabbing;
+}
+
+/* 縦のレール（右端）と、現在位置までの塗り */
+.scroll-meter__track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-steel);
+  transition: width 0.2s ease;
+}
+
+.scroll-meter:hover .scroll-meter__track,
+.scroll-meter.is-dragging .scroll-meter__track {
+  width: 4px;
+}
+
+.scroll-meter__fill {
+  width: 100%;
+  height: calc(var(--progress, 0) * 100%);
+  background: var(--mainColor60);
+}
+
+/* 目盛り（5%ごと。--pos は 0〜1） */
+.scroll-meter__tick {
+  position: absolute;
+  top: calc(var(--pos) * 100%);
+  right: 0;
+  width: calc(var(--tick-area) * 0.5);
+  height: 1px;
+  background: var(--mainColor80);
+  opacity: 0.6;
+}
+
+.scroll-meter__tick.is-major {
+  width: var(--tick-area);
+  opacity: 1;
+}
+
+/* 目盛りの数値（25%ごと） */
+.scroll-meter__label {
+  position: absolute;
+  top: 0;
+  right: calc(100% + 0.375rem);
+  transform: translateY(-50%);
+  color: var(--mainColor80);
+  line-height: 1;
+}
+
+/* 現在位置の表示。重なった目盛りの数値は背景色で隠す */
+.scroll-meter__current {
+  position: absolute;
+  top: calc(var(--progress, 0) * 100%);
+  right: calc(var(--tick-area) + 0.25rem);
+  transform: translateY(-50%);
+  padding: 0.125rem 0.375rem;
+  border: 1px solid var(--mainColor60);
+  border-radius: 2px;
+  background: var(--color-void);
+  color: var(--mainColor60);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 現在位置からレールへ伸びる線 */
+.scroll-meter__current::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: calc(var(--tick-area) + 0.25rem);
+  height: 1px;
+  background: var(--mainColor60);
+}
+
+/* メモリの上下：前後のセクションへ移動するボタン（レールの上下に置く）。
+   メモリのクリック範囲（上下に 0.75rem 広げている）と重ならないよう間を空ける。
+   画面の右端に寄りすぎないよう、右に --step-right の余白を取る */
+.scroll-step {
+  --step-size: 1.5rem;
+  --step-gap: 1.25rem;
+  --step-right: 0.5rem;
+  position: fixed;
+  top: 50%;
+  right: var(--step-right);
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: var(--step-size);
+  height: var(--step-size);
+  padding: 0;
+  border: 1px solid var(--mainColor80);
+  border-radius: 3px;
+  background: var(--color-void);
+  color: var(--mainColor60);
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.scroll-step--prev {
+  margin-top: calc(var(--meter-height) / -2 - var(--step-gap) - var(--step-size));
+}
+
+.scroll-step--next {
+  margin-top: calc(var(--meter-height) / 2 + var(--step-gap));
+}
+
+/* 矢印（上向き・下向き） */
+.scroll-step::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: translateY(0.1rem) rotate(45deg);
+}
+
+.scroll-step--next::before {
+  transform: translateY(-0.1rem) rotate(-135deg);
+}
+
+.scroll-step:hover,
+.scroll-step:focus-visible {
+  border-color: var(--mainColor60);
+}
+
+.scroll-step:focus-visible {
+  outline: 2px solid var(--mainColor80);
+  outline-offset: 2px;
+}
+
+/* ページの先頭・末尾では、その先へ移動できないボタンを薄くする */
+.scroll-step:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.scroll-step:disabled:hover {
+  border-color: var(--color-steel);
+}
+
+/* 狭い画面ではメモリを非表示にし、その分の余白も取らない */
+@media (max-width: 960px) {
+  :root {
+    --meter-space: 0px;
+  }
+
+  .scroll-meter,
+  .scroll-step {
+    display: none;
+  }
+}
+
+/* ===== 背景（セクション1のみ） =====
+ * 背景画像（::after）→ 立体格子（canvas）→ 周辺の暗がり（::before）の順に重ねる
+ */
+.section--hero {
+  isolation: isolate;
+}
+
+/* ===== セクション1：ロゴとキャッチコピー =====
+ * ほかのセクション（左右2列・見出しを固定）とは変えて、1列で画面の中央にまとめる。
+ * 中の大きさはすべて em で指定し、.hero__inner の font-size（main.js の initHeroFit が
+ * --hero-font を更新）だけで全体を拡縮して、画面の幅・高さの約8割に収める
+ */
+.section--hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 固定ヘッダーと下端のお知らせを除いた、見えている範囲の中央に置く */
+  padding: var(--header-height) 0 var(--notice-height);
+  text-align: center;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+  gap: 3em;
+  width: max-content;
+  /* JS が動かないときのおおよその大きさ */
+  font-size: var(--hero-font, min(1.15vw, 1.6vh));
+  transition: opacity 0.6s ease;
+}
+
+/* 拡縮が終わるまでは隠し、終わったらフェードインする（head.html と initHeroFit が html.is-hero-pending を付け外し） */
+.is-hero-pending .hero__inner {
+  opacity: 0;
+}
+
+/* 読み込み中のバー：中身を隠している間だけ画面の中央に出す。
+   すぐ読み込めたときにちらつかないよう、少し待ってから表示する */
+.hero__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(12rem, 40vw);
+  height: 2px;
+  overflow: hidden;
+  border-radius: 1px;
+  background: var(--color-gunmetal);
+  translate: -50% -50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.is-hero-pending .hero__loading {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease 0.4s, visibility 0s 0.4s;
+}
+
+.hero__loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(45deg, transparent, var(--mainColor60), transparent);
+  animation: hero-loading 1.2s ease-in-out infinite;
+}
+
+/* 読み込み中であることを示す動きなので、アニメーションをオフにしても止めない */
+.is-motion-off .hero__loading::before,
+.is-motion-off .image-dialog__loading,
+.is-motion-off .image-dialog__loading::after {
+  animation-play-state: running !important;
+}
+
+@keyframes hero-loading {
+  from { translate: -100% 0; }
+  to { translate: 250% 0; }
+}
+
+/* 縦長の画面向け：文の区切りごとに改行して縦に積む（initHeroFit が大きく表示できるほうを選ぶ） */
+.hero__inner.is-stacked {
+  width: min-content;
+}
+
+/* 縦積みでは列が細く文字が小さくなるため、説明文とボタンは大きめにする */
+.hero__inner.is-stacked .hero__tagline {
+  font-size: 1.6em;
+}
+
+.hero__inner.is-stacked .hero__actions {
+  font-size: 1.6em;
+}
+
+/* 文の区切りの中では折り返さない（縦積みで1文字ずつ改行されないように） */
+.hero__inner span {
+  white-space: nowrap;
+}
+
+.section--hero .hero__head {
+  position: static;
+  height: auto;
+  padding: 0;
+}
+
+.section--hero .hero__body {
+  align-items: center;
+  gap: 1.75em;
+  padding: 0;
+}
+
+/* 白抜きのロゴを淡く光らせる */
+.hero__logo img {
+  display: block;
+  width: 28em;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(0, 200, 255, 0.45));
+  animation: hero-in 1.2s ease both;
+  margin: auto;
+}
+
+/* ロゴの下の説明文（英語・控えめに） */
+.hero__tagline {
+  max-width: 44em;
+  margin: 1.25em auto 0;
+  font-size: 1em;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  animation: hero-in 1.2s 0.2s ease both;
+}
+
+/* ロゴと見出しの間の光る線 */
+.hero__body::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 1.25em;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  box-shadow: var(--glow-cyan);
+  animation: hero-line 1.2s 0.4s ease both;
+}
+
+.hero__title {
+  font-size: 4.5em;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #fff 30%, var(--color-hologram) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(0, 200, 255, 0.35));
+  animation: hero-in 1.2s 0.6s ease both;
+}
+
+.section__body .hero__lead {
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.8;
+  color: var(--color-text);
+  text-shadow: 0 0 12px rgba(0, 200, 255, 0.45);
+  animation: hero-in 1.2s 0.9s ease both;
+}
+
+/* ボタンの並び：Get Started（メイン）と体験する（サブ）。狭い画面では折り返す */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.5em;
+  animation: hero-in 1.2s 1.2s ease both;
+}
+
+/* セクション2へのボタン：すりガラス風（背景をぼかし、上側に光の反射を入れる）。
+   スクロールは main.js の initAnchorScroll */
+.hero__cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 60%, rgba(0, 200, 255, 0.08));
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(0, 200, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+  font-size: clamp(0.9rem, 1.2vw, 1.0625rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  text-decoration: none;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+/* ファーストビューのボタンは、まわりと一緒に拡縮する */
+.hero__inner .hero__cta {
+  gap: 0.7em;
+  padding: 0.9em 1.9em;
+  font-size: 1.0625em;
+}
+
+/* 上半分の光の反射 */
+.hero__cta::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 50%;
+  z-index: -1;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+/* ホバー時に左から右へ光が流れる */
+.hero__cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  z-index: -1;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08) 60%, rgba(0, 200, 255, 0.16));
+  box-shadow:
+    0 10px 36px rgba(0, 0, 0, 0.4),
+    0 0 32px rgba(0, 200, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero__cta:hover::after,
+.hero__cta:focus-visible::after {
+  left: 130%;
+  transition: left 0.8s ease;
+}
+
+.hero__cta:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Get Started（メイン）：シアンから青へのグラデーションで塗りつぶし、サブより目立たせる */
+.hero__cta--primary {
+  border-color: rgba(166, 246, 255, 0.6);
+  border-top-color: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(90deg, var(--mainColor80), var(--mainColor100));
+  color: #FFF;
+  text-shadow: none;
+}
+
+.hero__cta--primary:hover,
+.hero__cta--primary:focus-visible {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(90deg, var(--mainColor75), var(--mainColor95));
+}
+
+/* 外部リンクの矢印（右上向き・ホバーで右上へ少し動く）。
+   斜めの軸と矢じりを SVG の1本の線で描き、角のずれが出ないようにする */
+.hero__cta-external {
+  flex: 0 0 auto;
+  width: 0.75em;
+  height: 0.75em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+  transition: transform 0.3s;
+}
+
+.hero__cta--primary:hover .hero__cta-external,
+.hero__cta--primary:focus-visible .hero__cta-external {
+  transform: translate(0.15em, -0.15em);
+}
+
+/* 下向きの矢印（上下にゆっくり揺れる） */
+.hero__cta-arrow {
+  width: 0.55em;
+  height: 0.55em;
+  margin-top: -0.2em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: hero-cta-arrow 1.6s ease-in-out infinite;
+}
+
+@keyframes hero-cta-arrow {
+  50% { transform: translateY(0.2em) rotate(45deg); }
+}
+
+/* ===== セクション1：重要なお知らせ =====
+ * 下端のお知らせ（.notice-bar）の上に少し離して置く。
+ * 置いている間はその高さ分（--hero-alert-space）を、中身を収める範囲から除く（initHeroFit も同じ値で測る）
+ */
+:root:has(.hero__alert) {
+  --hero-alert-space: 6rem;
+}
+
+.section--hero {
+  padding-bottom: calc(var(--notice-height) + var(--hero-alert-space));
+}
+
+.hero__alert {
+  position: absolute;
+  bottom: calc(var(--notice-height) + 1.5rem);
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--color-alert-red);
+  border-radius: 0.5rem;
+  background: rgba(60, 6, 16, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.6);
+  color: #FFF;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+  text-decoration: none;
+  translate: -50% 0;
+  transition: opacity 0.6s ease, background-color 0.2s;
+  animation: hero-alert-pulse 2.4s ease-out infinite;
+}
+
+.hero__alert:hover {
+  background: rgba(110, 12, 30, 0.9);
+}
+
+/* 中身と一緒にフェードインする */
+.is-hero-pending .hero__alert {
+  opacity: 0;
+}
+
+.hero__alert-label {
+  flex: 0 0 auto;
+  padding: 0.125rem 0.625rem;
+  border-radius: 999px;
+  background: var(--color-alert-red);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.hero__alert-text {
+  min-width: 0;
+}
+
+.hero__alert-arrow {
+  flex: 0 0 auto;
+  width: 0.5em;
+  height: 0.5em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: translate 0.2s;
+}
+
+.hero__alert:hover .hero__alert-arrow {
+  translate: 0.2em 0;
+}
+
+/* 外側へ広がる赤い光で目立たせる */
+@keyframes hero-alert-pulse {
+  70%, 100% { box-shadow: 0 0 0 0.75rem rgba(255, 77, 109, 0); }
+}
+
+@media (max-width: 640px) {
+  :root:has(.hero__alert) {
+    --hero-alert-space: 8rem;
+  }
+
+  .hero__alert {
+    bottom: calc(var(--notice-height) + 1rem);
+    gap: 0.625rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* 文の区切りで改行させる（途中で折り返さない） */
+.hero__title span,
+.hero__tagline span,
+.hero__lead span,
+.hero__cta-text span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 体験するボタンの製品名：「Agentic AI」と「for Exastro」の2行にし、横の「を体験する」と上下中央をそろえる */
+.hero__cta-text .hero__cta-name {
+    font-size: 0.8em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.hero__cta-text .hero__cta-name-sub {
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@keyframes hero-line {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+
+.section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .6;
+}
+
+/* 立体格子 */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+}
+
+/* 背景画像（格子の下に敷く。少し暗くして格子の線を見やすくする） */
+.section-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(rgba(5, 7, 13, 0.6), rgba(5, 7, 13, 0.8)),
+    url("../images/hero_background.jpg") center / cover no-repeat;
+  /* --bg-rx / --bg-ry は main.js がマウス位置に合わせて更新する。
+     傾けても端が見えないよう少し拡大しておく */
+  transform: perspective(1500px) rotateX(var(--bg-rx, 0deg)) rotateY(var(--bg-ry, 0deg)) scale(1.15);
+  will-change: transform, opacity;
+  /* 読み込み完了まで隠しておき、main.js が .is-bg-loaded を付けたらフェードイン */
+  opacity: 0;
+  transition: opacity var(--bg-fade-duration) ease;
+}
+
+.section-bg.is-bg-loaded::after {
+  opacity: 1;
+}
+
+/* 周辺を暗くして奥行きを強調する */
+.section-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(5, 7, 13, 0.85) 100%);
+}
+
+/* ===== 背景：六角形の格子と走査線（.section--hex のセクション） =====
+ * 格子は端に向かって消えるようにマスクし、走査線は上から下へゆっくり流す。
+ */
+.section-hex {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 六角形の格子 */
+.section-hex::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 0v34' fill='none' stroke='%2300c8ff' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+  opacity: 0.15;
+  /* 格子が見える中心（見出しのある側。.section--reverse では右寄り） */
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at var(--hex-x, 30%) 50%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at var(--hex-x, 30%) 50%, #000 20%, transparent 75%);
+}
+
+/* 走査線（-40vh から始め、画面の下端まで流す） */
+.section-hex::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0, 200, 255, 0.05) 85%, rgba(0, 200, 255, 0.18) 99%, transparent) no-repeat;
+  background-size: 100% 40vh;
+  animation: section-hex-scan 14s linear infinite;
+}
+
+@keyframes section-hex-scan {
+  from { background-position: 0 -40vh; }
+  to { background-position: 0 calc(100% + 40vh); }
+}
+
+/* ===== 背景：内容の上下に置く斜線の帯（.section-stripes） =====
+ * 内容の列の上端と下端に、斜線を敷いた帯を置く。帯は見出し側に向かって消え、
+ * 内容の外側の端は斜めに切り落とす（下の帯は上下反転）。.section--reverse では左右反転する。
+ */
+.section-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.section-stripes::before,
+.section-stripes::after {
+  --stripes-height: clamp(2.5rem, 6vh, 4rem);
+  --stripes-offset: clamp(2rem, 8vh, 5rem);
+  /* 上辺の線と斜線のすき間 */
+  --stripes-gap: 6px;
+  content: "";
+  position: absolute;
+  right: var(--section-pad-right);
+  width: min(58%, 56rem);
+  height: var(--stripes-height);
+  background:
+    /* 上辺：外側の端だけ明るい線 */
+    linear-gradient(var(--color-neon-cyan), var(--color-neon-cyan)) right top / 28% 2px no-repeat,
+    /* 上辺：全体に引く細い線 */
+    linear-gradient(rgba(0, 200, 255, 0.4), rgba(0, 200, 255, 0.4)) left top / 100% 1px no-repeat,
+    /* 斜線（横方向の周期が 20px になるよう間隔を 10√2px にしている）。
+       上辺の線から --stripes-gap だけ離し、流しても左端が欠けないよう 1 周期分左へはみ出させる */
+    repeating-linear-gradient(-45deg, rgba(0, 200, 255, 0.14) 0 5px, transparent 5px 14.1421px)
+      -20px var(--stripes-gap) / calc(100% + 20px) calc(100% - var(--stripes-gap)) no-repeat;
+  /* 外側の下の角を、帯の高さと同じ幅で 45° に切り落とす */
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--stripes-height)) 100%, 0 100%);
+  -webkit-mask-image: linear-gradient(to left, #000 35%, transparent);
+  mask-image: linear-gradient(to left, #000 35%, transparent);
+  animation: section-stripes-flow 4s linear infinite;
+  opacity: .5;
+}
+
+.section-stripes::before {
+  top: var(--stripes-offset);
+}
+
+.section-stripes::after {
+  bottom: var(--stripes-offset);
+  scale: 1 -1;
+}
+
+.section--reverse .section-stripes::before,
+.section--reverse .section-stripes::after {
+  right: auto;
+  left: var(--section-pad);
+}
+
+.section--reverse .section-stripes::before {
+  scale: -1 1;
+}
+
+.section--reverse .section-stripes::after {
+  scale: -1 -1;
+}
+
+@keyframes section-stripes-flow {
+  from { background-position: right top, left top, -20px var(--stripes-gap); }
+  to { background-position: right top, left top, 0 var(--stripes-gap); }
+}
+
+/* 縦並びの画面では見出しと重なるため出さない */
+@media (max-width: 960px) {
+  .section-stripes {
+    display: none;
+  }
+}
+
+/* ===== 背景：実行中の雰囲気（.section--live のセクション） =====
+ * 配線の上を信号が流れ、見出しの側に実行ログが1行ずつ送られる。
+ * セクション2・3（六角形・同心円・斜線）とは雰囲気を変え、「実際に動いている」様子を見せる
+ */
+.section-live {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 配線と流れる信号（信号は2枚の層で周期を変え、流れる速さをずらす） */
+.section-live::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='180' viewBox='0 0 720 180'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop offset='0' stop-color='%2300c8ff' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23a6f6ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='40' y='29' width='120' height='2' fill='url(%23g)'/%3E%3Ccircle cx='160' cy='30' r='2' fill='%23fff'/%3E%3Crect x='430' y='149' width='120' height='2' fill='url(%23g)'/%3E%3Ccircle cx='550' cy='150' r='2' fill='%23fff'/%3E%3C/svg%3E") 0 0 / 720px 180px repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1080' height='180' viewBox='0 0 1080 180'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop offset='0' stop-color='%2300c8ff' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23a6f6ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='600' y='94' width='120' height='2' fill='url(%23g)'/%3E%3Ccircle cx='720' cy='95' r='2' fill='%23fff'/%3E%3C/svg%3E") 0 0 / 1080px 180px repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='180' viewBox='0 0 480 180'%3E%3Cg fill='none' stroke='%2300c8ff' stroke-width='1'%3E%3Cpath d='M0 30.5H480M0 95.5H480M0 150.5H480M140.5 30.5V95.5M360.5 95.5V150.5'/%3E%3C/g%3E%3Cg fill='%2300c8ff'%3E%3Ccircle cx='140.5' cy='30.5' r='2.5'/%3E%3Ccircle cx='140.5' cy='95.5' r='2.5'/%3E%3Ccircle cx='360.5' cy='95.5' r='2.5'/%3E%3Ccircle cx='360.5' cy='150.5' r='2.5'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 480px 180px repeat;
+  opacity: 0.22;
+  /* 端に向かって消す（隣のセクションとの境目がわかるよう、上下は強めに消す） */
+  -webkit-mask-image:
+    radial-gradient(ellipse 75% 70% at 50% 50%, #000 30%, transparent 85%),
+    linear-gradient(transparent, #000 30%, #000 70%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    radial-gradient(ellipse 75% 70% at 50% 50%, #000 30%, transparent 85%),
+    linear-gradient(transparent, #000 30%, #000 70%, transparent);
+  mask-composite: intersect;
+  animation: section-live-flow 6s linear infinite;
+}
+
+@keyframes section-live-flow {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 720px 0, 1080px 0, 0 0; }
+}
+
+/* 実行ログ（見出しの側。1秒ごとに1行ずつ上へ送る） */
+.section-live::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--section-pad);
+  width: min(40%, 520px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='440' viewBox='0 0 520 440'%3E%3Cg font-family='ui-monospace,Menlo,Consolas,monospace' font-size='12' fill='%23a6f6ff' xml:space='preserve'%3E%3Ctext x='0' y='15'%3E%5B09:41:02%5D Conductor %231024 %3Ctspan fill='%236680A1'%3ESTARTED%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='37'%3E%5B09:41:02%5D Movement ansible/web-setup %3Ctspan fill='%23ffb547'%3ERUNNING%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='59'%3E%5B09:41:05%5D TASK %5Bnginx : install%5D ok: web-01%3C/text%3E%3Ctext x='0' y='81'%3E%5B09:41:07%5D TASK %5Bnginx : install%5D changed: web-02%3C/text%3E%3Ctext x='0' y='103'%3E%5B09:41:09%5D TASK %5Bnginx : config%5D changed: web-01%3C/text%3E%3Ctext x='0' y='125'%3E%5B09:41:11%5D PLAY RECAP ok=12 changed=4 failed=0%3C/text%3E%3Ctext x='0' y='147'%3E%5B09:41:11%5D Movement ansible/web-setup %3Ctspan fill='%236680A1'%3ECOMPLETED%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='169'%3E%5B09:41:12%5D Movement terraform/lb %3Ctspan fill='%23ffb547'%3ERUNNING%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='191'%3E%5B09:41:18%5D Apply complete%21 Resources: 2 added%3C/text%3E%3Ctext x='0' y='213'%3E%5B09:41:18%5D Movement terraform/lb %3Ctspan fill='%236680A1'%3ECOMPLETED%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='235'%3E%5B09:41:19%5D Evidence saved exec_1024.zip%3C/text%3E%3Ctext x='0' y='257'%3E%5B09:41:19%5D Conductor %231024 %3Ctspan fill='%236680A1'%3EDONE%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='279'%3E%5B09:42:30%5D Event cpu.high host=db-02%3C/text%3E%3Ctext x='0' y='301'%3E%5B09:42:30%5D Rule known/cpu-high %3Ctspan fill='%23ffb547'%3EMATCHED%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='323'%3E%5B09:42:31%5D Conductor %231025 %3Ctspan fill='%236680A1'%3ESTARTED%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='345'%3E%5B09:42:31%5D Movement ansible/restart-svc %3Ctspan fill='%23ffb547'%3ERUNNING%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='367'%3E%5B09:42:36%5D PLAY RECAP ok=5 changed=1 failed=0%3C/text%3E%3Ctext x='0' y='389'%3E%5B09:42:36%5D Conductor %231025 %3Ctspan fill='%236680A1'%3EDONE%3C/tspan%3E%3C/text%3E%3Ctext x='0' y='411'%3E%5B09:43:10%5D Git push iac/main a3f9c21%3C/text%3E%3Ctext x='0' y='433'%3E%5B09:43:11%5D Conductor %231026 %3Ctspan fill='%236680A1'%3ESTARTED%3C/tspan%3E%3C/text%3E%3C/g%3E%3C/svg%3E") 0 0 / 520px 440px repeat-y;
+  opacity: 0.14;
+  -webkit-mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+  mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+  animation: section-live-log 20s steps(20) infinite;
+}
+
+.section--reverse .section-live::after {
+  right: var(--section-pad-right);
+  left: auto;
+}
+
+@keyframes section-live-log {
+  to { background-position: 0 -440px; }
+}
+
+/* 縦並びの画面ではログを全幅に薄く敷く */
+@media (max-width: 960px) {
+  .section-live::after,
+  .section--reverse .section-live::after {
+    right: var(--section-pad-right);
+    left: var(--section-pad);
+    width: auto;
+    opacity: 0.08;
+  }
+}
+
+/* ===== 背景：フィルムの枠（.section--film のセクション） =====
+ * セクションの上下に映画フィルムの縁（送り穴とエッジの刻印）を置き、ゆっくり送る。
+ * 全体には周辺減光と、ときどき位置が変わる縦の傷を重ねて古い映像の雰囲気を出す
+ */
+.section--film {
+  /* フィルムの縁の高さ（送り穴 3rem＋刻印 1.5rem） */
+  --film-height: 4.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  /* 画面が縦に長いときに見出しとタイムラインの間が空きすぎないよう、行を引き伸ばさず上下中央にまとめる */
+  align-content: center;
+  /* 縁は固定ヘッダー・お知らせに隠れないよう、その高さの分だけ内側に置く */
+  padding-top: calc(var(--header-height) + var(--film-height));
+  padding-bottom: calc(var(--notice-height) + var(--film-height));
+}
+
+/* 見出しは中央にそろえ、その下にタイムラインを置く（sticky にしない）。
+   1920×1080 の画面のブラウザ（表示領域の高さ 900px 前後）でも上下のフィルムの縁が
+   画面に収まるよう、上下の余白は画面の高さに合わせて小さめに取る */
+.section--film .section__head {
+  position: static;
+  align-items: center;
+  height: auto;
+  padding-top: clamp(1rem, 2vh, 6rem);
+  text-align: center;
+}
+
+.section--film .section__subtitle {
+  margin-top: 0.75rem;
+}
+
+.section--film .section__lead {
+  max-width: 46rem;
+  margin-top: 1rem;
+}
+
+/* 次のセクションへのリンクも中央に置く */
+.section--film .section__more {
+  align-self: center;
+  margin-top: 1rem;
+}
+
+.section--film .section__body {
+  padding-block: clamp(1rem, 2vh, 4rem) clamp(1rem, 2vh, 8rem);
+}
+
+.section-film {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 18%, rgba(255, 236, 200, 0.07) 18%, rgba(255, 236, 200, 0.07) calc(18% + 1px), transparent calc(18% + 1px)),
+    linear-gradient(90deg, transparent 71%, rgba(255, 236, 200, 0.05) 71%, rgba(255, 236, 200, 0.05) calc(71% + 1px), transparent calc(71% + 1px)),
+    radial-gradient(ellipse 80% 75% at 50% 50%, rgba(255, 181, 71, 0.06), transparent 60%, rgba(5, 7, 13, 0.7));
+  animation: section-film-scratch 1.6s steps(1) infinite;
+}
+
+/* 縦の傷の位置を不規則に入れ替える（周辺減光は動かさない） */
+@keyframes section-film-scratch {
+  0%   { background-position: 0 0, 0 0, 0 0; }
+  25%  { background-position: 23vw 0, -12vw 0, 0 0; }
+  50%  { background-position: 41vw 0, 7vw 0, 0 0; }
+  75%  { background-position: -9vw 0, 19vw 0, 0 0; }
+}
+
+/* 上下の縁：送り穴は外側、刻印は内側に置く（下の縁は上下を入れ替える）。
+   セクションの端との間に隙間ができないよう、縁はセクションの端から敷き、
+   固定ヘッダー・お知らせの下に入る分はフィルムの地の色だけにする */
+.section-film::before,
+.section-film::after {
+  --film-holes-y: calc(100% - 1.5rem);
+  --film-text-y: 100%;
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1080' height='24' viewBox='0 0 1080 24'%3E%3Cg font-family='ui-monospace,Menlo,Consolas,monospace' font-size='12' letter-spacing='3' fill='%23ffb547' fill-opacity='.5'%3E%3Ctext x='36' y='16'%3EEXASTRO 2019-2026%3C/text%3E%3Ctext x='576' y='16'%3E06A  EVOLUTION%3C/text%3E%3C/g%3E%3C/svg%3E") 0 var(--film-text-y) / 1080px 1.5rem repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='48' viewBox='0 0 36 48'%3E%3Crect x='9' y='13' width='18' height='22' rx='3.5' fill='%23f3e3c3' fill-opacity='.42'/%3E%3C/svg%3E") 0 var(--film-holes-y) / 36px 3rem repeat-x,
+    #0d0b08;
+  animation: section-film-feed 30s linear infinite;
+}
+
+.section-film::before {
+  top: 0;
+  height: calc(var(--header-height) + var(--film-height));
+  border-bottom: 1px solid rgba(255, 181, 71, 0.3);
+}
+
+.section-film::after {
+  --film-holes-y: 1.5rem;
+  --film-text-y: 0;
+  bottom: 0;
+  height: calc(var(--notice-height) + var(--film-height));
+  border-top: 1px solid rgba(255, 181, 71, 0.3);
+}
+
+/* フィルムを右から左へ送る（1080px は刻印と送り穴の両方の繰り返し幅の倍数） */
+@keyframes section-film-feed {
+  from { background-position: 0 var(--film-text-y), 0 var(--film-holes-y), 0 0; }
+  to { background-position: -1080px var(--film-text-y), -1080px var(--film-holes-y), 0 0; }
+}
+
+/* ===== 背景：方眼と引用符（.section-note。セクション7） =====
+ * 方眼（細かい線と、5マスごとの太い線）を見出しの側に敷き、その上に大きな引用符をゆっくり浮き沈みさせる。
+ * 浮かんでは消える言葉（.section-words）はこの上に重ねる
+ */
+.section-note {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 方眼 */
+.section-note::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0, 200, 255, 0.5) 1px, transparent 1px) 0 0 / 100px 100px,
+    linear-gradient(90deg, rgba(0, 200, 255, 0.5) 1px, transparent 1px) 0 0 / 100px 100px,
+    linear-gradient(rgba(0, 200, 255, 0.22) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, rgba(0, 200, 255, 0.22) 1px, transparent 1px) 0 0 / 20px 20px;
+  opacity: 0.16;
+  /* 見出しの側を中心に見せる */
+  -webkit-mask-image: radial-gradient(ellipse 65% 70% at 25% 55%, #000 15%, transparent 80%);
+  mask-image: radial-gradient(ellipse 65% 70% at 25% 55%, #000 15%, transparent 80%);
+}
+
+/* 大きな引用符（見出しの左上でゆっくり浮き沈みする） */
+.section-note::after {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: calc(var(--section-pad) - 1rem);
+  width: clamp(9rem, 20vw, 18rem);
+  aspect-ratio: 6 / 5;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%2300c8ff' d='M10 90V58C10 30 24 12 50 6l4 12C38 24 32 34 31 48h21v42H10Zm58 0V58c0-28 14-46 40-52l4 12c-16 6-22 16-23 30h21v42H68Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0.07;
+  filter: drop-shadow(0 0 24px rgba(0, 200, 255, 0.6));
+  animation: section-note-float 8s ease-in-out infinite alternate;
+}
+
+@keyframes section-note-float {
+  to { translate: 0 1.5rem; }
+}
+
+/* ===== 背景：浮かんでは消える言葉（.section-words。セクション7） =====
+ * 開発者メッセージにちなんだ言葉が、あちこちで浮かび上がり、少し上へ漂いながら消えていく。
+ * 言葉そのもの・位置・大きさ・現れる順番は index.html の span に書く（24秒で一巡）。
+ * 全体の色はここの --words-color* を、1語だけ変えるときは span の style に --color を書く。
+ * 位置 --x / --y は画面に対する %（画面に固定する背景のため）
+ */
+.section-words {
+  --words-color: #a6f6ff;      /* ふつうの言葉 */
+  --words-color-sub: #6680a1;  /* 落ち着いた言葉（--sub） */
+  --words-color-mono: #7fb2ff; /* 等幅の英字（--mono） */
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* 文字の大きさをこの箱の幅に合わせて伸び縮みさせる */
+  container-type: size;
+  opacity: 0.2;
+  filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.5));
+  /* 端に向かって消す */
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, #000 40%, transparent 95%);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, #000 40%, transparent 95%);
+}
+
+.section-words__word {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  translate: -50% -50%;
+  /* --size は幅 1600px のときの px。狭い画面でも半分より小さくはしない */
+  font: 700 calc(var(--size) * clamp(0.5px, 100cqw / 1600, 1.2px)) / 1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: var(--color, var(--words-color));
+  opacity: 0;
+  animation: section-words-float 24s ease-in-out var(--delay, 0s) infinite;
+}
+
+.section-words__word--sub {
+  color: var(--color, var(--words-color-sub));
+}
+
+.section-words__word--mono {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color, var(--words-color-mono));
+}
+
+@keyframes section-words-float {
+  0%        { opacity: 0; transform: translateY(14px); }
+  6%, 20%   { opacity: 1; }
+  28%, 100% { opacity: 0; transform: translateY(-14px); }
+}
+
+/* ===== 背景：アートボード（.section-artboard。Assets ページ） =====
+ * デザインツールの画面のように、上と左にルーラー、一面にドットの方眼を敷き、
+ * 見出しの後ろにハンドル付きの選択枠を置いて、大きさを変えているようにゆっくり伸び縮みさせる。
+ * ファイル形式や色などの言葉（.section-words）はこの上に重ねる
+ */
+.section-artboard {
+  --artboard-color: 0, 200, 255;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ルーラー（100px ごとの長い目盛りと 10px ごとの短い目盛り）とドットの方眼 */
+.section-artboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(var(--artboard-color), 0.9) 1px, transparent 1px) 0 var(--header-height) / 100px 14px repeat-x,
+    linear-gradient(90deg, rgba(var(--artboard-color), 0.6) 1px, transparent 1px) 0 var(--header-height) / 10px 6px repeat-x,
+    linear-gradient(rgba(var(--artboard-color), 0.9) 1px, transparent 1px) 0 0 / 14px 100px repeat-y,
+    linear-gradient(rgba(var(--artboard-color), 0.6) 1px, transparent 1px) 0 0 / 6px 10px repeat-y,
+    radial-gradient(circle, rgba(var(--artboard-color), 0.7) 1px, transparent 1.5px) 0 0 / 20px 20px;
+  opacity: 0.16;
+}
+
+/* 選択枠（破線の枠と8つのハンドル。見出しの後ろでゆっくり伸び縮みする） */
+.section-artboard::after {
+  content: "";
+  position: absolute;
+  top: 22%;
+  left: calc(var(--section-pad) - 1.5rem);
+  width: clamp(16rem, 30vw, 28rem);
+  aspect-ratio: 5 / 3;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Crect x='6' y='6' width='488' height='288' fill='none' stroke='%2300c8ff' stroke-width='2' stroke-dasharray='10 8'/%3E%3Cg fill='%230a0f1c' stroke='%2300c8ff' stroke-width='2'%3E%3Crect x='1' y='1' width='10' height='10'/%3E%3Crect x='245' y='1' width='10' height='10'/%3E%3Crect x='489' y='1' width='10' height='10'/%3E%3Crect x='1' y='145' width='10' height='10'/%3E%3Crect x='489' y='145' width='10' height='10'/%3E%3Crect x='1' y='289' width='10' height='10'/%3E%3Crect x='245' y='289' width='10' height='10'/%3E%3Crect x='489' y='289' width='10' height='10'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0.18;
+  filter: drop-shadow(0 0 16px rgba(0, 200, 255, 0.6));
+  transform-origin: top left;
+  animation: section-artboard-resize 7s ease-in-out infinite alternate;
+}
+
+@keyframes section-artboard-resize {
+  to { scale: 1.08 1.12; }
+}
+
+/* ===== 背景：コミットの記録（.section-commits。セクション8） =====
+ * 内容の側に GitHub のコントリビューショングラフのようなマス目を敷き、明るいマスがあちこちで灯る。
+ * 見出しの側にはコミットの履歴（枝分かれとマージ）が下から上へ流れ続ける
+ */
+.section-commits {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* マス目（灯るマスは周期の違う層を飛び飛びに動かし、位置が変わって見えるようにする） */
+.section-commits::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='143' height='117' viewBox='0 0 143 117'%3E%3Cg fill='%23a6e0ff'%3E%3Crect x='65' y='65' width='10' height='10' rx='2'/%3E%3Crect x='13' y='52' width='10' height='10' rx='2'/%3E%3Crect x='78' y='91' width='10' height='10' rx='2'/%3E%3Crect x='117' y='0' width='10' height='10' rx='2'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 143px 117px repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='91' viewBox='0 0 338 91'%3E%3Crect x='0' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='0' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='0' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='13' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='13' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='13' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='13' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='13' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='26' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='26' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='26' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='39' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='39' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='39' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='39' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='52' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='52' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='52' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='52' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='52' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='65' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='65' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='65' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='65' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='78' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='78' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='78' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='91' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='91' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='91' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='91' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='91' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='104' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='104' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='104' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='117' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='117' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='117' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='117' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='130' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='130' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='130' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='130' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='130' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='143' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='143' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='143' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='143' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='143' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='156' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='156' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='156' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='156' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='169' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='169' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='169' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='169' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='169' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='182' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='182' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='182' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='182' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='182' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='195' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='195' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='195' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='208' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='208' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='221' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='221' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='221' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='221' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='221' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='234' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='234' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='234' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='234' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='234' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='247' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='247' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='247' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='247' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='247' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='260' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='273' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='273' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='273' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='286' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='286' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='286' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='299' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='299' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='299' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='299' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='299' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='312' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='312' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='312' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='312' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='312' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='312' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='325' y='0' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='325' y='13' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.5'/%3E%3Crect x='325' y='26' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.75'/%3E%3Crect x='325' y='39' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='325' y='52' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='325' y='65' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3Crect x='325' y='78' width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='0.3'/%3E%3C/svg%3E") 0 0 / 338px 91px repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'%3E%3Crect width='10' height='10' rx='2' fill='%2314c8f1' fill-opacity='.15'/%3E%3C/svg%3E") 0 0 / 13px 13px repeat;
+  opacity: 0.16;
+  /* 内容のある側（.section--reverse なので左）を中心に見せる */
+  -webkit-mask-image: radial-gradient(ellipse 60% 65% at 30% 50%, #000 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 60% 65% at 30% 50%, #000 20%, transparent 80%);
+  animation: section-commits-blink 4.8s steps(1) infinite;
+}
+
+/* 灯るマスの層だけを 13px（1マス）単位でずらす */
+@keyframes section-commits-blink {
+  0%   { background-position: 0 0, 0 0, 0 0; }
+  25%  { background-position: 52px 26px, 0 0, 0 0; }
+  50%  { background-position: 91px -39px, 0 0, 0 0; }
+  75%  { background-position: -26px 65px, 0 0, 0 0; }
+}
+
+/* コミットの履歴（見出しの側。下から上へ流れる） */
+.section-commits::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(var(--section-pad-right) + 2rem);
+  bottom: 0;
+  width: 80px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='240' viewBox='0 0 80 240'%3E%3Cg fill='none' stroke='%2300c8ff' stroke-width='2'%3E%3Cpath d='M24 0V240'/%3E%3Cpath d='M24 70C24 90 56 90 56 110V150C56 170 24 170 24 190'/%3E%3C/g%3E%3Cg fill='%2305070d' stroke='%2300c8ff' stroke-width='2'%3E%3Ccircle cx='24' cy='30' r='5'/%3E%3Ccircle cx='56' cy='125' r='5'/%3E%3Ccircle cx='24' cy='140' r='5'/%3E%3Ccircle cx='24' cy='190' r='5'/%3E%3C/g%3E%3Cg font-family='ui-monospace,Menlo,Consolas,monospace' font-size='10' fill='%23a6f6ff'%3E%3Ctext x='36' y='34'%3Ea3f9c21%3C/text%3E%3Ctext x='36' y='194'%3Emerge%3C/text%3E%3C/g%3E%3C/svg%3E") 0 0 / 80px 240px repeat-y;
+  opacity: 0.2;
+  -webkit-mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+  mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+  animation: section-commits-flow 12s linear infinite;
+}
+
+@keyframes section-commits-flow {
+  to { background-position: 0 -240px; }
+}
+
+/* 縦並びの画面では履歴が内容と重なるため出さない */
+@media (max-width: 960px) {
+  .section-commits::after {
+    display: none;
+  }
+}
+
+/* ===== 背景：出発の地平線（.section-horizon。セクション9） =====
+ * 下半分に地平線へ続く格子の床を敷き、こちらへ向かって流す。上には星をまたたかせる。
+ * 下から差す光（assets/css/sections.css）と合わせて「ここから始まる」雰囲気を出す
+ */
+.section-horizon {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 星（ゆっくり明滅する） */
+.section-horizon::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 40%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='%23e6edf7'%3E%3Ccircle cx='205' cy='31' r='0.8'/%3E%3Ccircle cx='34' cy='106' r='1.3'/%3E%3Ccircle cx='83' cy='56' r='1'/%3E%3Ccircle cx='26' cy='52' r='0.6'/%3E%3Ccircle cx='290' cy='77' r='0.6'/%3E%3Ccircle cx='186' cy='13' r='0.6'/%3E%3Ccircle cx='106' cy='192' r='0.8'/%3E%3Ccircle cx='129' cy='177' r='1'/%3E%3Ccircle cx='242' cy='62' r='0.6'/%3E%3Ccircle cx='249' cy='238' r='1.3'/%3E%3Ccircle cx='247' cy='159' r='0.6'/%3E%3Ccircle cx='73' cy='52' r='1'/%3E%3Ccircle cx='135' cy='245' r='0.8'/%3E%3Ccircle cx='264' cy='11' r='0.8'/%3E%3Ccircle cx='270' cy='185' r='0.8'/%3E%3Ccircle cx='278' cy='13' r='1'/%3E%3Ccircle cx='46' cy='133' r='1'/%3E%3Ccircle cx='85' cy='182' r='0.8'/%3E%3Ccircle cx='272' cy='277' r='1'/%3E%3Ccircle cx='114' cy='99' r='0.8'/%3E%3Ccircle cx='205' cy='116' r='0.8'/%3E%3Ccircle cx='265' cy='252' r='1'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 300px 300px repeat;
+  -webkit-mask-image: linear-gradient(#000, transparent);
+  mask-image: linear-gradient(#000, transparent);
+  animation: section-horizon-twinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes section-horizon-twinkle {
+  from { opacity: 0.15; }
+  to { opacity: 0.4; }
+}
+
+/* 格子の床（奥へ倒して遠近をつけ、横方向は倒した分だけ広く取る） */
+.section-horizon::after {
+  content: "";
+  position: absolute;
+  right: -50%;
+  bottom: 0;
+  left: -50%;
+  height: 55%;
+  background:
+    linear-gradient(rgba(0, 200, 255, 0.5) 1px, transparent 1px) 0 0 / 100% 60px,
+    linear-gradient(90deg, rgba(0, 200, 255, 0.5) 1px, transparent 1px) 50% 0 / 60px 100%;
+  opacity: 0.3;
+  transform: perspective(360px) rotateX(62deg);
+  transform-origin: 50% 100%;
+  /* 地平線（奥）に向かって消す */
+  -webkit-mask-image: linear-gradient(transparent, #000 60%);
+  mask-image: linear-gradient(transparent, #000 60%);
+  animation: section-horizon-move 3s linear infinite;
+}
+
+@keyframes section-horizon-move {
+  to { background-position: 0 60px, 50% 0; }
+}
+
+/* ===== お知らせ（画面下端に固定） =====
+ * フッターが見えている間は下へ隠す（assets/js/main.js の initNoticeHide）。
+ * そのためページ末尾にお知らせの高さ分の余白は取らない。
+ * 最初は html.is-notice-pending（head.html で付ける）で隠しておき、クッキーの告知が閉じたら下から少し行き過ぎて戻る動きで出す
+ */
+.notice-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  height: var(--notice-height);
+  border-top: 1px solid var(--color-border);
+  background: rgba(5, 7, 13, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 0.8125rem;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.6s;
+}
+
+/* 行き過ぎて浮いた分、下端にすき間が見えないよう背景を下へ伸ばす */
+.notice-bar::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 1rem;
+  background: inherit;
+}
+
+.notice-bar.is-hidden,
+.is-notice-pending .notice-bar {
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: transform 0.3s, visibility 0.3s;
+}
+
+.notice-bar__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 0 1rem;
+  color: #FFF;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.notice-bar__link:hover {
+  color: var(--accentColor60);
+}
+
+.notice-bar__label {
+  flex: 0 0 auto;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accentColor100);
+}
+
+.notice-bar__text {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* ===== クッキーの告知（画面下端に固定） =====
+ * お知らせ（.notice-bar）と同じ高さ。表示している間はお知らせを隠す。
+ * OK を押したらフェードアウトする（assets/js/main.js の initCookieNotice）
+ */
+.cookie-notice {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: var(--notice-height);
+  padding: 0 1rem;
+  border-top: 1px solid var(--color-border);
+  background: rgba(5, 7, 13, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 0.8125rem;
+  color: #FFF;
+  transition: opacity 0.4s;
+}
+
+.cookie-notice.is-closing {
+  opacity: 0;
+}
+
+.cookie-notice[hidden] {
+  display: none;
+}
+
+.cookie-notice__text {
+  min-width: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cookie-notice__link {
+  margin-left: 0.5em;
+  color: var(--color-neon-cyan);
+  text-decoration: underline;
+}
+
+.cookie-notice__link:hover {
+  color: var(--accentColor60);
+}
+
+.cookie-notice__ok {
+  flex: 0 0 auto;
+  padding: 0.175rem 1.25rem;
+  border: 1px solid var(--accentColor100);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accentColor100);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cookie-notice__ok:hover {
+  border-color: var(--accentColor40);
+  color: var(--accentColor40);
+}
+
+/* 狭い画面では文字を小さくして、お知らせと同じ高さに収める */
+@media (max-width: 960px) {
+  .cookie-notice {
+    gap: 0.75rem;
+    font-size: 0.6875rem;
+  }
+
+  .cookie-notice__text {
+    line-height: 1.4;
+  }
+
+  .cookie-notice__ok {
+    padding: 0.375rem 1rem;
+  }
+}
+
+/* ===== 固定ヘッダー（上端） =====
+ * 左：ロゴ（トップへ戻る）・ページ内リンク／右：言語切り替え・SNS
+ */
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  height: var(--header-height);
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(5, 7, 13, 0.7);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: 0.875rem;
+  /* 出るときはお知らせ（.notice-bar）と同じく、少し行き過ぎて戻る動き */
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.6s;
+}
+
+/* 行き過ぎて下がった分、上端にすき間が見えないよう背景を上へ伸ばす */
+.site-header::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 1rem;
+  background: inherit;
+}
+
+/* 出るまで隠す（html.is-header-pending は head.html で付ける） */
+.is-header-pending .site-header {
+  visibility: hidden;
+  transform: translateY(-100%);
+}
+
+.site-header__logo {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.site-header__logo img {
+  width: auto;
+  height: 1.75rem;
+  transition: filter 0.2s;
+}
+
+.site-header__logo:hover img {
+  filter: drop-shadow(0 0 6px rgba(0, 200, 255, 0.6));
+}
+
+/* ページ内リンクと右側の道具をまとめた部分（狭い画面ではここが開閉する） */
+.site-header__menu {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  min-width: 0;
+}
+
+/* 項目が増えて2行に折り返しても、ヘッダーの高さに収まるよう行の間を詰める */
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(0.75rem, 2vw, 1.75rem);
+}
+
+.site-nav__link {
+  position: relative;
+  display: block;
+  padding-block: 0.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+/* ホバー時に下から光る線を伸ばす */
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.0625rem;
+  left: 0;
+  height: 1px;
+  background: var(--accentColor100);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.site-nav__link:hover {
+  color: var(--color-text);
+}
+
+.site-nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.site-header__tools {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* 言語切り替え：JA / EN */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.lang-switch li + li::before {
+  content: "/";
+  margin-inline: 0.4rem;
+  color: var(--color-steel);
+}
+
+.lang-switch__link {
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+.lang-switch__link:hover,
+.lang-switch__link[aria-current="true"] {
+  color: var(--color-accent);
+}
+
+/* SNS アイコン */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-border);
+}
+
+.social-links__link {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.social-links__link:hover {
+  color: var(--accentColor60);
+  background-color: rgba(0, 200, 255, 0.08);
+}
+
+/* アニメーションのオン／オフ：Motion の文字とスイッチ（オンで丸が右に寄り、光る） */
+.motion-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  background: none;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.motion-toggle:hover {
+  color: var(--color-text);
+}
+
+.motion-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.motion-toggle__switch {
+  position: relative;
+  width: 2rem;
+  height: 1.125rem;
+  border: 1px solid var(--color-steel);
+  border-radius: 999px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.motion-toggle__switch::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.1875rem;
+  width: 0.625rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-steel);
+  translate: 0 -50%;
+  transition: translate 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.motion-toggle[aria-pressed="true"] .motion-toggle__switch {
+  border-color: var(--accentColor80);
+  background-color: rgba(0, 200, 255, 0.12);
+}
+
+.motion-toggle[aria-pressed="true"] .motion-toggle__switch::after {
+  background: var(--accentColor80);
+  box-shadow: 0 0 6px var(--accentColor80);
+  translate: 0.8125rem -50%;
+}
+
+/* メニューボタン（狭い画面のみ表示）：三本線、開くと × になる */
+.site-header__toggle {
+  display: none;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+}
+
+.site-header__toggle-bar,
+.site-header__toggle-bar::before,
+.site-header__toggle-bar::after {
+  position: absolute;
+  left: 50%;
+  width: 1.375rem;
+  height: 2px;
+  margin-left: -0.6875rem;
+  background: currentColor;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.site-header__toggle-bar {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.site-header__toggle-bar::before,
+.site-header__toggle-bar::after {
+  content: "";
+  left: 0;
+  margin-left: 0;
+}
+
+.site-header__toggle-bar::before { top: -0.4375rem; }
+.site-header__toggle-bar::after  { top: 0.4375rem; }
+
+.site-header__toggle[aria-expanded="true"] .site-header__toggle-bar {
+  background: transparent;
+}
+
+.site-header__toggle[aria-expanded="true"] .site-header__toggle-bar::before {
+  transform: translateY(0.4375rem) rotate(45deg);
+}
+
+.site-header__toggle[aria-expanded="true"] .site-header__toggle-bar::after {
+  transform: translateY(-0.4375rem) rotate(-45deg);
+}
+
+/* 狭い画面ではメニューボタンで開閉し、ヘッダーの下に縦並びで出す */
+@media (max-width: 960px) {
+  .site-header__toggle {
+    display: block;
+  }
+
+  .site-header__menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    max-height: calc(100vh - var(--header-height));
+    max-height: calc(100dvh - var(--header-height));
+    padding: 1.5rem clamp(1rem, 3vw, 2rem) 2rem;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(5, 7, 13, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+  }
+
+  .site-header.is-open .site-header__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav__link {
+    padding-block: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 1rem;
+  }
+
+  .site-nav__link::after {
+    display: none;
+  }
+
+  .site-header__tools {
+    justify-content: space-between;
+  }
+}

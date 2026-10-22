@@ -1,19 +1,14 @@
 ---
-title: 開発者メッセージ | IT Automation
 layout: message
-language: ja
-sub_dir: /message
-page_class: message-ita
-page_name: ita
-message_image: thought02.png
-message_type: IT Automation
-message_author: 脇谷 徹
+message_id: ita
+title: "Exastro IT Automation（脇谷 徹）| 開発者メッセージ"
+description: "開発の発想をカタチにしたExastroの原点。Exastro IT Automationの開発者 脇谷 徹が、大切にしていることと目指すものを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/ita_en.html
 detail_url: https://exastro-suite.github.io/it-automation-docs/index_ja.html
-description: Exastroはシステムライフサイクル(設計・開発・設定・運用)をデジタル化・自動化・省力化することを目的としたオープンソースのソフトウェアスイートです。
 ---
 ## どんなツール？
-
-<div class="image right"><img src="{{ "/message/img/image_ita01.jpg" | relative_url }}" alt="IT Automation image"></div>
 
 Exastro Suiteの中で一番最初にリリースしたのが「Exastro IT Automation（以下、Exastro ITA）」です。Exastroの生みの親である吉田氏が、システムエンジニア時代に苦労していたことや、そこでの改善実績をもとに吉田氏に賛同したメンバーが意見を持ち寄り作り上げたのがこのアプリケーションです。属人化していてヒューマンエラーが発生しやすい状況にあったシステム構築を自動化します。
 

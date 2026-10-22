@@ -1,19 +1,13 @@
 ---
-title: 開発者メッセージ | OASE
 layout: message
-language: ja
-sub_dir: /message
-page_class: message-oase
-page_name: oase
-message_image: thought03.png
-message_type: OASE
-message_author: 河野 友生子
-detail_url: https://exastro-suite.github.io/oase-docs/index_ja.html
-description: Exastroはシステムライフサイクル(設計・開発・設定・運用)をデジタル化・自動化・省力化することを目的としたオープンソースのソフトウェアスイートです。
+message_id: oase
+title: "Exastro OASE | 開発者メッセージ"
+description: "24時間気が抜けない運用の現場をなんとかしたい。Exastro OASEの開発者が、大切にしていることと目指すものを語ります。"
+# リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
+redirect_from:
+  - /message/oase_en.html
 ---
 ## どんなツール？
-
-<div class="image right"><img src="{{ "/message/img/image_oase01.jpg" | relative_url }}" alt="OASE image"></div>
 
 Exastro Operation Autonomy Support Engine（以下、Exastro OASE）はExastro Suiteの中で2番目にリリースされたツールです。運用中に発生したシステムエラーへの対応を自動化します。いつ発生するかわからないものに、運用している間ずっと人が監視しているのはかなり非効率です。Exastro OASEはエラーを検知すると自動で障害切り分けをして対処します。自動化するメリットがわかりやすいため、注目度も高いツールです。
 

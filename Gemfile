@@ -1,3 +1,4 @@
 source "https://rubygems.org"
 
-gem "jekyll"
+# GitHub Pages と同じバージョンの Jekyll・プラグインでビルドする
+gem "github-pages", group: :jekyll_plugins

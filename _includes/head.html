@@ -1,14 +1,81 @@
-    <link rel="stylesheet" href="{{ "/assets/css/exastro.css" | relative_url }}">
-    
-    <meta name="keywords" content="Exastro, Exastro Suite, OSS, IT Automation, OASE, EPOCH">
-    <meta name="description" content="{{ page.description }}">
-    <meta name="thumbnail" content="https://www.exastro.org/assets/img/ogp_twitter_image.jpg">
-    <meta property="og:description" content="{{ page.description }}">
-    <link rel="image_src" href="https://www.exastro.org/assets/img/ogp_image.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.exastro.org/">
-    <meta property="og:title" content="Exastro Suite">
-    <meta property="og:image" content="https://www.exastro.org/assets/img/ogp_image.jpg">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Exastro Suite">
-    <meta name="twitter:image" content="https://www.exastro.org/assets/img/ogp_twitter_image.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- comment %} 本番（GitHub Pages のビルドで site.url のドメインが _config.yml の production_url と同じ）かどうか。http / https の違いは見ない {% endcomment %}
+  {%- assign is_production = false %}
+  {%- assign site_host = site.url | remove_first: "https://" | remove_first: "http://" | split: "/" | first %}
+  {%- assign production_host = site.production_url | remove_first: "https://" | remove_first: "http://" | split: "/" | first %}
+  {%- if jekyll.environment == "production" and site_host == production_host %}
+    {%- assign is_production = true %}
+  {%- endif %}
+  {%- if is_production and site.google_analytics %}
+
+  <!-- Google tag (gtag.js)：本番のみ。測定 ID は _config.yml の google_analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {%- endif %}
+  {%- if page.full_title %}
+    {%- assign page_title = page.full_title %}
+  {%- else %}
+    {%- assign page_title = page.title | append: " | " | append: site.title %}
+  {%- endif %}
+
+  <!-- 基本SEO（タイトル・説明文は各ページの front matter の title / description） -->
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <!-- 本番以外（ステージング・ローカル）は検索エンジンに登録させない -->
+  <meta name="robots" content="{% if is_production %}index, follow{% else %}noindex, nofollow{% endif %}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- ファビコン・テーマカラー -->
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+  <meta name="theme-color" content="#05070d">
+
+  <!-- OGP（SNSでシェアされた時の表示） -->
+  <meta property="og:type" content="{% if is_home %}website{% else %}article{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/images/ogp.jpg' | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.title }}">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X（旧Twitter） -->
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if is_home %}
+
+  <!-- 構造化データ（検索エンジン向け） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ site.title | jsonify }},
+    "url": {{ '/' | absolute_url | jsonify }},
+    "description": {{ page.schema_description | jsonify }},
+    "inLanguage": "ja"
+  }
+  </script>
+  {%- endif %}
+
+  <!-- アニメーションのオン／オフ：保存した設定を表示前に反映する（切り替えは assets/js/main.js の initMotionToggle） -->
+  <script>try{if(localStorage.getItem("exastro-motion")==="off")document.documentElement.classList.add("is-motion-off")}catch(e){}</script>
+  <!-- ファーストビュー：拡縮が終わるまで中身を隠す（main.js の initHeroFit が外す。動かなかったときのため 3 秒で外す） -->
+  <script>document.documentElement.classList.add("is-hero-pending");setTimeout(function(){document.documentElement.classList.remove("is-hero-pending")},3000)</script>
+  <!-- ヘッダー・お知らせ：出るまで隠す（main.js の initHeaderShow・initCookieNotice が外す。JS が動かない環境では隠さない）。
+       ヘッダーは main.js が動かなかったときのため 3 秒で外す -->
+  <script>document.documentElement.classList.add("is-header-pending","is-notice-pending");setTimeout(function(){document.documentElement.classList.remove("is-header-pending")},3000)</script>
+
+  <!-- ページ専用の CSS（front matter の css）は style.css と sections.css の間に読み込む -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {%- for css in page.css %}
+  <link rel="stylesheet" href="{{ css | relative_url }}">
+  {%- endfor %}
+  <link rel="stylesheet" href="{{ '/assets/css/sections.css' | relative_url }}">
