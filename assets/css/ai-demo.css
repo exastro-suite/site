@@ -10,6 +10,15 @@
   width: 100%;
 }
 
+/* JS が動かない環境で代わりに出す案内（index.html の noscript。デモが動くと ai-demo.js が中身ごと置き換える） */
+.ai-demo__noscript {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--color-border);
+  background: var(--mainColor100);
+  text-align: center;
+}
+
 /* .section__body p の色指定を打ち消す */
 .ai-demo p {
   color: inherit;

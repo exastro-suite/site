@@ -35,6 +35,8 @@
 
 {% include notice-bar.html %}
 
+{% include cookie-notice.html %}
+
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   {%- for js in page.js %}
   <script src="{{ js | relative_url }}"></script>

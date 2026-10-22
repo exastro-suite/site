@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollStep();
   initReleaseNotice();
   initNoticeHide();
+  initCookieNotice();
   initAnchorScroll();
+  initHeaderShow();
   initHeaderMenu();
   initMotionToggle();
   initImageDialog();
@@ -85,9 +87,23 @@ function initHeroFit() {
     requestAnimationFrame(update);
   };
   window.addEventListener("resize", requestUpdate);
-  // Web フォントの読み込みで文字幅が変わったら測り直す
-  document.fonts?.ready.then(requestUpdate);
   update();
+  // Web フォントの読み込みで文字幅が変わるため、読み込み後に測り直してから表示する
+  const show = () => {
+    update();
+    document.documentElement.classList.remove("is-hero-pending");
+  };
+  if (document.fonts) document.fonts.ready.then(show);
+  else show();
+}
+
+/* ===== 固定ヘッダー：読み込みが終わったら上から出す =====
+ * head.html で html に付けた .is-header-pending を少し待ってから外す（動きは CSS の transition）。
+ */
+const HEADER_SHOW_DELAY = 500; // 出すまでの待ち時間（ミリ秒）
+
+function initHeaderShow() {
+  setTimeout(() => document.documentElement.classList.remove("is-header-pending"), HEADER_SHOW_DELAY);
 }
 
 /* ===== 固定ヘッダー：狭い画面のメニュー開閉 =====
@@ -153,6 +169,7 @@ function initMotionToggle() {
  * .image-zoom を押すと、中の画像をダイアログで大きく表示する（見た目は CSS の .image-dialog）。
  * ボタンに data-full があればその画像を、なければ中の画像をそのまま表示する。
  * 閉じるのは × ボタン・背景のクリック・Esc キー（Esc は dialog の標準の動き）。
+ * 画像を読み込み終わるまでは .is-loading で前の画像を隠し、読み込み中の表示を出す。
  */
 function initImageDialog() {
   const buttons = document.querySelectorAll(".image-zoom");
@@ -166,15 +183,31 @@ function initImageDialog() {
     '<img class="image-dialog__img" alt="">' +
     '<figcaption class="image-dialog__caption"></figcaption>' +
     "</figure>" +
+    '<p class="image-dialog__loading" role="status"></p>' +
     '<button class="image-dialog__close" type="button" aria-label="閉じる"></button>';
   document.body.append(dialog);
   const img = dialog.querySelector(".image-dialog__img");
   const caption = dialog.querySelector(".image-dialog__caption");
+  const loading = dialog.querySelector(".image-dialog__loading");
+
+  // src を差し替えると前の画像の読み込みは取りやめになるので、load・error は今の画像のものだけ届く
+  const finish = (failed) => {
+    dialog.classList.remove("is-loading");
+    dialog.classList.toggle("is-error", failed);
+    loading.textContent = failed ? "画像を読み込めませんでした。" : "";
+  };
+  img.addEventListener("load", () => finish(false));
+  img.addEventListener("error", () => finish(true));
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const source = button.querySelector("img");
       if (!source) return;
+      dialog.classList.add("is-loading");
+      dialog.classList.remove("is-error");
+      loading.textContent = "読み込み中…";
+      // 前の画像が残って見えないよう、いったん外してから読み込む
+      img.removeAttribute("src");
       img.src = button.dataset.full || source.currentSrc || source.src;
       img.alt = source.alt;
       caption.textContent = source.alt;
@@ -282,6 +315,48 @@ function initNoticeHide() {
   new IntersectionObserver(([entry]) => {
     notice.classList.toggle("is-hidden", entry.isIntersecting);
   }).observe(footer);
+}
+
+/* ===== クッキーの告知 =====
+ * 画面下端にお知らせの代わりに表示し、OK を押したらフェードアウトしてお知らせを下から出す。
+ * 表示している間はフッターの下に余白を取り、OK を押したらフェードアウトと同時に余白を縮める。
+ * OK を押したことは localStorage に残し、次に開いたときからは表示せず、少し待ってお知らせを出す
+ * （OK を押さずに閉じた・移動した場合は次も表示する）。
+ */
+const COOKIE_NOTICE_STORAGE_KEY = "exastro-cookie-notice";
+const NOTICE_SHOW_DELAY = 500; // 次に開いたとき、お知らせを出すまでの待ち時間（ミリ秒）
+
+function initCookieNotice() {
+  const notice = document.querySelector(".cookie-notice");
+  const showBar = () => document.documentElement.classList.remove("is-notice-pending");
+
+  let accepted = false;
+  try {
+    accepted = localStorage.getItem(COOKIE_NOTICE_STORAGE_KEY) === "ok";
+  } catch {
+    // 読めない環境（プライベートブラウズなど）では毎回表示する
+  }
+  if (!notice || accepted) {
+    setTimeout(showBar, NOTICE_SHOW_DELAY);
+    return;
+  }
+  notice.hidden = false;
+  // フッターの下に告知の高さ分の余白を取る（sections.css）
+  document.documentElement.classList.add("has-cookie-notice");
+
+  notice.querySelector(".cookie-notice__ok").addEventListener("click", () => {
+    notice.classList.add("is-closing");
+    document.documentElement.classList.remove("has-cookie-notice");
+    notice.addEventListener("transitionend", () => {
+      notice.hidden = true;
+      showBar();
+    }, { once: true });
+    try {
+      localStorage.setItem(COOKIE_NOTICE_STORAGE_KEY, "ok");
+    } catch {
+      // 保存できない環境では、このページの中だけ閉じる
+    }
+  });
 }
 
 /* ===== お知らせ：最新リリース =====

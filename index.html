@@ -35,6 +35,8 @@ scroll_meter: true
           </div>
         </div>
       </div>
+      <!-- 読み込み中の表示：中身を隠している間（html.is-hero-pending）だけ出す -->
+      <div class="hero__loading" role="progressbar" aria-label="読み込み中"></div>
     </section>
 
     <section class="section section--hex section--dial" id="agentic-ai">
@@ -50,7 +52,9 @@ scroll_meter: true
       </div>
       <div class="section__body">
         <!-- AIアシスタントのデモ（assets/js/ai-demo.js で描画） -->
-        <div class="ai-demo" data-scenario="{{ '/assets/data/ai-demo.json' | relative_url }}"></div>
+        <div class="ai-demo" data-scenario="{{ '/assets/data/ai-demo.json' | relative_url }}">
+          <noscript><p class="ai-demo__noscript">このデモは JavaScript を使って動きます。ご覧いただくには、ブラウザの設定で JavaScript を有効にしてください。</p></noscript>
+        </div>
       </div>
     </section>
 
@@ -99,35 +103,35 @@ scroll_meter: true
           <div class="control-plane__features">
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">01</span><span class="control-plane__label"><span class="control-plane__en">CHANGE CONTROL</span><span class="control-plane__ja">誰が・いつ・何を</span></span></summary>
-              <p>現在だけでなく変更予定も含め、設定変更を構成情報として追跡する。</p>
+              <p>現在だけでなく変更予定も含め、誰が・いつ・何を変えるかを構成情報として追跡します。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">02</span><span class="control-plane__label"><span class="control-plane__en">REUSE FIRST</span><span class="control-plane__ja">IaCを増殖させない</span></span></summary>
-              <p>毎回生成する前に、検証済みの既存IaC・自動化部品を探して再利用する。</p>
+              <p>AIが毎回ゼロから作るのではなく、検証済みの既存IaC・自動化部品を探して再利用します。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">03</span><span class="control-plane__label"><span class="control-plane__en">SEPARATION</span><span class="control-plane__ja">フローと構成を分離</span></span></summary>
-              <p>設定値が変わってもジョブフローを作り直さず、同じ自動化を繰り返し使える。</p>
+              <p>設定値が変わってもジョブフローを作り直さず、同じ自動化を繰り返し使えます。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">04</span><span class="control-plane__label"><span class="control-plane__en">LIVE EXECUTION</span><span class="control-plane__ja">実行中が見える</span></span></summary>
-              <p>いま何が、どこまで進んでいるかをリアルタイムに把握する。</p>
+              <p>いま何が、どこまで進んでいるかをリアルタイムに把握できます。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">05</span><span class="control-plane__label"><span class="control-plane__en">EMERGENCY CONTROL</span><span class="control-plane__ja">いつでも止められる</span></span></summary>
-              <p>異常を検知したら、それ以上処理を進めないよう、実行基盤側で停止・中断できる仕組みを備える。</p>
+              <p>異常を検知したときも、担当者の判断でも、安全に停止・中断できます。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">06</span><span class="control-plane__label"><span class="control-plane__en">EVIDENCE</span><span class="control-plane__ja">投入から結果まで残す</span></span></summary>
-              <p>投入データ、実行結果、ログ、エビデンスを過去分まで紐付けて管理する。</p>
+              <p>投入データ、実行結果、ログを過去分まで紐付け、監査や振り返りに使えるエビデンスとして残します。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">07</span><span class="control-plane__label"><span class="control-plane__en">KNOWN / UNKNOWN</span><span class="control-plane__ja">AIを使うべき場面を選ぶ</span></span></summary>
-              <p>ルールで既知事象と未知事象を判定し、決定論と推論を使い分ける。</p>
+              <p>事前に定義したルールで事象を既知と未知に仕分け、未知のものだけAIの力を借ります。</p>
             </details>
             <details class="control-plane__feature">
               <summary><span class="control-plane__num">08</span><span class="control-plane__label"><span class="control-plane__en">AUTO REMEDIATION</span><span class="control-plane__ja">既知は迷わず自動対処</span></span></summary>
-              <p>既知事象には、登録済み・検証済みの対処業務を自動で実行する。</p>
+              <p>既知と判定された事象には、登録・検証済みの対処をそのまま自動実行します。</p>
             </details>
           </div>
         </div>
@@ -149,33 +153,33 @@ scroll_meter: true
             <li class="ui-showcase__item">
               <figure class="ui-showcase__figure">
                 <div class="ui-showcase__shot">
-                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/parameter_large.png' | relative_url }}" aria-label="パラメータ定義作成画面を拡大表示"><img src="{{ '/assets/images/inside/parameter.png' | relative_url }}" alt="パラメータ定義作成画面" width="960" height="540" loading="lazy"></button>
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/parameter_large.png' | relative_url }}" aria-label="パラメータ定義作成画面を拡大表示"><img src="{{ '/assets/images/inside/parameter.png' | relative_url }}" alt="パラメータ定義作成画面" width="960" height="477" loading="lazy"></button>
                 </div>
                 <figcaption class="ui-showcase__caption">
                   <span class="ui-showcase__label"><span class="ui-showcase__en">PARAMETER</span><span class="ui-showcase__ja">パラメータ定義作成</span></span>
-                  <span class="ui-showcase__text">設定値の入れ物を画面上で定義し、ジョブフローとは分けて管理します。</span>
+                  <span class="ui-showcase__text">作成設定値の項目をジョブフローから切り離し、画面上で定義・管理できます。</span>
                 </figcaption>
               </figure>
             </li>
             <li class="ui-showcase__item">
               <figure class="ui-showcase__figure">
                 <div class="ui-showcase__shot">
-                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/conductor_large.png' | relative_url }}" aria-label="Conductor画面を拡大表示"><img src="{{ '/assets/images/inside/conductor.png' | relative_url }}" alt="Conductor画面" width="960" height="540" loading="lazy"></button>
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/conductor_large.png' | relative_url }}" aria-label="Conductor画面を拡大表示"><img src="{{ '/assets/images/inside/conductor.png' | relative_url }}" alt="Conductor画面" width="960" height="474" loading="lazy"></button>
                 </div>
                 <figcaption class="ui-showcase__caption">
                   <span class="ui-showcase__label"><span class="ui-showcase__en">CONDUCTOR</span><span class="ui-showcase__ja">Conductor</span></span>
-                  <span class="ui-showcase__text">作業の流れを組み立て、実行中の進み具合もこの画面で追えます。</span>
+                  <span class="ui-showcase__text">Conductorで作業の流れを組み立て、実行中は進行状況も止める判断も1画面で行えます。</span>
                 </figcaption>
               </figure>
             </li>
             <li class="ui-showcase__item">
               <figure class="ui-showcase__figure">
                 <div class="ui-showcase__shot">
-                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/history_large.png' | relative_url }}" aria-label="実行履歴画面を拡大表示"><img src="{{ '/assets/images/inside/history.png' | relative_url }}" alt="実行履歴画面" width="960" height="540" loading="lazy"></button>
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/history_large.png' | relative_url }}" aria-label="実行履歴画面を拡大表示"><img src="{{ '/assets/images/inside/history.png' | relative_url }}" alt="実行履歴画面" width="960" height="531" loading="lazy"></button>
                 </div>
                 <figcaption class="ui-showcase__caption">
                   <span class="ui-showcase__label"><span class="ui-showcase__en">HISTORY</span><span class="ui-showcase__ja">実行履歴</span></span>
-                  <span class="ui-showcase__text">投入データ・結果・ログを紐付けて、過去の実行まで残します。</span>
+                  <span class="ui-showcase__text">投入データ・結果・ログを紐付け、過去の実行まで検証できる形で残します。</span>
                 </figcaption>
               </figure>
             </li>

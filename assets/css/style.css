@@ -599,7 +599,7 @@ body {
   display: block;
   width: 100%;
   padding: 0;
-  background: none;
+  background: rgba(0,0,0,.5);
   cursor: zoom-in;
 }
 
@@ -671,8 +671,58 @@ body {
   max-width: min(100%, 90rem);
 }
 
-.image-dialog[open] .image-dialog__figure {
+/* 読み込み終わってから表示し、そのときに登場の動きを再生する */
+.image-dialog[open]:not(.is-loading, .is-error) .image-dialog__figure {
   animation: image-dialog-in 0.25s ease both;
+}
+
+.image-dialog.is-loading .image-dialog__figure,
+.image-dialog.is-error .image-dialog__figure {
+  visibility: hidden;
+}
+
+/* 読み込み中の表示：文字と流れるバー。すぐ読み込めたときにちらつかないよう、少し待ってから出す */
+.image-dialog__loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-align: center;
+  translate: -50% -50%;
+}
+
+.image-dialog.is-loading .image-dialog__loading {
+  display: block;
+  animation: image-dialog-loading-in 0.3s ease 0.2s both;
+}
+
+.image-dialog.is-error .image-dialog__loading {
+  display: block;
+}
+
+.image-dialog.is-loading .image-dialog__loading::after {
+  content: "";
+  display: block;
+  width: min(12rem, 40vw);
+  height: 2px;
+  margin-top: 0.75rem;
+  border-radius: 1px;
+  background: linear-gradient(45deg, transparent, var(--mainColor60), transparent) no-repeat var(--color-gunmetal);
+  background-size: 40% 100%;
+  animation: image-dialog-loading-bar 1.2s ease-in-out infinite;
+}
+
+@keyframes image-dialog-loading-in {
+  from { opacity: 0; }
+}
+
+@keyframes image-dialog-loading-bar {
+  from { background-position: -70% 0; }
+  to { background-position: 170% 0; }
 }
 
 @keyframes image-dialog-in {
@@ -1050,6 +1100,56 @@ html:has(.image-dialog[open]) {
   width: max-content;
   /* JS が動かないときのおおよその大きさ */
   font-size: var(--hero-font, min(1.15vw, 1.6vh));
+  transition: opacity 0.6s ease;
+}
+
+/* 拡縮が終わるまでは隠し、終わったらフェードインする（head.html と initHeroFit が html.is-hero-pending を付け外し） */
+.is-hero-pending .hero__inner {
+  opacity: 0;
+}
+
+/* 読み込み中のバー：中身を隠している間だけ画面の中央に出す。
+   すぐ読み込めたときにちらつかないよう、少し待ってから表示する */
+.hero__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(12rem, 40vw);
+  height: 2px;
+  overflow: hidden;
+  border-radius: 1px;
+  background: var(--color-gunmetal);
+  translate: -50% -50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.is-hero-pending .hero__loading {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease 0.4s, visibility 0s 0.4s;
+}
+
+.hero__loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(45deg, transparent, var(--mainColor60), transparent);
+  animation: hero-loading 1.2s ease-in-out infinite;
+}
+
+/* 読み込み中であることを示す動きなので、アニメーションをオフにしても止めない */
+.is-motion-off .hero__loading::before,
+.is-motion-off .image-dialog__loading,
+.is-motion-off .image-dialog__loading::after {
+  animation-play-state: running !important;
+}
+
+@keyframes hero-loading {
+  from { translate: -100% 0; }
+  to { translate: 250% 0; }
 }
 
 /* 縦長の画面向け：文の区切りごとに改行して縦に積む（initHeroFit が大きく表示できるほうを選ぶ） */
@@ -1925,7 +2025,8 @@ html:has(.image-dialog[open]) {
 
 /* ===== お知らせ（画面下端に固定） =====
  * フッターが見えている間は下へ隠す（assets/js/main.js の initNoticeHide）。
- * そのためページ末尾にお知らせの高さ分の余白は取らない
+ * そのためページ末尾にお知らせの高さ分の余白は取らない。
+ * 最初は html.is-notice-pending（head.html で付ける）で隠しておき、クッキーの告知が閉じたら下から少し行き過ぎて戻る動きで出す
  */
 .notice-bar {
   position: fixed;
@@ -1939,12 +2040,25 @@ html:has(.image-dialog[open]) {
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   font-size: 0.8125rem;
-  transition: transform 0.3s, visibility 0.3s;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.6s;
 }
 
-.notice-bar.is-hidden {
+/* 行き過ぎて浮いた分、下端にすき間が見えないよう背景を下へ伸ばす */
+.notice-bar::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 1rem;
+  background: inherit;
+}
+
+.notice-bar.is-hidden,
+.is-notice-pending .notice-bar {
   visibility: hidden;
   transform: translateY(100%);
+  transition: transform 0.3s, visibility 0.3s;
 }
 
 .notice-bar__link {
@@ -1981,6 +2095,88 @@ html:has(.image-dialog[open]) {
 }
 
 
+/* ===== クッキーの告知（画面下端に固定） =====
+ * お知らせ（.notice-bar）と同じ高さ。表示している間はお知らせを隠す。
+ * OK を押したらフェードアウトする（assets/js/main.js の initCookieNotice）
+ */
+.cookie-notice {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: var(--notice-height);
+  padding: 0 1rem;
+  border-top: 1px solid var(--color-border);
+  background: rgba(5, 7, 13, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 0.8125rem;
+  color: #FFF;
+  transition: opacity 0.4s;
+}
+
+.cookie-notice.is-closing {
+  opacity: 0;
+}
+
+.cookie-notice[hidden] {
+  display: none;
+}
+
+.cookie-notice__text {
+  min-width: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cookie-notice__link {
+  margin-left: 0.5em;
+  color: var(--color-neon-cyan);
+  text-decoration: underline;
+}
+
+.cookie-notice__link:hover {
+  color: var(--accentColor60);
+}
+
+.cookie-notice__ok {
+  flex: 0 0 auto;
+  padding: 0.175rem 1.25rem;
+  border: 1px solid var(--accentColor100);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accentColor100);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cookie-notice__ok:hover {
+  border-color: var(--accentColor40);
+  color: var(--accentColor40);
+}
+
+/* 狭い画面では文字を小さくして、お知らせと同じ高さに収める */
+@media (max-width: 960px) {
+  .cookie-notice {
+    gap: 0.75rem;
+    font-size: 0.6875rem;
+  }
+
+  .cookie-notice__text {
+    line-height: 1.4;
+  }
+
+  .cookie-notice__ok {
+    padding: 0.375rem 1rem;
+  }
+}
+
 /* ===== 固定ヘッダー（上端） =====
  * 左：ロゴ（トップへ戻る）・ページ内リンク／右：言語切り替え・SNS
  */
@@ -2000,6 +2196,25 @@ html:has(.image-dialog[open]) {
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   font-size: 0.875rem;
+  /* 出るときはお知らせ（.notice-bar）と同じく、少し行き過ぎて戻る動き */
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.6s;
+}
+
+/* 行き過ぎて下がった分、上端にすき間が見えないよう背景を上へ伸ばす */
+.site-header::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 1rem;
+  background: inherit;
+}
+
+/* 出るまで隠す（html.is-header-pending は head.html で付ける） */
+.is-header-pending .site-header {
+  visibility: hidden;
+  transform: translateY(-100%);
 }
 
 .site-header__logo {

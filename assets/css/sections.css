@@ -2063,6 +2063,13 @@ p.latest__date {
   background: var(--color-void);
   font-size: 0.875rem;
   color: var(--color-text-muted);
+  transition: padding-bottom 0.4s;
+}
+
+/* クッキーの告知が出ている間は、一番下までスクロールしたときにコピーライトが隠れないよう告知の高さ分の余白を足す。
+   OK を押したら余白が縮んで消える（html.has-cookie-notice は assets/js/main.js の initCookieNotice が付け外し） */
+.has-cookie-notice .site-footer {
+  padding-bottom: calc(1.25rem + var(--notice-height));
 }
 
 /* 上端に光る線を引く */

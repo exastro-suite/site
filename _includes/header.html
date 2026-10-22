@@ -1,4 +1,5 @@
-  <!-- 固定ヘッダー：左にロゴ（トップへ戻る）とページ内リンク、右に言語切り替えとSNS -->
+  <!-- 固定ヘッダー：左にロゴ（トップへ戻る）とページ内リンク、右に言語切り替えとSNS
+       html.is-header-pending の間は上に隠しておき、読み込みが終わったら出す（assets/js/main.js の initHeaderShow） -->
   <header class="site-header">
     <a class="site-header__logo" href="{{ logo_href }}" aria-label="Exastro トップへ戻る">
       <img src="{{ '/assets/images/Exastro-logo2-white-rgb.svg' | relative_url }}" alt="Exastro" width="1280" height="300">
