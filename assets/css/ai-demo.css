@@ -7,7 +7,13 @@
 .ai-demo {
   --demo-shade: rgba(5, 7, 13, 0.72);
   --demo-ease: 0.3s ease;
+  /* 画面を組む最小の幅。これより狭いときは ai-demo.js（initFit）がこの幅のまま zoom で縮める */
+  --demo-base-width: 480px;
   width: 100%;
+}
+
+.ai-demo.is-scaled .ai-demo__window {
+  width: var(--demo-base-width);
 }
 
 /* JS が動かない環境で代わりに出す案内（index.html の noscript。デモが動くと ai-demo.js が中身ごと置き換える） */

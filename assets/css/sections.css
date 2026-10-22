@@ -2116,7 +2116,8 @@ p.latest__date {
  * 背景は下から光が差すようにし、ページの締めくくりとして目立たせる
  */
 .section--finale {
-  grid-template-columns: 1fr;
+  /* 1fr だと中身の最小幅より狭くならず、狭い画面ではみ出すため minmax(0, 1fr) にする */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   align-content: center;
   overflow: clip;

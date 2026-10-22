@@ -860,8 +860,9 @@ html:has(.image-dialog[open]) {
 /* 狭い画面では縦並び（タイトルの固定はしない）。
    ヘッダーのメニューボタン・スクロールメモリの切り替えと同じ幅にそろえる */
 @media (max-width: 960px) {
+  /* 1fr だと中身の最小幅（AIデモの画面など）より狭くならず画面からはみ出すため、minmax(0, 1fr) にする */
   .section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
 

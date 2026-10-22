@@ -114,6 +114,7 @@ class AiDemo {
     this.progress = "";
     this.track = this.track.bind(this);
     this.build();
+    this.initFit();
     this.load(root.dataset.scenario);
   }
 
@@ -198,6 +199,7 @@ class AiDemo {
     </div>`;
 
     const $ = (selector) => this.root.querySelector(selector);
+    this.window = $(".ai-demo__window");
     this.screen = $(".ai-demo__screen");
     this.body = $(".aiAssistantBody");
     this.bodyInner = $(".aiAssistantBodyInner");
@@ -577,6 +579,22 @@ class AiDemo {
     item.querySelector(".movementResultDownloadButton").disabled = !info.text;
   }
 
+  /* ----- 狭い幅での縮小 -----
+   * 枠の幅が設計幅（CSS の --demo-base-width）より狭いときは、設計幅のまま組んで zoom で縮める
+   * （折り返しや省略で画面が崩れないように）。強調枠などの位置は layoutSpot で縮小率を戻して計算する
+   */
+  initFit() {
+    const fit = () => {
+      const base = parseFloat(getComputedStyle(this.root).getPropertyValue("--demo-base-width"));
+      const width = this.root.clientWidth;
+      const scaled = base > 0 && width > 0 && width < base;
+      this.root.classList.toggle("is-scaled", scaled);
+      this.window.style.zoom = scaled ? String(width / base) : "";
+    };
+    new ResizeObserver(fit).observe(this.root);
+    fit();
+  }
+
   scrollToBottom() {
     this.bodyInner.scrollTo({ top: this.bodyInner.scrollHeight, behavior: "smooth" });
   }
@@ -587,11 +605,16 @@ class AiDemo {
     const body = this.bodyInner.getBoundingClientRect();
     const rect = target.getBoundingClientRect();
     const margin = 16;
+    // zoom で縮めているときは、画面上の座標を縮める前の大きさに戻してから比べる
+    const scale = body.height / this.bodyInner.offsetHeight || 1;
+    const viewHeight = body.height / scale;
+    const top = (rect.top - body.top) / scale;
+    const bottom = (rect.bottom - body.top) / scale;
     let delta = 0;
-    if (rect.top < body.top + margin || rect.height > body.height - margin * 2) {
-      delta = rect.top - body.top - margin;
-    } else if (rect.bottom > body.bottom - margin) {
-      delta = rect.bottom - body.bottom + margin;
+    if (top < margin || bottom - top > viewHeight - margin * 2) {
+      delta = top - margin;
+    } else if (bottom > viewHeight - margin) {
+      delta = bottom - viewHeight + margin;
     }
     if (delta) this.bodyInner.scrollBy({ top: delta, behavior: "smooth" });
   }
@@ -626,20 +649,24 @@ class AiDemo {
     const GAP = 10;
     const screen = this.screen.getBoundingClientRect();
     const rect = this.spotTarget.getBoundingClientRect();
-    const left = Math.max(0, rect.left - screen.left - PAD);
-    const top = Math.max(0, rect.top - screen.top - PAD);
-    const right = Math.min(screen.width, rect.right - screen.left + PAD);
-    const bottom = Math.min(screen.height, rect.bottom - screen.top + PAD);
+    // zoom で縮めているときは、画面上の座標を縮める前の大きさに戻す（置くときの px は縮める前の大きさで効くため）
+    const scale = screen.width / this.screen.offsetWidth || 1;
+    const width = screen.width / scale;
+    const height = screen.height / scale;
+    const left = Math.max(0, (rect.left - screen.left) / scale - PAD);
+    const top = Math.max(0, (rect.top - screen.top) / scale - PAD);
+    const right = Math.min(width, (rect.right - screen.left) / scale + PAD);
+    const bottom = Math.min(height, (rect.bottom - screen.top) / scale + PAD);
 
     // 説明文は対象の下、入らなければ上、どちらも無理なら画面下端に置く
     const tipWidth = this.tip.offsetWidth;
     const tipHeight = this.tip.offsetHeight;
     let tipTop;
-    if (screen.height - bottom >= tipHeight + GAP * 2) tipTop = bottom + GAP;
+    if (height - bottom >= tipHeight + GAP * 2) tipTop = bottom + GAP;
     else if (top >= tipHeight + GAP * 2) tipTop = top - tipHeight - GAP;
-    else tipTop = screen.height - tipHeight - GAP;
+    else tipTop = height - tipHeight - GAP;
     const center = (left + right) / 2;
-    const tipLeft = Math.min(Math.max(GAP, center - tipWidth / 2), screen.width - tipWidth - GAP);
+    const tipLeft = Math.min(Math.max(GAP, center - tipWidth / 2), width - tipWidth - GAP);
 
     // 変化がなければ書き換えない（transition をやり直させない）
     const key = [left, top, right, bottom, tipLeft, tipTop].map(Math.round).join();
@@ -651,9 +678,9 @@ class AiDemo {
 
     const px = (v) => `${Math.round(v)}px`;
     Object.assign(this.shades.top.style, { left: 0, top: 0, width: "100%", height: px(top) });
-    Object.assign(this.shades.bottom.style, { left: 0, top: px(bottom), width: "100%", height: px(screen.height - bottom) });
+    Object.assign(this.shades.bottom.style, { left: 0, top: px(bottom), width: "100%", height: px(height - bottom) });
     Object.assign(this.shades.left.style, { left: 0, top: px(top), width: px(left), height: px(bottom - top) });
-    Object.assign(this.shades.right.style, { left: px(right), top: px(top), width: px(screen.width - right), height: px(bottom - top) });
+    Object.assign(this.shades.right.style, { left: px(right), top: px(top), width: px(width - right), height: px(bottom - top) });
     Object.assign(this.ring.style, { left: px(left), top: px(top), width: px(right - left), height: px(bottom - top) });
     Object.assign(this.tip.style, { left: px(tipLeft), top: px(tipTop) });
 
