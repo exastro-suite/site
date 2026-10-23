@@ -1541,6 +1541,20 @@ a.message__card:focus-visible .message__card-photo img {
   display: inline-block;
 }
 
+/* 本文のパネルは grid なので、長いコード行や表に引っ張られて画面幅からはみ出さないよう列を縮められるようにする */
+.news-article,
+.news-article .message-article__block {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
+/* 長い英数字（URL や CVE 番号など）も折り返す */
+.news-article p,
+.news-article li,
+.news-article td {
+  overflow-wrap: anywhere;
+}
+
 .news-article strong {
   font-weight: 700;
   color: var(--color-text);
@@ -1635,6 +1649,7 @@ a.message__card:focus-visible .message__card-photo img {
   background: var(--color-void);
   font-size: 0.8125rem;
   line-height: 1.7;
+  overflow-x: auto;
 }
 
 .news-article pre code {
