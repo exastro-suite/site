@@ -82,14 +82,14 @@
 .control-plane__node-icon--systems { --cp-icon: url("../images/icon-systems.svg"); }
 
 .control-plane__node-en {
-  font-size: 0.6875rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   color: var(--color-text-muted);
 }
 
 .control-plane__node-ja {
-  font-size: 0.9375rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-text);
 }
@@ -410,14 +410,14 @@
 }
 
 .control-plane__en {
-  font-size: 0.6875rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--color-text-muted);
 }
 
 .control-plane__ja {
-  font-size: 0.9375rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-text);
 }
@@ -426,7 +426,7 @@
   margin: 0 1rem;
   padding: 0.75rem 0 1rem;
   border-top: 1px dashed var(--color-steel);
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--color-text-muted);
 }
@@ -646,7 +646,7 @@
 .ui-showcase__caption::before {
   content: counter(ui-showcase, decimal-leading-zero);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 2rem;
+  font-size: 2.4rem;
   line-height: 1;
   color: rgba(255, 255, 255, 0.3);
 }
@@ -659,21 +659,21 @@
 }
 
 .ui-showcase__en {
-  font-size: 0.6875rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--color-text-muted);
 }
 
 .ui-showcase__ja {
-  font-size: 0.9375rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-text);
 }
 
 .ui-showcase__text {
   grid-column: 1 / -1;
-  font-size: 0.8125rem;
+  font-size: 1.0625rem;
   line-height: 1.8;
   color: var(--color-text-muted);
 }
@@ -768,7 +768,7 @@
 
 p.use-cases__text {
   margin: 0.5rem 0 0;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   line-height: 1.8;
   color: var(--color-text-muted);
 }
@@ -857,7 +857,7 @@ p.use-cases__text {
 .use-cases--no-image p.use-cases__text {
   flex-grow: 1;
   margin-top: 0.75rem;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
 }
 
 
@@ -1032,7 +1032,7 @@ p.use-cases__text {
 
 .evolution__title {
   margin: 0.875rem 0 0;
-  font-size: 1.0625rem;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-text);
@@ -1040,7 +1040,7 @@ p.use-cases__text {
 
 p.evolution__text {
   margin: 0.625rem 0 0.75rem;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   line-height: 1.8;
   color: var(--color-text-muted);
 }
@@ -1048,9 +1048,9 @@ p.evolution__text {
 /* その段階で加わったガードレール（文章の長さが違っても枠の下端にそろえる） */
 p.evolution__guard {
   margin: auto 0 0;
-  padding-top: 0.75rem;
+  padding-top: 1rem;
   border-top: 1px dashed color-mix(in srgb, var(--ev-color) 30%, transparent);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   line-height: 1.6;
   color: var(--color-text);
@@ -1060,7 +1060,7 @@ p.evolution__guard {
   display: block;
   margin-bottom: 0.25rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.625rem;
+  font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1182,7 +1182,7 @@ p.evolution__guard {
 /* 見出しの下の一文 */
 p.message__main-catch {
   margin: 1rem 0 0;
-  font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
   font-weight: 700;
   line-height: 1.7;
   color: var(--accentColor100);
@@ -1190,7 +1190,7 @@ p.message__main-catch {
 
 p.message__main-text {
   margin: 0.75rem 0 0;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.9;
   color: var(--color-text-muted);
 }
@@ -1257,6 +1257,13 @@ p.message__main-text {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* フルHD（横1920px）以下は最大2列にする（狭い画面は今までどおり1列） */
+@media (max-width: 1920px) {
+  .message__list {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, max(16rem, (100% - 1rem) / 2)), 1fr));
+  }
 }
 
 .message__item--coming-soon {
@@ -1330,21 +1337,21 @@ a.message__card:focus-visible .message__card-photo img {
 }
 
 .message__card-product {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
 }
 
 .message__card-catch {
   margin-top: 0.25rem;
-  font-size: 0.8125rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-text-muted);
 }
 
 .message__card-name {
   margin-top: 0.375rem;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.12em;
   color: var(--color-text-muted);
 }
@@ -1414,7 +1421,7 @@ a.message__card:focus-visible .message__card-photo img {
     linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
     rgba(17, 26, 46, 0.72);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
 }
 
 .message-article__block {
@@ -1493,7 +1500,7 @@ a.message__card:focus-visible .message__card-photo img {
 
 .message-profile__text {
   margin-top: 0.5rem;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   line-height: 1.9;
 }
 
@@ -1935,7 +1942,7 @@ p.latest__date {
 /* ===== 記事・ニュースへのリンク ===== */
 .latest__news-title {
   margin: clamp(2rem, 5vh, 3rem) 0 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
@@ -2016,7 +2023,7 @@ p.latest__date {
 }
 
 .latest__news-text {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.7;
 }
 
@@ -2283,7 +2290,7 @@ p.latest__date {
 .get-started__text {
   flex-grow: 1;
   margin-top: 0.75rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--color-text-muted);
 }
