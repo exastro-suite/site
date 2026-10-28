@@ -327,6 +327,8 @@ function initImageDialog() {
  * 1つでも閉じていれば「すべて開く」、すべて開いていれば「すべて閉じる」にする。
  * 要素を1つずつ開閉したときも toggle イベントで表示を合わせる。
  * 押したらセクション（#governed-execution）の先頭へスクロールし、開閉した一覧を上から見られるようにする。
+ * 閉じるときは先にスクロールしてから閉じる。同時に動かすと、縮む間にブラウザがスクロール位置を
+ * 保とうとずらし（スクロールアンカー）、スクロールのアニメーションと取り合って上下に揺れるため。
  */
 function initFeatureToggleAll() {
   const wrap = document.querySelector(".control-plane__toggle-all");
@@ -344,11 +346,17 @@ function initFeatureToggleAll() {
 
   button.addEventListener("click", () => {
     const open = !allOpen();
-    features.forEach((d) => {
+    const setAll = () => features.forEach((d) => {
       d.open = open;
     });
     const section = wrap.closest(".section");
-    if (section) smoothScrollTo(section);
+    if (!section) return setAll();
+    if (open) {
+      setAll();
+      smoothScrollTo(section);
+    } else {
+      smoothScrollTo(section, setAll);
+    }
   });
   features.forEach((d) => d.addEventListener("toggle", update));
   update();
@@ -362,7 +370,8 @@ function initFeatureToggleAll() {
 let smoothScrollFrame = 0;
 
 // 要素の上端までなめらかにスクロールする（ページ内リンクとセクション移動のボタンで共通）
-function smoothScrollTo(target) {
+// onDone はスクロールし終えたときに呼ぶ（途中で別のスクロールに切り替わったら呼ばない）
+function smoothScrollTo(target, onDone) {
   const DURATION = 900; // ミリ秒
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const start = window.scrollY;
@@ -375,6 +384,7 @@ function smoothScrollTo(target) {
     // html の scroll-behavior: smooth が毎回かからないよう instant で動かす
     window.scrollTo({ top: start + (end - start) * ease(t), behavior: "instant" });
     if (t < 1) smoothScrollFrame = requestAnimationFrame(step);
+    else onDone?.();
   };
   smoothScrollFrame = requestAnimationFrame(step);
 }
