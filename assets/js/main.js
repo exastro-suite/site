@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderMenu();
   initMotionToggle();
   initImageDialog();
+  initFeatureToggleAll();
   initScrollReveal();
 });
 
@@ -172,6 +173,10 @@ function initMotionToggle() {
  * ボタンに data-full があればその画像を、なければ中の画像をそのまま表示する。
  * 閉じるのは × ボタン・背景のクリック・Esc キー（Esc は dialog の標準の動き）。
  * 画像を読み込み終わるまでは .is-loading で前の画像を隠し、読み込み中の表示を出す。
+ *
+ * data-gallery に同じ値を持つボタンはひとまとまりのスライドにし、前後ボタン・← → キー・スワイプで切り替える
+ * （端まで行くと反対の端に戻る）。ボタンが <details> の中にあれば、その summary を見出しとして画像の上に出す。
+ * 切り替えるときは今の画像を進む向きへ送り出し（.is-leaving）、次の画像を反対側から入れる（data-dir）。
  */
 function initImageDialog() {
   const buttons = document.querySelectorAll(".image-zoom");
@@ -182,15 +187,28 @@ function initImageDialog() {
   dialog.setAttribute("aria-label", "画像の拡大表示");
   dialog.innerHTML =
     '<figure class="image-dialog__figure">' +
+    '<div class="image-dialog__head"></div>' +
     '<img class="image-dialog__img" alt="">' +
     '<figcaption class="image-dialog__caption"></figcaption>' +
     "</figure>" +
+    '<div class="image-dialog__nav">' +
+    '<button class="image-dialog__step image-dialog__step--prev" type="button" aria-label="前のスライド"></button>' +
+    '<p class="image-dialog__count" aria-live="polite"></p>' +
+    '<button class="image-dialog__step image-dialog__step--next" type="button" aria-label="次のスライド"></button>' +
+    "</div>" +
     '<p class="image-dialog__loading" role="status"></p>' +
     '<button class="image-dialog__close" type="button" aria-label="閉じる"></button>';
   document.body.append(dialog);
+  const figure = dialog.querySelector(".image-dialog__figure");
+  const head = dialog.querySelector(".image-dialog__head");
   const img = dialog.querySelector(".image-dialog__img");
   const caption = dialog.querySelector(".image-dialog__caption");
+  const count = dialog.querySelector(".image-dialog__count");
   const loading = dialog.querySelector(".image-dialog__loading");
+
+  let slides = []; // 開いているスライドのボタン（ギャラリーでなければ 1 枚だけ）
+  let current = 0;
+  let switching = false;
 
   // src を差し替えると前の画像の読み込みは取りやめになるので、load・error は今の画像のものだけ届く
   const finish = (failed) => {
@@ -201,21 +219,101 @@ function initImageDialog() {
   img.addEventListener("load", () => finish(false));
   img.addEventListener("error", () => finish(true));
 
+  const fullSrc = (button) => {
+    const source = button.querySelector("img");
+    return button.dataset.full || source.currentSrc || source.src;
+  };
+
+  // slides[index] の画像と見出しを表示する
+  const show = (index) => {
+    current = index;
+    const button = slides[index];
+    const source = button.querySelector("img");
+    dialog.classList.add("is-loading");
+    dialog.classList.remove("is-error");
+    loading.textContent = "読み込み中…";
+    // 前の画像が残って見えないよう、いったん外してから読み込む
+    img.removeAttribute("src");
+    img.src = fullSrc(button);
+    img.alt = source.alt;
+
+    const summary = button.closest("details")?.querySelector("summary");
+    head.replaceChildren(...(summary ? Array.from(summary.childNodes, (node) => node.cloneNode(true)) : []));
+    head.hidden = !summary;
+    caption.textContent = source.alt;
+    caption.hidden = !source.alt || !!summary;
+    count.textContent = `${index + 1} / ${slides.length}`;
+
+    // 隣のスライドは先に読み込んでおき、切り替えたときに待たせない
+    if (slides.length > 1) {
+      [index - 1, index + 1].forEach((i) => {
+        new Image().src = fullSrc(slides[(i + slides.length) % slides.length]);
+      });
+    }
+  };
+
+  // step = 1 で次へ、-1 で前へ
+  const move = (step) => {
+    if (slides.length < 2 || switching) return;
+    const next = (current + step + slides.length) % slides.length;
+    dialog.dataset.dir = step > 0 ? "next" : "prev";
+    if (isMotionOff()) {
+      show(next);
+      return;
+    }
+    switching = true;
+    dialog.classList.add("is-leaving");
+    afterLeave = () => {
+      stopLeaving();
+      show(next);
+    };
+    figure.addEventListener("animationend", afterLeave, { once: true });
+  };
+
+  // 送り出しの途中で閉じたときに、次に開いたときの登場の動きで切り替わらないよう取り消す
+  let afterLeave = null;
+  const stopLeaving = () => {
+    if (afterLeave) figure.removeEventListener("animationend", afterLeave);
+    afterLeave = null;
+    switching = false;
+    dialog.classList.remove("is-leaving");
+  };
+
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const source = button.querySelector("img");
-      if (!source) return;
-      dialog.classList.add("is-loading");
-      dialog.classList.remove("is-error");
-      loading.textContent = "読み込み中…";
-      // 前の画像が残って見えないよう、いったん外してから読み込む
-      img.removeAttribute("src");
-      img.src = button.dataset.full || source.currentSrc || source.src;
-      img.alt = source.alt;
-      caption.textContent = source.alt;
-      caption.hidden = !source.alt;
+      if (!button.querySelector("img")) return;
+      const group = button.dataset.gallery;
+      slides = group
+        ? Array.from(buttons).filter((b) => b.dataset.gallery === group && b.querySelector("img"))
+        : [button];
+      dialog.classList.toggle("is-gallery", slides.length > 1);
+      stopLeaving();
+      delete dialog.dataset.dir;
+      show(slides.indexOf(button));
       dialog.showModal();
     });
+  });
+
+  dialog.querySelector(".image-dialog__step--prev").addEventListener("click", () => move(-1));
+  dialog.querySelector(".image-dialog__step--next").addEventListener("click", () => move(1));
+  dialog.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") move(-1);
+    else if (e.key === "ArrowRight") move(1);
+  });
+
+  // 横に払ったら切り替える（縦の動きが大きいときは何もしない）
+  let touchX = null;
+  let touchY = 0;
+  dialog.addEventListener("touchstart", (e) => {
+    touchX = e.touches.length === 1 ? e.touches[0].clientX : null;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
+  dialog.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? 1 : -1);
   });
 
   dialog.querySelector(".image-dialog__close").addEventListener("click", () => dialog.close());
@@ -225,6 +323,46 @@ function initImageDialog() {
   });
 }
 
+/* ===== Control Plane の8つの要素：すべて開く／すべて閉じる =====
+ * 1つでも閉じていれば「すべて開く」、すべて開いていれば「すべて閉じる」にする。
+ * 要素を1つずつ開閉したときも toggle イベントで表示を合わせる。
+ * 押したらセクション（#governed-execution）の先頭へスクロールし、開閉した一覧を上から見られるようにする。
+ * 閉じるときは先にスクロールしてから閉じる。同時に動かすと、縮む間にブラウザがスクロール位置を
+ * 保とうとずらし（スクロールアンカー）、スクロールのアニメーションと取り合って上下に揺れるため。
+ */
+function initFeatureToggleAll() {
+  const wrap = document.querySelector(".control-plane__toggle-all");
+  const features = document.querySelectorAll(".control-plane__feature");
+  if (!wrap || !features.length) return;
+  const button = wrap.querySelector(".control-plane__toggle-all-button");
+  const label = wrap.querySelector(".control-plane__toggle-all-label");
+
+  const allOpen = () => Array.from(features).every((d) => d.open);
+  const update = () => {
+    const open = allOpen();
+    button.setAttribute("aria-expanded", String(open));
+    label.textContent = open ? "すべて閉じる" : "すべて開く";
+  };
+
+  button.addEventListener("click", () => {
+    const open = !allOpen();
+    const setAll = () => features.forEach((d) => {
+      d.open = open;
+    });
+    const section = wrap.closest(".section");
+    if (!section) return setAll();
+    if (open) {
+      setAll();
+      smoothScrollTo(section);
+    } else {
+      smoothScrollTo(section, setAll);
+    }
+  });
+  features.forEach((d) => d.addEventListener("toggle", update));
+  update();
+  wrap.hidden = false;
+}
+
 /* ===== ページ内リンク：なめらかにスクロール =====
  * CSS の scroll-behavior: smooth は、OS でアニメーションを減らす設定にしていると
  * ブラウザが一瞬で移動させてしまうため、JS で毎フレーム位置を動かす。
@@ -232,7 +370,8 @@ function initImageDialog() {
 let smoothScrollFrame = 0;
 
 // 要素の上端までなめらかにスクロールする（ページ内リンクとセクション移動のボタンで共通）
-function smoothScrollTo(target) {
+// onDone はスクロールし終えたときに呼ぶ（途中で別のスクロールに切り替わったら呼ばない）
+function smoothScrollTo(target, onDone) {
   const DURATION = 900; // ミリ秒
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const start = window.scrollY;
@@ -245,6 +384,7 @@ function smoothScrollTo(target) {
     // html の scroll-behavior: smooth が毎回かからないよう instant で動かす
     window.scrollTo({ top: start + (end - start) * ease(t), behavior: "instant" });
     if (t < 1) smoothScrollFrame = requestAnimationFrame(step);
+    else onDone?.();
   };
   smoothScrollFrame = requestAnimationFrame(step);
 }
@@ -558,15 +698,15 @@ function initGridBackground() {
   const ctx = canvas.getContext("2d");
   const bgEl = canvas.closest(".section-bg");
 
-  const RANGE = 12;              // カメラから各軸に何マス分の格子を描くか
+  const RANGE = 16;              // カメラから各軸に何マス分の格子を描くか
   const FAR = RANGE;            // この距離で完全にフェードアウト
   const NEAR = 0.05;            // ニアクリップ面
-  const SPEED = 0;           // 前進速度（マス/秒）
+  const SPEED = 0.1;           // 前進速度（マス/秒）
   const BASE_YAW = Math.PI / 4;   // 基準の左右の向き（45度。正で右を向く）
   const BASE_PITCH = Math.PI / 4; // 基準の上下の向き（45度。正で見下ろす）
-  const MAX_YAW = 0.55;         // 左右の最大回転（ラジアン）
-  const MAX_PITCH = 0.4;        // 上下の最大回転（ラジアン）
-  const EASE = 4;               // マウス追従の滑らかさ（大きいほど速い）
+  const MAX_YAW = 0.2;         // 左右の最大回転（ラジアン）
+  const MAX_PITCH = 0.15;        // 上下の最大回転（ラジアン）
+  const EASE = 0.5;               // マウス追従の滑らかさ（大きいほど速い）
   const BUCKETS = 8;           // 透明度ごとにまとめて描画する段階数
   const NODE_SIZE = 0.01;       // 交点の半径（格子1マスに対する比率）
   const NODE_MIN = 0.6;         // 交点の最小半径（線幅に対する倍率）
@@ -642,8 +782,8 @@ function initGridBackground() {
     view.yaw += (BASE_YAW + pointer.x * MAX_YAW - view.yaw) * k;
     view.pitch += (BASE_PITCH + pointer.y * MAX_PITCH - view.pitch) * k;
     // 向きに加えて位置も少しずらし、視差で立体感を強める
-    view.x += (pointer.x * 0.35 - view.x) * k;
-    view.y += (pointer.y * 0.25 - view.y) * k;
+    view.x += (pointer.x * 0.18 - view.x) * k;
+    view.y += (pointer.y * 0.12 - view.y) * k;
   }
 
   // 格子点をカメラ座標系に変換

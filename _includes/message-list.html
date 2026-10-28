@@ -8,7 +8,7 @@
             </div>
             <div class="message__main-body">
               <h4 class="message__main-title">{{ main.title }}<span class="message__main-name">{{ main.name }}</span></h4>
-              <p class="message__main-catch">{{ main.catch }}</p>
+              <p class="message__main-catch">{{ main.catch | replace: "――", '<span class="text-dash">――</span>' }}</p>
               {%- for text in main.summary %}
               <p class="message__main-text">{{ text }}</p>
               {%- endfor %}

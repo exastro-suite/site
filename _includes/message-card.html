@@ -15,7 +15,7 @@
                 <span class="message__card-body">
                   <span class="message__card-label">開発者メッセージ</span>
                   <span class="message__card-product">{{ item.product }}</span>
-                  <span class="message__card-catch">{{ item.catch }}</span>
+                  <span class="message__card-catch">{{ item.catch | replace: "――", '<span class="text-dash">――</span>' }}</span>
                   {%- if item.name %}
                   <span class="message__card-name">{{ item.name }}</span>
                   {%- endif %}
