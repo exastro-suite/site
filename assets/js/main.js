@@ -688,15 +688,15 @@ function initGridBackground() {
   const ctx = canvas.getContext("2d");
   const bgEl = canvas.closest(".section-bg");
 
-  const RANGE = 12;              // カメラから各軸に何マス分の格子を描くか
+  const RANGE = 16;              // カメラから各軸に何マス分の格子を描くか
   const FAR = RANGE;            // この距離で完全にフェードアウト
   const NEAR = 0.05;            // ニアクリップ面
-  const SPEED = 0;           // 前進速度（マス/秒）
+  const SPEED = 0.1;           // 前進速度（マス/秒）
   const BASE_YAW = Math.PI / 4;   // 基準の左右の向き（45度。正で右を向く）
   const BASE_PITCH = Math.PI / 4; // 基準の上下の向き（45度。正で見下ろす）
-  const MAX_YAW = 0.55;         // 左右の最大回転（ラジアン）
-  const MAX_PITCH = 0.4;        // 上下の最大回転（ラジアン）
-  const EASE = 4;               // マウス追従の滑らかさ（大きいほど速い）
+  const MAX_YAW = 0.2;         // 左右の最大回転（ラジアン）
+  const MAX_PITCH = 0.15;        // 上下の最大回転（ラジアン）
+  const EASE = 0.5;               // マウス追従の滑らかさ（大きいほど速い）
   const BUCKETS = 8;           // 透明度ごとにまとめて描画する段階数
   const NODE_SIZE = 0.01;       // 交点の半径（格子1マスに対する比率）
   const NODE_MIN = 0.6;         // 交点の最小半径（線幅に対する倍率）
@@ -772,8 +772,8 @@ function initGridBackground() {
     view.yaw += (BASE_YAW + pointer.x * MAX_YAW - view.yaw) * k;
     view.pitch += (BASE_PITCH + pointer.y * MAX_PITCH - view.pitch) * k;
     // 向きに加えて位置も少しずらし、視差で立体感を強める
-    view.x += (pointer.x * 0.35 - view.x) * k;
-    view.y += (pointer.y * 0.25 - view.y) * k;
+    view.x += (pointer.x * 0.18 - view.x) * k;
+    view.y += (pointer.y * 0.12 - view.y) * k;
   }
 
   // 格子点をカメラ座標系に変換
