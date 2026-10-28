@@ -23,7 +23,7 @@
   --cp-title-below: 1.5rem;   /* 見出しと要素の一覧の間 */
   --cp-rail: 2.5rem;          /* 狭いとき：左に幹の線を通す幅 */
   --cp-ease: 0.35s ease;
-  container-type: inline-size;
+  container: control-plane / inline-size;
   /* つなぐ線（.control-plane__flow::after）の配置の基準にする */
   position: relative;
   /* details の開閉で height: auto へアニメーションさせる */
@@ -301,6 +301,8 @@
   border-left: 4px solid var(--mainColor100);
   border-radius: 0 8px 8px 0;
   background: rgba(17, 26, 46, 0.7);
+  /* 要素の幅で「詳細」の置き場所を切り替える（下の @container cp-feature） */
+  container: cp-feature / inline-size;
 }
 
 /* タイトル（summary）にカーソルを乗せたときだけ、ブロック全体を薄くする */
@@ -379,20 +381,72 @@
   display: none;
 }
 
-/* 右端の＋（開くと×に回る） */
-.control-plane__feature summary::after {
+/* 右端の「詳細＋」（開くと「隠す×」）。＋だけでは開けると分かりにくいため文言を添える。
+   開閉の状態は summary が読み上げるので、文言は読み上げから外す（aria-hidden） */
+.control-plane__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--mainColor60);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--mainColor60);
+  cursor: pointer;
+  transition: border-color var(--cp-ease), color var(--cp-ease);
+}
+
+.control-plane__feature summary:hover .control-plane__more,
+.control-plane__feature summary:focus-visible .control-plane__more {
+  border-color: var(--accentColor60);
+  color: var(--accentColor60);
+}
+
+.control-plane__more::after {
   content: "";
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.625rem;
+  height: 0.625rem;
   background:
     linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
     linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
-  color: var(--color-text-muted);
-  transition: rotate var(--cp-ease), color var(--cp-ease);
+  transition: rotate var(--cp-ease);
 }
 
-.control-plane__feature[open] summary::after {
+.control-plane__feature[open] .control-plane__more::after {
   rotate: 135deg;
+}
+
+.control-plane__more-close,
+.control-plane__feature[open] .control-plane__more-open {
+  display: none;
+}
+
+.control-plane__feature[open] .control-plane__more-close {
+  display: inline;
+}
+
+/* 拡大表示の見出しに summary を写すときは出さない */
+.image-dialog__head .control-plane__more {
+  display: none;
+}
+
+/* 要素の幅が狭いときは、名前の横に並べると名前が細く折り返すので、名前の下へ回り込ませる */
+@container cp-feature (max-width: 26rem) {
+  .control-plane__feature summary {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: 0.625rem;
+  }
+
+  .control-plane__num {
+    grid-row: span 2;
+  }
+
+  .control-plane__more {
+    justify-self: start;
+  }
 }
 
 .control-plane__num {
@@ -566,7 +620,7 @@
 }
 
 /* ===== 列が狭いとき：流れを縦並び、要素を1列にする ===== */
-@container (max-width: 560px) {
+@container control-plane (max-width: 560px) {
   .control-plane {
     --cp-gap: 2rem;
   }
