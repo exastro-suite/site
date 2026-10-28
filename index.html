@@ -107,7 +107,7 @@ scroll_meter: true
 
           <!-- 8つの要素（クリックで詳細を開く） -->
           <div class="control-plane__features">
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">01</span><span class="control-plane__label"><span class="control-plane__en">CHANGE CONTROL</span><span class="control-plane__ja">誰が・いつ・何を</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>現在だけでなく変更予定も含め、誰が・いつ・何を変えるかを構成情報として追跡します。</p>
               <figure class="control-plane__figure">
@@ -116,7 +116,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">02</span><span class="control-plane__label"><span class="control-plane__en">REUSE FIRST</span><span class="control-plane__ja">IaCを増殖させない</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>AIが毎回ゼロから作るのではなく、検証済みの既存IaC・自動化部品を探して再利用します。</p>
               <figure class="control-plane__figure">
@@ -125,7 +125,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">03</span><span class="control-plane__label"><span class="control-plane__en">SEPARATION</span><span class="control-plane__ja">フローと構成を分離</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>設定値が変わってもジョブフローを作り直さず、同じ自動化を繰り返し使えます。</p>
               <figure class="control-plane__figure">
@@ -134,7 +134,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">04</span><span class="control-plane__label"><span class="control-plane__en">LIVE EXECUTION</span><span class="control-plane__ja">実行中が見える</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>いま何が、どこまで進んでいるかをリアルタイムに把握できます。</p>
               <figure class="control-plane__figure">
@@ -143,7 +143,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">05</span><span class="control-plane__label"><span class="control-plane__en">EMERGENCY CONTROL</span><span class="control-plane__ja">いつでも止められる</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>異常を検知したら、いつでも確実に停止・中断できます。</p>
               <figure class="control-plane__figure">
@@ -152,7 +152,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">06</span><span class="control-plane__label"><span class="control-plane__en">EVIDENCE</span><span class="control-plane__ja">投入から結果まで残す</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>投入データ、実行結果、ログを過去分まで紐付け、監査や振り返りに使えるエビデンスとして残します。</p>
               <figure class="control-plane__figure">
@@ -161,7 +161,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">07</span><span class="control-plane__label"><span class="control-plane__en">KNOWN / UNKNOWN</span><span class="control-plane__ja">AIを使うべき場面を選ぶ</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>事前に定義したルールで事象を既知と未知に仕分け、未知の場合はAIの力を借りて真因を探り対処案を提案します。</p>
               <figure class="control-plane__figure">
@@ -170,7 +170,7 @@ scroll_meter: true
                 </button>
               </figure>
             </details>
-            <details class="control-plane__feature">
+            <details class="control-plane__feature" open>
               <summary><span class="control-plane__num">08</span><span class="control-plane__label"><span class="control-plane__en">AUTO REMEDIATION</span><span class="control-plane__ja">既知は迷わず自動対処</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">詳細</span><span class="control-plane__more-close">隠す</span></span></summary>
               <p>既知と判定された事象には、登録・検証済みの対処をそのまま自動実行します。</p>
               <figure class="control-plane__figure">
@@ -182,7 +182,7 @@ scroll_meter: true
           </div>
           <!-- 8つの要素をまとめて開閉する（JS が動くときだけ表示。assets/js/main.js の initFeatureToggleAll） -->
           <div class="control-plane__toggle-all" hidden>
-            <button class="control-plane__toggle-all-button" type="button" aria-expanded="false"><span class="control-plane__toggle-all-icon" aria-hidden="true"></span><span class="control-plane__toggle-all-label">すべて開く</span></button>
+            <button class="control-plane__toggle-all-button" type="button" aria-expanded="true"><span class="control-plane__toggle-all-icon" aria-hidden="true"></span><span class="control-plane__toggle-all-label">すべて閉じる</span></button>
           </div>
         </div>
       </div>
