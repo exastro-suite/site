@@ -303,7 +303,8 @@
   background: rgba(17, 26, 46, 0.7);
 }
 
-.control-plane__feature:hover {
+/* タイトル（summary）にカーソルを乗せたときだけ、ブロック全体を薄くする */
+.control-plane__feature:has(summary:hover) {
   opacity: .8;
 }
 
@@ -431,8 +432,130 @@
   color: var(--color-text-muted);
 }
 
-.control-plane__feature[open] p {
+/* 画像を紺1色で描いたように見せる：白黒にした画像へ紺をスクリーンで重ね、黒を紺に、白は白のまま残す */
+.control-plane__shot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  isolation: isolate;
+}
+
+.control-plane__shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mainColor100);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.control-plane__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);
+  opacity: .8;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+/* 画像は拡大表示のボタン（.image-zoom）で包む。ホバーしたら紺の重ねと白黒をやめ、元の色で見せる */
+.control-plane__figure .image-zoom {
+  background: none;
+}
+
+.control-plane__figure .image-zoom:hover .control-plane__shot::after,
+.control-plane__figure .image-zoom:focus-visible .control-plane__shot::after {
+  opacity: 0;
+}
+
+.control-plane__figure .image-zoom:hover .control-plane__image,
+.control-plane__figure .image-zoom:focus-visible .control-plane__image {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* すべて開く／すべて閉じる：一覧の右下。＋はすべて開くと×に回る（各要素の summary の＋と同じ） */
+.control-plane__toggle-all {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.control-plane__toggle-all[hidden] {
+  display: none;
+}
+
+.control-plane__toggle-all-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.31rem 1.25rem;
+  border: 1px solid var(--mainColor60);
+  border-radius: 8px;
+  background: none;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mainColor60);
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.control-plane__toggle-all-button:hover,
+.control-plane__toggle-all-button:focus-visible {
+  color: var(--mainColor40);
+  border-color: var(--mainColor40);
+}
+
+.control-plane__toggle-all-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.control-plane__toggle-all-icon {
+  width: 0.625rem;
+  height: 0.625rem;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+  transition: rotate var(--cp-ease);
+}
+
+.control-plane__toggle-all-button[aria-expanded="true"] .control-plane__toggle-all-icon {
+  rotate: 135deg;
+}
+
+/* 拡大表示のスライドでは summary（番号・名前）を見出しに写す。枝とつながる丸は出さない */
+.image-dialog__head .control-plane__num::before {
+  content: none;
+}
+
+.control-plane__feature[open] p,
+.control-plane__feature[open] .control-plane__figure {
   animation: control-plane-in 0.4s ease both;
+}
+
+.control-plane__figure {
+  margin: 0 1rem 1rem;
+  padding: 16px;
+  background:
+    linear-gradient(var(--mainColor80), var(--mainColor80)) top 6px left 6px / 14px 1px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) top 6px left 6px / 1px 14px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) top 6px right 6px / 14px 1px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) top 6px right 6px / 1px 14px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) bottom 6px left 6px / 14px 1px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) bottom 6px left 6px / 1px 14px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) bottom 6px right 6px / 14px 1px no-repeat,
+    linear-gradient(var(--mainColor80), var(--mainColor80)) bottom 6px right 6px / 1px 14px no-repeat,
+    repeating-linear-gradient(0deg, rgba(102, 128, 161, 0.08) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(-45deg, rgba(102, 128, 161, 0.1) 0 1px, transparent 1px 12px),
+    linear-gradient(rgba(102, 128, 161, 0.18) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(102, 128, 161, 0.18) 1px, transparent 1px) 0 0 / 24px 24px,
+    rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  border: 1px solid var(--mainColor100);
 }
 
 @keyframes control-plane-in {
@@ -1432,7 +1555,7 @@ a.message__card:focus-visible .message__card-photo img {
 .message-article__heading {
   padding-left: 0.875rem;
   border-left: 3px solid var(--mainColor80);
-  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-size: clamp(1.25rem, 2.1vw, 1.625rem);
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.06em;
@@ -1441,10 +1564,20 @@ a.message__card:focus-visible .message__card-photo img {
 
 .message-article__subheading {
   margin-top: 0.75rem;
-  font-size: 1rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   line-height: 1.6;
   color: var(--accentColor100);
+}
+
+/* 本文中の強調（**…**）：トップの見出しの .section__marker と同じ蛍光ペン風の下線を薄い黄色で引き、文字も明るくする */
+.message-article strong {
+  padding-inline: 0.1em;
+  background: linear-gradient(transparent 75%, rgba(255, 225, 100, 0.35) 75%, rgba(255, 225, 100, 0.5) 98%, transparent 98%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  color: #FFF;
+  font-weight: normal;
 }
 
 /* 本文中の画像（プロダクトの画面イメージなど） */

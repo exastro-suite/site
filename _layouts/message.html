@@ -27,7 +27,7 @@ layout: default
         </nav>
         <h1 class="section__title">{{ title }}</h1>
         <p class="section__subtitle">開発者メッセージ</p>
-        <p class="section__lead">{{ author.catch }}</p>
+        <p class="section__lead">{{ author.catch | replace: "――", '<span class="text-dash">――</span>' }}</p>
         <!-- 著者（プロフィールの全文は本文の最後） -->
         <div class="message-author">
           <img class="message-author__photo" src="{{ author.photo | relative_url }}" alt="" width="960" height="720">

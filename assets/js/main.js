@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderMenu();
   initMotionToggle();
   initImageDialog();
+  initFeatureToggleAll();
   initScrollReveal();
 });
 
@@ -172,6 +173,10 @@ function initMotionToggle() {
  * ボタンに data-full があればその画像を、なければ中の画像をそのまま表示する。
  * 閉じるのは × ボタン・背景のクリック・Esc キー（Esc は dialog の標準の動き）。
  * 画像を読み込み終わるまでは .is-loading で前の画像を隠し、読み込み中の表示を出す。
+ *
+ * data-gallery に同じ値を持つボタンはひとまとまりのスライドにし、前後ボタン・← → キー・スワイプで切り替える
+ * （端まで行くと反対の端に戻る）。ボタンが <details> の中にあれば、その summary を見出しとして画像の上に出す。
+ * 切り替えるときは今の画像を進む向きへ送り出し（.is-leaving）、次の画像を反対側から入れる（data-dir）。
  */
 function initImageDialog() {
   const buttons = document.querySelectorAll(".image-zoom");
@@ -182,15 +187,28 @@ function initImageDialog() {
   dialog.setAttribute("aria-label", "画像の拡大表示");
   dialog.innerHTML =
     '<figure class="image-dialog__figure">' +
+    '<div class="image-dialog__head"></div>' +
     '<img class="image-dialog__img" alt="">' +
     '<figcaption class="image-dialog__caption"></figcaption>' +
     "</figure>" +
+    '<div class="image-dialog__nav">' +
+    '<button class="image-dialog__step image-dialog__step--prev" type="button" aria-label="前のスライド"></button>' +
+    '<p class="image-dialog__count" aria-live="polite"></p>' +
+    '<button class="image-dialog__step image-dialog__step--next" type="button" aria-label="次のスライド"></button>' +
+    "</div>" +
     '<p class="image-dialog__loading" role="status"></p>' +
     '<button class="image-dialog__close" type="button" aria-label="閉じる"></button>';
   document.body.append(dialog);
+  const figure = dialog.querySelector(".image-dialog__figure");
+  const head = dialog.querySelector(".image-dialog__head");
   const img = dialog.querySelector(".image-dialog__img");
   const caption = dialog.querySelector(".image-dialog__caption");
+  const count = dialog.querySelector(".image-dialog__count");
   const loading = dialog.querySelector(".image-dialog__loading");
+
+  let slides = []; // 開いているスライドのボタン（ギャラリーでなければ 1 枚だけ）
+  let current = 0;
+  let switching = false;
 
   // src を差し替えると前の画像の読み込みは取りやめになるので、load・error は今の画像のものだけ届く
   const finish = (failed) => {
@@ -201,21 +219,101 @@ function initImageDialog() {
   img.addEventListener("load", () => finish(false));
   img.addEventListener("error", () => finish(true));
 
+  const fullSrc = (button) => {
+    const source = button.querySelector("img");
+    return button.dataset.full || source.currentSrc || source.src;
+  };
+
+  // slides[index] の画像と見出しを表示する
+  const show = (index) => {
+    current = index;
+    const button = slides[index];
+    const source = button.querySelector("img");
+    dialog.classList.add("is-loading");
+    dialog.classList.remove("is-error");
+    loading.textContent = "読み込み中…";
+    // 前の画像が残って見えないよう、いったん外してから読み込む
+    img.removeAttribute("src");
+    img.src = fullSrc(button);
+    img.alt = source.alt;
+
+    const summary = button.closest("details")?.querySelector("summary");
+    head.replaceChildren(...(summary ? Array.from(summary.childNodes, (node) => node.cloneNode(true)) : []));
+    head.hidden = !summary;
+    caption.textContent = source.alt;
+    caption.hidden = !source.alt || !!summary;
+    count.textContent = `${index + 1} / ${slides.length}`;
+
+    // 隣のスライドは先に読み込んでおき、切り替えたときに待たせない
+    if (slides.length > 1) {
+      [index - 1, index + 1].forEach((i) => {
+        new Image().src = fullSrc(slides[(i + slides.length) % slides.length]);
+      });
+    }
+  };
+
+  // step = 1 で次へ、-1 で前へ
+  const move = (step) => {
+    if (slides.length < 2 || switching) return;
+    const next = (current + step + slides.length) % slides.length;
+    dialog.dataset.dir = step > 0 ? "next" : "prev";
+    if (isMotionOff()) {
+      show(next);
+      return;
+    }
+    switching = true;
+    dialog.classList.add("is-leaving");
+    afterLeave = () => {
+      stopLeaving();
+      show(next);
+    };
+    figure.addEventListener("animationend", afterLeave, { once: true });
+  };
+
+  // 送り出しの途中で閉じたときに、次に開いたときの登場の動きで切り替わらないよう取り消す
+  let afterLeave = null;
+  const stopLeaving = () => {
+    if (afterLeave) figure.removeEventListener("animationend", afterLeave);
+    afterLeave = null;
+    switching = false;
+    dialog.classList.remove("is-leaving");
+  };
+
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const source = button.querySelector("img");
-      if (!source) return;
-      dialog.classList.add("is-loading");
-      dialog.classList.remove("is-error");
-      loading.textContent = "読み込み中…";
-      // 前の画像が残って見えないよう、いったん外してから読み込む
-      img.removeAttribute("src");
-      img.src = button.dataset.full || source.currentSrc || source.src;
-      img.alt = source.alt;
-      caption.textContent = source.alt;
-      caption.hidden = !source.alt;
+      if (!button.querySelector("img")) return;
+      const group = button.dataset.gallery;
+      slides = group
+        ? Array.from(buttons).filter((b) => b.dataset.gallery === group && b.querySelector("img"))
+        : [button];
+      dialog.classList.toggle("is-gallery", slides.length > 1);
+      stopLeaving();
+      delete dialog.dataset.dir;
+      show(slides.indexOf(button));
       dialog.showModal();
     });
+  });
+
+  dialog.querySelector(".image-dialog__step--prev").addEventListener("click", () => move(-1));
+  dialog.querySelector(".image-dialog__step--next").addEventListener("click", () => move(1));
+  dialog.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") move(-1);
+    else if (e.key === "ArrowRight") move(1);
+  });
+
+  // 横に払ったら切り替える（縦の動きが大きいときは何もしない）
+  let touchX = null;
+  let touchY = 0;
+  dialog.addEventListener("touchstart", (e) => {
+    touchX = e.touches.length === 1 ? e.touches[0].clientX : null;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
+  dialog.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? 1 : -1);
   });
 
   dialog.querySelector(".image-dialog__close").addEventListener("click", () => dialog.close());
@@ -223,6 +321,38 @@ function initImageDialog() {
   dialog.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
   });
+}
+
+/* ===== Control Plane の8つの要素：すべて開く／すべて閉じる =====
+ * 1つでも閉じていれば「すべて開く」、すべて開いていれば「すべて閉じる」にする。
+ * 要素を1つずつ開閉したときも toggle イベントで表示を合わせる。
+ * 押したらセクション（#governed-execution）の先頭へスクロールし、開閉した一覧を上から見られるようにする。
+ */
+function initFeatureToggleAll() {
+  const wrap = document.querySelector(".control-plane__toggle-all");
+  const features = document.querySelectorAll(".control-plane__feature");
+  if (!wrap || !features.length) return;
+  const button = wrap.querySelector(".control-plane__toggle-all-button");
+  const label = wrap.querySelector(".control-plane__toggle-all-label");
+
+  const allOpen = () => Array.from(features).every((d) => d.open);
+  const update = () => {
+    const open = allOpen();
+    button.setAttribute("aria-expanded", String(open));
+    label.textContent = open ? "すべて閉じる" : "すべて開く";
+  };
+
+  button.addEventListener("click", () => {
+    const open = !allOpen();
+    features.forEach((d) => {
+      d.open = open;
+    });
+    const section = wrap.closest(".section");
+    if (section) smoothScrollTo(section);
+  });
+  features.forEach((d) => d.addEventListener("toggle", update));
+  update();
+  wrap.hidden = false;
 }
 
 /* ===== ページ内リンク：なめらかにスクロール =====
