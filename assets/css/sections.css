@@ -1570,8 +1570,8 @@ a.message__card:focus-visible .message__card-photo img {
   color: var(--accentColor100);
 }
 
-/* 本文中の強調（**…**）：トップの見出しの .section__marker と同じ蛍光ペン風の下線を薄い黄色で引き、文字も明るくする */
-.message-article strong {
+/* 開発者メッセージ本文中の強調（**…**）：トップの見出しの .section__marker と同じ蛍光ペン風の下線を薄い黄色で引き、文字も明るくする（お知らせの記事には付けない） */
+.message-article:not(.news-article) strong {
   padding-inline: 0.1em;
   background: linear-gradient(transparent 75%, rgba(255, 225, 100, 0.35) 75%, rgba(255, 225, 100, 0.5) 98%, transparent 98%);
   -webkit-box-decoration-break: clone;
