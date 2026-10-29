@@ -10,7 +10,7 @@
         <div class="latest">
           <article class="latest__release">
             <p class="latest__label"><span class="latest__live" aria-hidden="true"></span>Latest Release</p>
-            <h4 class="latest__title">{{ release.product }} <span class="latest__version">{{ release.version }}</span><!-- リリース--></h4>
+            <h4 class="latest__title">{{ release.product }} <span class="latest__version">{{ release.version }}</span> リリース</h4>
             <p class="latest__date"><time datetime="{{ release.date | date: '%Y-%m-%d' }}">{{ release.date | date: '%Y.%m.%d' }}</time></p>
             <ul class="latest__links">
               <li>
