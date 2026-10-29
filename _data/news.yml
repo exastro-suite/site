@@ -3,9 +3,9 @@
 # 最新リリース：過去のリリースは載せず、最新の1件だけを書き換える
 release:
   product: Exastro IT Automation
-  version: v2.10
+  version: v2.10.0
   date: 2026-10-29
-  notes_url: https://github.com/exastro-suite/exastro-it-automation/releases#release-2.9.0
+  notes_url: https://github.com/exastro-suite/exastro-it-automation/releases#release-2.10.0
   github_url: https://github.com/exastro-suite/exastro-it-automation
 
 # News & Articles：新しい順に上から書く。tag は News / Article / Event
