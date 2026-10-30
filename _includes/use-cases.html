@@ -1,10 +1,5 @@
-        {%- comment -%}
-          画像を出すかどうか。画像が用意できるまでは false にし、画像の代わりに各ブロックを枠で囲んで文字を大きくする（.use-cases--no-image）。
-          画像が揃ったら true に戻すだけで元の表示になる
-        {%- endcomment -%}
-        {%- assign show_images = false -%}
         <!-- 利用シーン（assets/css/sections.css）。内容は _data/use_cases.yml で書き換える。クリックで image_large を拡大表示（assets/js/main.js の initImageDialog） -->
-        <div class="use-cases{% unless show_images %} use-cases--no-image{% endunless %}">
+        <div class="use-cases">
           <ul class="use-cases__list">
             {%- for item in site.data.use_cases %}
             {%- if item.tag %}
@@ -16,11 +11,9 @@
             {%- assign head = item.url | slice: 0 %}
             {%- if head == "/" %}{% assign href = item.url | relative_url %}{% endif %}
             <li class="use-cases__item">
-              {%- if show_images %}
               <div class="use-cases__image">
-                <button class="image-zoom" type="button"{% if item.image_large %} data-full="{{ item.image_large | relative_url }}"{% endif %} aria-label="{{ item.title }}のイメージを拡大表示"><img src="{{ item.image | relative_url }}" alt="{{ item.title }}のイメージ" width="960" height="540" loading="lazy"></button>
+                <button class="image-zoom" type="button"{% if item.image_large %} data-full="{{ item.image_large | relative_url }}"{% endif %} aria-label="{{ item.title }}のイメージを拡大表示"><img src="{{ item.image | relative_url }}" alt="{{ item.title }}のイメージ" width="960" height="400" loading="lazy"></button>
               </div>
-              {%- endif %}
               <h4 class="use-cases__title">{% if item.tag %}<span class="use-cases__tag">{{ item.tag }}</span>{% endif %}{{ item.title }}</h4>
               <p class="use-cases__text">{{ item.text }}</p>
               {%- if item.url %}

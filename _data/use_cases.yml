@@ -24,7 +24,7 @@
   # url: "#"
 - title: Legacyシステムインフラ構築
   tag: シンプルモード
-  text: AIを使わず、パラメータと作業手順を登録して、従来のサーバ・ネットワーク構築を自動化します。
+  text: Exastroの設定を意識せずにウィザード型インターフェースでサーバ構築を自動化します。
   image: /assets/images/use-cases/legacy.png
   image_large: /assets/images/use-cases/legacy_large.png
   url: "https://ita.exastro.org/simple_mode.html"

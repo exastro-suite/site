@@ -878,11 +878,11 @@
 
 /* ===== ブロックの一覧 =====
  * 1ブロックの最小幅（13rem）が入るだけ列を並べ、入りきらない分は次の行へ送る。
- * 列数は最大3（広い画面でも4列以上にしない）
+ * 列数は最大2（広い画面でも3列以上にしない）。スマホ幅では常に1列にする
  */
 .use-cases__list {
-  --uc-gap: 1.75rem;
-  --uc-cols-max: 3;
+  --uc-gap: 2.5rem;
+  --uc-cols-max: 2;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, max(13rem, (100% - var(--uc-gap) * (var(--uc-cols-max) - 1)) / var(--uc-cols-max))), 1fr));
   gap: var(--uc-gap);
@@ -891,44 +891,35 @@
   list-style: none;
 }
 
+@media (max-width: 768px) {
+  .use-cases__list {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* 画像の枠 */
 .use-cases__image {
   overflow: hidden;
-  border: 1px solid var(--color-steel);
   border-radius: 8px;
-  background: var(--color-deep-navy);
+  border: 2px solid rgba(161,177,193,.25);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
 }
 
-/* 画像とダミーの枠：どちらも 16:9 で表示する。
-   16:9 以外の画像は切り取らず、比率を保ったまま枠に収める（余白は枠の地の色） */
-.use-cases__image img,
-.use-cases__placeholder {
+.use-cases__image img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
   object-fit: contain;
+  opacity: .7;
 }
-
-/* ダミー（グレーの枠）。画像を用意したら不要 */
-.use-cases__placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  background: #3a3f4a;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  line-height: 1.5;
-  text-align: center;
-  color: #9aa0ab;
+.use-cases__image img:hover {
+  opacity: 1;
 }
 
 /* ===== タイトルと説明 ===== */
 .use-cases__title {
   margin: 1rem 0 0;
-  font-size: 0.9375rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-text);
@@ -937,7 +928,7 @@
 /* タイトルの前に付ける補足（例：シンプルモード） */
 .use-cases__tag {
   padding-right: 8px;
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--accentColor100);
@@ -945,7 +936,7 @@
 
 p.use-cases__text {
   margin: 0.5rem 0 0;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.8;
   color: var(--color-text-muted);
 }
@@ -967,7 +958,6 @@ p.use-cases__text {
     padding: 0.16rem 1.25rem;
     border: 1px solid var(--mainColor60);
     border-radius: 8px;
-    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     color: var(--mainColor60);
@@ -1001,42 +991,6 @@ p.use-cases__text {
 .use-cases__more:focus-visible .use-cases__more-arrow {
   translate: 0.2em 0;
 }
-
-/* ===== 画像を出さないとき（.use-cases--no-image。_includes/use-cases.html の show_images が false） =====
- * 画像の分の余白が空きすぎないよう、各ブロックをセクション3の8つの要素と同じ枠で囲み、文字を大きくする。
- * 画像を出すときは使わない
- */
-/* 列数は最大2（狭い画面では今までどおり1列になる） */
-.use-cases--no-image .use-cases__list {
-  --uc-cols-max: 2;
-}
-
-.use-cases--no-image .use-cases__item {
-  padding: 1.5rem 1.5rem 1.75rem;
-  border-left: 4px solid var(--mainColor100);
-  border-radius: 0 8px 8px 0;
-  background: rgba(17, 26, 46, 0.7);
-}
-
-.use-cases--no-image .use-cases__title {
-  margin-top: 0;
-  font-size: 1.25rem;
-}
-
-.use-cases--no-image .use-cases__tag {
-  display: block;
-  padding-right: 0;
-  margin-bottom: 0.25rem;
-  font-size: 0.8125rem;
-}
-
-/* 説明文を伸ばし、文の長さが違っても同じ行のブロックでリンクの高さがそろうようにする */
-.use-cases--no-image p.use-cases__text {
-  flex-grow: 1;
-  margin-top: 0.75rem;
-  font-size: 1.0625rem;
-}
-
 
 /* ===== セクション6：Exastroの進化（タイムライン） =====
  * 年の目盛りを横線でつなぎ、その下に各段階をフィルムのコマのような枠で並べる。
