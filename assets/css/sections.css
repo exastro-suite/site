@@ -881,7 +881,7 @@
  * 列数は最大2（広い画面でも3列以上にしない）。スマホ幅では常に1列にする
  */
 .use-cases__list {
-  --uc-gap: 1.75rem;
+  --uc-gap: 2.5rem;
   --uc-cols-max: 2;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, max(13rem, (100% - var(--uc-gap) * (var(--uc-cols-max) - 1)) / var(--uc-cols-max))), 1fr));
@@ -901,15 +901,19 @@
 .use-cases__image {
   overflow: hidden;
   border-radius: 8px;
+  border: 2px solid rgba(161,177,193,.25);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 200, 255, 0.08);
 }
 
-/* 16:9 以外の画像は切り取らず、比率を保ったまま枠に収める（余白は枠の地の色） */
 .use-cases__image img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
+  opacity: .7;
+}
+.use-cases__image img:hover {
+  opacity: 1;
 }
 
 /* ===== タイトルと説明 ===== */
