@@ -1,0 +1,31 @@
+# 英語版（いまは日本語の仮置き。英訳ができたら書き換える。日本語版は _data/use_cases.yml）
+# 利用シーン（トップページと /use-cases/ に表示。_includes/use-cases.html）
+# 上から順に表示する。tag を書くとタイトルの前にラベルが付く
+# url を書かない（またはコメントアウトする）と「詳細はこちら」は表示しない
+# image はサムネイル（960×540）、image_large はクリックで拡大したときの画像（1920×1080）。
+- title: AI-assisted system operations
+  text: Describe what you need in plain language. AI builds the procedure, and Exastro runs it with governance.
+  image: /assets/images/use-cases/ai-manual.png
+  image_large: /assets/images/use-cases/ai-manual_large.png
+  # url: "#" # サイト内のページは /use-cases/xxx/ のように / から書く
+- title: Incident analysis and recovery
+  text: Exastro receives alerts from monitoring tools and runs registered responses automatically for known events.
+  image: /assets/images/use-cases/event.png
+  image_large: /assets/images/use-cases/event_large.png
+  # url: "#"
+- title: CI/CD for IaC
+  text: When IaC in a Git repository is updated, Exastro runs builds and tests automatically.
+  image: /assets/images/use-cases/cicd-iac.png
+  image_large: /assets/images/use-cases/cicd-iac_large.png
+  # url: "#"
+- title: CI/CD for applications
+  text: Called from an application build and release pipeline, Exastro runs environment setup and deployment.
+  image: /assets/images/use-cases/cicd-app.png
+  image_large: /assets/images/use-cases/cicd-app_large.png
+  # url: "#"
+- title: Server setup automation
+  tag: Simple Mode
+  text: Use a wizard-style interface to automate server builds without configuring Exastro directly.
+  image: /assets/images/use-cases/legacy.png
+  image_large: /assets/images/use-cases/legacy_large.png
+  url: "https://ita.exastro.org/simple_mode.html"

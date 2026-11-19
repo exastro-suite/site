@@ -24,20 +24,6 @@
   photo: /assets/images/message/message-wakiya.jpg
   url: /message/ita.html
 
-- id: oase
-  product: Exastro OASE
-  catch: 24時間気が抜けない運用の現場をなんとかしたい
-  name: 開発者 K
-  photo: /assets/images/message/message-kawano.jpg
-  url: /message/oase.html
-
-- id: epoch
-  product: Exastro EPOCH
-  catch: 自分たちが苦労している今の状況を解決してこそExastro
-  name: 開発者 S
-  photo: /assets/images/message/message-shiota.jpg
-  url: /message/epoch.html
-
 - id: agenticAi
   product: Agentic AI for Exastro
   catch: coming soon

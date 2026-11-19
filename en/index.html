@@ -1,0 +1,395 @@
+---
+full_title: "Exastro"
+lang: en
+description: "Exastro is the open source execution control plane for governed automation across the system lifecycle."
+# 日本語版のトップページ（言語切り替えと hreflang に使う）
+alternate_url: /
+schema_description: "Exastro is the open source execution control plane for governed automation across the system lifecycle."
+css:
+  - /assets/css/ai-demo.css
+js:
+  - /assets/js/ai-demo.js
+scroll_meter: true
+---
+    <section class="section section--hero" id="top">
+      <!-- 背景：背景画像＋立体格子（assets/js/main.js で描画）。セクション1のみ -->
+      <div class="section-bg" aria-hidden="true">
+        <canvas class="bg-grid"></canvas>
+      </div>
+      <!-- 中身をまとめて画面の約8割に拡縮する（assets/js/main.js の initHeroFit） -->
+      <div class="hero__inner">
+        <div class="section__head hero__head">
+          <h1 class="hero__logo"><img src="{{ '/assets/images/Exastro-logo2-white-rgb.svg' | relative_url }}" alt="Exastro" width="1280" height="300"></h1>
+          <p class="hero__tagline" lang="en"><span>Exastro is the open source execution control plane</span> <span>for governed automation across the system lifecycle.</span></p>
+        </div>
+        <div class="section__body hero__body">
+          <h2 class="hero__title"><span>AI runs your</span> <span>infrastructure now.</span></h2>
+          <!--<p class="hero__lead"></p>-->
+          <div class="hero__actions">
+            <a class="hero__cta hero__cta--primary" href="#get-started"><span class="hero__cta-text">Get Started</span><span class="hero__cta-arrow" aria-hidden="true"></span></a>
+            <a class="hero__cta" href="#agentic-ai"><span class="hero__cta-text"><span class="hero__cta-name">Try Agentic AI<br><span class="hero__cta-name-sub">for Exastro</span></span></span><span class="hero__cta-arrow" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+      <!-- 重要なお知らせ：下端のお知らせ（.notice-bar）の上に少し離して置く -->
+      <a class="hero__alert" href="{{ '/en/latest/news/php2shell.html' | relative_url }}">
+        <span class="hero__alert-label">Important</span>
+        <span class="hero__alert-text">PHP vulnerability "php2shell" (CVE-2026-109618 / CVE-2026-109619) and its impact on Exastro</span>
+        <span class="hero__alert-arrow" aria-hidden="true"></span>
+      </a>
+      <!-- 読み込み中の表示：中身を隠している間（html.is-hero-pending）だけ出す -->
+      <div class="hero__loading" role="progressbar" aria-label="Loading"></div>
+    </section>
+
+    <section class="section section--hex section--dial" id="agentic-ai">
+      <!-- 背景：六角形の格子と走査線（CSS のみ） -->
+      <div class="section-hex" aria-hidden="true"></div>
+      <!-- 背景：内容の上下に置く斜線の帯（CSS のみ） -->
+      <div class="section-stripes" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">You ask.</span> <span class="section__phrase">AI builds it.</span> <span class="section__marker section__phrase">Exastro runs it.</span></h2>
+        <h3 class="section__subtitle">Agentic AI for Exastro</h3>
+        <p class="section__lead">Say: "Set up nginx on three web servers and start the service." AI finds the right components and proposes a plan. You confirm, and Exastro runs the job. Behind the simplicity is governed execution built for production.</p>
+        <a class="section__more" href="#governed-execution">See how governed execution works<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <!-- AIアシスタントのデモ（assets/js/ai-demo.js で描画） -->
+        <div class="ai-demo" data-scenario="{{ '/assets/data/ai-demo.en.json' | relative_url }}">
+          <noscript><p class="ai-demo__noscript">This demo requires JavaScript. Please enable JavaScript in your browser settings to view it.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--hex section--dial section--reverse" id="governed-execution">
+      <!-- 背景：六角形の格子と走査線（CSS のみ） -->
+      <div class="section-hex" aria-hidden="true"></div>
+      <!-- 背景：内容の上下に置く斜線の帯（CSS のみ） -->
+      <div class="section-stripes" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title section__title--tight"><span class="section__phrase">AI capability alone</span><span class="section__phrase">is not enough.</span><span class="section__marker section__phrase">Production demands more.</span></h2>
+        <h3 class="section__subtitle">Governed Execution</h3>
+        <p class="section__lead">AI decisions do not go directly to production. Exastro governs every step — from tracking changes and stopping jobs in an emergency to recording evidence. So you can trust AI with production.</p>
+        <a class="section__more" href="#inside-exastro">See it in action<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <!-- Exastro Control Plane（assets/css/sections.css） -->
+        <div class="control-plane">
+          <!-- 全体の流れ（Exastro Control Plane を強調） -->
+          <ol class="control-plane__flow" aria-label="Flow from human intent to real systems">
+            <li class="control-plane__node">
+              <span class="control-plane__node-icon control-plane__node-icon--intent" aria-hidden="true"></span>
+              <span class="control-plane__node-ja">INTENT</span>
+            </li>
+            <li class="control-plane__node">
+              <span class="control-plane__node-icon control-plane__node-icon--ai-agent" aria-hidden="true"></span>
+              <span class="control-plane__node-en">AI AGENT</span>
+              <span class="control-plane__node-ja">Understand, plan, decide</span>
+            </li>
+            <li class="control-plane__node control-plane__node--core">
+              <span class="control-plane__node-icon control-plane__node-icon--core" aria-hidden="true"></span>
+              <span class="control-plane__node-en">CONTROL PLANE</span>
+              <strong class="control-plane__node-name">Exastro Control Plane</strong>
+              <span class="control-plane__node-ja">Govern and run</span>
+            </li>
+            <li class="control-plane__node">
+              <span class="control-plane__node-icon control-plane__node-icon--systems" aria-hidden="true"></span>
+              <span class="control-plane__node-ja">SYSTEMS</span>
+            </li>
+          </ol>
+
+          <h3 class="control-plane__title"><span>8 elements</span> that define the Exastro Control Plane</h3>
+
+          <!-- 8つの要素（クリックで詳細を開く） -->
+          <div class="control-plane__features">
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">01</span><span class="control-plane__label"><span class="control-plane__ja">CHANGE CONTROL</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>Exastro tracks past, current, and scheduled changes — recording who changes what and when.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/01_change_control_large.png' | relative_url }}" aria-label="Enlarge image of CHANGE CONTROL">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/01_change_control.png' | relative_url }}" alt="Image of CHANGE CONTROL" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">02</span><span class="control-plane__label"><span class="control-plane__ja">REUSE FIRST</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>AI does not create new IaC every time. It finds and reuses verified components.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/02_reuse_first_large.png' | relative_url }}" aria-label="Enlarge image of REUSE FIRST">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/02_reuse_first.png' | relative_url }}" alt="Image of REUSE FIRST" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">03</span><span class="control-plane__label"><span class="control-plane__ja">SEPARATION</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>Configuration changes do not require rebuilding the job flow. The same automation works every time.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/03_separation_large.png' | relative_url }}" aria-label="Enlarge image of SEPARATION">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/03_separation.png' | relative_url }}" alt="Image of SEPARATION" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">04</span><span class="control-plane__label"><span class="control-plane__ja">LIVE EXECUTION</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>Check what is running and how far it has progressed, in real time.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/04_live_execution_large.png' | relative_url }}" aria-label="Enlarge image of LIVE EXECUTION">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/04_live_execution.png' | relative_url }}" alt="Image of LIVE EXECUTION" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">05</span><span class="control-plane__label"><span class="control-plane__ja">EMERGENCY CONTROL</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>When an error is detected, stop or pause the job at any time.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/05_emergency_control_large.png' | relative_url }}" aria-label="Enlarge image of EMERGENCY CONTROL">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/05_emergency_control.png' | relative_url }}" alt="Image of EMERGENCY CONTROL" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">06</span><span class="control-plane__label"><span class="control-plane__ja">EVIDENCE</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>Input data, results, and logs are linked and stored as evidence for audits and reviews.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/06_evidence_large.png' | relative_url }}" aria-label="Enlarge image of EVIDENCE">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/06_evidence.png' | relative_url }}" alt="Image of EVIDENCE" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">07</span><span class="control-plane__label"><span class="control-plane__ja">KNOWN / UNKNOWN</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>Predefined rules sort events into known and unknown. For unknown events, AI analyzes the root cause and proposes a response.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/07_known_unknown_large.png' | relative_url }}" aria-label="Enlarge image of KNOWN / UNKNOWN">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/07_known_unknown.png' | relative_url }}" alt="Image of KNOWN / UNKNOWN" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+            <details class="control-plane__feature" open>
+              <summary><span class="control-plane__num">08</span><span class="control-plane__label"><span class="control-plane__ja">AUTO REMEDIATION</span></span><span class="control-plane__more" aria-hidden="true"><span class="control-plane__more-open">Details</span><span class="control-plane__more-close">Hide</span></span></summary>
+              <p>For events identified as known, registered and verified responses run automatically — no AI judgment needed.</p>
+              {% comment %} 画像は一時的に非表示（再表示するにはこの comment を外す）
+              <figure class="control-plane__figure">
+                <button class="image-zoom" type="button" data-gallery="control-plane" data-full="{{ '/assets/images/governed/08_auto_remediation_large.png' | relative_url }}" aria-label="Enlarge image of AUTO REMEDIATION">
+                  <span class="control-plane__shot"><img class="control-plane__image" src="{{ '/assets/images/governed/08_auto_remediation.png' | relative_url }}" alt="Image of AUTO REMEDIATION" width="960" height="540" loading="lazy"></span>
+                </button>
+              </figure>
+              {% endcomment %}
+            </details>
+          </div>
+          <!-- 8つの要素をまとめて開閉する（JS が動くときだけ表示。assets/js/main.js の initFeatureToggleAll） -->
+          <div class="control-plane__toggle-all" hidden>
+            <button class="control-plane__toggle-all-button" type="button" aria-expanded="true"><span class="control-plane__toggle-all-icon" aria-hidden="true"></span><span class="control-plane__toggle-all-label">Close all</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--live" id="inside-exastro">
+      <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
+      <div class="section-live" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">See every control,</span> <span class="section__marker section__phrase">right in the UI.</span></h2>
+        <h3 class="section__subtitle">Inside Exastro</h3>
+        <p class="section__lead">Every AI-generated plan and every control mechanism can be checked directly in the Exastro IT Automation UI.</p>
+        <a class="section__more" href="#use-cases">See use cases<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <div class="ui-showcase">
+          <ol class="ui-showcase__list">
+            <li class="ui-showcase__item">
+              <figure class="ui-showcase__figure">
+                <div class="ui-showcase__shot">
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/parameter_large.png' | relative_url }}" aria-label="Enlarge parameter definition screen"><img src="{{ '/assets/images/inside/parameter.png' | relative_url }}" alt="Parameter definition screen" width="960" height="477" loading="lazy"></button>
+                </div>
+                <figcaption class="ui-showcase__caption">
+                  <span class="ui-showcase__label"><span class="ui-showcase__ja">PARAMETER</span></span>
+                  <span class="ui-showcase__text">Define and manage configuration items separately from job flows, directly in the UI.</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="ui-showcase__item">
+              <figure class="ui-showcase__figure">
+                <div class="ui-showcase__shot">
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/conductor_large.png' | relative_url }}" aria-label="Enlarge Conductor screen"><img src="{{ '/assets/images/inside/conductor.png' | relative_url }}" alt="Conductor screen" width="960" height="474" loading="lazy"></button>
+                </div>
+                <figcaption class="ui-showcase__caption">
+                  <span class="ui-showcase__label"><span class="ui-showcase__ja">CONDUCTOR</span></span>
+                  <span class="ui-showcase__text">Build the job flow in Conductor. Monitor progress and stop jobs from the same screen while they run.</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="ui-showcase__item">
+              <figure class="ui-showcase__figure">
+                <div class="ui-showcase__shot">
+                  <button class="image-zoom" type="button" data-full="{{ '/assets/images/inside/history_large.png' | relative_url }}" aria-label="Enlarge execution history screen"><img src="{{ '/assets/images/inside/history.png' | relative_url }}" alt="Execution history screen" width="960" height="531" loading="lazy"></button>
+                </div>
+                <figcaption class="ui-showcase__caption">
+                  <span class="ui-showcase__label"><span class="ui-showcase__ja">HISTORY</span></span>
+                  <span class="ui-showcase__text">Input data, results, and logs are linked and stored so past runs can be verified.</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ol>
+
+          <div class="ui-showcase__actions">
+            <a class="hero__cta hero__cta--primary" href="https://ita.exastro.org/" target="_blank" rel="noopener"><span class="hero__cta-text">Install and try it</span><svg class="hero__cta-external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--live section--reverse" id="use-cases">
+      <!-- 背景：実行中の雰囲気（流れる信号・実行ログ。CSS のみ） -->
+      <div class="section-live" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title">Use Cases</h2>
+        <h3 class="section__subtitle">Exastro Suite</h3>
+        <p class="section__lead">From daily operations to development pipelines and infrastructure builds — the entry point differs, but the same governed execution runs every job.</p>
+        <a class="section__more" href="#vision">Read the developer stories<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+{% include use-cases.html %}
+      </div>
+    </section>
+
+    <section class="section" id="vision">
+      <!-- 背景：方眼と大きな引用符（CSS のみ） -->
+      <div class="section-note" aria-hidden="true"></div>
+{% include section-words.html %}
+      <div class="section__head">
+        <h2 class="section__title">Developer Messages</h2>
+        <h3 class="section__subtitle">Vision</h3>
+        <p class="section__lead">現場の苦労を、なんとかしたい。Exastroの各プロダクトは、運用・開発の現場に立つ開発者たちの、そんな思いから生まれました。</p>
+        <a class="section__more" href="#evolution">Trace the evolution of Exastro<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+{% include message-list.html %}
+      </div>
+    </section>
+
+    <section class="section section--film" id="evolution">
+      <!-- 背景：上下のフィルムの枠と古い映像のような傷・周辺減光（CSS のみ） -->
+      <div class="section-film" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title">Exastro goes <span class="section__marker">beyond automation.</span></h2>
+        <h3 class="section__subtitle">Evolution</h3>
+        <p class="section__lead">From task automation to configuration and IaC, event-driven orchestration, and Agentic AI — each step added a new guardrail. Those guardrails are what let Exastro trust execution to AI.</p>
+        <a class="section__more" href="#latest">See the latest developments<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+        <!-- Exastroの進化のタイムライン（assets/css/sections.css） -->
+        <div class="evolution">
+          <ol class="evolution__list">
+            <li class="evolution__item">
+              <p class="evolution__year"><time datetime="2019">2019</time></p>
+              <div class="evolution__frame">
+                <!--<p class="evolution__stage">Automation</p>-->
+                <h4 class="evolution__title">Task automation</h4>
+                <p class="evolution__text">Manual build and configuration work became automated. Work was standardized so every run produces the same result.</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>Standardized procedures and execution history</p>
+              </div>
+            </li>
+            <li class="evolution__item">
+              <p class="evolution__year"><time datetime="2022">2022</time></p>
+              <div class="evolution__frame">
+                <!--<p class="evolution__stage">Configuration &amp; IaC</p>-->
+                <h4 class="evolution__title">Configuration &amp; IaC</h4>
+                <p class="evolution__text">Parameters and IaC were connected, unifying system information and execution. When parameters change, the automation does not need to be rebuilt.</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>Unified management of parameters and IaC</p>
+              </div>
+            </li>
+            <li class="evolution__item">
+              <p class="evolution__year"><time datetime="2024">2024</time></p>
+              <div class="evolution__frame">
+                <!--<p class="evolution__stage">Event-driven &amp; Orchestration</p>-->
+                <h4 class="evolution__title">Event-driven &amp; Orchestration</h4>
+                <p class="evolution__text">Rules evaluate events from monitoring alerts and other sources, then run jobs in sequence. Systems began to act on their own within defined boundaries.</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>Rule-based evaluation and governed execution</p>
+              </div>
+            </li>
+            <li class="evolution__item evolution__item--now">
+              <p class="evolution__year"><time datetime="2026">2026</time></p>
+              <div class="evolution__frame">
+                <!--<p class="evolution__stage">Agentic AI</p>-->
+                <h4 class="evolution__title">Agentic AI</h4>
+                <p class="evolution__text">AI builds procedures from natural language requests and runs them on the foundation built over the years. AI decisions stay inside the control mechanisms.</p>
+                <p class="evolution__guard"><span class="evolution__guard-label">Guardrail</span>Governance through approval, permissions, and audit trails</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--reverse" id="latest">
+      <!-- 背景：コントリビューショングラフのマス目とコミットの履歴（CSS のみ） -->
+      <div class="section-commits" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">Open source,</span> <span class="section__marker section__phrase">always evolving.</span></h2>
+        <h3 class="section__subtitle">Latest</h3>
+        <p class="section__lead">Exastro is an open source project in active development. Find the code and releases on GitHub.</p>
+        <a class="section__more" href="#get-started">Get started<span class="section__more-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="section__body">
+{% include latest.html limit=5 %}
+      </div>
+    </section>
+
+    <section class="section section--finale" id="get-started">
+      <!-- 背景：地平線へ続く格子の床と星（CSS のみ） -->
+      <div class="section-horizon" aria-hidden="true"></div>
+      <div class="section__head">
+        <h2 class="section__title"><span class="section__phrase">Exastro for</span> <span class="section__marker section__phrase">your systems.</span></h2>
+        <h3 class="section__subtitle">Get Started</h3>
+        <p class="section__lead">Choose your next step.</p>
+      </div>
+      <div class="section__body">
+        <!-- 目的別の次の一歩（assets/css/sections.css） -->
+        <ul class="get-started">
+          <li class="get-started__item">
+            <a class="get-started__card" href="https://ita.exastro.org/" target="_blank" rel="noopener">
+              <span class="get-started__step">01</span>
+              <svg class="get-started__icon get-started__icon--fill get-started__icon--logo" viewBox="12 22 416 256" aria-hidden="true"><polygon points="228.85,138.57 219.95,111.19 211.05,138.57 182.26,138.57 205.55,155.49 196.66,182.87 219.95,165.95 243.24,182.87 234.34,155.49 257.64,138.57"/><path d="M395.56,109.04c-0.85,3.58-1.31,7.49-1.33,11.44c-3.25-0.77-6.89-3.15-9.91-6.17 c-3.03-3.03-5.4-6.66-6.17-9.91c3.94-0.02,7.86-0.48,11.43-1.33l14.69-14.69l-51.87,7.41l-93.32,93.32 c-2.04,2.04-4.23,3.82-6.49,5.47c-21.61,15.82-52.18,14.04-71.69-5.47c-13.96-13.96-18.82-33.57-14.7-51.52l-30.94,30.94 c3.51,16.23,11.51,30.91,23.41,42.81c16.38,16.38,38.16,25.4,61.32,25.4c23.17,0,44.94-9.02,61.32-25.4l78.83-78.83 c0.85-3.58,1.31-7.49,1.33-11.44c3.25,0.77,6.89,3.15,9.91,6.17c3.03,3.03,5.4,6.66,6.17,9.91c-3.95,0.02-7.86,0.48-11.44,1.33 L287.3,217.3c-17.98,17.98-41.88,27.88-67.3,27.88c-25.42,0-49.33-9.9-67.3-27.88c-11.79-11.79-19.99-26.12-24.31-41.91 l-24.65,24.65c6.15,14.35,15.03,27.79,26.73,39.49c25.21,25.21,58.51,37.54,91.62,37c31.72-0.52,63.29-12.85,87.44-37l93.32-93.32 l7.41-51.87L395.56,109.04z M361.49,120.48c-0.03-6.14-1.09-12.23-3.14-17c-1.04-2.42-2.31-4.53-3.87-6.09 c2.32,2.32,5.8,4.06,9.85,5.23c4.03,1.16,8.63,1.75,13.24,1.77C376.03,110.89,367.98,118.94,361.49,120.48z M378.15,137.14 c1.54-6.5,9.59-14.55,16.09-16.09c0.05,9.25,2.38,18.46,7,23.09C396.61,139.51,387.4,137.19,378.15,137.14z"/><path d="M180.9,110.91c0,0,4.24-3.83,6.49-5.48c21.61-15.82,52.18-14.04,71.7,5.47c13.96,13.96,18.82,33.57,14.7,51.52 l30.94-30.94c-3.51-16.23-11.51-30.91-23.41-42.81c-16.38-16.38-38.16-25.4-61.32-25.4c-23.17,0-44.94,9.02-61.32,25.4 l-78.83,78.83c-0.85,3.58-1.31,7.49-1.33,11.44c-3.25-0.77-6.89-3.15-9.91-6.17c-3.03-3.03-5.4-6.66-6.17-9.91 c3.95-0.02,7.86-0.48,11.44-1.33L152.7,82.7c17.98-17.98,41.88-27.88,67.3-27.88c25.42,0,49.33,9.9,67.3,27.88 c11.79,11.79,19.99,26.12,24.31,41.91l24.65-24.65c-6.15-14.35-15.03-27.79-26.73-39.49c-25.21-25.21-58.51-37.54-91.62-37 c-31.72,0.52-63.29,12.85-87.44,37l-93.32,93.32l-7.41,51.87l14.69-14.69c0.85-3.58,1.31-7.49,1.33-11.44 c3.25,0.77,6.89,3.15,9.91,6.17c3.03,3.03,5.4,6.66,6.17,9.91c-3.94,0.02-7.86,0.48-11.43,1.33l-14.69,14.69l51.87-7.41 C87.59,204.22,180.91,110.91,180.9,110.91z M45.77,178.95c-0.05-9.25-2.38-18.46-7-23.09c4.63,4.63,13.84,6.96,23.09,7 C60.32,169.36,52.27,177.41,45.77,178.95z M75.67,197.38c-4.03-1.16-8.63-1.75-13.24-1.77c1.54-6.5,9.59-14.55,16.09-16.09 c0.03,6.14,1.09,12.23,3.14,17c1.04,2.42,2.31,4.53,3.87,6.09C83.2,200.29,79.72,198.55,75.67,197.38z"/></svg>
+              <span class="get-started__purpose">Try it first</span>
+              <span class="get-started__title">IT Automation Ver.2</span>
+              <span class="get-started__text">Install and try it in your own environment right away.</span>
+              <span class="get-started__action">Learn more<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+            </a>
+          </li>
+          <li class="get-started__item">
+            <a class="get-started__card" href="https://ita-docs.exastro.org/" target="_blank" rel="noopener">
+              <span class="get-started__step">02</span>
+              <svg class="get-started__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5v-15ZM4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3M8 7.5h7M8 11h5"/></svg>
+              <span class="get-started__purpose">Learn the details</span>
+              <span class="get-started__title">Documentation</span>
+              <span class="get-started__text">From installation guides to feature manuals, everything needed to deploy and operate Exastro is here.</span>
+              <span class="get-started__action">Read the docs<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+            </a>
+          </li>
+          <li class="get-started__item">
+            <a class="get-started__card" href="https://github.com/exastro-suite/exastro-it-automation" target="_blank" rel="noopener">
+              <span class="get-started__step">03</span>
+              <svg class="get-started__icon get-started__icon--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <span class="get-started__purpose">Explore further</span>
+              <span class="get-started__title">GitHub</span>
+              <span class="get-started__text">Source code and releases are published here.</span>
+              <span class="get-started__action">View on GitHub<svg class="get-started__external" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M3.5 2H10v6.5"/></svg></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
