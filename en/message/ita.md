@@ -3,7 +3,7 @@ layout: message
 message_id: ita
 lang: en
 alternate_url: /message/ita.html
-title: "Exastro IT Automation (Toru Wakitani) | Developer Messages"
+title: "Exastro IT Automation (Toru Wakitani) | Developer Stories"
 description: "This is the first software released in the Exastro Suite, Exastro IT Automation. It was made with the intent of automating individualistic system constructions which are often subject to human errors."
 detail_url: https://exastro-suite.github.io/it-automation-docs/index.html
 ---

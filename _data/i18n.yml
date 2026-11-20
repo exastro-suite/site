@@ -59,13 +59,13 @@ en:
   image_suffix: " – image"
   use_case_more: Learn more
   use_case_more_suffix: " – learn more"
-  message_label: Developer Messages
-  message_more: Read the full message
-  message_more_suffix: " – read the full message"
-  message_others: Other messages
-  message_title: Developer Messages
+  message_label: Developer Stories
+  message_more: Full text here
+  message_more_suffix: " – Full text here"
+  message_others: More developer stories
+  message_title: Developer Stories
   message_detail_suffix: " – learn more"
-  message_back: Back to Developer Messages
+  message_back: Back to Developer Stories
   home_label: Home
   release_suffix: Released
   release_notes: Release Notes

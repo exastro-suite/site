@@ -1,4 +1,4 @@
-# 英語版（いまは日本語の仮置き。英訳ができたら書き換える。日本語版は _data/footer_links.yml）
+# 英語版（日本語版は _data/footer_links.yml）
 # フッターの関連コンテンツのメニュー（リニューアル前のサイトのフッターから移植）。上から順に左から並べる
 # url の {version} は _config.yml の ita_docs_version（ITA ドキュメントのバージョン）に置き換えて出力する
 - title: IT Automation Ver.2
@@ -21,7 +21,7 @@
 - title: Playbook Collection
   links:
     - title: Readme
-      url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.ja.md
+      url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/README.md
     - title: Ansible Role Templates
       url: https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_templates/README.md
     - title: Ansible Role Packages

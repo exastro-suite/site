@@ -1,4 +1,4 @@
-# 英語版（いまは日本語の仮置き。英訳ができたら書き換える。日本語版は _data/messages.yml）
+# 英語版（日本語版は _data/messages.yml）
 # 開発者メッセージ（トップページ・/message/ のカードと、記事ページの著者表示に使う）
 # 上から順に表示する。featured: true の1件はカードではなく大きく表示する（summary が本文の抜粋）
 # url：記事ページ（message/<id>.md）は /message/<id>.html、まだ移植していないものはリニューアル前のサイトの URL
@@ -7,16 +7,16 @@
 # 写真：featured は 960×720、それ以外は 640×480
 - id: exastro
   featured: true
-  title: Exastroにかける夢
+  title: My Dream for Exastro
   product: Exastro
-  catch: ――変わらない思想が、AIによって新しい可能性を手にする。
-  name: 吉田 功一
-  position: 日本電気株式会社 インフラSIサービス統括部 シニアマネージャー
+  catch: Our core ideas stay the same. With AI, they gain new possibilities
+  name: Koichi Yoshida
+  position: Senior Manager, Infrastructure System Integration and Service Department, NEC Corporation
   photo: /assets/images/message/message-yoshida.jpg
   url: /en/message/exastro.html
   summary:
-    - 業務が増え続けるのに、人材が不足すれば何が起こるでしょうか。今いるエンジニアに負担が集中し、疲弊していくことは目に見えています。そして、そんな先輩たちの姿を見た若い人たちは、果たして「自分もシステムエンジニアになりたい」と思うでしょうか。
-    - 誰が見てもかっこいいと思える、スマートな働き方を実現したい。そして、エンジニアが日々の作業に追われるのではなく、知恵と創造力を発揮し、新しい価値を生み出すことに力を注げる世界をつくりたい。それが、Exastroを開発してきた原点です。
+    - What happens when the work keeps growing but there are not enough people? The engineers who are already there will have to carry the extra load, and it is easy to see that they will become exhausted. And when young people see these experienced engineers, will they really think, "I want to be a system engineer too"?
+    - I want to create a smart way of working that anyone would call cool. I want to build a world where engineers can use their knowledge and creativity to create new value, instead of spending their days on routine tasks. That is the starting point for all our work on Exastro.
 
 - id: ita
   product: Exastro IT Automation

@@ -1,271 +1,139 @@
 ---
 layout: message
 message_id: exastro
-title: "Exastroにかける夢（吉田 功一）| 開発者メッセージ"
-description: "変わらない思想が、AIによって新しい可能性を手にする。Exastroの開発者 吉田 功一が、開発のきっかけ、Agentic AIへの挑戦、OSSで公開することへのこだわりを語ります。"
+title: "My Dream for Exastro (Koichi Yoshida) | Developer Stories"
+description: "Our core ideas stay the same. With AI, they gain new possibilities. Koichi Yoshida, developer of Exastro, talks about how it all started, the challenge of Agentic AI, and his commitment to releasing Exastro as open source."
 lang: en
 alternate_url: /message/exastro.html
 profile:
-  - "2006年入社。京都大学大学院エネルギー科学研究科卒業。"
-  - "NEC入社後、主に大規模通信キャリアのシステムアーキテクチャー設計、開発プロセス設計、運用プロセス設計に従事。"
-  - "システムエンジニアとして多忙な日々を過ごす傍ら、システムというデジタルなものを作り出すはずの業務が「アナログ・手動・非効率」であることを課題と捉え、2015年頃より「システム開発・構築・運用」の「デジタル化・自動化・効率化」への取り組みを始動。2019年にExastro Suiteの最初のソフトウェアであるIT AutomationをOSS(オープンソースソフトウェア)として公開。2022年より現職。"
+  - "Koichi Yoshida graduated from the Graduate School of Energy Science, Kyoto University, and joined NEC in 2006. At NEC, he mainly worked for large telecom carriers, designing system architectures, development processes, and operation processes. While he was busy working as a system engineer, he saw a problem: the work of creating digital systems was itself analog, manual, and inefficient. Around 2015, he began working to digitize, automate, and streamline system development, setup, and operations. In 2019, he released IT Automation, the first software in the Exastro Suite, as open source. He has held his current position since 2022."
 ---
-## システムはどんどん複雑化し、人材はどんどん減ってゆく
+## Systems keep getting more complex, and engineers keep getting fewer
 
-私たちの暮らしや企業活動を支えるITシステムは、進化を続けています。社会がITに求める役割は広がり、システムは大規模化・複雑化し、その変化のスピードも増すばかりです。
+The IT systems that support our lives and businesses keep evolving. Society expects IT to play a wider role, so systems are becoming larger and more complex. The speed of change also keeps increasing. At the same time, there are not enough system engineers to support these systems, and the shortage is getting more serious.
 
-一方で、それを支えるシステムエンジニアの人材不足は深刻さを増しています。
+What happens when the work keeps growing but there are not enough people? The engineers who are already there will have to carry the extra load, and it is easy to see that they will become exhausted. And when young people see these experienced engineers, will they really think, "I want to be a system engineer too"? For a long time, I have wanted to break this negative cycle.
 
-業務が増え続けるのに、人材が不足すれば何が起こるでしょうか。今いるエンジニアに負担が集中し、疲弊していくことは目に見えています。そして、そんな先輩たちの姿を見た若い人たちは、果たして「自分もシステムエンジニアになりたい」と思うでしょうか。
+IT is meant to make people's lives and work easier and richer. So if the engineers who create and support IT are always struggling with inefficient work, isn't something wrong?
 
-私は、この負の連鎖を何とかしたいと考えてきました。
+I want to create a smart way of working that anyone would call cool. I want to build a world where engineers can use their knowledge and creativity to create new value, instead of spending their days on routine tasks. That is the starting point for all our work on Exastro.
 
-本来、ITは人々の暮らしや仕事を便利にし、豊かにするためのものです。そのITを生み出し、支えているエンジニア自身が、非効率な作業に追われ続けているとしたら、どこかおかしいのではないでしょうか。
+## How it all started
 
-誰が見てもかっこいいと思える、スマートな働き方を実現したい。
+### Something isn't right: did the engineers behind a smart world really work in a smart way?
 
-そして、エンジニアが日々の作業に追われるのではなく、知恵と創造力を発揮し、新しい価値を生み出すことに力を注げる世界をつくりたい。
+When I first joined a project to develop and set up systems, I had high expectations. I believed I would be working at the leading edge of IT. But the real workplace was not what I had imagined.
 
-それが、Exastroを開発してきた原点です。
+Design information was scattered across Excel and other files. Engineers configured settings by hand, and the quality of the work depended heavily on each person's knowledge and experience. We spent huge amounts of time checking and worked very carefully, but because we are human, we could never remove mistakes completely. We were building advanced IT systems, yet the way we built them was surprisingly manual.
 
-## 開発のきっかけ
+At the time, however, this was normal. I also gained experience and improved my skills within that way of working. Then something happened that this "normal" could no longer handle.
 
-### 違和感――スマートな世界を支えるエンジニアの働き方は、スマートじゃなかった？
+### The event that pushed us beyond our limits
 
-初めてシステム開発・構築のプロジェクトに携わったとき、私はITの最先端を担う仕事に大きな期待を抱いていました。
+From 2010 to 2015, Japan shifted rapidly from feature phones to smartphones. We were in charge of systems for a telecom carrier. To handle the explosive growth in network demand, we added equipment and changed settings almost every day.
 
-ところが、実際に飛び込んだ現場は、想像していたものとは違いました。
+In time, the manual approach we had barely managed to maintain reached its limit. Configuration information was managed by individual people, so it slowly became unclear, and configuration errors happened often. We added more reviews to prevent errors, but this made the work process even more complex and time-consuming.
 
-システムの設計情報はExcelなどのファイルに散在し、設定作業は手動で行われ、作業の品質は担当者の知識や経験に大きく左右される。膨大な時間をかけて確認し、慎重に作業しても、人間である以上、ミスを完全になくすことはできません。
+The harder we tried to protect quality, the more people we needed. Because we did not have enough people, the load on each person grew. And because the load grew, more errors happened. It was a true negative cycle.
 
-高度なITシステムを作っているのに、その作り方は驚くほどアナログだったのです。
+This experience taught me one thing very clearly. **If our way of working depends on people trying harder, we will someday fail to support IT systems that keep evolving.** What we needed was not small gains in efficiency. We needed to change the very way we worked.
 
-もっとも、当時はそれが当たり前でした。私自身も、そのやり方の中で経験を積み、技術を磨いていました。
+## Before automation, something else had to change
 
-しかし、その当たり前が通用しなくなる出来事が起こります。
+Our first step was not to automate tasks. It was to rethink how we managed configuration information for our systems, because that was the cause of human errors. This information had been spread across many files and kept in the heads of individual engineers. We created a mechanism to centrally manage it, so that everyone could work with the same information.
 
-### 限界を超えた決定的なできごと
+Then, little by little, things began to change. No one had to search for information anymore. The work depended less on who did it. We could even generate work procedures and parameters from the configuration information.
 
-2010年から2015年にかけて、日本では携帯電話がガラケーからスマートフォンへと急速に移行しました。
+Changing how we managed information led to a change in the way we worked as a whole.
 
-通信キャリアのシステムを担当していた私たちは、爆発的に増加する通信需要に対応するため、毎日のように機器の増設や設定変更を繰り返していました。
+This is where the ideas behind Exastro were born.
 
-やがて、それまで人手で何とか維持してきた仕組みに限界が訪れます。
+**Design information and configuration information for systems should not be just documents for people to read. They should themselves be information assets that we can use to set up, change, and operate systems.**
 
-属人的に管理されていたシステムの構成情報は次第に不明確になり、設定ミスが多発する。ミスを防ぐためにレビューを増やすと、今度は作業工程がさらに複雑になり、時間がかかる。
+And the point of automation is not simply to replace manual work. The goal is to standardize work that has depended on personal experience, build that knowledge into our tools, and reuse it accurately as many times as needed. Based on this idea, we built mechanisms one by one: central management of configuration information, separation of parameters from work procedures, reuse of automation components, and management of task execution.
 
-品質を守ろうとすればするほど、人手が必要になる。
+Around 2015, I came to believe that these problems were not unique to telecom carriers. They were common across the whole IT industry. I wanted to develop our mechanisms into general-purpose tools that anyone could use. That wish led to the development of Exastro, and in 2019 we released Exastro IT Automation as open source.
 
-人手が足りないから、一人ひとりの負担が増える。
+## And now, the age of AI has arrived
 
-負担が増えることで、またミスが発生する。
+Since the 2020s began, generative AI and Agentic AI have evolved rapidly. When a person states a goal in natural language, AI understands the intent, gathers the information it needs, and thinks about how to achieve the goal. We are entering a time when AI can handle some of the intellectual work that we once thought only humans could do.
 
-まさに負の連鎖でした。
+As I watched this progress, I saw great potential. At the same time, I noticed something. **The design ideas that Exastro has pursued for many years are, in fact, also critical for AI to perform well.**
 
-この経験を通じて、私は一つのことを痛感しました。
+Of course, when we started developing Exastro, we did not predict the arrival of Agentic AI as we know it today. But when I review what we built to solve real problems in the field, I can see a consistent philosophy:
 
-**人間が頑張ることを前提にした仕事の進め方では、進化し続けるITシステムを、いつか支えきれなくなる。**
+To digitize the knowledge in people's heads.
 
-必要なのは、作業を少しずつ効率化することではありません。仕事の進め方そのものを変えることでした。
+To organize the state and configuration of systems as information that machines can use.
 
-## 自動化の前に、変えなければならないことがあった
+To standardize tasks that depend on individuals, so that they can be reused many times.
 
-最初に取り組んだのは、作業を自動化することではありませんでした。
+And to manage who ran what, when, and how, so that work stays safe and reproducible.
 
-ヒューマンエラーの原因となっていた、システム構成情報の管理を見直すことでした。
+All of these are also essential for AI to understand the state of a system, plan the right tasks, and take action on real systems. Some environments have scattered configuration information, procedures that depend on individuals, and results that cannot be traced. In such environments, no matter how smart AI becomes, we cannot safely trust it with important systems. In fact, the more capable AI becomes, the more important it is to have a foundation that connects its decisions to reliable execution.
 
-それまで担当者の頭の中や、さまざまなファイルに分散していた情報を一元管理し、誰もが同じ情報を使って仕事を進められる仕組みを作りました。
+When I think about it, our goal was never simply to automate tasks. **It was to convert human knowledge and experience into reusable mechanisms that do not depend on any one person.** With the arrival of AI, I believe this idea has started to mean more than ever.
 
-すると、少しずつ変化が生まれました。
+## Agentic AI for Exastro: Beyond automation
 
-情報を探し回る必要がなくなる。担当者によって作業内容が変わることが減る。構成情報をもとに、作業手順や設定値を生成することもできるようになる。
+In traditional automation, people basically decided what to run, in what order, and how. So the more we tried to expand automation, the more we needed experts who could design and build automation mechanisms. This became a new barrier to promoting automation.
 
-情報の管理方法を変えることが、仕事の進め方そのものを変えるきっかけになったのです。
+Agentic AI has the potential to overcome this barrier. For example, an engineer states a goal: "I want to set up a web service on these servers." AI then plans the configuration and tasks, searches for existing automation components, and builds the execution steps. To apply these steps to real systems, Exastro manages configuration information and parameters. After the necessary checks and approvals, it runs the work in a safe and reproducible way.
 
-ここから、Exastroにつながる考え方が生まれました。
+**People state the intent. AI understands, plans, and decides. Exastro governs and runs.** This is the world we aim for with Agentic AI for Exastro.
 
-**システムの設計情報や構成情報は、人間が参照するためだけの資料であってはならない。それ自体が、システムを構築し、変更し、運用するために活用できる情報資産であるべきだ。**
+However, the key point is not to give AI full control of everything. AI can make excellent decisions, but it can also make mistakes. That is why it is important to use automation components tested in advance, to check what will run and on which targets, and to trace the results.
 
-そして、自動化すべきなのは、単なる手作業の置き換えではありません。
+We combine the flexible judgment of AI with the reliability and reproducibility of the automation that Exastro has built over the years. The two do not compete. They complement each other's strengths. And I believe this combination has even greater potential.
 
-人の経験に頼ってきた仕事を標準化し、その知識を仕組みとして蓄積し、何度でも正確に再利用できるようにすることです。
+### Making the unknown known, and building knowledge over time
 
-この考え方をもとに、構成情報の一元管理、設定値と作業手順の分離、自動化部品の再利用、作業の実行管理といった仕組みを積み上げてきました。
+For example, suppose system operations face a failure that no one has experienced before. In the past, a skilled engineer would investigate it, find the cause, and decide how to respond. From now on, AI can support this process.
 
-2015年頃には、こうした課題は通信キャリアだけのものではなく、IT業界全体に共通するものだと考えるようになりました。
+But what really matters comes after that. People verify the cause and the solution that AI helped find, and store them as reusable knowledge. Then, when the same event happens again, there is no need to treat it as an unknown failure. In this way, we build each experience into the system, so we never have to struggle with the same problem twice.
 
-誰もが汎用的に利用できる仕組みとして発展させたい。
+Unknown events into known events.
 
-その思いがExastroの開発へとつながり、2019年にはExastro IT AutomationをOSSとして公開しました。
+Human experience into organizational knowledge.
 
-## そして今、AIの時代がやってきた
+Organizational knowledge into reusable automation.
 
-2020年代に入り、生成AI、そしてAgentic AIが急速な進化を遂げています。
+As this cycle repeats, system operations become more efficient and more stable with every experience. **We do not only add more automation. We keep expanding the areas that can be automated.** I believe this is the true value of bringing AI and Exastro together.
 
-人間が自然言語で目的を伝えると、AIがその意図を理解し、必要な情報を調べ、実現手段を考える。
+## Why we are committed to open source
 
-これまで人間にしかできないと思われていた知的な作業の一部を、AIが担える時代になろうとしています。
+Exastro was developed inside a company. So why do we release it as open source?
 
-この技術の進化を目の当たりにして、私は大きな可能性を感じると同時に、あることに気づきました。
+I believe that the problems engineers face in supporting IT systems are not something a single company should solve alone. Telecommunications, finance, manufacturing, retail, public services: IT systems are used everywhere in society, and behind them, many engineers struggle every day. Systems keep getting more complex while engineers keep getting fewer. This is a problem for the whole industry, and for society as a whole.
 
-**Exastroが長年追求してきた設計思想は、実はAIが力を発揮するためにも、極めて重要なものだったのです。**
+That is why I want the solution to be something that as many people as possible can use freely.
 
-もちろん、Exastroの開発を始めた当時から、今日のようなAgentic AIの登場を予見していたわけではありません。
+In the age of AI, this feeling has become even stronger. I do not want advanced, AI-driven system setup and operations to belong only to a few large companies or a small group of experts.
 
-ただ、私たちが現場の課題を解決するために積み重ねてきたことを振り返ると、そこには一貫した思想がありました。
+I want everyone to be able to try these technologies in their own environments, improve them, and help them grow. And I want engineers around the world to use each other's knowledge and ideas. I believe that this spread of technology and knowledge can change the way the entire IT industry works.
 
-人間の頭の中にある知識を、デジタル化すること。
+This is the feeling behind our commitment to keeping Exastro open source.
 
-システムの状態や構成を、機械が扱える情報として整理すること。
+## The courage to change a stable routine
 
-属人的な作業を標準化し、繰り返し再利用できるようにすること。
+"We have done it this way without any problems. Why should we change?"
 
-そして、誰が、いつ、何を、どのように実行したのかを管理し、作業の安全性と再現性を確保すること。
+I think it is natural for people who are responsible for keeping systems running safely to feel this way. I understand this feeling well myself.
 
-これらはすべて、AIがシステムの状況を理解し、適切な作業を計画し、実際のシステムに働きかけるためにも欠かせない要素です。
+But even if the current way works today, it may not work in the same way in the future. Our own serious work on automation also started because the old way of working reached its limit. If we had changed sooner, how much hardship could we have avoided? I still think about that.
 
-AIがどれほど賢くなっても、システムの構成情報が散在し、作業手順が属人化し、実行結果を追跡できないような環境では、大切なシステムの操作を安心して任せることはできません。
+Isn't the same true for using AI?
 
-むしろ、AIの能力が高まるほど、その判断を確実な実行へつなげるための土台が重要になります。
+Of course, adopting AI does not solve every problem. New technology brings new risks, and it needs careful testing. That is why I think we should not discard existing mechanisms. Instead, we should evolve them step by step, using the knowledge and technology we have built. Exastro itself has evolved in this way, and I want it to keep evolving that way.
 
-考えてみれば、私たちが目指していたのは、初めから単なる作業の自動化ではなかったのです。
+## Finally, to everyone interested in Exastro
 
-**人間の知識や経験を、特定の個人に依存しない、再利用可能な仕組みに変えること。**
+More than 10 years have passed since we started developing Exastro. In that time, the world of IT has changed greatly. AI has arrived with abilities we could not have imagined back then. The work of engineers is also about to change in major ways.
 
-その思想が、AIの登場によって、これまで以上に大きな意味を持ち始めたのだと思います。
+But what I want to achieve through Exastro has not changed. Every time systems become more complex, people must carry that complexity and spend more time and effort. I want to change that world.
 
-## Agentic AI for Exastro――自動化の、その先へ
+Instead, the knowledge and experience we gain are stored in the system and used in the next job. Repetitive work is automated, so engineers can focus on new challenges and on creating new value. And as systems evolve, the tools that support them also become smarter, stronger, and more efficient. That is the world I want to create.
 
-これまでの自動化では、何を、どの順番で、どのように実行するかを、基本的には人間が考えていました。
+The arrival of AI has not changed the direction of Exastro. Instead, it has created new possibilities to achieve our long-held ideas at an even higher level. I am truly excited about what comes next.
 
-そのため、自動化を広げようとすればするほど、自動化の仕組みを設計・実装できる専門人材が必要になりました。
-
-これは、自動化を推進するうえでの新たな壁でもありました。
-
-Agentic AIは、この壁を越える可能性を秘めています。
-
-例えば、エンジニアが「このサーバ群にWebサービスを構築したい」と目的を伝えると、AIが必要な構成や作業を考え、既存の自動化部品を探し、実行手順を組み立てる。
-
-Exastroは、それらを実際のシステムに適用するために、構成情報や設定値を管理し、必要な確認・承認を経て、安全で再現性のある形で実行する。
-
-**人間が目的を伝え、AIが考え、Exastroが統制して実行する。**
-
-これが、Agentic AI for Exastroで目指している世界です。
-
-ただし、ここで重要なのは、何もかもAIに任せることではありません。
-
-AIは優れた判断を示すこともありますが、間違えることもあります。だからこそ、あらかじめ検証された自動化部品を活用し、実行する内容や対象を確認し、結果を追跡できることが大切です。
-
-AIの柔軟な判断力と、Exastroが積み上げてきた自動化の確実性・再現性を組み合わせる。
-
-両者は競合するものではなく、互いの強みを補い合う関係にあります。
-
-そして私は、この組み合わせには、さらに大きな可能性があると考えています。
-
-### 未知を既知に変え、知識を積み重ねる
-
-例えば、システム運用において、過去に経験したことのない障害が発生したとします。
-
-従来であれば、熟練したエンジニアが調査し、原因を突き止め、対処方法を考えていました。
-
-これからは、そのプロセスをAIが支援できるようになります。
-
-しかし、本当に重要なのは、その先です。
-
-AIの支援によって見いだした原因や対処方法を、人間が検証し、再利用可能な知識として蓄積する。そして、次に同じ事象が起こったときには、もはや未知の障害として扱う必要がないようにする。
-
-一度経験したことを、二度と同じ苦労をせずに対処できる仕組みへと変えていくのです。
-
-未知の事象を、既知の事象へ。
-
-人間の経験を、組織の知識へ。
-
-組織の知識を、再利用可能な自動化へ。
-
-この循環を繰り返すことで、システム運用は経験を重ねるほど、より効率的で、より安定したものへと進化していきます。
-
-**自動化を増やすだけでなく、自動化できる領域そのものを、継続的に広げていく。**
-
-私は、ここにAIとExastroが融合することの本当の価値があると考えています。
-
-## OSSであることへのこだわり
-
-Exastroは、企業の中で開発されたソフトウェアです。
-
-それなのに、なぜOSSとして公開するのでしょうか。
-
-私は、ITシステムを支える現場の課題は、特定の企業だけで解決すべきものではないと考えています。
-
-通信、金融、製造、流通、公共サービス。社会のあらゆるところでITシステムが利用され、その裏側では多くのエンジニアが日々苦労しています。
-
-システムが複雑化し続ける一方で、人材が不足していくという課題は、業界全体、さらには社会全体の課題です。
-
-だからこそ、解決のための仕組みは、できるだけ多くの人が自由に利用できるものであってほしい。
-
-AIの時代になり、この思いは一層強くなりました。
-
-AIによる高度なシステム構築・運用を、一部の大企業や、限られた専門家だけのものにしたくありません。
-
-誰もが自分たちの環境で試し、改善し、育てていけること。
-
-そして、世界中のエンジニアが生み出した知恵や工夫を、互いに活かせること。
-
-そうした技術と知識の広がりが、IT業界全体の働き方を変えていく力になると信じています。
-
-ExastroがOSSであり続けることには、そんな思いを込めています。
-
-## 安定したルーティーンを変える勇気
-
-「今までこのやり方で問題なくやってきたのに、なぜ変える必要があるのか」
-
-システムを安全に動かし続ける責任を持つ人にとって、そう考えるのは自然なことだと思います。
-
-私自身も、その気持ちはよく理解できます。
-
-しかし、今のやり方で何とかなるからといって、将来も同じように続けられるとは限りません。
-
-私たちが自動化に本格的に取り組んだのも、従来のやり方が限界を迎えたことがきっかけでした。
-
-あのとき、もっと早く変えていれば、どれだけ多くの苦労を減らせただろうか。そんな思いがあります。
-
-AIの活用にも、同じことが言えるのではないでしょうか。
-
-もちろん、AIを導入すれば、すべての問題が解決するわけではありません。新しい技術には新しいリスクがあり、慎重な検証も必要です。
-
-だからこそ、既存の仕組みをすべて捨て去るのではなく、積み上げてきた知識や技術を活かしながら、一歩ずつ進化させていくことが大切だと思います。
-
-Exastro自身も、そうやって進化してきました。
-
-そして、これからもそうありたいと考えています。
-
-## 最後に――Exastroに興味を持っていただいた方々へ
-
-Exastroの開発に取り組み始めてから、10年以上が経ちました。
-
-その間、ITを取り巻く環境は大きく変化しました。
-
-当時は想像もできなかったような能力を持つAIが登場し、エンジニアの仕事のあり方も、大きく変わろうとしています。
-
-しかし、私がExastroを通じて実現したいと考えてきたことは、今も変わっていません。
-
-システムが複雑化するたびに、人間がその複雑さを背負い込み、より多くの時間と労力を費やさなければならない。
-
-そんな世界を変えたいのです。
-
-一度得た知識や経験は、仕組みとして蓄積され、次の仕事に活かされる。
-
-繰り返しの作業は自動化され、エンジニアは新しい課題に向き合い、新しい価値を生み出すことに集中できる。
-
-そして、システムが進化するほど、それを支える仕組みもまた、賢く、強く、効率的になっていく。
-
-そんな世界を実現したいと考えています。
-
-AIの登場によって、Exastroの目指す方向が変わったわけではありません。
-
-むしろ、長年追求してきた思想を、さらに高い次元で実現できる可能性が広がったのです。
-
-これからが本当に楽しみです。
-
-エンジニアが、もっと創造的に、もっと自由に、もっとスマートに働ける未来へ。
-
-Exastroを通じて、みんなで「かっこいいエンジニア」を実現していきましょう。
+Let's create a future where engineers can work more creatively, more freely, and more smartly. Through Exastro, let's all become "cool engineers" together.
