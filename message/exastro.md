@@ -6,6 +6,7 @@ description: "変わらない思想が、AIによって新しい可能性を手�
 # リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
 redirect_from:
   - /message/exastro_en.html
+alternate_url: /en/message/exastro.html
 profile:
   - "2006年入社。京都大学大学院エネルギー科学研究科卒業。"
   - "NEC入社後、主に大規模通信キャリアのシステムアーキテクチャー設計、開発プロセス設計、運用プロセス設計に従事。"

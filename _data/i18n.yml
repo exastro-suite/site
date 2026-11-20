@@ -1,0 +1,76 @@
+# テンプレート（_layouts・_includes）に直接書く固定の文言。言語は ja / en。
+# ページの言語は front matter の lang（なければ _config.yml の lang）。JS 側の文言は assets/js/main.js・ai-demo.js の辞書に書く
+ja:
+  logo_label: Exastro トップへ戻る
+  menu_open: メニューを開く
+  nav_label: ページ内リンク
+  footer_nav_label: フッターのページ内リンク
+  related_label: 関連コンテンツ
+  lang_label: 言語
+  motion_title: アニメーションを止める
+  motion_label: アニメーション
+  sns_label: SNS
+  notice_label: お知らせ
+  notice_text: Exastro IT Automation のリリース情報はこちら
+  cookie_label: クッキーの使用について
+  cookie_text: 当サイトでは、サービス向上、アクセス状況計測、広告配信などのためにクッキーを使用しています。
+  cookie_link: 個人情報保護について
+  cookie_link_url: https://group.nec/global/ja/site/privacy/
+  scroll_prev: 前のセクションへ
+  scroll_next: 次のセクションへ
+  zoom_suffix: のイメージを拡大表示
+  image_suffix: のイメージ
+  use_case_more: 詳細はこちら
+  use_case_more_suffix: の詳細はこちら
+  message_label: 開発者メッセージ
+  message_more: 全文はこちら
+  message_more_suffix: の全文はこちら
+  message_others: 他のメッセージ
+  message_title: 開発者メッセージ
+  message_detail_suffix: の詳細はこちら
+  message_back: 開発者メッセージに戻る
+  home_label: Home
+  release_suffix: リリース
+  release_notes: リリースノート
+  news_more: お知らせ一覧へ
+  news_back: お知らせ一覧に戻る
+  breadcrumb_label: 現在地
+  pager_label: お知らせのページ送り
+  og_locale: ja_JP
+en:
+  logo_label: Back to Exastro top
+  menu_open: Open menu
+  nav_label: In-page links
+  footer_nav_label: Footer in-page links
+  related_label: Related content
+  lang_label: Language
+  motion_title: Stop animation
+  motion_label: Animation
+  sns_label: SNS
+  notice_label: News
+  notice_text: Release information for Exastro IT Automation
+  cookie_label: About the use of cookies
+  cookie_text: This site uses cookies for service improvement, access analytics, and advertising.
+  cookie_link: Privacy Policy
+  cookie_link_url: https://group.nec/global/en/site/privacy/
+  scroll_prev: Previous section
+  scroll_next: Next section
+  zoom_suffix: " – enlarge image"
+  image_suffix: " – image"
+  use_case_more: Learn more
+  use_case_more_suffix: " – learn more"
+  message_label: Developer Stories
+  message_more: Full text here
+  message_more_suffix: " – Full text here"
+  message_others: More developer stories
+  message_title: Developer Stories
+  message_detail_suffix: " – learn more"
+  message_back: Back to Developer Stories
+  home_label: Home
+  release_suffix: Released
+  release_notes: Release Notes
+  news_more: View all news
+  news_back: Back to all news
+  breadcrumb_label: Breadcrumb
+  pager_label: News pagination
+  og_locale: en_US

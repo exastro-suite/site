@@ -1,0 +1,28 @@
+---
+lang: en
+alternate_url: /message/
+title: "Developer Stories"
+description: "We wanted to solve the struggles people face in the field. Every Exastro product was born from that idea."
+---
+{% include lang.html %}
+    <!-- 開発者メッセージの一覧ページ。いまはトップページのセクションと同じ内容（ここから一覧ページ用に作り込む） -->
+    <section class="section" id="vision">
+      <!-- 背景：方眼と大きな引用符（CSS のみ） -->
+      <div class="section-note" aria-hidden="true"></div>
+{% include section-words.html %}
+      <div class="section__head">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="{{ t.breadcrumb_label }}">
+          <ol class="breadcrumb__list">
+            <li><a class="breadcrumb__link" href="{{ '/en/' | relative_url }}">Home</a></li>
+            <li aria-current="page">{{ t.message_title }}</li>
+          </ol>
+        </nav>
+        <h2 class="section__title">{{ t.message_title }}</h2>
+        <h3 class="section__subtitle">Vision</h3>
+        <p class="section__lead">We wanted to solve the struggles people face in the field. Every Exastro product was born from that idea.</p>
+      </div>
+      <div class="section__body">
+{% include message-list.html %}
+      </div>
+    </section>

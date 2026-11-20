@@ -10,17 +10,19 @@ layout: default
   （news.yml の url には /latest/news/<名前>.html と書く）。
   本文は Markdown で書く。最初の「## 見出し」までが導入、以降は「## 見出し」ごとに区切って表示する。
 {%- endcomment -%}
-{%- assign item = site.data.news.items | where: "url", page.url | first -%}
+{%- include lang.html -%}
+{%- if lang == "en" %}{% assign news_items = site.data.en.news.items %}{% assign home_url = "/en/" %}{% assign latest_url = "/en/latest/" %}{% else %}{% assign news_items = site.data.news.items %}{% assign home_url = "/" %}{% assign latest_url = "/latest/" %}{% endif -%}
+{%- assign item = news_items | where: "url", page.url | first -%}
     <!-- お知らせの個別ページ：{{ page.title }} -->
     <section class="section section--reverse" id="latest">
       <!-- 背景：コントリビューショングラフのマス目とコミットの履歴（CSS のみ） -->
       <div class="section-commits" aria-hidden="true"></div>
       <div class="section__head">
         <!-- パンくずリスト -->
-        <nav class="breadcrumb" aria-label="現在地">
+        <nav class="breadcrumb" aria-label="{{ t.breadcrumb_label }}">
           <ol class="breadcrumb__list">
-            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
-            <li><a class="breadcrumb__link" href="{{ '/latest/' | relative_url }}">Latest</a></li>
+            <li><a class="breadcrumb__link" href="{{ home_url | relative_url }}">Home</a></li>
+            <li><a class="breadcrumb__link" href="{{ latest_url | relative_url }}">Latest</a></li>
             <li aria-current="page">{{ item.tag | default: "News" }}</li>
           </ol>
         </nav>
@@ -53,6 +55,6 @@ layout: default
           {%- endfor %}
         </article>
 
-        <a class="message__more news-back" href="{{ '/latest/' | relative_url }}">お知らせ一覧に戻る<span class="message__more-arrow" aria-hidden="true"></span></a>
+        <a class="message__more news-back" href="{{ latest_url | relative_url }}">{{ t.news_back }}<span class="message__more-arrow" aria-hidden="true"></span></a>
       </div>
     </section>

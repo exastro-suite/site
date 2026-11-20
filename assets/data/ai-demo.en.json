@@ -1,0 +1,103 @@
+{
+  "intro": "Experience the whole flow guided step by step,\nfrom asking the AI to running a Movement and checking the results.",
+  "greeting": "Hello. This is the Exastro AI assistant.\nHow can I help you?",
+  "footer": {
+    "ai": "Demo AI",
+    "model": "demo-model"
+  },
+  "steps": [
+    {
+      "type": "input",
+      "text": "Install nginx on the 3 web servers and start it.",
+      "guide": "Click the input field. Type what you want the AI to do in everyday language."
+    },
+    {
+      "type": "send",
+      "guide": "Press the send button to send your request to the AI."
+    },
+    { "type": "wait", "text": "Thinking", "duration": 1500 },
+    {
+      "type": "assistant",
+      "text": "Understood. I'll look for Movements that can install and start nginx."
+    },
+    { "type": "wait", "text": "Running tool", "duration": 1800 },
+    {
+      "type": "choice",
+      "text": "I found 2 Movements related to nginx. Which one would you like to use?",
+      "options": [
+        { "label": "nginx_install (install and start)", "action": "positive" },
+        { "label": "nginx_install_only (install only)", "action": "other" }
+      ],
+      "answer": 0,
+      "guide": "The AI has suggested candidates. This time, choose \"nginx_install\"."
+    },
+    { "type": "wait", "text": "Running tool", "duration": 1500 },
+    {
+      "type": "choice",
+      "text": "I've identified the target hosts. Please select the Operation to use.",
+      "options": [
+        { "label": "Web_Build_2026 (web01 to web03)", "action": "positive" },
+        { "label": "Test_Environment (test-web01)", "action": "other" }
+      ],
+      "answer": 0,
+      "guide": "Choose the target of the work (Operation). Select \"Web_Build_2026\"."
+    },
+    { "type": "wait", "text": "Thinking", "duration": 1200 },
+    {
+      "type": "choice",
+      "text": "I will run it with the following settings. Is that OK?\n\n- **Movement**: nginx_install (Ansible Legacy)\n- **Operation**: Web_Build_2026\n- **Target hosts**: web01, web02, web03",
+      "options": [
+        { "label": "Run", "action": "positive" },
+        { "label": "Cancel", "action": "negative" }
+      ],
+      "answer": 0,
+      "guide": "You can review the details before running. Press \"Run\" to execute the Movement."
+    },
+    { "type": "wait", "text": "Running tool", "duration": 1200 },
+    {
+      "type": "movement",
+      "gem": "AL",
+      "driver": "Ansible Legacy",
+      "nodeClass": "node-ansible-legacy",
+      "name": "nginx_install",
+      "operation": "Web_Build_2026",
+      "wait": 1500,
+      "statuses": [
+        { "status": "Preparing", "duration": 2000 },
+        { "status": "Executing", "duration": 4500 },
+        { "status": "Completed" }
+      ],
+      "guide": "The execution status of the Movement is shown in real time. Please wait until it completes. While it is running, you can also stop it with \"Emergency stop\".",
+      "emergencyStop": {
+        "steps": [
+          {
+            "type": "assistant",
+            "text": "Emergency stop received. The Movement execution has been stopped.\n\n- **web01**: nginx installation was completed\n- **web02**: stopped during installation\n- **web03**: not yet executed\n\nYou can check the state at the time of the stop from \"Check the work status\"."
+          },
+          {
+            "type": "guide",
+            "target": "statusButton",
+            "guide": "From \"Check the work status\", you can see how far the process had progressed."
+          },
+          {
+            "type": "end",
+            "text": "That's the end of the demo.\nEven work delegated to the AI can be stopped at any time from Exastro,\nand you can check its state at the moment it was stopped."
+          }
+        ]
+      }
+    },
+    {
+      "type": "assistant",
+      "text": "The Movement execution has completed.\n\n- **web01**: nginx 1.26 installed and started\n- **web02**: nginx 1.26 installed and started\n- **web03**: nginx 1.26 installed and started\n\nYou can download the detailed logs from \"Result data\"."
+    },
+    {
+      "type": "guide",
+      "target": "resultButton",
+      "guide": "From \"Result data\", you can check details such as the execution log."
+    },
+    {
+      "type": "end",
+      "text": "That's the end of the demo.\nThe AI supports you from a natural-language request\nthrough Movement execution and result checking."
+    }
+  ]
+}
