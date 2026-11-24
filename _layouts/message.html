@@ -9,7 +9,9 @@ layout: default
     detail_url  プロダクトの詳細ページ（書くと本文の最後に「〇〇の詳細はこちら」のリンクを出す）
   本文は Markdown で書く。最初の「## 見出し」までが導入、以降は「## 見出し」ごとに区切って表示する。
 {%- endcomment -%}
-{%- assign author = site.data.messages | where: "id", page.message_id | first -%}
+{%- include lang.html -%}
+{%- if lang == "en" %}{% assign messages = site.data.en.messages %}{% assign root = "/en/" %}{% else %}{% assign messages = site.data.messages %}{% assign root = "/" %}{% endif -%}
+{%- assign author = messages | where: "id", page.message_id | first -%}
 {%- assign title = author.title | default: author.product -%}
     <!-- 開発者メッセージの個別ページ：{{ title }}（{{ author.name }}） -->
     <section class="section" id="vision">
@@ -18,15 +20,15 @@ layout: default
 {% include section-words.html %}
       <div class="section__head">
         <!-- パンくずリスト -->
-        <nav class="breadcrumb" aria-label="現在地">
+        <nav class="breadcrumb" aria-label="{{ t.breadcrumb_label }}">
           <ol class="breadcrumb__list">
-            <li><a class="breadcrumb__link" href="{{ '/' | relative_url }}">Home</a></li>
-            <li><a class="breadcrumb__link" href="{{ '/message/' | relative_url }}">開発者メッセージ</a></li>
+            <li><a class="breadcrumb__link" href="{{ root | relative_url }}">{{ t.home_label }}</a></li>
+            <li><a class="breadcrumb__link" href="{{ root | append: 'message/' | relative_url }}">{{ t.message_title }}</a></li>
             <li aria-current="page">{{ author.product }}</li>
           </ol>
         </nav>
         <h1 class="section__title">{{ title }}</h1>
-        <p class="section__subtitle">開発者メッセージ</p>
+        <p class="section__subtitle">{{ t.message_title }}</p>
         <p class="section__lead">{{ author.catch | replace: "――", '<span class="text-dash">――</span>' }}</p>
         <!-- 著者（プロフィールの全文は本文の最後） -->
         <div class="message-author">
@@ -62,7 +64,7 @@ layout: default
           {%- if page.detail_url %}
 
           <!-- プロダクトの詳細ページ -->
-          <a class="message__more message-article__detail" href="{{ page.detail_url }}" target="_blank" rel="noopener">{{ author.product }}の詳細はこちら<span class="message__more-arrow" aria-hidden="true"></span></a>
+          <a class="message__more message-article__detail" href="{{ page.detail_url }}" target="_blank" rel="noopener">{{ author.product }}{{ t.message_detail_suffix }}<span class="message__more-arrow" aria-hidden="true"></span></a>
           {%- endif %}
           {%- if page.profile %}
 
@@ -80,15 +82,15 @@ layout: default
 
         <!-- 他の開発者メッセージ（この記事とダミーを除く） -->
         <div class="message">
-          <h2 class="message__others-title">他のメッセージ</h2>
+          <h2 class="message__others-title">{{ t.message_others }}</h2>
             <ul class="message__list">
-            {%- for item in site.data.messages %}
+            {%- for item in messages %}
             {%- if item.id != page.message_id and item.dummy != true %}
 {% include message-card.html item=item %}
             {%- endif %}
             {%- endfor %}
             </ul>
-            <a class="message__more" href="{{ '/message/' | relative_url }}">開発者メッセージに戻る<span class="message__more-arrow" aria-hidden="true"></span></a>
+            <a class="message__more" href="{{ root | append: 'message/' | relative_url }}">{{ t.message_back }}<span class="message__more-arrow" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>

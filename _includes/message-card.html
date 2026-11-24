@@ -3,6 +3,7 @@
   サイト内の記事は同じタブ、リニューアル前のサイトは別タブで開く
   url がなければリンクにせず、name がなければ名前を出さない。class を書くと li に足す（coming soon などの見た目の調整用）
 {%- endcomment -%}
+{%- include lang.html -%}
 {%- assign item = include.item -%}
 {%- assign head = item.url | slice: 0 -%}
             <li class="message__item{% if item.class %} {{ item.class }}{% endif %}">
@@ -13,7 +14,7 @@
               {%- endif %}
                 <span class="message__card-photo"><img src="{{ item.photo | relative_url }}" alt="" width="640" height="480" loading="lazy"></span>
                 <span class="message__card-body">
-                  <span class="message__card-label">開発者メッセージ</span>
+                  <span class="message__card-label">{{ t.message_label }}</span>
                   <span class="message__card-product">{{ item.product }}</span>
                   <span class="message__card-catch">{{ item.catch | replace: "――", '<span class="text-dash">――</span>' }}</span>
                   {%- if item.name %}

@@ -30,6 +30,17 @@
   <!-- 本番以外（ステージング・ローカル）は検索エンジンに登録させない -->
   <meta name="robots" content="{% if is_production %}index, follow{% else %}noindex, nofollow{% endif %}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {%- if page.alternate_url %}
+  <!-- 言語違いの同じページ（日本語・英語）。自分自身も含めて指定する -->
+  {%- if lang == "en" %}
+  <link rel="alternate" hreflang="ja" href="{{ page.alternate_url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}">
+  {%- else %}
+  <link rel="alternate" hreflang="ja" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ page.alternate_url | absolute_url }}">
+  {%- endif %}
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+  {%- endif %}
 
   <!-- ファビコン・テーマカラー -->
   <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" sizes="any">
@@ -46,7 +57,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{{ site.title }}">
-  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale" content="{{ t.og_locale }}">
 
   <!-- X（旧Twitter） -->
   <meta name="twitter:card" content="summary_large_image">
@@ -60,7 +71,7 @@
     "name": {{ site.title | jsonify }},
     "url": {{ '/' | absolute_url | jsonify }},
     "description": {{ page.schema_description | jsonify }},
-    "inLanguage": "ja"
+    "inLanguage": {{ lang | jsonify }}
   }
   </script>
   {%- endif %}

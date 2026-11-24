@@ -1,0 +1,10 @@
+# 英語版のお知らせ（日本語版は _data/news.yml）。最新リリースは日本語版と同じ
+items:
+  - date: 2026-10-29
+    tag: News
+    title: Exastro IT Automation 2.10.0 was released on October 29, 2026.
+    url: https://github.com/exastro-suite/exastro-it-automation/releases
+  - date: 2026-10-23
+    tag: News
+    title: Two PHP vulnerabilities known as php2shell were disclosed on October 21, 2026. This notice describes their impact on Exastro and our response.
+    url: /en/latest/news/php2shell.html

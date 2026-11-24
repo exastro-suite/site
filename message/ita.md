@@ -6,6 +6,7 @@ description: "開発の発想をカタチにしたExastroの原点。Exastro IT 
 # リニューアル前の URL。アクセスされたらこのページへ転送する（jekyll-redirect-from）
 redirect_from:
   - /message/ita_en.html
+alternate_url: /en/message/ita.html
 detail_url: https://exastro-suite.github.io/it-automation-docs/index_ja.html
 ---
 ## どんなツール？

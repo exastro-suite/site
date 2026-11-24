@@ -5,8 +5,11 @@
     full_title           タイトルをサイト名ごと指定するとき（トップページ）
     css / js             ページ専用の CSS・JS（/assets/... で書く）
     scroll_meter         true でスクロール位置のメモリを表示する
+    lang                 ページの言語（ja / en。省略すると _config.yml の lang）。固定の文言は _data/i18n.yml
+    alternate_url        別の言語の同じ内容のページ（トップページの JA / EN など）。あれば言語切り替えと hreflang を出す
 {%- endcomment -%}
-{%- if page.url == "/" -%}
+{%- include lang.html -%}
+{%- if page.url == "/" or page.url == "/en/" -%}
   {%- assign is_home = true -%}
   {%- assign logo_href = "#top" -%}
   {%- assign nav_base = "" -%}
@@ -16,7 +19,7 @@
   {%- assign nav_base = "/" | relative_url -%}
 {%- endif -%}
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang }}">
+<html lang="{{ lang }}">
 <head>
 {% include head.html %}
 </head>

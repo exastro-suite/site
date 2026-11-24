@@ -1,0 +1,6 @@
+{%- comment -%}
+  ページの言語（lang）と固定の文言（t。_data/i18n.yml）を用意する。
+  ページ本文はレイアウトより先に描画されるので、本文から読み込むインクルード（use-cases・message-list・latest など）の先頭で読み込む。
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.i18n[lang] -%}

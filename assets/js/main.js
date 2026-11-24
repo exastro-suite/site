@@ -1,3 +1,48 @@
+/* ===== 表示文言（日本語・英語） =====
+ * 表示する言語は <html lang>（英語のページは lang="en"）で決める。文言を足すときは両方に書く。
+ */
+const I18N = {
+  ja: {
+    menuClose: "メニューを閉じる",
+    menuOpen: "メニューを開く",
+    motionStop: "アニメーションを止める",
+    motionStart: "アニメーションを動かす",
+    imageDialog: "画像の拡大表示",
+    prevSlide: "前のスライド",
+    nextSlide: "次のスライド",
+    close: "閉じる",
+    imageFailed: "画像を読み込めませんでした。",
+    loading: "読み込み中…",
+    closeAll: "すべて閉じる",
+    openAll: "すべて開く",
+    prev: "前へ",
+    next: "次へ",
+    dateLocale: "ja-JP",
+    releaseNotice: (version, date) => `Exastro IT Automation ${version} を ${date} にリリースしました。`,
+    releaseFailed: "最新リリースを取得できませんでした。",
+  },
+  en: {
+    menuClose: "Close menu",
+    menuOpen: "Open menu",
+    motionStop: "Stop animation",
+    motionStart: "Play animation",
+    imageDialog: "Enlarged image",
+    prevSlide: "Previous slide",
+    nextSlide: "Next slide",
+    close: "Close",
+    imageFailed: "Could not load the image.",
+    loading: "Loading…",
+    closeAll: "Close all",
+    openAll: "Open all",
+    prev: "Previous",
+    next: "Next",
+    dateLocale: "en-US",
+    releaseNotice: (version, date) => `Exastro IT Automation ${version} was released on ${date}.`,
+    releaseFailed: "Could not fetch the latest release.",
+  },
+};
+const T = I18N[document.documentElement.lang === "en" ? "en" : "ja"];
+
 document.addEventListener("DOMContentLoaded", () => {
   initHeroFit();
   initGridBackground();
@@ -12,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderShow();
   initHeaderMenu();
   initMotionToggle();
+  initLangMenu();
   initImageDialog();
   initFeatureToggleAll();
   initScrollReveal();
@@ -120,7 +166,7 @@ function initHeaderMenu() {
   const setOpen = (open) => {
     header.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    toggle.setAttribute("aria-label", open ? T.menuClose : T.menuOpen);
   };
 
   toggle.addEventListener("click", () => setOpen(!header.classList.contains("is-open")));
@@ -131,6 +177,32 @@ function initHeaderMenu() {
     if (e.key === "Escape" && header.classList.contains("is-open")) {
       setOpen(false);
       toggle.focus();
+    }
+  });
+}
+
+/* ===== 言語切り替えメニュー =====
+ * 地球儀ボタンで日本語 / English の一覧を開閉する。外側のクリック・Esc キーで閉じる。
+ */
+function initLangMenu() {
+  const menu = document.querySelector(".lang-menu");
+  if (!menu) return;
+  const button = menu.querySelector(".lang-menu__button");
+  const list = menu.querySelector(".lang-menu__list");
+
+  const setOpen = (open) => {
+    list.hidden = !open;
+    button.setAttribute("aria-expanded", String(open));
+  };
+
+  button.addEventListener("click", () => setOpen(list.hidden));
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !list.hidden) {
+      setOpen(false);
+      button.focus();
     }
   });
 }
@@ -153,7 +225,7 @@ function initMotionToggle() {
   const apply = (on) => {
     document.documentElement.classList.toggle("is-motion-off", !on);
     toggle.setAttribute("aria-pressed", String(on));
-    toggle.title = on ? "アニメーションを止める" : "アニメーションを動かす";
+    toggle.title = on ? T.motionStop : T.motionStart;
   };
   apply(!isMotionOff());
 
@@ -184,7 +256,7 @@ function initImageDialog() {
 
   const dialog = document.createElement("dialog");
   dialog.className = "image-dialog";
-  dialog.setAttribute("aria-label", "画像の拡大表示");
+  dialog.setAttribute("aria-label", T.imageDialog);
   dialog.innerHTML =
     '<figure class="image-dialog__figure">' +
     '<div class="image-dialog__head"></div>' +
@@ -192,12 +264,12 @@ function initImageDialog() {
     '<figcaption class="image-dialog__caption"></figcaption>' +
     "</figure>" +
     '<div class="image-dialog__nav">' +
-    '<button class="image-dialog__step image-dialog__step--prev" type="button" aria-label="前のスライド"></button>' +
+    '<button class="image-dialog__step image-dialog__step--prev" type="button" aria-label="' + T.prevSlide + '"></button>' +
     '<p class="image-dialog__count" aria-live="polite"></p>' +
-    '<button class="image-dialog__step image-dialog__step--next" type="button" aria-label="次のスライド"></button>' +
+    '<button class="image-dialog__step image-dialog__step--next" type="button" aria-label="' + T.nextSlide + '"></button>' +
     "</div>" +
     '<p class="image-dialog__loading" role="status"></p>' +
-    '<button class="image-dialog__close" type="button" aria-label="閉じる"></button>';
+    '<button class="image-dialog__close" type="button" aria-label="' + T.close + '"></button>';
   document.body.append(dialog);
   const figure = dialog.querySelector(".image-dialog__figure");
   const head = dialog.querySelector(".image-dialog__head");
@@ -214,7 +286,7 @@ function initImageDialog() {
   const finish = (failed) => {
     dialog.classList.remove("is-loading");
     dialog.classList.toggle("is-error", failed);
-    loading.textContent = failed ? "画像を読み込めませんでした。" : "";
+    loading.textContent = failed ? T.imageFailed : "";
   };
   img.addEventListener("load", () => finish(false));
   img.addEventListener("error", () => finish(true));
@@ -231,7 +303,7 @@ function initImageDialog() {
     const source = button.querySelector("img");
     dialog.classList.add("is-loading");
     dialog.classList.remove("is-error");
-    loading.textContent = "読み込み中…";
+    loading.textContent = T.loading;
     // 前の画像が残って見えないよう、いったん外してから読み込む
     img.removeAttribute("src");
     img.src = fullSrc(button);
@@ -341,7 +413,7 @@ function initFeatureToggleAll() {
   const update = () => {
     const open = allOpen();
     button.setAttribute("aria-expanded", String(open));
-    label.textContent = open ? "すべて閉じる" : "すべて開く";
+    label.textContent = open ? T.closeAll : T.openAll;
   };
 
   button.addEventListener("click", () => {
@@ -524,8 +596,8 @@ function initNewsPager() {
     button.dataset.page = page;
     return button;
   };
-  const prev = makeButton("前へ", 0, "latest__pager-button--prev");
-  const next = makeButton("次へ", 0, "latest__pager-button--next");
+  const prev = makeButton(T.prev, 0, "latest__pager-button--prev");
+  const next = makeButton(T.next, 0, "latest__pager-button--next");
   const numbers = [];
   for (let i = 1; i <= pageCount; i++) numbers.push(makeButton(String(i), i, "latest__pager-button--num"));
   pager.append(prev, ...numbers, next);
@@ -580,10 +652,10 @@ function initReleaseNotice() {
     .then((release) => {
       const date = new Date(release.published_at);
       if (!release.tag_name || Number.isNaN(date.getTime())) return;
-      const published = date.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" });
-      text.textContent = `Exastro IT Automation ${release.tag_name} を ${published} にリリースしました。`;
+      const published = date.toLocaleDateString(T.dateLocale, { year: "numeric", month: "long", day: "numeric" });
+      text.textContent = T.releaseNotice(release.tag_name, published);
     })
-    .catch((error) => console.warn("最新リリースを取得できませんでした。", error));
+    .catch((error) => console.warn(T.releaseFailed, error));
 }
 
 /* ===== スクロール位置のメモリ =====

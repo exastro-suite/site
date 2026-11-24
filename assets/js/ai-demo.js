@@ -20,6 +20,57 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".ai-demo[data-scenario]").forEach((root) => new AiDemo(root));
 });
 
+// 画面の文言（日本語・英語）。表示する言語は <html lang> で決める。シナリオ本文は data-scenario の JSON 側に書く
+const AI_DEMO_I18N = {
+  ja: {
+    title: "Exastro IT Automation ／ AIアシスタント",
+    newChat: "新しいチャット",
+    closeChat: "チャット終了",
+    aiSettings: "AIサービス設定",
+    placeholder: "ご用件を入力してください。",
+    message: "メッセージ",
+    send: "送信",
+    disclaimer: "AIの回答や操作結果は、正確性および完全性を保証するものではありません。AIアシスタントを通じた操作については、実行前に内容と影響範囲を確認し、実行後も結果が意図した状態になっていることをご確認ください。",
+    model: "モデル",
+    next: "次へ",
+    loading: "読み込み中…",
+    loadFailed: "デモを読み込めませんでした。",
+    start: "デモを体験する",
+    again: "もう一度体験する",
+    thinking: "思考中",
+    choiceCount: (n) => `${n}件の選択肢から選択`,
+    choiceNote: "回答をボタンで選択するか、下の入力欄に直接ご記入ください。",
+    statusCheck: "作業状態確認",
+    resultData: "結果データ",
+    emergencyStop: "緊急停止",
+    waiting: "待機中",
+  },
+  en: {
+    title: "Exastro IT Automation / AI Assistant",
+    newChat: "New chat",
+    closeChat: "End chat",
+    aiSettings: "AI service settings",
+    placeholder: "Please enter your request.",
+    message: "Message",
+    send: "Send",
+    disclaimer: "The answers and the operation results of the AI are not guaranteed to be accurate or complete. For operations performed through the AI assistant, check the content and the scope of the impact before the execution, and check that the result is in the intended state after the execution as well.",
+    model: "Model",
+    next: "Next",
+    loading: "Loading...",
+    loadFailed: "Could not load the demo.",
+    start: "Try the demo",
+    again: "Try again",
+    thinking: "Thinking",
+    choiceCount: (n) => `Selected from ${n} options`,
+    choiceNote: "Please select an answer with a button, or write it directly in the input field below.",
+    statusCheck: "Check the work status",
+    resultData: "Result data",
+    emergencyStop: "Emergency stop",
+    waiting: "Waiting",
+  },
+};
+const AI_T = AI_DEMO_I18N[document.documentElement.lang === "en" ? "en" : "ja"];
+
 // 開始・終了画面のボタン用（画面内のアイコンは Exastro のアイコンフォントを使う）
 const AI_DEMO_PLAY_ICON = '<svg class="ai-demo__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
 
@@ -133,7 +184,7 @@ class AiDemo {
     <div class="ai-demo__window">
       <div class="ai-demo__titlebar">
         <span class="ai-demo__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="ai-demo__title">Exastro IT Automation ／ AIアシスタント</span>
+        <span class="ai-demo__title">${AI_T.title}</span>
       </div>
       <div class="ai-demo__screen">
         <div class="aiAssistantContainer">
@@ -141,11 +192,11 @@ class AiDemo {
             <div class="aiAssistantHeader" inert>
               <div class="operationMenu">
                 <ul class="operationMenuList operationMenuMain">
-                  ${menuButton("edit", "新しいチャット", "aiAssistantNewChatButton", "positive")}
-                  ${menuButton("check", "チャット終了", "aiAssistantCloseChatButton", "positive", "disabled")}
+                  ${menuButton("edit", AI_T.newChat, "aiAssistantNewChatButton", "positive")}
+                  ${menuButton("check", AI_T.closeChat, "aiAssistantCloseChatButton", "positive", "disabled")}
                 </ul>
                 <ul class="operationMenuList operationMenuSub">
-                  ${menuButton("gear", "AIサービス設定", "aiAssistantSettingButton", "default")}
+                  ${menuButton("gear", AI_T.aiSettings, "aiAssistantSettingButton", "default")}
                 </ul>
               </div>
             </div>
@@ -157,15 +208,15 @@ class AiDemo {
                     <div class="aiAssistantChatFooter">
                       <div class="aiAssistantChatComposer">
                         <div class="aiAssistantInputMessage">
-                          <textarea class="aiAssistantInputTextarea" rows="1" readonly placeholder="ご用件を入力してください。" aria-label="メッセージ"></textarea>
+                          <textarea class="aiAssistantInputTextarea" rows="1" readonly placeholder="${AI_T.placeholder}" aria-label="${AI_T.message}"></textarea>
                         </div>
                         <div class="aiAssistantInputActions">
                           ${aiDemoButton(aiDemoIcon("plus"), "aiAssistantInputActionsFileButton itaButton", 'data-action="default" tabindex="-1" aria-hidden="true"')}
-                          ${aiDemoButton(aiDemoIcon("send"), "aiAssistantInputActionsSendButton itaButton", 'data-action="positive" aria-label="送信"')}
+                          ${aiDemoButton(aiDemoIcon("send"), "aiAssistantInputActionsSendButton itaButton", 'data-action="positive" aria-label="' + AI_T.send + '"')}
                           ${aiDemoButton(aiDemoIcon("stop"), "aiAssistantInputActionsStopButton itaButton", 'data-action="danger" tabindex="-1" aria-hidden="true"')}
                         </div>
                       </div>
-                      <div class="aiAssistantDisclaimerMessage">AIの回答や操作結果は、正確性および完全性を保証するものではありません。AIアシスタントを通じた操作については、実行前に内容と影響範囲を確認し、実行後も結果が意図した状態になっていることをご確認ください。</div>
+                      <div class="aiAssistantDisclaimerMessage">${AI_T.disclaimer}</div>
                     </div>
                   </div>
                 </div>
@@ -174,7 +225,7 @@ class AiDemo {
             <div class="aiAssistantFooter" aria-hidden="true">
               <div class="aiAssistantFooterInner">
                 ${footerBlock("AI", "ai-demo__ai-name")}
-                ${footerBlock("モデル", "ai-demo__model")}
+                ${footerBlock(AI_T.model, "ai-demo__model")}
               </div>
             </div>
           </div>
@@ -187,12 +238,12 @@ class AiDemo {
         <div class="ai-demo__tip" role="status">
           <span class="ai-demo__tip-step"></span>
           <p class="ai-demo__tip-text"></p>
-          <button type="button" class="ai-demo__tip-next">次へ</button>
+          <button type="button" class="ai-demo__tip-next">${AI_T.next}</button>
         </div>
         <div class="ai-demo__cover is-visible">
           <div class="ai-demo__cover-inner">
-            <p class="ai-demo__cover-text">読み込み中…</p>
-            <div class="ai-demo__loading" role="progressbar" aria-label="読み込み中"></div>
+            <p class="ai-demo__cover-text">${AI_T.loading}</p>
+            <div class="ai-demo__loading" role="progressbar" aria-label="${AI_T.loading}"></div>
           </div>
         </div>
       </div>
@@ -239,13 +290,13 @@ class AiDemo {
       [this.scenario] = await Promise.all([fetchScenario(), loadFont]);
     } catch (error) {
       console.error("デモのシナリオを読み込めませんでした。", error);
-      this.showCover('<p class="ai-demo__cover-text">デモを読み込めませんでした。</p>');
+      this.showCover(`<p class="ai-demo__cover-text">${AI_T.loadFailed}</p>`);
       return;
     }
     this.reset();
     this.showCover(`
       <p class="ai-demo__cover-text">${aiDemoEscape(this.scenario.intro ?? "").replace(/\n/g, "<br>")}</p>
-      <button type="button" class="ai-demo__cover-button" data-action="start">${AI_DEMO_PLAY_ICON}デモを体験する</button>`);
+      <button type="button" class="ai-demo__cover-button" data-action="start">${AI_DEMO_PLAY_ICON}${AI_T.start}</button>`);
   }
 
   // 新しいチャットの状態（挨拶のみ）に戻す
@@ -322,7 +373,7 @@ class AiDemo {
       }
 
       case "wait": {
-        const item = this.addLoading(step.text ?? "思考中");
+        const item = this.addLoading(step.text ?? AI_T.thinking);
         await aiDemoSleep(step.duration ?? 1500, signal);
         item.remove();
         break;
@@ -365,7 +416,7 @@ class AiDemo {
         this.setExchanging(false);
         this.showCover(`
           <p class="ai-demo__cover-text">${aiDemoEscape(step.text ?? "").replace(/\n/g, "<br>")}</p>
-          <button type="button" class="ai-demo__cover-button" data-action="start">${AI_DEMO_PLAY_ICON}もう一度体験する</button>`);
+          <button type="button" class="ai-demo__cover-button" data-action="start">${AI_DEMO_PLAY_ICON}${AI_T.again}</button>`);
         break;
 
       default:
@@ -475,7 +526,7 @@ class AiDemo {
       }).join("");
       item.querySelector(".aiAssistantChatItemInner").insertAdjacentHTML("beforeend", `
         <details class="aiAssistantChatUserMessageChoices">
-          <summary class="aiAssistantChatUserMessageChoicesSummary">${choices.length}件の選択肢から選択</summary>
+          <summary class="aiAssistantChatUserMessageChoicesSummary">${AI_T.choiceCount(choices.length)}</summary>
           <ul class="aiAssistantChatUserMessageChoiceList">${list}</ul>
         </details>`);
     }
@@ -514,7 +565,7 @@ class AiDemo {
     return this.addItem("aiAssistantChatUserChoice", `
       <div class="aiAssistantChatItemInner aiAssistantChatUserChoiceInner">
         <ul class="aiAssistantChatUserChoiceList">${buttons}</ul>
-        <p class="aiAssistantChatUserChoiceNote">回答をボタンで選択するか、下の入力欄に直接ご記入ください。</p>
+        <p class="aiAssistantChatUserChoiceNote">${AI_T.choiceNote}</p>
       </div>`);
   }
 
@@ -529,11 +580,11 @@ class AiDemo {
     return this.addAssistantItem(`
       <div class="operationMenu">
         <ul class="operationMenuList operationMenuMain">
-          ${menuButton("note", "作業状態確認", "movementStatusCheckButton", "default")}
-          ${menuButton("download", "結果データ", "movementResultDownloadButton", "default")}
+          ${menuButton("note", AI_T.statusCheck, "movementStatusCheckButton", "default")}
+          ${menuButton("download", AI_T.resultData, "movementResultDownloadButton", "default")}
         </ul>
         <ul class="operationMenuList operationMenuSub">
-          ${menuButton("stop", "緊急停止", "movementEmergencyStopButton", "danger")}
+          ${menuButton("stop", AI_T.emergencyStop, "movementEmergencyStopButton", "danger")}
         </ul>
       </div>
       <div class="movementArea" data-result="">
@@ -561,7 +612,7 @@ class AiDemo {
             </div>
           </div>
         </div>
-        <div class="movementWaiting">${this.loadingHtml("待機中")}</div>
+        <div class="movementWaiting">${this.loadingHtml(AI_T.waiting)}</div>
       </div>`, "ai-demo__movement-item");
   }
 

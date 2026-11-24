@@ -1,5 +1,5 @@
   <!-- クッキーの告知（OK を押すまで毎回表示。表示・非表示は assets/js/main.js の initCookieNotice） -->
-  <aside class="cookie-notice" aria-label="クッキーの使用について" hidden>
-    <p class="cookie-notice__text">当サイトでは、サービス向上、アクセス状況計測、広告配信などのためにクッキーを使用しています。<a class="cookie-notice__link" href="https://group.nec/global/ja/site/privacy/" target="_blank" rel="noopener">個人情報保護について</a></p>
+  <aside class="cookie-notice" aria-label="{{ t.cookie_label }}" hidden>
+    <p class="cookie-notice__text">{{ t.cookie_text }}{% if lang == "en" %} {% endif %}<a class="cookie-notice__link" href="{{ t.cookie_link_url }}" target="_blank" rel="noopener">{{ t.cookie_link }}</a></p>
     <button class="cookie-notice__ok" type="button">OK</button>
   </aside>
