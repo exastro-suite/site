@@ -1614,15 +1614,25 @@ html:has(.image-dialog[open]) {
   vertical-align: middle;
 }
 
-/* 体験するボタンの製品名：「Agentic AI」と「for Exastro」の2行にし、横の「を体験する」と上下中央をそろえる */
+/* 体験するボタンの製品名：「Exastro」（小さめ）と「Agentic AI」の2行にし、横の「を体験する」と上下中央をそろえる */
 .hero__cta-text .hero__cta-name {
     font-size: 0.8em;
   line-height: 1.1;
-  text-align: center;
+  text-align: left;
+  position: relative;
+}
+
+/* 2行ブロックの高さ調整（日本語版・英語版で別々に指定） */
+html:lang(ja) .hero__cta-text .hero__cta-name {
+  top: -0.46em;
+}
+
+html:lang(en) .hero__cta-text .hero__cta-name {
+  top: -0.38em;
 }
 
 .hero__cta-text .hero__cta-name-sub {
-  font-size: 0.6em;
+  font-size: 0.85em;
   letter-spacing: 0.1em;
 }
 
