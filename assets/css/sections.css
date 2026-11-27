@@ -503,13 +503,13 @@
   mix-blend-mode: screen;
   pointer-events: none;
   transition: opacity 0.3s;
+  opacity: .3;
 }
 
 .control-plane__image {
   display: block;
   width: 100%;
   height: auto;
-  filter: grayscale(1);
   opacity: .8;
   transition: filter 0.3s, opacity 0.3s;
 }
